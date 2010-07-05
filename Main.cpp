@@ -15,10 +15,6 @@
     using std::cout;
     using std::endl;
 
-int count = 0;
-unsigned integrand_fdim = 0;
-int *which_integrand = NULL;
-
 void f( unsigned ndim, const double *x, void *fdata, unsigned fdim, double *fval)
 {
     double sigma = *((double *) fdata); // we can pass s via fdata argument
