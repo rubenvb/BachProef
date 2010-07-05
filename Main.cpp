@@ -11,8 +11,6 @@
 
 // C++ includes
 #include <cmath>
-#include <iomanip>
-    using std::setprecision;
 #include <iostream>
     using std::cout;
     using std::endl;
@@ -38,8 +36,18 @@ void f( unsigned ndim, const double *x, void *fdata, unsigned fdim, double *fval
 
 int main(int argc, char **argv)
 {
-    double xmin[3] = {-2,-2,-2}, xmax[3] = {2,2,2}, sigma = 0.5, val, err;
-    adapt_integrate(1, f, &sigma, 3, xmin, xmax, 0, 0, 1e-4, &val, &err);
+    double xmin[3] = {-2,-2,-2};
+    double xmax[3] = {2,2,2};
+    double sigma = 0.5;
+    double val;
+    double err;
+
+    // adapt_integrate( ndim,
+    adapt_integrate( 1, f, &sigma,
+                     3, xmin, xmax,
+                     0, 0, 1e-4,
+                     &val, &err);
+
     cout << "Computed integral = " << val << " +/- " << err << endl;
 
     return 0;
