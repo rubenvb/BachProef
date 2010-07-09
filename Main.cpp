@@ -6,14 +6,21 @@
   *
   **/
 
+// BachProef includes
+#include "StructureFunction.h"
+
 // Cubature include
 #include "Cubature/Cubature.h"
 
 // C++ includes
-#include <cmath>
+#include <cmath> // exp()
+#include <iomanip>
+    using std::setprecision;
 #include <iostream>
     using std::cout;
     using std::endl;
+#include <utility>
+    using std::pair;
 
 void f( unsigned ndim, const double *x, void *fdata, unsigned fdim, double *fval)
 {
@@ -28,9 +35,7 @@ void f( unsigned ndim, const double *x, void *fdata, unsigned fdim, double *fval
     fval[0] = exp(-sigma * sum);
 }
 
-
-
-int main(int argc, char **argv)
+int main()
 {
     double xmin[3] = {-2,-2,-2};
     double xmax[3] = {2,2,2};
@@ -39,12 +44,20 @@ int main(int argc, char **argv)
     double err;
 
     // adapt_integrate( ndim,
-    adapt_integrate( 1, f, &sigma,
-                     3, xmin, xmax,
-                     0, 0, 1e-4,
-                     &val, &err);
+    bool fail = adapt_integrate( 1, f, &sigma,  // fdim, integrand, fdata
+                                 3, xmin, xmax, // dim, xbound, ybound
+                                 0, 0, 1e-4,    // maxEval, absError, relError
+                                 &val, &err);   // value, error
 
-    cout << "Computed integral = " << val << " +/- " << err << endl;
+    if( !fail )
+        cout << "Computed integral = " << val << " +/- " << err << endl;
+    else
+        cout << "Out of memory" << endl;
 
-    return 0;
+
+    pair<double,double> result = F2( .00001, 10 );
+
+    cout << "Result is: " << setprecision(14)
+            << result.first << " +/- " << result.second << endl;
+
 }

@@ -17,4 +17,6 @@ SOURCES += \
     Cubature/Cubature.c
 
 HEADERS += \
-    Cubature/Cubature.h
+    Cubature/Cubature.h \
+    GluonDensity.h \
+    StructureFunction.h
