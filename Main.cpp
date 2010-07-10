@@ -14,6 +14,8 @@
 
 // C++ includes
 #include <cmath> // exp()
+#include <fstream>
+    using std::ofstream;
 #include <iomanip>
     using std::setprecision;
 #include <iostream>
@@ -22,42 +24,37 @@
 #include <utility>
     using std::pair;
 
-void f( unsigned ndim, const double *x, void *fdata, unsigned fdim, double *fval)
-{
-    double sigma = *((double *) fdata); // we can pass s via fdata argument
-    double sum = 0;
-    unsigned i;
-    for (i = 0; i < ndim; ++i)
-    {
-        sum += x[i] * x[i];
-    }
-    // compute the output value: note that fdim should == 1 from below
-    fval[0] = exp(-sigma * sum);
-}
-
 int main()
 {
-    double xmin[3] = {-2,-2,-2};
-    double xmax[3] = {2,2,2};
-    double sigma = 0.5;
-    double val;
-    double err;
+    cout << setprecision(14);
+    cout << "f(.0001,10) = " << gluonDensity( .0001, 10 ) << endl;
+    cout << "f(.0001,20) = " << gluonDensity( .0001, 20 ) << endl;
+    cout << "I(10,10,.5,.5) = " << impactFactor( 10, 10, .5, .5 )*6/9 << endl;
 
-    // adapt_integrate( ndim,
-    bool fail = adapt_integrate( 1, f, &sigma,  // fdim, integrand, fdata
-                                 3, xmin, xmax, // dim, xbound, ybound
-                                 0, 0, 1e-4,    // maxEval, absError, relError
-                                 &val, &err);   // value, error
+    const double qSquared[] = { 1.5, 2, 2.5, 3.5, 4.5, 5, 6.5, 8.5, 10, 12, 15, 18 };
+    pair<double,double> result; // F2 with error
 
-    if( !fail )
-        cout << "Computed integral = " << val << " +/- " << err << endl;
-    else
-        cout << "Out of memory" << endl;
+    double x = 1e-5;
+    cout << "F2 with x=1e-5" << endl;
+    for( int i=0; i<12; ++i )
+    {
+        result = F2( x, qSquared[i] );
+        cout << "F2( 1e-5, " << qSquared[i] << ")\t= " << result.first << " +/- " << result.second << endl;
+    }
 
+    x = 1e-4;
+    cout << "F2 with x=1e-4" << endl;
+    for( int i=0; i<12; ++i )
+    {
+        result = F2( x, qSquared[i] );
+        cout << "F2( 1e-4, " << qSquared[i] << ")\t= " << result.first << " +/- " << result.second << endl;
+    }
 
-    pair<double,double> result = F2( .00001, 10 );
-
-    cout << "Result is: " << setprecision(14)
-            << result.first << " +/- " << result.second << endl;
-
+    x = 1e-3;
+    cout << "F2 with x=1e-3" << endl;
+    for( int i=0; i<12; ++i )
+    {
+        result = F2( x, qSquared[i] );
+        cout << "F2( 1e-3, " << qSquared[i] << ")\t= " << result.first << " +/- " << result.second << endl;
+    }
 }

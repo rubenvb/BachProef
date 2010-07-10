@@ -1,65 +1,69 @@
 #ifndef STRUCTUREFUNCTION_H
 #define STRUCTUREFUNCTION_H
 
-// BachProef includes
-#include "GluonDensity.h"
-
 // Cubature includes
 #include "Cubature/Cubature.h"
 
 // C++ includes
 #include <cmath>
-#include <iostream>
-    using std::cerr;
-    using std::endl;
+#include <stdexcept>
 #include <utility>
-    using std::pair;
 
-inline void func( unsigned ndim, const double *xValues,
-                  void *input, unsigned fdim,
-                  double *fval )
+const double impactFactor( const double qSquared, const double kSquared,
+                           const double z, const double zeta )
+{
+    const double coeff = qSquared / ( 4*M_PI*M_PI );
+    const double charge = 4./9. + 1./9. + 1./9.;
+    const double differentialFactor = M_PI / kSquared;
+    const double numerator = 1 - 2*z*(1-z) - 2*zeta*(1-zeta) + 12*z*(1-z)*zeta*(1-zeta);
+    const double denominator = qSquared*z*(1-z) + kSquared*zeta*(1-zeta);
+    const double fraction = numerator / denominator;
+
+    return coeff * charge * differentialFactor * fraction;
+}
+
+const double gluonDensity( const double x, const double kSquared )
+{
+    const double sigma0 = 23.03*2.568; // 1 barn = 2.568 (\hbar c)²/Gev²
+    const double lambda = .288;
+    const double x0 = .000304;
+
+    const double coeff = 3*sigma0 / ( 4*M_PI*M_PI );
+    const double R0Squared = pow( x/x0, lambda );
+
+    return coeff * R0Squared * kSquared * kSquared * exp( -R0Squared*kSquared );
+}
+
+void func( unsigned ndim, const double* xValues,
+           void* input, unsigned fdim,
+           double *fval )
 {
     double x = static_cast<double*>(input)[0];
-    double Qsquared = static_cast<double*>(input)[1];
+    double qSquared = static_cast<double*>(input)[1];
     double kSquared = xValues[0];
     double z = xValues[1];
     double zeta = xValues[2];
 
-    double density = gluonDensity( x, kSquared );
-    double numerator = 1 - 2*z*(1-z) - 2*zeta*(1-zeta) + 12*z*(1-z)*zeta*(1-zeta);
-    double denominator = Qsquared*z*(1-z) + kSquared*zeta*(1-zeta);
-
-    *fval = density * numerator / denominator;
+    *fval = impactFactor( qSquared, kSquared, z, zeta ) * gluonDensity( x, kSquared );
 }
 
-// Calculates F2 and returns value and error in a std::pair
-inline const pair<double,double> F2( double x, double Qsquared )
+std::pair<double, double> F2( const double x, const double qSquared )
 {
-    double ans = Qsquared / (4*M_PI);
-    const double e_q[3] = { 2/3, -1/3, 2/3 };
-    // integration boundaries { kSquared, z, zeta }
-    double xmin[3] = { 0, 0, 0 }; // 0, 0, 0
-    double xmax[3] = { 10000, 1, 1 }; // inf, 1, 1
-
-    double input[2] = { x, Qsquared };
     double val = 0.;
     double err = 0.;
-    bool fail = adapt_integrate( 1, func, input,  // fdim, integrand, fdata
-                                 3, xmin, xmax, // dim, xbound, ybound
-                                 0, 0, 1e-4,    // maxEval, absError, relError
-                                 &val, &err);   // value, error
+
+    double xMin[] = { 0, 0, 0 };
+    double xMax[] = { 1000, 1, 1 };
+    double input[] = { x, qSquared };
+
+    bool fail = adapt_integrate( 1, func, input,
+                                 3, xMin, xMax,
+                                 0, 0, 1e-4,
+                                 &val, &err);
     if( fail )
-        cerr << "Cubature returned an error (out of memory)" << endl;
+        throw std::runtime_error( "adapt_integrate returned an error." );
 
-    // sum over u,d,c quarks
-    for( size_t i=0; i<3; ++i )
-    {
-        ans += e_q[i]*e_q[i] * val;
-    }
-
-    return pair<double,double>(ans, err);
+    return std::pair<double, double>( val, err );
 }
-
-
 
 #endif // STRUCTUREFUNCTION_H

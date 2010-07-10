@@ -11,6 +11,9 @@ CONFIG -= qt
 DEFINES -= QT_LARGEFILE_SUPPORT UNICODE
 
 
+*g++:QMAKE_CXXFLAGS += -std=gnu++0x
+win32-msvc*:DEFINES += _USE_MATH_DEFINES
+win32:INCLUDEPATH += %DEV%/x64/Qwt/src
 
 SOURCES += \
     Main.cpp \
@@ -18,5 +21,4 @@ SOURCES += \
 
 HEADERS += \
     Cubature/Cubature.h \
-    GluonDensity.h \
     StructureFunction.h
