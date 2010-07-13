@@ -10,8 +10,8 @@ CONFIG   += console warn_on
 CONFIG -= qt
 DEFINES -= QT_LARGEFILE_SUPPORT UNICODE
 
-
-*g++:QMAKE_CXXFLAGS += -std=gnu++0x
+# platform specificities
+*g++: QMAKE_CXXFLAGS += -Wextra
 win32-msvc*:DEFINES += _USE_MATH_DEFINES
 win32:INCLUDEPATH += %DEV%/x64/Qwt/src
 
