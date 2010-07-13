@@ -31,8 +31,8 @@ namespace F2
         const double coeff = qSquared * alphaS / ( 4*M_PI*M_PI );
         const double charge = 6./9.;
         const double differentialFactor = M_PI / kSquared;
-        const double numerator = 1 - 2*z*(1-z) - 2*zeta*(1-zeta) + 12*z*(1-z)*zeta*(1-zeta);
-        const double denominator = qSquared*z*(1-z) + kSquared*zeta*(1-zeta);
+        const double numerator = 1. - 2.*z*(1-z) - 2.*zeta*(1.-zeta) + 12.*z*(1.-z)*zeta*(1.-zeta);
+        const double denominator = qSquared*z*(1.-z) + kSquared*zeta*(1.-zeta);
         const double fraction = numerator / denominator;
 
         return coeff * charge * differentialFactor * fraction;
@@ -54,8 +54,8 @@ namespace F2
         double val = 0.;
         double err = 0.;
 
-        double xMin[] = { 0., 0, 0 };
-        double xMax[] = { 1000, 1, 1 };
+        double xMin[] = { 0., 0., 0. };
+        double xMax[] = { 1000., 1., 1. };
         double input[] = { x, qSquared };
 
         bool fail = adapt_integrate( 1, func, input,
@@ -74,11 +74,11 @@ namespace FL
     double impactFactor( const double qSquared, const double kSquared,
                          const double z, const double zeta )
     {
-        const double coeff = 4*qSquared*alphaS / (M_PI*M_PI);
+        const double coeff = 2.*qSquared*alphaS / (M_PI*M_PI);
         const double charge = 6./9.;
         const double differentialFactor = M_PI / kSquared;
-        const double numerator = z*(1-z)*zeta*(1-zeta);
-        const double denominator = qSquared*z*(1-z) + kSquared*zeta*(1-zeta);
+        const double numerator = z*(1.-z)*zeta*(1.-zeta);
+        const double denominator = qSquared*z*(1.-z) + kSquared*zeta*(1.-zeta);
         const double fraction = numerator / denominator;
 
         return coeff * charge * differentialFactor * fraction;
@@ -102,7 +102,7 @@ namespace FL
         double err = 0.;
 
         double xMin[] = { 0., 0., 0. };
-        double xMax[] = { 10000., 1., 1. };
+        double xMax[] = { 10000000., 1., 1. };
         double input[] = { x, qSquared };
 
         bool fail = adapt_integrate( 1, func, input,

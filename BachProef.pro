@@ -22,3 +22,6 @@ SOURCES += \
 HEADERS += \
     Cubature/Cubature.h \
     StructureFunction.h
+
+OTHER_FILES += \
+    thesis.tex

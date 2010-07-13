@@ -21,20 +21,40 @@
 #include <utility>
     using std::pair;
 
+// adapt_integrate testFunction
+void func( unsigned /*ndim*/, const double* xValues,
+           void*, unsigned /*fdim*/,
+           double *fval )
+{
+    const double x = xValues[0];
+    const double y = xValues[1];
+    const double z = xValues[2];
 
+    *fval = x*x*y*z*z*z;
+}
 
 int main()
 {
     cout << setprecision(14);
+
+    double val = 0.;
+    double err = 0.;
+    double xMin[] = { 0, -1, -10 };
+    double xMax[] = { 3, 2, 0 };
+    adapt_integrate( 1, func, NULL,
+                     3, xMin, xMax,
+                     0, 0, 1e-4,
+                     &val, &err );
+
+    cout << "testFunction is = -33750 ?=\t" << val << endl;
     cout << "f(.001,1)\t= 7.74 ?=\t" << gluonDensity( .001, 1 ) << endl;
     cout << "f(.00001,3.6)\t= .278 ?=\t" << gluonDensity( .00001, 3.6 ) << endl;
-    cout << "I2(20,10,.5,.5)\t= ?????? ?=\t" << F2::impactFactor(20,10,.5,.5) << endl;
     cout << "I2(10,10,.5,.5)\t= .00159 ?=\t" << F2::impactFactor(10,10,.5,.5) << endl;
-    cout << "IL(10,20,.7,.15)= .0048876 ?=\t" << FL::impactFactor( 10, 20, .7, .15 ) << endl;
-    cout << "IL(20,20,.7,.15)= .0067 ?=\t" << FL::impactFactor( 20, 20, .7, .15 ) << endl;
 
-    cout << "FL(.0001,32)\t= .286 ?=\t" << fL( .0001, 32 ).first << endl;
-    cout << "FL(.0001,24)\t= .278 ?=\t" << fL( .0001, 24 ).first << endl;
+    cout << "FL(20,10,.5,.5) = .0014147 ?=\t " << FL::impactFactor( 20, 10, .5, .5 ) << endl;
+
+    cout << "FL(.001,32)\t= .286 ?=\t" << fL( .001, 32 ).first << endl;
+    cout << "FL(.001,24)\t= .278 ?=\t" << fL( .001, 24 ).first << endl;
 
     const double qSquared[] = { 1.5, 2, 2.5, 3.5, 4.5, 5 };
     pair<double,double> result; // F2 with error
