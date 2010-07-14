@@ -1,11 +1,14 @@
-#ifndef STRUCTUREFUNCTION_H
-#define STRUCTUREFUNCTION_H
+#ifndef STRUCTUREFUNCTION2_H
+#define STRUCTUREFUNCTION2_H
 
 // Cubature includes
 #include "Cubature/Cubature.h"
 
 // C++ includes
 #include <cmath>
+#include <iostream>
+    using std::cout;
+    using std::endl;
 #include <stdexcept>
 #include <utility>
 
@@ -26,7 +29,7 @@ double gluonDensity( const double x, const double kSquared )
 namespace F2
 {
     double impactFactor( const double qSquared, const double kSquared,
-                               const double z, const double zeta )
+                         const double z, const double zeta )
     {
         const double coeff = qSquared * alphaS / ( 4*M_PI*M_PI );
         const double charge = 6./9.;
@@ -91,18 +94,19 @@ namespace FL
         double x = static_cast<double*>(input)[0];
         double qSquared = static_cast<double*>(input)[1];
         double kSquared = xValues[0];
-        double z = xValues[1];
-        double zeta = xValues[2];
+        double z = xValues[2];
+        double zeta = xValues[1];
 
         *fval = impactFactor( qSquared, kSquared, z, zeta ) * gluonDensity( x, kSquared );
     }
+
     std::pair<double, double> fL( const double x, const double qSquared )
     {
         double val = 0.;
         double err = 0.;
 
         double xMin[] = { 0., 0., 0. };
-        double xMax[] = { 10000000., 1., 1. };
+        double xMax[] = { 1000., 1., 1. };
         double input[] = { x, qSquared };
 
         bool fail = adapt_integrate( 1, func, input,
@@ -120,4 +124,4 @@ using F2::f2;
 using FL::fL;
 
 
-#endif // STRUCTUREFUNCTION_H
+#endif // STRUCTUREFUNCTION2_H

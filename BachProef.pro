@@ -24,4 +24,4 @@ HEADERS += \
     StructureFunction.h
 
 OTHER_FILES += \
-    thesis.tex
+    thesis/thesis.tex
