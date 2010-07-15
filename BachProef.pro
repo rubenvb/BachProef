@@ -11,27 +11,17 @@ CONFIG   += console warn_on
 #DEFINES -= QT_LARGEFILE_SUPPORT UNICODE
 
 # platform specificities
-*g++: QMAKE_CXXFLAGS += -Wextra
+*g++: QMAKE_CXXFLAGS += -Wextra -std=gnu++0x -ftree-vectorize
 win32-msvc*:DEFINES += _USE_MATH_DEFINES
-
-#for my pc only
-win32:QWT_DIR = M:/Development/x64/Qwt
-win32:INCLUDEPATH += $$QWT_DIR/src
-win32:DEPENDPATH += $$QWT_DIR/src"
-win32:LIBS += -L$$QWT_DIR/lib
-
-#qwt
-LIBS += -lqwt5
 
 SOURCES += \
     Main.cpp \
-    Cubature/Cubature.c \
-    Plot.cpp
+    Cubature/Cubature.c
 
 HEADERS += \
     Cubature/Cubature.h \
     StructureFunction.h \
-    Plot.h
+    StructureFunctionPlots.h
 
 OTHER_FILES += \
     thesis/thesis.tex

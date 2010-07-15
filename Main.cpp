@@ -7,31 +7,37 @@
   **/
 
 // BachProef includes
-#include "StructureFunction.h"
-#include "Plot.h"
+#include "StructureFunctionPlots.h"
 
 // Cubature includes
 #include "Cubature/Cubature.h"
 
-// Qt includes
-#include <QtGui/QApplication>
-
 // C++ includes
-#include <algorithm>
-    using std::max_element;
-    using std::min_element;
-#include <cmath> // exp()
-#include <fstream>
-    using std::ofstream;
 #include <iomanip>
     using std::setprecision;
 #include <iostream>
     using std::cout;
     using std::endl;
-#include <utility>
-    using std::pair;
 
 // adapt_integrate testFunction
+void func( unsigned /*ndim*/, const double* xValues,
+           void*, unsigned /*fdim*/,
+           double *fval );
+void testIntegration();
+void testStructureFunctions();
+
+int main()
+{
+    cout << setprecision(14);
+
+    testIntegration();
+    testStructureFunctions();
+
+    calcOutput();
+
+    return 0;
+}
+
 void func( unsigned /*ndim*/, const double* xValues,
              void*, unsigned /*fdim*/,
              double *fval )
@@ -41,18 +47,9 @@ void func( unsigned /*ndim*/, const double* xValues,
     const double z = xValues[2];
 
     *fval =  sin(x*y*z)/(x*y*z);
-    //*fval = x*x*y*z*z*z;
 }
-
-int main(int argc, char *argv[])
+void testIntegration()
 {
-    QApplication app(argc, argv);
-
-    Plot plot;
-    plot.show();
-
-    cout << setprecision(14);
-
     double val = 0.;
     double err = 0.;
     double xMin[] = { 0., 0., 0. };
@@ -64,22 +61,22 @@ int main(int argc, char *argv[])
                      &val, &err );
 
     cout << "testFunction is = .99389 ?=\t" << val << endl;
-
+}
+void testStructureFunctions()
+{
     cout << "Gluon density function" << endl;
     cout << "f(.001,1)\t= 7.74 ?=\t" << gluonDensity( .001, 1 ) << endl;
     cout << "f(.00001,3.6)\t= 28.36 ?=\t" << gluonDensity( .00001, 3.6 ) << endl;
 
     cout << "Impact factors" << endl;
-    cout << "I2(10,10,.5,.5)\t= .00159 ?=\t" << F2::impactFactor(10,10,.5,.5) << endl;
-    cout << "IL(20,10,.5,.5) = .0014147 ?=\t" << FL::impactFactor( 20, 10, .5, .5 ) << endl;
+    cout << "I2(10,10,.5,.5)\t= .00159 ?=\t" << impactFactorF2(10,10,.5,.5) << endl;
+    cout << "IL(20,10,.5,.5) = .0014147 ?=\t" << impactFactorFL( 20, 10, .5, .5 ) << endl;
 
     cout << "FL" << endl;
-    cout << "FL(.0001,60)\t= .403459 ?=\t" << fL( .0001, 60 ).first << " +- " << fL( .0001, 60 ).second << endl;
-    cout << "FL(.0001,24)\t= .370688 ?=\t" << fL( .0001, 24 ).first << " +- " << fL( .0001, 24 ).second <<endl;
+    cout << "FL(.0001,60)\t= .403459 ?=\t" << FL( .0001, 60 ) << endl;
+    cout << "FL(.0001,24)\t= .370688 ?=\t" << FL( .0001, 24 ) << endl;
 
     cout << "F2" << endl;
-    cout << "F2(.00001,1.5)\t= .992435 ?=\t" << f2( .00001, 1.5 ).first << " +- " << f2( .00001, 1.5 ).second << endl;
-    cout << "F2(.001,2)\t= .576248 ?=\t" << f2( .001, 2. ).first << " +- " << f2( .00001, 2. ).second <<endl;
-
-    return app.exec();
+    cout << "F2(.00001,1.5)\t= .992435 ?=\t" << F2( .00001, 1.5 ) << endl;
+    cout << "F2(.001,2)\t= .576248 ?=\t" << F2( .001, 2. ) <<endl;
 }

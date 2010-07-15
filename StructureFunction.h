@@ -1,5 +1,5 @@
-#ifndef STRUCTUREFUNCTION2_H
-#define STRUCTUREFUNCTION2_H
+#ifndef THREEQUARKS_H
+#define THREEQUARKS_H
 
 // Cubature includes
 #include "Cubature/Cubature.h"
@@ -26,102 +26,91 @@ double gluonDensity( const double x, const double kSquared )
     return coeff * R0Squared * kSquared * kSquared * exp( -R0Squared*kSquared );
 }
 
-namespace F2
+double impactFactorF2( const double qSquared, const double kSquared,
+                       const double z, const double zeta )
 {
-    double impactFactor( const double qSquared, const double kSquared,
-                         const double z, const double zeta )
-    {
-        const double coeff = qSquared * alphaS / ( 4*M_PI*M_PI );
-        const double charge = 6./9.;
-        const double differentialFactor = M_PI / kSquared;
-        const double numerator = 1. - 2.*z*(1-z) - 2.*zeta*(1.-zeta) + 12.*z*(1.-z)*zeta*(1.-zeta);
-        const double denominator = qSquared*z*(1.-z) + kSquared*zeta*(1.-zeta);
-        const double fraction = numerator / denominator;
+    const double coeff = qSquared * alphaS / ( 4*M_PI*M_PI );
+    const double charge = 6./9.;
+    const double differentialFactor = M_PI / kSquared;
+    const double numerator = 1. - 2.*z*(1-z) - 2.*zeta*(1.-zeta) + 12.*z*(1.-z)*zeta*(1.-zeta);
+    const double denominator = qSquared*z*(1.-z) + kSquared*zeta*(1.-zeta);
+    const double fraction = numerator / denominator;
 
-        return coeff * charge * differentialFactor * fraction;
-    }
-    void func( unsigned /*ndim*/, const double* xValues,
-               void* input, unsigned /*fdim*/,
-               double *fval )
-    {
-        double x = static_cast<double*>(input)[0];
-        double qSquared = static_cast<double*>(input)[1];
-        double kSquared = xValues[0];
-        double z = xValues[1];
-        double zeta = xValues[2];
-
-        *fval = impactFactor( qSquared, kSquared, z, zeta ) * gluonDensity( x, kSquared );
-    }
-    std::pair<double, double> f2( const double x, const double qSquared )
-    {
-        double val = 0.;
-        double err = 0.;
-
-        double xMin[] = { 0., 0., 0. };
-        double xMax[] = { 1000., 1., 1. };
-        double input[] = { x, qSquared };
-
-        bool fail = adapt_integrate( 1, func, input,
-                                     3, xMin, xMax,
-                                     0, 0, 1e-4,
-                                     &val, &err);
-        if( fail )
-            throw std::runtime_error( "adapt_integrate returned an error." );
-
-        return std::pair<double, double>( val, err );
-    }
-} // namespace F2
-
-namespace FL
+    return coeff * charge * differentialFactor * fraction;
+}
+void integrandF2( unsigned /*ndim*/, const double* xValues,
+                  void* input, unsigned /*fdim*/,
+                  double *fval )
 {
-    double impactFactor( const double qSquared, const double kSquared,
-                         const double z, const double zeta )
-    {
-        const double coeff = 2.*qSquared*alphaS / (M_PI*M_PI);
-        const double charge = 6./9.;
-        const double differentialFactor = M_PI / kSquared;
-        const double numerator = z*(1.-z)*zeta*(1.-zeta);
-        const double denominator = qSquared*z*(1.-z) + kSquared*zeta*(1.-zeta);
-        const double fraction = numerator / denominator;
+    double x = static_cast<double*>(input)[0];
+    double qSquared = static_cast<double*>(input)[1];
+    double kSquared = xValues[0];
+    double z = xValues[1];
+    double zeta = xValues[2];
 
-        return coeff * charge * differentialFactor * fraction;
-    }
+    *fval = impactFactorF2( qSquared, kSquared, z, zeta ) * gluonDensity( x, kSquared );
+}
+double F2( const double x, const double qSquared )
+{
+    double val = 0.;
+    double err = 0.;
 
-    void func( unsigned /*ndim*/, const double* xValues,
-               void* input, unsigned /*fdim*/,
-               double *fval )
-    {
-        double x = static_cast<double*>(input)[0];
-        double qSquared = static_cast<double*>(input)[1];
-        double kSquared = xValues[0];
-        double z = xValues[2];
-        double zeta = xValues[1];
+    double xMin[] = { 0., 0., 0. };
+    double xMax[] = { 1000., 1., 1. };
+    double input[] = { x, qSquared };
+    bool fail = adapt_integrate( 1, integrandF2, input,
+                                 3, xMin, xMax,
+                                 0, 0, 1e-4,
+                                 &val, &err);
+    if( fail )
+        throw std::runtime_error( "adapt_integrate returned an error." );
 
-        *fval = impactFactor( qSquared, kSquared, z, zeta ) * gluonDensity( x, kSquared );
-    }
+    return val;
+}
 
-    std::pair<double, double> fL( const double x, const double qSquared )
-    {
-        double val = 0.;
-        double err = 0.;
+double impactFactorFL( const double qSquared, const double kSquared,
+                       const double z, const double zeta )
+{
+    const double coeff = 2.*qSquared*alphaS / (M_PI*M_PI);
+    const double charge = 6./9.;
+    const double differentialFactor = M_PI / kSquared;
+    const double numerator = z*(1.-z)*zeta*(1.-zeta);
+    const double denominator = qSquared*z*(1.-z) + kSquared*zeta*(1.-zeta);
+    const double fraction = numerator / denominator;
 
-        double xMin[] = { 0., 0., 0. };
-        double xMax[] = { 1000., 1., 1. };
-        double input[] = { x, qSquared };
+    return coeff * charge * differentialFactor * fraction;
+}
 
-        bool fail = adapt_integrate( 1, func, input,
-                                     3, xMin, xMax,
-                                     0, 0, 1e-4,
-                                     &val, &err);
-        if( fail )
-            throw std::runtime_error( "adapt_integrate returned an error." );
+void integrandFL( unsigned /*ndim*/, const double* xValues,
+                  void* input, unsigned /*fdim*/,
+                  double *fval )
+{
+    double x = static_cast<double*>(input)[0];
+    double qSquared = static_cast<double*>(input)[1];
+    double kSquared = xValues[0];
+    double z = xValues[2];
+    double zeta = xValues[1];
 
-        return std::pair<double, double>( val, err );
-    }
-} // namespace FL
+    *fval = impactFactorFL( qSquared, kSquared, z, zeta ) * gluonDensity( x, kSquared );
+}
 
-using F2::f2;
-using FL::fL;
+double FL( const double x, const double qSquared )
+{
+    double val = 0.;
+    double err = 0.;
 
+    double xMin[] = { 0., 0., 0. };
+    double xMax[] = { 1000., 1., 1. };
+    double input[] = { x, qSquared };
 
-#endif // STRUCTUREFUNCTION2_H
+    bool fail = adapt_integrate( 1, integrandFL, input,
+                                 3, xMin, xMax,
+                                 0, 0, 1e-4,
+                                 &val, &err);
+    if( fail )
+        throw std::runtime_error( "adapt_integrate returned an error." );
+
+    return val;
+}
+
+#endif // 3QUARKS_H
