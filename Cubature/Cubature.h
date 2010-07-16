@@ -45,7 +45,7 @@ extern "C"
    to pass any additional data through to your function (it corresponds
    to the fdata parameter you pass to adapt_integrate). */
 typedef void (*integrand) (unsigned ndim, const double *x, void *,
-			   unsigned fdim, double *fval);
+                           unsigned fdim, double *fval);
 
 /* Integrate the function f from xmin[dim] to xmax[dim], with at most
    maxEval function evaluations (0 for no limit), until the given

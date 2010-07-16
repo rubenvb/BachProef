@@ -1,116 +1,16 @@
-#ifndef THREEQUARKS_H
-#define THREEQUARKS_H
+/**
+  * StructureFunction.h
+  * Forwarding header for SF namespace.
+  *
+  * author: Ruben Van Boxem
+  *
+  **/
 
-// Cubature includes
-#include "Cubature/Cubature.h"
+#ifndef STRUCTUREFUNCTION_H
+#define STRUCTUREFUNCTION_H
 
-// C++ includes
-#include <cmath>
-#include <iostream>
-    using std::cout;
-    using std::endl;
-#include <stdexcept>
-#include <utility>
+// StructureFunction includes
+#include "StructureFunction/Massless.h"
+#include "StructureFunction/Massive.h"
 
-const double alphaS = .2; // QCD coupling constant
-
-double gluonDensity( const double x, const double kSquared )
-{
-    const double sigma0 = 23.03*2.57069; // 1 barn = 2.568 (\hbar c)²/Gev²
-    const double lambda = .288;
-    const double x0 = .000304;
-
-    const double coeff = 3*sigma0 / ( 4*M_PI*M_PI*alphaS );
-    const double R0Squared = pow( x/x0, lambda );
-
-    return coeff * R0Squared * kSquared * kSquared * exp( -R0Squared*kSquared );
-}
-
-double impactFactorF2( const double qSquared, const double kSquared,
-                       const double z, const double zeta )
-{
-    const double coeff = qSquared * alphaS / ( 4*M_PI*M_PI );
-    const double charge = 6./9.;
-    const double differentialFactor = M_PI / kSquared;
-    const double numerator = 1. - 2.*z*(1-z) - 2.*zeta*(1.-zeta) + 12.*z*(1.-z)*zeta*(1.-zeta);
-    const double denominator = qSquared*z*(1.-z) + kSquared*zeta*(1.-zeta);
-    const double fraction = numerator / denominator;
-
-    return coeff * charge * differentialFactor * fraction;
-}
-void integrandF2( unsigned /*ndim*/, const double* xValues,
-                  void* input, unsigned /*fdim*/,
-                  double *fval )
-{
-    double x = static_cast<double*>(input)[0];
-    double qSquared = static_cast<double*>(input)[1];
-    double kSquared = xValues[0];
-    double z = xValues[1];
-    double zeta = xValues[2];
-
-    *fval = impactFactorF2( qSquared, kSquared, z, zeta ) * gluonDensity( x, kSquared );
-}
-double F2( const double x, const double qSquared )
-{
-    double val = 0.;
-    double err = 0.;
-
-    double xMin[] = { 0., 0., 0. };
-    double xMax[] = { 1000., 1., 1. };
-    double input[] = { x, qSquared };
-    bool fail = adapt_integrate( 1, integrandF2, input,
-                                 3, xMin, xMax,
-                                 0, 0, 1e-4,
-                                 &val, &err);
-    if( fail )
-        throw std::runtime_error( "adapt_integrate returned an error." );
-
-    return val;
-}
-
-double impactFactorFL( const double qSquared, const double kSquared,
-                       const double z, const double zeta )
-{
-    const double coeff = 2.*qSquared*alphaS / (M_PI*M_PI);
-    const double charge = 6./9.;
-    const double differentialFactor = M_PI / kSquared;
-    const double numerator = z*(1.-z)*zeta*(1.-zeta);
-    const double denominator = qSquared*z*(1.-z) + kSquared*zeta*(1.-zeta);
-    const double fraction = numerator / denominator;
-
-    return coeff * charge * differentialFactor * fraction;
-}
-
-void integrandFL( unsigned /*ndim*/, const double* xValues,
-                  void* input, unsigned /*fdim*/,
-                  double *fval )
-{
-    double x = static_cast<double*>(input)[0];
-    double qSquared = static_cast<double*>(input)[1];
-    double kSquared = xValues[0];
-    double z = xValues[2];
-    double zeta = xValues[1];
-
-    *fval = impactFactorFL( qSquared, kSquared, z, zeta ) * gluonDensity( x, kSquared );
-}
-
-double FL( const double x, const double qSquared )
-{
-    double val = 0.;
-    double err = 0.;
-
-    double xMin[] = { 0., 0., 0. };
-    double xMax[] = { 1000., 1., 1. };
-    double input[] = { x, qSquared };
-
-    bool fail = adapt_integrate( 1, integrandFL, input,
-                                 3, xMin, xMax,
-                                 0, 0, 1e-4,
-                                 &val, &err);
-    if( fail )
-        throw std::runtime_error( "adapt_integrate returned an error." );
-
-    return val;
-}
-
-#endif // 3QUARKS_H
+#endif // STRUCTUREFUNCTION_H

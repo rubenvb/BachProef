@@ -1,20 +1,26 @@
-#ifndef STRUCTUREFUNCTIONPLOTS_H
-#define STRUCTUREFUNCTIONPLOTS_H
+/**
+  * Plots.cpp
+  * Function implementation
+  *
+  * author: Ruben Van Boxem
+  *
+  **/
+
+// Function includes
+#include "Plots.h"
 
 // BachProef includes
 #include "StructureFunction.h"
+using namespace SF::massless;
 
 // C++ includes
 #include <iostream>
 #include <fstream>
-#include <stdexcept>
-#include <string>
 #include <vector>
-
-const size_t nPoints = 100;
 
 void calcOutput()
 {
+    const size_t nPoints = 100;
     std::ofstream file;
 
     std::vector<double> x(nPoints);
@@ -34,7 +40,7 @@ void calcOutput()
 
     // FL
     file.open( "FL.txt" );
-    std::cout << "Calculating FL" << std::endl;
+    std::cout << "Calculating FL plot data." << std::endl;
     for( size_t i=0; i<nPoints; ++i )
     {
         file << x.at(i) << "\t";
@@ -60,7 +66,7 @@ void calcOutput()
     Q2 = { 1.5, 2, 2.5, 3.5, 4.5, 5 };
     // F2
     file.open( "F2.txt" );
-    std::cout << "Calculating F2" << std::endl;
+    std::cout << "Calculating F2 plot data." << std::endl;
     for( size_t i=0; i<nPoints; ++i )
     {
         file << x.at(i) << "\t";
@@ -72,5 +78,3 @@ void calcOutput()
     }
     file.close();
 }
-
-#endif // STRUCTUREFUNCTIONPLOTS_H

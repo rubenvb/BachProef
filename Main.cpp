@@ -1,18 +1,20 @@
 /**
   * Main.cpp
-  * Test program for the cubature functions
+  * Main function with small Cubature test.
   *
   * Author: Ruben Van Boxem
   *
   **/
 
 // BachProef includes
-#include "StructureFunctionPlots.h"
+#include "StructureFunction.h"
+#include "Plots.h"
 
 // Cubature includes
 #include "Cubature/Cubature.h"
 
 // C++ includes
+#include <cmath>
 #include <iomanip>
     using std::setprecision;
 #include <iostream>
@@ -64,6 +66,8 @@ void testIntegration()
 }
 void testStructureFunctions()
 {
+    using namespace SF::massless;
+
     cout << "Gluon density function" << endl;
     cout << "f(.001,1)\t= 7.74 ?=\t" << gluonDensity( .001, 1 ) << endl;
     cout << "f(.00001,3.6)\t= 28.36 ?=\t" << gluonDensity( .00001, 3.6 ) << endl;
