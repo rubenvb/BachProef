@@ -3,27 +3,29 @@
 \usepackage{geometry}
   \geometry{paper=a4paper,top=2.2cm,bottom=2.9cm}
    \geometry{right=2.3cm,left=2.3cm}
+% Feynman diagrammen
+\usepackage{feynmp}
+\unitlength = 1mm
 % Afbeeldingen
-\usepackage{graphicx} % illustrations
-\usepackage{subfigure} % package voor het gebruiken van subfigures
+\usepackage{graphicx} % afbeeldingen
+\usepackage{subfigure} % pakket voor het gebruiken van sub-figuren
 \usepackage{float} % laat toe [H] te gebruiken bij plaatsen figuren
-%
 % Taal
 \usepackage[dutch]{babel}
 %\hyphenation{}
-%
-% De formulekes
-\usepackage{amssymb, amsmath} % math
-\numberwithin{equation}{section} % (#.#) instead of (#)
-%
+% De formules
+\usepackage{amssymb, amsmath} % wiskunde
+\numberwithin{equation}{section} % (#.#) i.p.v. (#)
 % xetex
 \usepackage{fontspec}
 \usepackage{xunicode}
 \usepackage{xltxtra}
 \setromanfont[Mapping=tex-text]{Calibri}
-%
+% appendix
+\usepackage{appendix}
 
-\title{Elastische karakterisatie van latex rubber aan de hand van inflatie-experimenten}
+
+\title{Dwarse energiestroom in de LHeC met saturatie}
 \author{Ruben Van Boxem}
 
 \begin{document}
@@ -33,8 +35,7 @@
 
 \begin{center}
 
-
-\includegraphics[height=3cm]{Afbeeldingen/logo_UA_hor_kl_PMS.eps}
+\includegraphics[height=3cm]{Afbeeldingen/UA.eps}
 
 \vspace{1cm}
 
@@ -55,7 +56,7 @@ Academiejaar 2009--2010
 \fontsize{17.28pt}{21pt}\selectfont
 
 % De titel van de thesis:
-\textsc{TITEL}
+\textsc{Dwarse energiestroom in de LHeC met saturatie}
 
 \fontseries{m}
 \fontsize{12pt}{14pt}\selectfont
@@ -68,7 +69,8 @@ Ruben \textsc{Van Boxem}
 
 \vspace{2cm}
 
-Promotor: Prof. Dr. Pierre \textsc{Van Mechelen}\\
+Promotor: Prof. Dr Pierre \textsc{Van Mechelen}\\
+Copromotor: Krzysztof \textsc{Kutak} \\
 \vspace{2cm}
 \end{center}
 % De functie van de thesis:
@@ -80,8 +82,113 @@ het behalen van de graad van\\
 \thispagestyle{empty}
 \newpage
 
+\section*{Dankwoord}
+TODO
+\thispagestyle{empty}
+\newpage
+\fontsize{11pt}{14pt}\selectfont
+
 \section*{Summary}
+TODO
+\thispagestyle{empty}
+\newpage
+
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+
+\section{Diepe inelastische verstrooiing}
+
+Om de diepere structuur van een object zoals het proton te bestuderen, kan men elektron verstrooiing gebruiken.
+Door middel van een elektron met hoge energie op een proton te laten botsen kan men de onderliggende samenstelling van het proton bestuderen.
+Een proces dat zich hier goed voor leent, heet DIS, oftewel \textit{Deep Inelastic Scattering}. In figuur \ref{fig:DIS} wordt een DIS proces schematisch weergegeven.
+\begin{figure} [H]
+  \begin{center}
+    %\includegraphics[width=.66\textwidth]{Afbeeldingen/...}
+    \caption{Elektron-proton verstrooiing. Het elektron zendt een foton uit dat het proton ``onderzoekt".
+$W$ is de invariante massa van het uitgaande systeem (dus zonder elektron), $q$ is de overgedragen vierimpuls, $x$ (Björken x) is de fractie van de totale impuls van het proton gedragen door de beschouwde quark.}
+   \label{fig:DIS}
+  \end{center}
+\end{figure}
+ Men spreekt van DIS processen als $Q^2 \gg M^2$ (``diep") en $W^2 \gg M^2$ (``inelastisch").
+Omdat de waarde van $q^2$ negatief is, wordt vaak volgende variabele ingevoerd: $Q^2 :=-q^2 > 0$. De golflengte van het het foton is van de grootteorde van $1/Q$.
+Dit wil concreet zeggen dat als de overgedragen impuls verhoogt, de golflengte van het foton en dus de grootte van de deeltjes waarmee het interageert, kleiner wordt.
+In wat volgt wordt beschreven wat er gebeurt als men $Q^2$ systematisch verhoogt.
+
+  \subsection{Breking van schaalinvariantie}
+    \paragraph{Elektron-kern verstrooiing}
+Stel dat een elektron verstrooid wordt op een atoomkern (bestaande uit meerdere nucleonen).
+Als $\lambda \gg d_{kern}$, ziet het foton de kern als een puntdeeltje en wordt het elastisch verstrooid op een puntdeeltje met de lading van de kern.
+Als $\lambda \ll d_{kern}$, dringt het foton diep door in de kern en kan het verstrooid worden op een proton in de kern.
+Men spreekt hier van diep inelastische elektron-kern verstrooiing, en men kan het volgende schrijven:
+\begin{align}
+x_N = \frac{M}{M_N} \left( \frac{Q^2}{2M\nu} \right) = \frac{1}{A}
+\end{align}
+waarbij $M_N$ de massa van de kern is, $M$ de massa van het proton, $\nu$ de frequentie van het foton en $A$ het aantal nucleonen in de kern.
+Als men de werkzame doorsnede van deze processen zou uitzetten t.o.v. $x_N$, ziet men een duidelijke verschil tussen de gevallen waar $\lambda \gg d_{kern}$ en die waar $\lambda \ll d_{kern}$.
+Dit fenomeen heet schaalinvariantie, waarbij de waargenomen werkzame doorsnede blijkbaar afhangt van de grootte van de schaal, $Q^2$.
+
+      \paragraph{Elektron-proton verstrooiing}
+Zolang dat $\lambda \gg d_{proton}$, ziet het foton het proton als puntdeeltje. Het wordt elastisch verstrooid door het proton.
+Als $Q^2$ zo groot is dat $\lambda \ll d_{proton}$, wordt er opnieuw ``ingezoomd", waarbij het foton nu de bouwstenen van het proton kan ``zien" (i.e. ermee kan interageren).
+Het foton ziet dus de 3 quarks als puntdeeltjes en men spreekt van diep inelastische elektron-proton verstrooiing.
+Kinematisch geldt het volgende (zie appendix \ref{app:DIS}):
+\begin{align} \label{eq:Bjorkenx}
+x = \left( \frac{Q^2}{2p\cdot q} \right)
+\end{align}
+$x$ wordt aangeduid als de ``Bjorken schaalvariabele".
+De waarschijnlijkheid van zo'n proces worden dus enkel en alleen bepaalt door $x$ en niet $Q^2$ en $p\cdot q$ afzonderlijk.
+
+      \paragraph{Breking van schaalinvariantie}
+In volgorde van stijgende $Q^2$ heeft men dus voor de werkzame doorsnede:
+\begin{itemize}
+  \item ``kern"schaling met een piek op $x_N=1$
+  \item  breking van schaalinvariantie
+  \item ``proton"schaling met een piek \textit{rond} $x \sim 1$
+  \item breking van schaalinvariantie
+  \item ``Bjorken"schaling met een \textit{uitgesmeerde} piek rond $x \sim 1/3$ (3 quarks)
+\end{itemize}
+Als men $Q^2$ blijft vergroten, verwacht men logischerwijs nogmaals een breking van schaalinvariantie te zien, en deze worden ook geobserveerd.
+De schijnbare breking van schaalinvariantie ligt in lijn met de voorspellingen van QCD, de theorie van de sterke wisselwerking.
+
+  \subsection{zeequarks, gluonen en $\alpha_S$}
+Quarks blijken niet uit een diepere structuur te bestaan (zodat er niet opnieuw een breking van schaalinvariantie optreedt).
+In plaats van een diepere quarkstructuur, beschrijft QCD het proton als 3 valentiequarks (de klassieke $uud$ combinatie) plus een willekeurig aantal zeequarks ($q\bar{q}$ paren).
+Het foton ziet boven drie puntdeeltjes ook nog een zee van quarks.
+Zeequarks ontstaan uit gluonen ($g\rightarrow q\bar{q}$) die zelf uitgestraald worden door andere quarks ($q\rightarrow gq$).
+Er treedt dus breking van schaalinvariantie op omdat elk parton (quark of gluon) 
+
+
+
+  \subsection{blad}
+
+\section{Dwarse energiestroom}
+  \subsection{Formulering}
+  \subsection{Gluon dichtheid}
+  \subsection{$F_2$}
+  \subsection{$\mathcal{F}_2$}
+  \subsection{Saturatie}
+
+\section{Resultaten}
+
+\section{Bespreking}
+
+\section{Besluit}
 
 \newpage
-sometext
+\appendix
+\section{Diep Inelastische Verstrooiing} \label{app:DIS}
+Als men figuur \ref{fig:DIS} beschouwt in het IMF ($m_e \approx m_p \approx 0$), geldt wegens behoud van energie:
+\begin{align}
+&(xP+q)^2 = m_e = 0 \notag \\
+\Leftrightarrow &x^2 P^2 + 2xPq + q^2 = 0 \notag \\
+\Leftrightarrow &2xPq -Q^2=0
+\end{align}
+Waarbij gebruikt is dat $-q^2 = Q^2 \gg x^2P^2$ in het  IMF. Dit laatste is equivalent met \eqref{eq:Bjorkenx}.
 
+
+
+
+
+
+\end{document}
