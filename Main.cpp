@@ -26,16 +26,18 @@ void func( unsigned /*ndim*/, const double* xValues,
            void*, unsigned /*fdim*/,
            double *fval );
 void testIntegration();
-void testStructureFunctions();
+void testMassless();
+void testMassive();
 
 int main()
 {
     cout << setprecision(14);
 
-    testIntegration();
-    testStructureFunctions();
+    //testIntegration();
+    testMassless();
+    testMassive();
 
-    calcOutput();
+    //calcOutput();
 
     return 0;
 }
@@ -64,17 +66,19 @@ void testIntegration()
 
     cout << "testFunction is = .99389 ?=\t" << val << endl;
 }
-void testStructureFunctions()
+void testMassless()
 {
     using namespace SF::massless;
+
+    cout << "-----------\nMASSLESS\n-----------" << endl;
 
     cout << "Gluon density function" << endl;
     cout << "f(.001,1)\t= 7.74 ?=\t" << gluonDensity( .001, 1 ) << endl;
     cout << "f(.00001,3.6)\t= 28.36 ?=\t" << gluonDensity( .00001, 3.6 ) << endl;
 
     cout << "Impact factors" << endl;
-    cout << "I2(10,10,.5,.5)\t= .00159 ?=\t" << impactFactorF2(10,10,.5,.5) << endl;
-    cout << "IL(20,10,.5,.5) = .0014147 ?=\t" << impactFactorFL( 20, 10, .5, .5 ) << endl;
+    cout << "IL(20,10,.5,.5) = .0014147 ?=\t" << impactFL( 20, 10, .5, .5 ) << endl;
+    cout << "I2(10,10,.5,.5)\t= .00159 ?=\t" << impactF2(10,10,.5,.5) << endl;
 
     cout << "FL" << endl;
     cout << "FL(.0001,60)\t= .403459 ?=\t" << FL( .0001, 60 ) << endl;
@@ -83,4 +87,37 @@ void testStructureFunctions()
     cout << "F2" << endl;
     cout << "F2(.00001,1.5)\t= .992435 ?=\t" << F2( .00001, 1.5 ) << endl;
     cout << "F2(.001,2)\t= .576248 ?=\t" << F2( .001, 2. ) <<endl;
+}
+void testMassive()
+{
+    using namespace SF::massive;
+
+    cout << "-----------\nMASSIVE\n-----------" << endl;
+
+    cout << "Light quarks" << endl;
+    cout << "Gluon density function" << endl;
+    cout << "f(.001,1), Q2=10\t= 6.0929 ?=\t" << gluonDensity( xTilde(.001,10,0), 1 ) << endl;
+    cout << "f(.00001,3.6), Q2=20\t= 21.802 ?=\t" << gluonDensity( xTilde(.00001,20,0), 3.6 ) << endl;
+    cout << "Impact factors" << endl;
+    cout << "impactFL(20,15,.5,.5)\t= .0005356 ?=\t" << impactFL( 20, 15, .5, .5, 0 ) << endl;
+    cout << "impactFT(10,15,.5,.5)\t= ???????? ?=\t" << impactFT( 10, 15, .5, .5, 0 ) << endl;
+    cout << "impactF2(10,10,.5,.5)\t= ???????? ?=\t" << impactF2( 10, 10, .5, .5, 0 ) << endl;
+
+    cout << "Charm quark" << endl;
+    cout << "Gluon density function" << endl;
+    cout << "f(.001,1), Q2=10\t= 4.5569 ?=\t" << gluonDensity( xTilde(.001,10,2), 1 ) << endl;
+    cout << "f(.00001,3.6), Q2=20\t= 18.5874 ?=\t" << gluonDensity( xTilde(.00001,20,2), 3.6 ) << endl;
+    cout << "Impact factors" << endl;
+    cout << "impactFL(20,15,.5,.5)\t= .0002957 ?=\t" << impactFL( 20, 15, .5, .5, 2 ) << endl;
+    cout << "impactFT(10,15,.5,.5)\t= .0041210 ?=\t" << impactFT( 10, 15, .5, .5, 2 ) << endl;
+    cout << "impactF2(10,10,.5,.5)\t= ???????? ?=\t" << impactF2( 10, 10, .5, .5, 2 ) << endl;
+
+    cout << "Structure Functions" << endl;
+    cout << "FL" << endl;
+    cout << "FL(.0001,60)\t= ??????? ?=\t" << FL( .0001, 60 ) << endl;
+    cout << "FL(.0001,24)\t= ??????? ?=\t" << FL( .0001, 24 ) << endl;
+
+    cout << "F2" << endl;
+    cout << "F2(1e-5,1.5)\t= ?????? ?=\t" << F2( 1e-5, 1.5 ) << endl;
+    cout << "F2(1e-3,2)  \t= ?????? ?=\t" << F2( 1e-3, 2. ) <<endl;
 }

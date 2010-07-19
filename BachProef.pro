@@ -6,13 +6,16 @@
 
 TARGET = BachProef
 TEMPLATE = app
-CONFIG += console warn_on
+CONFIG += console warn_on sse sse2 mmx
 CONFIG -= qt
 DEFINES -= QT_LARGEFILE_SUPPORT UNICODE
 
 # platform specificities
-*g++: QMAKE_CXXFLAGS += -Wextra -std=gnu++0x -ftree-vectorize
+*g++: QMAKE_CXXFLAGS += -Wextra -std=gnu++0x
 win32-msvc*:DEFINES += _USE_MATH_DEFINES
+
+DEPENDPATH += .
+INCLUDEPATH += .
 
 SOURCES += \
     Main.cpp \

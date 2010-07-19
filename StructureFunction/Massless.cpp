@@ -15,7 +15,8 @@
 
 // C++ includes
 #include <cmath> // M_PI, pow, exp
-#include <stdexcept>
+#include <stdexcept> // runtime_error
+    using std::runtime_error;
 
 namespace SF {
 namespace massless {
@@ -28,7 +29,7 @@ double gluonDensity( const double x, const double k2 )
     return coeff * R02 * k2 * k2 * exp( -R02*k2 );
 }
 
-double impactFactorF2( const double Q2, const double k2,
+double impactF2( const double Q2, const double k2,
                        const double z, const double zeta )
 {
     const double coeff = Q2 * alphaS / ( 4*M_PI*M_PI );
@@ -39,7 +40,7 @@ double impactFactorF2( const double Q2, const double k2,
 
     return coeff * charge2 * differentialFactor * fraction;
 }
-double impactFactorFL( const double Q2, const double k2,
+double impactFL( const double Q2, const double k2,
                        const double z, const double zeta )
 {
     const double coeff = 2.*Q2*alphaS / (M_PI*M_PI);
@@ -61,7 +62,7 @@ void integrandF2( unsigned /*ndim*/, const double* xValues,
     double z = xValues[1];
     double zeta = xValues[2];
 
-    *fval = impactFactorF2( Q2, k2, z, zeta ) * gluonDensity( x, k2 );
+    *fval = impactF2( Q2, k2, z, zeta ) * gluonDensity( x, k2 );
 }
 void integrandFL( unsigned /*ndim*/, const double* xValues,
                   void* input, unsigned /*fdim*/,
@@ -73,7 +74,7 @@ void integrandFL( unsigned /*ndim*/, const double* xValues,
     double z = xValues[2];
     double zeta = xValues[1];
 
-    *fval = impactFactorFL( Q2, k2, z, zeta ) * gluonDensity( x, k2 );
+    *fval = impactFL( Q2, k2, z, zeta ) * gluonDensity( x, k2 );
 }
 
 double F2( const double x, const double Q2 )
@@ -89,7 +90,7 @@ double F2( const double x, const double Q2 )
                                  0, 0, 1e-4,
                                  &val, &err);
     if( fail )
-        throw std::runtime_error( "adapt_integrate returned an error." );
+        throw runtime_error( "adapt_integrate returned an error." );
 
     return val;
 }
@@ -107,7 +108,7 @@ double FL( const double x, const double Q2 )
                                  0, 0, 1e-4,
                                  &val, &err);
     if( fail )
-        throw std::runtime_error( "adapt_integrate returned an error." );
+        throw runtime_error( "adapt_integrate returned an error." );
 
     return val;
 }

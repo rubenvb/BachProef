@@ -11,7 +11,8 @@
 
 // BachProef includes
 #include "StructureFunction.h"
-using namespace SF::massless;
+using SF::massless::F2;
+using SF::massive::FL;
 
 // C++ includes
 #include <iostream>
@@ -33,10 +34,10 @@ void calcOutput()
     for( size_t i=0; i<nPoints ; ++i )
     {
         current *= 1.07;
-        x[i] = current;
+        x.at(i) = current;
     }
     // Q² values
-    std::vector<double> Q2 = { 24, 32, 45, 60, 80, 110 };
+    std::vector<double> Q2 = { 24., 32., 45., 60., 80., 110. };
 
     // FL
     file.open( "FL.txt" );
@@ -60,7 +61,7 @@ void calcOutput()
     for( size_t i=0; i<nPoints ; ++i )
     {
         current *= 1.07;
-        x[i] = current;
+        x.at(i) = current;
     }
     // Q² values
     Q2 = { 1.5, 2, 2.5, 3.5, 4.5, 5 };
