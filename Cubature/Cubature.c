@@ -99,7 +99,7 @@
 	  To compile a test program, compile cubature.c with
 	  -DTEST_INTEGRATOR as described at the end. */
 
-#include "cubature.h"
+#include "Cubature.h"
 
 /***************************************************************************/
 /* Basic datatypes */
