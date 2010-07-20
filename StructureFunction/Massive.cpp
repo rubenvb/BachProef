@@ -37,8 +37,8 @@ double gluonDensity( const double xTilde, const double k2 )
 }
 
 double impactFL( const double Q2, const double k2,
-                       const double z, const double zeta,
-                       const int quark )
+                 const double z, const double zeta,
+                 const int quark )
 {
     const double coeff = 2.*Q2*alphaS / (M_PI*M_PI);
     const double differentialFactor = M_PI / k2;
@@ -49,10 +49,10 @@ double impactFL( const double Q2, const double k2,
     return coeff * charge2[quark] * differentialFactor * numerator/denominator;
 }
 double impactFT( const double Q2, const double k2,
-                       const double z, const double zeta,
-                       const int quark )
+                 const double z, const double zeta,
+                 const int quark )
 {
-    const double coeff = 1.;//Q2 * alphaS / ( 4*M_PI*M_PI );
+    const double coeff = 2 * M_PI * alphaEM * alphaS;
     const double differentialFactor = M_PI / k2;
     const double numerator = Q2 * ( z*z+(1-z)*(1-z) ) * z*(1-z) * ( zeta*zeta+(1-zeta)*(1-zeta) )
                              + ( z*z+(1-z)*(1-z) ) * mass2[quark]
@@ -64,10 +64,10 @@ double impactFT( const double Q2, const double k2,
     return coeff * charge2[quark] * differentialFactor * fraction;
 }
 double impactF2( const double Q2, const double k2,
-                       const double z, const double zeta,
-                       const int quark )
+                 const double z, const double zeta,
+                 const int quark )
 {
-    return impactFL( Q2, k2, z, zeta, quark ) + impactFT( Q2, k2, z, zeta, quark );
+    return (impactFL( Q2, k2, z, zeta, quark ) + impactFT( Q2, k2, z, zeta, quark ));
 
 }
 

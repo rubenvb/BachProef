@@ -100,8 +100,8 @@ void testMassive()
     cout << "f(.00001,3.6), Q2=20\t= 21.802 ?=\t" << gluonDensity( xTilde(.00001,20,0), 3.6 ) << endl;
     cout << "Impact factors" << endl;
     cout << "impactFL(20,15,.5,.5)\t= .0005356 ?=\t" << impactFL( 20, 15, .5, .5, 0 ) << endl;
-    cout << "impactFT(10,15,.5,.5)\t= ???????? ?=\t" << impactFT( 10, 15, .5, .5, 0 ) << endl;
-    cout << "impactF2(10,10,.5,.5)\t= ???????? ?=\t" << impactF2( 10, 10, .5, .5, 0 ) << endl;
+    cout << "impactFT(10,15,.5,.5)\t= .004703 ?=\t" << impactFT( 10, 15, .5, .5, 0 ) << endl;
+    cout << "impactF2(10,10,.5,.5)\t= .0095126 ?=\t" << impactF2( 10, 10, .5, .5, 0 ) << endl;
 
     cout << "Charm quark" << endl;
     cout << "Gluon density function" << endl;
@@ -109,15 +109,15 @@ void testMassive()
     cout << "f(.00001,3.6), Q2=20\t= 18.5874 ?=\t" << gluonDensity( xTilde(.00001,20,2), 3.6 ) << endl;
     cout << "Impact factors" << endl;
     cout << "impactFL(20,15,.5,.5)\t= .0002957 ?=\t" << impactFL( 20, 15, .5, .5, 2 ) << endl;
-    cout << "impactFT(10,15,.5,.5)\t= .0041210 ?=\t" << impactFT( 10, 15, .5, .5, 2 ) << endl;
-    cout << "impactF2(10,10,.5,.5)\t= ???????? ?=\t" << impactF2( 10, 10, .5, .5, 2 ) << endl;
+    cout << "impactFT(10,15,.5,.5)\t= .0051787 ?=\t" << impactFT( 10, 15, .5, .5, 2 ) << endl;
+    cout << "impactF2(10,10,.5,.5)\t= .0094596 ?=\t" << impactF2( 10, 10, .5, .5, 2 ) << endl;
 
     cout << "Structure Functions" << endl;
     cout << "FL" << endl;
-    cout << "FL(.0001,60)\t= ??????? ?=\t" << FL( .0001, 60 ) << endl;
-    cout << "FL(.0001,24)\t= ??????? ?=\t" << FL( .0001, 24 ) << endl;
+    cout << "FL(.0001,60)\t= .41642 ?=\t" << FL( .0001, 60 ) << endl;
+    cout << "FL(.0001,24)\t= .34798 ?=\t" << FL( .0001, 24 ) << endl;
 
     cout << "F2" << endl;
-    cout << "F2(1e-5,1.5)\t= ?????? ?=\t" << F2( 1e-5, 1.5 ) << endl;
-    cout << "F2(1e-3,2)  \t= ?????? ?=\t" << F2( 1e-3, 2. ) <<endl;
+    cout << "F2(1e-5,1.5)\t= 129.656 ?=\t" << F2( .00001, 1.5 ) << endl;
+    cout << "F2(1e-3,2)  \t= 52.2914 ?=\t" << F2( .001, 2. ) <<endl;
 }
