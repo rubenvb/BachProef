@@ -35,15 +35,19 @@ namespace SF
                                const double z, const double zeta,
                                const int quark );
 
-        void integrandF2( unsigned /*ndim*/, const double* xValues,
-                     void* input, unsigned /*fdim*/,
-                     double *fval );
         void integrandFL( unsigned /*ndim*/, const double* xValues,
                      void* input, unsigned /*fdim*/,
                      double *fval );
+        void integrandFT( unsigned /*ndim*/, const double* xValues,
+                     void* input, unsigned /*fdim*/,
+                     double *fval );
+        void integrandF2( unsigned /*ndim*/, const double* xValues,
+                     void* input, unsigned /*fdim*/,
+                     double *fval );
 
-        double F2( const double x, const double Q2 );
         double FL( const double x, const double Q2 );
+        double FT( const double x, const double Q2 );
+        double F2( const double x, const double Q2 );
    }
 }
 

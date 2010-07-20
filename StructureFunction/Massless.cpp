@@ -7,7 +7,7 @@
   **/
 
 // Function header
-#include "Massless.h"
+#include "StructureFunction/Massless.h"
 
 // BachProef includes
 #include "StructureFunction/CouplingConstant.h"
@@ -17,7 +17,7 @@
 
 // C++ includes
 #include <cmath> // M_PI, pow, exp
-#include <stdexcept> // runtime_error
+#include <stdexcept>
     using std::runtime_error;
 
 namespace SF {
@@ -32,7 +32,7 @@ double gluonDensity( const double x, const double k2 )
 }
 
 double impactF2( const double Q2, const double k2,
-                       const double z, const double zeta )
+                 const double z, const double zeta )
 {
     const double coeff = Q2 * alphaS / ( 4*M_PI*M_PI );
     const double differentialFactor = M_PI / k2;
@@ -43,7 +43,7 @@ double impactF2( const double Q2, const double k2,
     return coeff * charge2 * differentialFactor * fraction;
 }
 double impactFL( const double Q2, const double k2,
-                       const double z, const double zeta )
+                 const double z, const double zeta )
 {
     const double coeff = 2.*Q2*alphaS / (M_PI*M_PI);
     const double differentialFactor = M_PI / k2;

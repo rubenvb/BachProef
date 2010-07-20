@@ -35,4 +35,10 @@ HEADERS += \
 
 OTHER_FILES += \
     thesis/thesis.tex \
-    README.txt
+    README.txt \
+    StructureFunction.nb \
+    Massive.nb \
+    thesis/Afbeeldingen/placeholder.eps \
+    thesis/Afbeeldingen/UA.eps \
+    plotFL.m \
+    plotF2.m

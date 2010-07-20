@@ -105,7 +105,7 @@ Een proces dat zich hier goed voor leent, heet DIS, oftewel \textit{Deep Inelast
 \begin{figure} [H]
   \begin{center}
     \includegraphics[width=.5\textwidth]{Afbeeldingen/placeholder.eps}
-    \caption{Elektron-proton verstrooiing. Het elektron zendt een foton uit dat het proton ``onderzoekt".
+    \caption{Elektron-proton verstrooiing. Het elektron zendt een foton uit dat het proton “onderzoekt".
 $W$ is de invariante massa van het uitgaande systeem (dus zonder elektron), $q$ is de overgedragen vierimpuls, $x$ (Bjorken x) is de fractie van de totale impuls van het proton gedragen door de beschouwde quark.}
    \label{fig:DIS}
   \end{center}
@@ -148,13 +148,13 @@ Dit fenomeen heet \textit{schaalinvariantie}, waarbij de waargenomen werkzame do
 
       \paragraph{Elektron-proton verstrooiing}
 Zolang dat $\lambda \gg d_{proton}$, ziet het foton het proton als puntdeeltje. Het wordt elastisch verstrooid door het proton.
-Als $Q^2$ zo groot is dat $\lambda \ll d_{proton}$, wordt er opnieuw ``ingezoomd", waarbij het foton nu de bouwstenen van het proton kan ``zien" (i.e. ermee kan interageren).
+Als $Q^2$ zo groot is dat $\lambda \ll d_{proton}$, wordt er opnieuw ``ingezoomd", waarbij het foton nu de bouwstenen van het proton kan “zien" (i.e. ermee kan interageren).
 Het foton ziet dus de 3 quarks als puntdeeltjes en men spreekt van diep inelastische elektron-proton verstrooiing.
 Kinematisch geldt het volgende (zie appendix \ref{app:DIS}):
 \begin{align} \label{eq:Bjorkenx}
 x = \left( \frac{Q^2}{2p\cdot q} \right)
 \end{align}
-$x$ wordt aangeduid als de ``Bjorken schaalvariabele".
+$x$ wordt aangeduid als de “Bjorken schaalvariabele".
 De waarschijnlijkheid van zo'n proces worden dus enkel en alleen bepaalt door $x$ en niet $Q^2$ en $p\cdot q$ afzonderlijk.
 
       \paragraph{Breking van schaalinvariantie}
@@ -171,14 +171,17 @@ De schijnbare breking van schaalinvariantie ligt in lijn met de voorspellingen v
 
   \subsection{Zeequarks, gluonen en $\alpha_S$}
 Quarks blijken niet uit een diepere structuur te bestaan (zodat er niet opnieuw een breking van schaalinvariantie optreedt).
-In plaats van een diepere quarkstructuur, beschrijft QCD het proton als 3 valentiequarks (de klassieke $u u d$ combinatie) plus een willekeurig aantal zeequarks ($q\bar{q}$ paren).
-Het foton ziet boven drie puntdeeltjes ook nog een zee van quarks.
+In plaats van een diepere quark structuur, beschrijft QCD het proton als 3 valentiequarks (de klassieke $u u d$ combinatie) plus een willekeurig aantal zeequarks ($q\bar{q}$ paren).
+Het foton ziet naast drie puntdeeltjes ook een zee van quarks.
 Zeequarks ontstaan uit gluonen ($g\rightarrow q\bar{q}$) die zelf uitgestraald worden door andere quarks ($q\rightarrow gq$).
-Er treedt dus breking van schaalinvariantie op omdat elk parton (quark of gluon) bij een grotere waarde van $Q^2$ een kleiner deel  $x$ van de impuls $P$ van het proton zal dragen.
-Deze breking van schaalinvariantie heeft volgende vorm (zie %REFERENTIE%):
+Het feit dat er extra deeltjes moeten bestaan in een proton volgt ook uit de experimentele waarneming dat slechts de helft van de impuls van het proton gedragen wordt door z’n valentiequarks.
+Er treedt dus breking van schaalinvariantie op omdat elk parton (quark of gluon) bij een grotere waarde van $Q^2$, een kleiner deel  $x$ van de impuls $P$ van het proton zal dragen.
+Deze breking van schaalinvariantie heeft volgende vorm (zie %REFERENTIE NAAR ERGENS LATER%):
 \begin{align}
-\alpha_S P \ln{\left( \frac{Q^2}{\mu^2}\right)}
+\alpha_S R \ln{\left( \frac{Q^2}{\mu^2}\right)}
 \end{align}
+Hier is $R$ een observabele en $\mu$ de renormalisatie schaal.
+Merk op dat in tegenstelling tot de vorige brekingen van schaalinvariantie, deze logaritmisch is, wat bijzonder moeilijk te meten was toen deze ontdekking werd gedaan.
 
   \subsection{Structuurfuncties}
 De meetbare grootheid die het geheel verbindt met harde waarnemingen, zijn de structuurfuncties.
@@ -189,8 +192,29 @@ Met de juiste definities kan men de werkzame doorsnede voor een NC proces als vo
 \end{align}
 Een uitgebreide discussie van bovenstaande uitdrukking staat in appendix \ref{app:SF}.
 Als er enkel een foton kan worden uitgewisseld ($\sigma_\gamma \gg \sigma_Z$, dus de interactie via Z wordt verwaarloosd), kan men aantonen dat $F_3 \approx 0$ (zie appendix \ref{app:SF}).
+Zoals in REFERENTIE aangetoond kunnen de structuurfuncties ontwikkeld worden als een reeks in $\alpha_S$.
 
   \subsection{$\alpha_S$}
+    \subsubsection{QED en $\alpha$}
+Om de vorm en het gedrag van de sterke koppeling te begrijpen, is het handig om eerst kort de koppeling in QED ($\alpha = e^2/4\pi$) te bekijken.
+De processen die bijdragen aan een interactie van een foton met een enkel elektron worden in figuur \ref{fig:QED} weergegeven.
+\begin{figure} [H]
+  \begin{center}
+    \includegraphics[width=.5\textwidth]{Afbeeldingen/placeholder.eps}
+    \caption{Feynman diagrammen van de processen die bijdragen tot de interactie tussen een foton en een elektron.}
+   \label{fig:QED}
+  \end{center}
+\end{figure}
+De lading van een kaal elektron wordt afgeschermd door de “polarisatie van het vacuüm”, waardoor het foton extra $e^+ e^-$-paren “voelt”.
+Hoe korter de golflengte van het foton, hoe meer $e^+ e^-$-paren het zal voelen.
+Dit zorgt ervoor dat $\alpha$ toeneemt met $Q^2$.
+De normalisatie van $\alpha$ komt uit vergelijking met experimentele data.
+Algemeen kan men de elektromagnetische koppelingsfactor schrijven als volgt.
+\begin{align}
+\alpha(Q^2) = \alpha_0 \left[ 1+ \frac{\alpha_0}{3\pi} \log{\frac{Q^2}{M^2}} + \left( \frac{\alpha_0}{3\pi} \log{\frac{Q^2}{M^2}} \right)^2 +\hdots \right]
+\end{align}
+De \textit{loops} in de hogere orde Feynman diagrammen kunnen een oneindige bijdrage hebben indien er geen \textit{cut-off} waarde voor de
+
 
   \subsection{Dwarse energiestroom}
     \subsubsection{Formulering}
@@ -228,32 +252,32 @@ Waarbij de som over j loopt over
   \item $Z$, met $\eta_Z = \eta_{\gamma Z}^2$.
 \end{itemize}
 Hier stelt de tweede term de foton en Z uitwisseling voor, en de interferentie tussen de twee. $G_F$ is de Fermi koppeling en $\alpha$ de QED koppeling.
-Er is naast $x$ en $Q^2$ nog een derde variabele, die te maken heeft met de totale energie van het systeem.
+Er is naast $x$ en $Q^2$ nog een derde variabele nodig, die te maken heeft met de totale energie van het systeem.
 Dit kan de Mandelstam variabele s zijn, of het relatieve energieverlies van het elektron in het massamiddelpuntsysteem y, zoals hieronder gedefinieerd.
 \begin{align}
 y &= \frac{p \cdot q}{p \cdot k} = \frac{\Delta E}{E} ,& s = (k+p)^2 \simeq \frac{Q^2}{xy}
 \end{align}
 $y$ wordt wel eens als \textit{rapidity} gebruikt, wat een Lorentz invariante parameter is voor de verstrooiingshoek $\hat{\theta}$ in het massamiddelpuntstelsel.
-Hier geld volgende relatie:
+In dit geval geldt volgende relatie:
 \begin{align}
 y = \frac{1}{2} \left( 1-\cos{\hat{\theta}} \right)
 \end{align}
 $L^{\mu \nu}$ is de gekende tensor van het lepton knooppunt in functie van $k$ en $k'$.
 $W_{\mu \nu}$ is een onbekende tensor van het hadron knooppunt.
+Deze laatste kan dus enkel geparametriseerd worden aan de hand van wat wel gekend is.
 De algemene uitdrukking ingeval van niet gepolariseerde DIS is als volgt:
 \begin{align}
 W_{\mu \nu} = \left( -g_{\mu \nu} + \frac{q_\mu q_\nu}{q^2} \right) F_1(x,Q^2) + \frac{\hat{P}_\mu \hat{P}_\nu}{p \cdot q} F_2(x,Q^2) -  i\epsilon_{\mu \nu \alpha \beta} \frac{q^\alpha p^\beta}{2p \cdot q} F_3(x,Q^2)
 \end{align}
 Hier zijn $F_i$ de structuurfuncties, afhankelijk van $x$ en $Q^2$.
-De derde term bevat een $\vec{q} \times \vec{q}$ vorm, waardoor deze pariteit niet behoud.
-Deze term zal dan ook $\approx 0$ indien de Z bijdrage verwaarloosbaar is.
+De derde term bevat een uitwendig product (de $\vec{q} \times \vec{q}$ vorm), waardoor deze term pariteit niet behoudt.
+Deze term zal dan ook $\approx 0$ indien de Z bijdrage verwaarloosbaar is, omdat voor zover gekend pariteit nog steeds behouden is voor de sterke wisselwerking.
 Men bekomt \eqref{eq:SF} door $L^{\mu \nu}$ in te vullen en volgende variabelen te definiëren:
 \begin{align}
 Y_\pm &= 1 \pm (1-y)^2 \notag \\
 F_L &= F_2 - 2x F_1 \notag
 \end{align}
 In DIS processen, kan men vaak uitgaan van $F_L = 0$, zodat $F_2$ voldoende is om de hele werkzame doorsnede te bepalen.
-
 
 \newpage
 \begin{thebibliography}{99}

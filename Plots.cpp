@@ -11,7 +11,7 @@
 
 // BachProef includes
 #include "StructureFunction.h"
-using SF::massless::F2;
+using SF::massive::F2;
 using SF::massive::FL;
 
 // C++ includes
@@ -21,7 +21,7 @@ using SF::massive::FL;
 
 void calcOutput()
 {
-    const size_t nPoints = 100;
+    const size_t nPoints = 20;
     std::ofstream file;
 
     std::vector<double> x(nPoints);
@@ -30,10 +30,10 @@ void calcOutput()
  * FL(x) for different values of Q²
  */
     // x = logspace( 1e-4, 1e-1, 100 )
-    double current = 1e-4 * 1.07;
+    double current = 1e-4 / 1.44;
     for( size_t i=0; i<nPoints ; ++i )
     {
-        current *= 1.07;
+        current *= 1.44;
         x.at(i) = current;
     }
     // Q² values
@@ -41,7 +41,7 @@ void calcOutput()
 
     // FL
     file.open( "FL.txt" );
-    std::cout << "Calculating FL plot data." << std::endl;
+    std::cout << "Calculating Massive FL plot data." << std::endl;
     for( size_t i=0; i<nPoints; ++i )
     {
         file << x.at(i) << "\t";
@@ -57,17 +57,17 @@ void calcOutput()
  * F2(x) for same values Q²
  */
     // x = logspace( 1e-5, 1e-2, 100 )
-    current = 1e-5 * 1.07;
+    current = 1e-5 / 1.44;
     for( size_t i=0; i<nPoints ; ++i )
     {
-        current *= 1.07;
+        current *= 1.44;
         x.at(i) = current;
     }
     // Q² values
     Q2 = { 1.5, 2, 2.5, 3.5, 4.5, 5 };
     // F2
     file.open( "F2.txt" );
-    std::cout << "Calculating F2 plot data." << std::endl;
+    std::cout << "Calculating Massless F2 plot data." << std::endl;
     for( size_t i=0; i<nPoints; ++i )
     {
         file << x.at(i) << "\t";

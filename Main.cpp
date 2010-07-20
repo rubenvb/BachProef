@@ -37,7 +37,7 @@ int main()
     testMassless();
     testMassive();
 
-    //calcOutput();
+    calcOutput();
 
     return 0;
 }
@@ -118,6 +118,10 @@ void testMassive()
     cout << "FL(.0001,24)\t= .34798 ?=\t" << FL( .0001, 24 ) << endl;
 
     cout << "F2" << endl;
-    cout << "F2(1e-5,1.5)\t= 129.656 ?=\t" << F2( .00001, 1.5 ) << endl;
-    cout << "F2(1e-3,2)  \t= 52.2914 ?=\t" << F2( .001, 2. ) <<endl;
+    cout << "F2(1e-5,2)\t= 1.14777 ?=\t" << F2( .00001, 2 ) << endl;
+    cout << "F2(1e-5,1.5)\t= ??????? ?=\t" << F2( .00001, 1.5 ) << endl;
+    cout << "F2(1e-3,2)  \t= ??????? ?=\t" << F2( .001, 2. ) <<endl;
+
+    cout << "F2 by integrating twice" << endl;
+    cout << "F2(1e-5,2)\t=" << FT(1e-5,2) + FL(1e-5,2) << endl;
 }

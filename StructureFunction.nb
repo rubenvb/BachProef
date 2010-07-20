@@ -10,157 +10,164 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       145,          7]
-NotebookDataLength[     10256,        272]
-NotebookOptionsPosition[      9645,        249]
-NotebookOutlinePosition[      9991,        264]
-CellTagsIndexPosition[      9948,        261]
+NotebookDataLength[     10304,        281]
+NotebookOptionsPosition[      9693,        258]
+NotebookOutlinePosition[     10039,        273]
+CellTagsIndexPosition[      9996,        270]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 
 Cell[CellGroupData[{
-Cell[BoxData[
- RowBox[{"\[IndentingNewLine]", 
+Cell[BoxData[{
+ RowBox[{"Remove", "[", "\"\<Global`*\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"sigma0", ":=", 
+  RowBox[{"23.03", "*", "2.57069"}]}], "\[IndentingNewLine]", 
+ RowBox[{"lambda", ":=", ".288"}], "\[IndentingNewLine]", 
+ RowBox[{"alphaS", " ", ":=", " ", ".2"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"x0", ":=", ".000304"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
   RowBox[{
-   RowBox[{"sigma0", ":=", 
-    RowBox[{"23.03", "*", "2.57069"}]}], "\[IndentingNewLine]", 
-   RowBox[{"lambda", ":=", ".288"}], "\[IndentingNewLine]", 
-   RowBox[{"alphaS", " ", ":=", " ", ".2"}], "\[IndentingNewLine]", 
-   RowBox[{"x0", ":=", ".000304"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]", 
+   RowBox[{"R02", "[", "x_", "]"}], ":=", 
    RowBox[{
-    RowBox[{"R02", "[", "x_", "]"}], ":=", 
+    RowBox[{"(", 
+     RowBox[{"x", "/", "x0"}], ")"}], "^", "lambda"}]}], 
+  "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"f", "[", 
+    RowBox[{"x_", ",", "k2_"}], "]"}], ":=", " ", 
+   RowBox[{"3", 
+    RowBox[{"sigma0", "/", 
+     RowBox[{"(", 
+      RowBox[{"4", 
+       RowBox[{"Pi", "^", "2"}], " ", "alphaS"}], ")"}]}], 
+    RowBox[{"R02", "[", "x", "]"}], " ", 
+    RowBox[{"k2", "^", "2"}], " ", 
+    RowBox[{"Exp", "[", 
+     RowBox[{
+      RowBox[{"-", 
+       RowBox[{"R02", "[", "x", "]"}]}], "k2"}], "]"}]}]}], 
+  "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"impactF2", " ", "[", 
+   RowBox[{"Q2_", ",", "k2_", ",", "z_", ",", "zeta_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"Q2", "/", 
+    RowBox[{"(", 
+     RowBox[{"4", 
+      RowBox[{"Pi", "^", "2"}]}], ")"}]}], "alphaS", " ", 
+   RowBox[{"(", 
+    RowBox[{"6", "/", "9"}], ")"}], 
+   RowBox[{"Pi", " ", "/", "k2"}], " ", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"1", "-", 
+      RowBox[{"2", "z", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", "z"}], ")"}]}], "-", 
+      RowBox[{"2", "zeta", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", "zeta"}], ")"}]}], "+", 
+      RowBox[{"12", "z", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", "z"}], ")"}], " ", "zeta", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", "zeta"}], ")"}]}]}], ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"Q2", " ", "z", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", "z"}], ")"}]}], "+", 
+      RowBox[{"k2", " ", "zeta", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", "zeta"}], ")"}]}]}], 
+     ")"}]}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"impactFL", "[", 
+    RowBox[{"Q2_", ",", "k2_", ",", "z_", ",", "zeta_"}], "]"}], ":=", 
+   RowBox[{"2", 
+    RowBox[{"Q2", "/", 
+     RowBox[{"(", 
+      RowBox[{"Pi", "^", "2"}], ")"}]}], "alphaS", " ", 
+    RowBox[{"(", 
+     RowBox[{"6", "/", "9"}], ")"}], " ", 
+    RowBox[{"Pi", " ", "/", "k2"}], "  ", 
     RowBox[{
      RowBox[{"(", 
-      RowBox[{"x", "/", "x0"}], ")"}], "^", "lambda"}]}], "\n", 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"f", "[", 
-     RowBox[{"x_", ",", "k2_"}], "]"}], ":=", " ", 
-    RowBox[{"3", 
-     RowBox[{"sigma0", "/", 
-      RowBox[{"(", 
-       RowBox[{"4", 
-        RowBox[{"Pi", "^", "2"}], " ", "alphaS"}], ")"}]}], 
-     RowBox[{"R02", "[", "x", "]"}], " ", 
-     RowBox[{"k2", "^", "2"}], " ", 
-     RowBox[{"Exp", "[", 
+      RowBox[{"z", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", "z"}], ")"}], "zeta", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", "zeta"}], ")"}]}], ")"}], "/", 
+     RowBox[{"(", 
       RowBox[{
-       RowBox[{"-", 
-        RowBox[{"R02", "[", "x", "]"}]}], "k2"}], "]"}]}]}], 
-   "\[IndentingNewLine]", "\n", 
+       RowBox[{"Q2", " ", "z", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", "z"}], ")"}]}], "+", 
+       RowBox[{"k2", " ", "zeta", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", "zeta"}], ")"}]}]}], ")"}]}]}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"F2", "[", 
+   RowBox[{"x_", ",", "Q2_"}], "]"}], ":=", " ", 
+  RowBox[{"NIntegrate", "[", 
    RowBox[{
-    RowBox[{"impactF2", " ", "[", 
-     RowBox[{"Q2_", ",", "k2_", ",", "z_", ",", "zeta_"}], "]"}], ":=", 
     RowBox[{
-     RowBox[{"Q2", "/", 
-      RowBox[{"(", 
-       RowBox[{"4", 
-        RowBox[{"Pi", "^", "2"}]}], ")"}]}], "alphaS", " ", 
-     RowBox[{"(", 
-      RowBox[{"6", "/", "9"}], ")"}], 
-     RowBox[{"Pi", " ", "/", "k2"}], " ", 
-     RowBox[{
-      RowBox[{"(", 
-       RowBox[{"1", "-", 
-        RowBox[{"2", "z", 
-         RowBox[{"(", 
-          RowBox[{"1", "-", "z"}], ")"}]}], "-", 
-        RowBox[{"2", "zeta", 
-         RowBox[{"(", 
-          RowBox[{"1", "-", "zeta"}], ")"}]}], "+", 
-        RowBox[{"12", "z", 
-         RowBox[{"(", 
-          RowBox[{"1", "-", "z"}], ")"}], " ", "zeta", 
-         RowBox[{"(", 
-          RowBox[{"1", "-", "zeta"}], ")"}]}]}], ")"}], "/", 
-      RowBox[{"(", 
-       RowBox[{
-        RowBox[{"Q2", " ", "z", 
-         RowBox[{"(", 
-          RowBox[{"1", "-", "z"}], ")"}]}], "+", 
-        RowBox[{"k2", " ", "zeta", 
-         RowBox[{"(", 
-          RowBox[{"1", "-", "zeta"}], ")"}]}]}], ")"}]}]}]}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"impactFL", "[", 
-     RowBox[{"Q2_", ",", "k2_", ",", "z_", ",", "zeta_"}], "]"}], ":=", 
-    RowBox[{"2", 
-     RowBox[{"Q2", "/", 
-      RowBox[{"(", 
-       RowBox[{"Pi", "^", "2"}], ")"}]}], "alphaS", " ", 
-     RowBox[{"(", 
-      RowBox[{"6", "/", "9"}], ")"}], " ", 
-     RowBox[{"Pi", " ", "/", "k2"}], "  ", 
-     RowBox[{
-      RowBox[{"(", 
-       RowBox[{"z", 
-        RowBox[{"(", 
-         RowBox[{"1", "-", "z"}], ")"}], "zeta", 
-        RowBox[{"(", 
-         RowBox[{"1", "-", "zeta"}], ")"}]}], ")"}], "/", 
-      RowBox[{"(", 
-       RowBox[{
-        RowBox[{"Q2", " ", "z", 
-         RowBox[{"(", 
-          RowBox[{"1", "-", "z"}], ")"}]}], "+", 
-        RowBox[{"k2", " ", "zeta", 
-         RowBox[{"(", 
-          RowBox[{"1", "-", "zeta"}], ")"}]}]}], ")"}]}]}]}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"F2", "[", 
-     RowBox[{"x_", ",", "Q2_"}], "]"}], ":=", " ", 
-    RowBox[{"NIntegrate", "[", 
-     RowBox[{
-      RowBox[{
-       RowBox[{"impactF2", "[", 
-        RowBox[{"Q2", ",", "k2", ",", "z", ",", "zeta"}], "]"}], " ", 
-       RowBox[{"f", "[", 
-        RowBox[{"x", ",", "k2"}], "]"}]}], ",", 
-      RowBox[{"{", 
-       RowBox[{"k2", ",", "0", ",", "Infinity"}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"z", ",", "0", ",", "1"}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"zeta", ",", "0", ",", "1"}], "}"}]}], "]"}]}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"FL", "[", 
-     RowBox[{"x_", ",", "Q2_"}], "]"}], ":=", " ", 
-    RowBox[{"NIntegrate", "[", 
-     RowBox[{
-      RowBox[{
-       RowBox[{"impactFL", "[", 
-        RowBox[{"Q2", ",", "k2", ",", "z", ",", "zeta"}], "]"}], " ", 
-       RowBox[{"f", "[", 
-        RowBox[{"x", ",", "k2"}], "]"}]}], ",", 
-      RowBox[{"{", 
-       RowBox[{"k2", ",", "0", ",", "Infinity"}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"z", ",", "0", ",", "1"}], "}"}], ",", 
-      RowBox[{"{", 
-       RowBox[{"zeta", ",", "0", ",", "1"}], "}"}]}], "]"}]}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{"impactF2", "[", 
+      RowBox[{"Q2", ",", "k2", ",", "z", ",", "zeta"}], "]"}], " ", 
+     RowBox[{"f", "[", 
+      RowBox[{"x", ",", "k2"}], "]"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"k2", ",", "0", ",", "Infinity"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"z", ",", "0", ",", "1"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"zeta", ",", "0", ",", "1"}], "}"}]}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
    RowBox[{"FL", "[", 
-    RowBox[{".0001", ",", "60"}], "]"}], " ", 
-   RowBox[{"(*", " ", 
-    RowBox[{"your", " ", 
-     RowBox[{"result", ":", " ", ".290"}]}], " ", "*)"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{"FL", "[", 
-    RowBox[{".0001", ",", "24"}], "]"}], " ", 
-   RowBox[{"(*", " ", 
-    RowBox[{"your", " ", 
-     RowBox[{"result", ":", " ", ".307"}]}], " ", "*)"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{"F2", "[", 
-    RowBox[{".00001", ",", "1.5"}], "]"}], "\[IndentingNewLine]", 
-   RowBox[{"F2", "[", 
-    RowBox[{".001", ",", "2"}], "]"}], "\[IndentingNewLine]", 
-   "\[IndentingNewLine]"}]}]], "Input",
+    RowBox[{"x_", ",", "Q2_"}], "]"}], ":=", " ", 
+   RowBox[{"NIntegrate", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"impactFL", "[", 
+       RowBox[{"Q2", ",", "k2", ",", "z", ",", "zeta"}], "]"}], " ", 
+      RowBox[{"f", "[", 
+       RowBox[{"x", ",", "k2"}], "]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"k2", ",", "0", ",", "Infinity"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z", ",", "0", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"zeta", ",", "0", ",", "1"}], "}"}]}], "]"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"FL", "[", 
+   RowBox[{".0001", ",", "60"}], "]"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"your", " ", 
+    RowBox[{"result", ":", " ", ".290"}]}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"FL", "[", 
+   RowBox[{".0001", ",", "24"}], "]"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"your", " ", 
+    RowBox[{"result", ":", " ", ".307"}]}], " ", "*)"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"F2", "[", 
+  RowBox[{".00001", ",", "1.5"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"F2", "[", 
+   RowBox[{".001", ",", "2"}], "]"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
  CellChangeTimes->{{3.4880877799370003`*^9, 3.4880878268450003`*^9}, {
    3.4880878579560003`*^9, 3.488088014263*^9}, {3.488088078191*^9, 
    3.488088154271*^9}, {3.48808819327*^9, 3.488088197979*^9}, {
@@ -172,7 +179,9 @@ Cell[BoxData[
    3.4880910127424*^9, 3.488091102968*^9}, {3.4880915714166*^9, 
    3.488091575925*^9}, {3.4880921389948*^9, 3.4880921402896*^9}, {
    3.4880921755456*^9, 3.4880921857636003`*^9}, {3.4880925165615997`*^9, 
-   3.4880926556976*^9}, {3.48810945374*^9, 3.488109474398*^9}}],
+   3.4880926556976*^9}, {3.48810945374*^9, 3.488109474398*^9}, {
+   3.4885238364916*^9, 3.4885238723496*^9}, {3.4885248100476*^9, 
+   3.4885248226026*^9}, 3.488613632891*^9}],
 
 Cell[BoxData[
  RowBox[{
@@ -248,7 +257,7 @@ Cell[BoxData["0.5762478592111961`"], "Output",
 }, Open  ]]
 },
 WindowSize->{883, 577},
-WindowMargins->{{158, Automatic}, {Automatic, 10}},
+WindowMargins->{{Automatic, 22}, {-41, Automatic}},
 FrontEndVersion->"7.0 for Microsoft Windows (64-bit) (February 18, 2009)",
 StyleDefinitions->"Default.nb"
 ]
@@ -264,15 +273,15 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[567, 22, 5688, 152, 532, "Input"],
-Cell[6258, 176, 704, 12, 56, "Message"],
-Cell[6965, 190, 136, 2, 30, "Output"],
-Cell[7104, 194, 704, 12, 56, "Message"],
-Cell[7811, 208, 136, 2, 30, "Output"],
-Cell[7950, 212, 704, 12, 56, "Message"],
-Cell[8657, 226, 131, 2, 30, "Output"],
-Cell[8791, 230, 704, 12, 56, "Message"],
-Cell[9498, 244, 131, 2, 30, "Output"]
+Cell[567, 22, 5736, 161, 532, "Input"],
+Cell[6306, 185, 704, 12, 56, "Message"],
+Cell[7013, 199, 136, 2, 30, "Output"],
+Cell[7152, 203, 704, 12, 56, "Message"],
+Cell[7859, 217, 136, 2, 30, "Output"],
+Cell[7998, 221, 704, 12, 56, "Message"],
+Cell[8705, 235, 131, 2, 30, "Output"],
+Cell[8839, 239, 704, 12, 56, "Message"],
+Cell[9546, 253, 131, 2, 30, "Output"]
 }, Open  ]]
 }
 ]
