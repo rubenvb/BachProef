@@ -18,8 +18,6 @@ namespace SF
         const double sigma0 = 29.12*2.57069; // 1 barn = 2.568 (\hbar c)²/Gev²
         const double lambda = .277;
         const double x0 = .41e-4;
-        const double charge2[] = { 4./9, 1./9, 4./9, 1./9 }; // { u, d, c, s }
-        const double mass2[] = { .14*.14, .14*.14, 1.5*1.5, .14*.14 }; // { u, d, c, s }
 
         double xTilde( const double x, const double Q2, const int quark );
 

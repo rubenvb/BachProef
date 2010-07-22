@@ -10,6 +10,8 @@
 #include "StructureFunction/Massive.h"
 
 // BachProef includes
+#include "Quarks.h"
+    using namespace quarks;
 #include "StructureFunction/CouplingConstant.h"
 
 // Cubature include
