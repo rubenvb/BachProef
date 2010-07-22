@@ -23,7 +23,8 @@ SOURCES += \
     StructureFunction/Massless.cpp \
     StructureFunction/Massive.cpp \
     StructureFunction/CouplingConstant.cpp \
-    Plots.cpp
+    Plots.cpp \
+    UnintegratedGluonDensity.cpp
 
 HEADERS += \
     Cubature/Cubature.h \
@@ -31,7 +32,9 @@ HEADERS += \
     StructureFunction.h \
     StructureFunction/Massless.h \
     StructureFunction/Massive.h \
-    StructureFunction/CouplingConstant.h
+    StructureFunction/CouplingConstant.h \
+    UnintegratedGluonDensity.h \
+    Quarks.h
 
 OTHER_FILES += \
     thesis/thesis.tex \
@@ -41,4 +44,10 @@ OTHER_FILES += \
     thesis/Afbeeldingen/placeholder.eps \
     thesis/Afbeeldingen/UA.eps \
     plotFL.m \
-    plotF2.m
+    plotF2.m \
+    UnintegratedGluonDensity.nb \
+    thesis/Afbeeldingen/QED.eps \
+    thesis/Afbeeldingen/NC.eps \
+    thesis/Afbeeldingen/GluonLoop.eps \
+    thesis/Afbeeldingen/DIS.eps \
+    thesis/Afbeeldingen/CC.eps
