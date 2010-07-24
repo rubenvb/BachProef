@@ -116,7 +116,7 @@ Omdat de waarde van $q^2$ negatief is, wordt vaak volgende variabele ingevoerd: 
 Dit wil concreet zeggen dat als de overgedragen impuls verhoogt, de golflengte van het foton en dus de grootte van de deeltjes waarmee het interageert, kleiner wordt.
 
       \paragraph{}
-Men kan twee soorten DIS interacties onderscheiden: neutrale en geladen stroom (respectievelijk NC en CC). De Feynman diagrammen worden weergegeven in figuur %ZIE HIERONDER
+Men kan twee soorten DIS interacties onderscheiden: neutrale en geladen stroom (respectievelijk NC en CC). De Feynman diagrammen worden weergegeven in figuur \ref{fig:NC-CC}.
 \begin{figure} [H]
   \centering
   \subfigure[NC interactie met uitwisseling van een foton of $Z$ boson.]{
@@ -137,19 +137,19 @@ In wat volgt wordt beschreven wat er gebeurt als men $Q^2$ systematisch verhoogt
   \subsection{Breking van schaalinvariantie}
     \paragraph{Elektron-kern verstrooiing}
 Stel dat een elektron verstrooid wordt op een atoomkern (bestaande uit meerdere nucleonen).
-Als $\lambda \gg d_{kern}$, ziet het foton de kern als een puntdeeltje en wordt het elastisch verstrooid op een puntdeeltje met de lading van de kern.
-Als $\lambda \ll d_{kern}$, dringt het foton diep door in de kern en kan het verstrooid worden op een proton in de kern.
+Als $\lambda \gg d_\text{kern}$, ziet het foton de kern als een puntdeeltje en wordt het elastisch verstrooid op een puntdeeltje met de lading van de kern.
+Als $\lambda \ll d_\text{kern}$, dringt het foton diep door in de kern en kan het verstrooid worden op een proton in de kern.
 Men spreekt hier van diep inelastische elektron-kern verstrooiing, en men kan het volgende schrijven:
 \begin{align}
 x_N = \frac{M}{M_N} \left( \frac{Q^2}{2M\nu} \right) = \frac{1}{A}
 \end{align}
 waarbij $M_N$ de massa van de kern is, $M$ de massa van het proton, $\nu$ de frequentie van het foton en $A$ het aantal nucleonen in de kern.
-Als men de werkzame doorsnede van deze processen zou uitzetten t.o.v. $x_N$, ziet men een duidelijke verschil tussen de gevallen waar $\lambda \gg d_{kern}$ en die waar $\lambda \ll d_{kern}$.
+Als men de werkzame doorsnede van deze processen zou uitzetten t.o.v. $x_N$, ziet men een duidelijke verschil tussen de gevallen waar $\lambda \gg d_\text{kern}$ en die waar $\lambda \ll d_\text{kern}$.
 Dit fenomeen heet \textit{schaalinvariantie}, waarbij de waargenomen werkzame doorsnede blijkbaar afhangt van de grootte van de schaal, $Q^2$.
 
       \paragraph{Elektron-proton verstrooiing}
-Zolang dat $\lambda \gg d_{proton}$, ziet het foton het proton als puntdeeltje. Het wordt elastisch verstrooid door het proton.
-Als $Q^2$ zo groot is dat $\lambda \ll d_{proton}$, wordt er opnieuw ``ingezoomd", waarbij het foton nu de bouwstenen van het proton kan “zien" (i.e. ermee kan interageren).
+Zolang dat $\lambda \gg d_\text{proton}$, ziet het foton het proton als puntdeeltje. Het wordt elastisch verstrooid door het proton.
+Als $Q^2$ zo groot is dat $\lambda \ll d_\text{proton}$, wordt er opnieuw ``ingezoomd", waarbij het foton nu de bouwstenen van het proton kan “zien" (i.e. ermee kan interageren).
 Het foton ziet dus de 3 quarks als puntdeeltjes en men spreekt van diep inelastische elektron-proton verstrooiing.
 Kinematisch geldt het volgende (zie appendix \ref{app:DIS}):
 \begin{align} \label{eq:Bjorkenx}
@@ -224,20 +224,100 @@ Een fermion loop brengt afscherming van de (kleur)lading met zich mee (zie \ref{
 Een gluon loop zorgt voor \textit{antiscreening}, waardoor  $\alpha_S$ stijgt naarmate $Q^2$ kleiner wordt.
 Dit volgt uit de uitdrukking voor $\alpha_S$, analoog aan \eqref{eq:alpha}:
 \begin{align}
-\alpha( Q^2 ) =\frac{\alpha(\mu^2)}{1+b_0 \alpha(\mu^2) \ln{\frac{Q^2}{\mu^2}}}
+\alpha_S( Q^2 ) =\frac{\alpha(\mu^2)}{1+b_0 \alpha(\mu^2) \ln{\frac{Q^2}{\mu^2}}}
 \end{align}
 Hier heeft de coëfficiënt dus het tegengestelde teken, waar de tegenstelling tussen QED en QCD uit volgt.
+Dit kan men herschrijven zodat de enige vrije parameter van QCD naar voor komt (zie bijvoorbeeld \cite[sectie 6.6]{Bettini}):
+\begin{align} \label{eq:runningAlphaS}
+\alpha_S(Q^2) = \frac{12\pi}{(33-2n_f) \ln{\frac{|Q|^2}{\lambda_\text{QCD}}}}
+\end{align}
+Waarbij $\lambda_\text{QCD}$ de fundamentele parameter in QCD is, die uit experimentele metingen wordt bepaald.
+$\lambda_\text{QCD}$ hangt af van het aantal soorten quarks die bijdragen aan het proces $n_f$ (\cite[sectie 6.6]{Bettini}):
+\begin{align}
+\lambda_\text{QCD} = \mu^2 exp \left[ \frac{-12\pi}{(33-n_f) \alpha_S(\mu^2)} \right]
+\end{align}
+Voor drie en vier quarksoorten is $\lambda_\text{QCD}$ respectievelijk ongeveer gelijk aan 400 en 200 MeV.
+Waarbij $\mu^2$ een schaalvariabele is waarvoor de koppeling gekend is.
+$\lambda_\text{QCD}$ is zeer invloedrijk in verdere QCD berekeningen.
+Als de energie kleiner is dan $\lambda_\text{QCD}$, is $\alpha_S$ groot en kan men geen perturbatieve berekeningen uitvoeren.
+Daarbij komt dat $\alpha$ en $\alpha_S$ niet rechtstreeks gemeten kunnen worden, maar enkel door een theoretische berekening uit experimentele data kunnen worden afgeleid.
+$\alpha_S$ zal dan bijgevolg minder nauwkeurig zijn, wegens zijn relatieve grootte.
 
-    \subsubsection{Renormalisatie groep vergelijking}
+    \subsubsection{Renormalisatiegroep vergelijking}
 Omdat de keuze van $\mu^2$ in een berekening onmogelijk de gemeten waarde van een observabele kan beïnvloeden, moet er expliciet voor gezorgd worden door middel van de \textit{renormalisation group equation}:
 \begin{align} \label{eq:RGE}
-\frac{d R}{d\ln{\mu^2}} = \left(\frac{\partial}{\partial \ln{\mu^2}} + \frac{\partial \alpha_S}{\partial \ln{\mu^2}} \frac{\partial}{\partial \alpha_S} \right) R \\
-\Rightarrow R(Q^2/\mu^2, \alpha_S(Q^2)) = R(1,\alpha_S(Q^2)) \notag
+\frac{d R}{d\ln{\mu^2}} = \left(\frac{\partial}{\partial \ln{\mu^2}} + \frac{\partial \alpha_S}{\partial \ln{\mu^2}} \frac{\partial}{\partial \alpha_S} \right) R \notag \\
+\Rightarrow R(Q^2/\mu^2, \alpha_S(Q^2)) = R(1,\alpha_S(Q^2))
 \end{align}
-Dit laatste betekent dat de twee afhankelijkheden (op $Q^2/\mu^2$ en $\alpha_S(\mu^2)$) eigenlijk maar een enkele zijn, namelijk het verloop van $\alpha_S(Q^2)$. Voor een uitwerking van de dubbele pijl in \eqref{eq:RGE} zie %REFERENTIE NAAR BOEK.
+Dit laatste betekent dat de twee afhankelijkheden (op $Q^2/\mu^2$ en $\alpha_S(\mu^2)$) eigenlijk maar een enkele zijn, namelijk het verloop van $\alpha_S(Q^2)$. Voor een uitwerking van de dubbele pijl in \eqref{eq:RGE} zie appendix \ref{app:RGE}).
 
-  \subsection{Structuurfuncties}
-De meetbare grootheid die de theorie verbindt met harde waarnemingen, is de structuurfunctie.
+    \subsubsection{QCD observabelen}
+      \paragraph{}
+Elke observabele kan in perturbatieve QCD ontwikkeld worden in machten van $\alpha_S$.
+Bijkomende factoren zullen gevormd worden door logaritmes van $Q^2$ en bij lage $x$, $1/x^2$.
+Omdat een observabele per definitie een eindig getal moet zijn, moeten de op eerste zicht divergente reeksen in $\alpha_S$ gehersommeerd worden.
+Deze hersommatie kan enkel in speciale gevallen gebruikt worden, en alle tot nu toe bekende vormen zijn enkel in een bepaald regime (van $Q^2$ en/of $x$) geldig.
+Omdat de exacte techniek op z’n minst moeilijk en zeer technisch is, worden hieronder enkel een beschrijving van de benaderingen en hun resultaten besproken. (\cite[sectie 9.5.2]{Barone})
+
+      \paragraph{LLA}
+\textit{Leading $\ln{Q^2}$ approximation}, waar de termen van de vorm $\alpha_S^n \ln^n{Q^2}$ gehersommeerd worden:
+\begin{align} \label{eq:LLA}
+R = \sum_n \alpha_S \ln^n{Q^2} \left( \sum_{k=n}^0 \ln^k{\frac{1}{x}} \right)
+\end{align}
+Dit leidt tot de DGLAP evolutievergelijkingen, die de evolutie van een observabele beschrijft in $Q^2$ bij “normale” $x$.
+Indien ook termen van de vorm $\alpha_S^n \ln^{n-1}{Q^2}$ behouden blijven, krijgt men \textit{next-to leading $\ln{Q^2}$ approximation} en bijgevolg de NLLA DGLAP vergelijkingen.
+
+      \paragraph{DLLA}
+\textit{Double leading log approximation} duidt op het feit dat termen van de vorm $\alpha_S \ln^n{Q^2} \ln^n{\frac{1}{x}}$ behouden blijven:
+\begin{align}
+R = \sum_n \alpha_S \ln^n{Q^2} \ln^n{\frac{1}{x}}
+\end{align}
+
+      \paragraph{LL$_x$A}
+In de praktijk zal voor heel lage $x$, $Q^2$ klein zijn, en men enkel de termen van de vorm $\alpha_S^n \ln^n{\frac{1}{x}}$ behoudt. Zo krijgt men de \textit{leading $\ln{\frac{1}{x}}$ approximation}:
+\begin{align}
+R = \sum_n \alpha_S \ln^n{\frac{1}{x}} \left( \sum_{k=n}^0 \ln^k{Q^2} \right)
+\end{align}
+\eqref{eq:LLA} en bovenstaande vergelijking zijn symmetrisch ten opzichte van $Q^2$ en $1/x$. Deze laatste leidt ook tot een veel bestudeerde BFKL evolutievergelijking.
+
+      \paragraph{Parton dichtheden}
+Een probleem in de recente resultaten van DGLAP berekeningen tot \textit{next-to next-to leading order}, is het opblazen van de parton dichtheden in een proton voor zeer kleine $x$.
+In figuur \ref{fig:PD} staat voor twee verschillende schalen $Q^2$ getoond wat de dichtheden van de verschillende partons (gluonen en (zee)quarks) in het proton zijn.
+Als dit verloop blijft doorgaan, zullen dichtheden optreden die niet meer fysisch zijn (unitariteit is niet meer geldig), waardoor de kans om met een parton te botsen groter dan 1 kan zijn.
+\begin{figure} [H]
+  \begin{center}
+    \includegraphics[scale=1]{Afbeeldingen/PD.eps}
+    \caption{Dichtheden van de verschillende partonen in een proton voor twee verschillende schalen $Q^2$. Voor kleine $x$ gaan de gluonen sterk domineren. Voor relatief grote $x$-waarden vindt men de klassieke $uud$ combinatie terug, met de gluonen en zeequarks sterk onderdrukt. \cite{Martin}}
+   \label{fig:PD}
+  \end{center}
+\end{figure}
+
+    \subsubsection{DGLAP en BFKL}
+Evolutievergelijkingen geven het verband tussen een grootheid (bijvoorbeeld een dichtheidsfunctie van quarks of gluonen) bij een (bijna) willekeurige waarde van $Q^2$ of $x$ en de waarde van de grootheid bij een bekende $Q_0^2$ of $x_0^2$.
+
+      \paragraph{DGLAP}
+De DGLAP vergelijkingen kunnen gebruikt worden om de quark- en gluondichtheden voor een hogere waarde van $Q^2$ te berekenen, indien deze dichtheden bij een kleinere waarde $Q_0^2$ bekend zijn.
+De $x$-afhankelijkheid is hier onbekend, en moet experimenteel worden vastgesteld.
+
+      \paragraph{BFKL}
+De BFKL vergelijkingen doen net het omgekeerde: als de dichtheden bij een bepaalde waarde $x_0$ bekend is (hier moeten bepaalde aannames gemaakt worden, omdat bij lage $x$ niets exact berekend kan worden), kunnen e dichtheden berekend worden voor (bijna) willekeurige $x$.
+Net zoals bij DGLAP de $x$-afhankelijkheid niet bekend was, blijft bij BFKL de $Q^2$-afhankelijkheid onbekend.
+
+      \paragraph{Geldigheid}
+Zoals al aan te voelen was, is elke vorm van evolutie maar geldig in een bepaald geval (kleine $x$, grote $Q^2$), net door de aanname die gemaakt werd bij het hersommeren van de reeks in $\alpha_S$.
+In figuur \ref{fig:DGLAP-BFKL} wordt aangeduid wanneer welke vergelijkingen aangewezen zijn.
+\begin{figure} [H]
+  \begin{center}
+    \includegraphics[scale=1]{Afbeeldingen/DGLAP-BFKL.eps}
+    \caption{Schematische weergave van wat met verschillende benaderingen kan verwezenlijkt worden. Regge duidt op een gebied waar een pre-QCD theorie (Regge-theorie) geldig is. pQCD slaagt op perturbatieve QCD. \cite{Martin}}
+   \label{fig:DGLAP-BFKL}
+  \end{center}
+\end{figure}
+In figuur \ref{fig:DGLAP-BFKL} kan men ook een saturatielijn zien, die een theoretisch voorspelde grens vormt, waar saturatie van de partondistributies belangrijk zou worden (zie figuur \ref{fig:PD}).
+De quark- en gluondistributies geven aanleiding tot structuurfuncties, die de structuur van een groter object (hier een proton) kunnen beschrijven bij bepaalde $Q^2$ en $x$.
+
+    \subsection{Structuurfuncties}
+Een meetbare grootheid die de theorie verbindt met harde waarnemingen, is de structuurfunctie.
 Deze waarschijnlijkheidsverdelingen in functie van $x$ en $Q^2$  geven een indicatie van de kans om in een DIS proces met een parton te botsen met die $x$ en $Q^2$.
 Met de juiste definities kan men de werkzame doorsnede voor een NC proces (figuur \ref{fig:NC}) als volgt schrijven (als $M^2/Q^2 \rightarrow 0$):
 \begin{align} \label{eq:SF}
@@ -245,25 +325,58 @@ Met de juiste definities kan men de werkzame doorsnede voor een NC proces (figuu
 \end{align}
 Een uitgebreide discussie van bovenstaande uitdrukking staat in appendix \ref{app:SF}.
 Als er enkel een foton kan worden uitgewisseld ($\sigma_\gamma \gg \sigma_Z$, dus de interactie via Z wordt verwaarloosd), kan men aantonen dat $F_3 \approx 0$ (zie ook appendix \ref{app:SF}).
+In dit werk zal gekeken worden naar het gebied met heel kleine $x$, waardoor saturatie belangrijk wordt.
 
-    \subsubsection{$F_2$ ontwikkeld in $\alpha_S$}
-Elke observabele kan in perturbatieve QCD ontwikkeld worden in machten van $\alpha_S$:
+    \subsubsection{Saturatie} \label{sec:Saturatie}
+Saturatie zal in een of andere vorm moeten optreden voor zeer kleine $x$, omdat anders de partondichtheden niet fysisch meer zijn en de huidige formulering onzinnige resultaten zou voorspellen (zie figuur \ref{fig:PD}).
+In dit werk wordt dus uitbundig gebruik gemaakt van modellen die met dit fenomeen rekening houden.
+Een beproefd en op zich eenvoudig model, is dat van Krzysztof Golec-Biernat \cite{GB}.
+Golec-Biernat gebruikt het formalisme van de foton golffunctie, waarbij een foton onafhankelijk van de DIS botsing kan splitsen in een $q\bar{q}$-paar, dat dan interageert met het proton.
+Dit laat toe een perturbatieve berekening te doen voor deze golffunctie, en de rest wordt beschreven door middel van een model.
 \begin{align}
-R = \sum_n \alpha_S \ln^n{Q^2} \left( \sum_{k=n}^0 a_{kn} \ln^k{\frac{1}{x}} \right)
+\sigma_{T,L} = \int d^2 \vec{r} \int_0^1 dz |\Psi_{T,L} (z, \vec{r})|^2 \hat{\sigma} (x,r^2)
 \end{align}
-
-
-
-
-
-
+Waarbij $\Psi$ de golffunctie van het foton is, $T$ en $L$ duiden op respectievelijk het longitudinaal en het transversaal deel hiervan, en $\hat{\sigma}$ het gemodelleerde, niet-perturbatieve gedeelte is.
+Bovenstaande vergelijking is geformuleerd in positieruimte.
+$r$ is de afstand tussen het ontstane $q\bar{q}$-paar.
+Golec-Biernat en Wüsthoff bespreken in \cite{GBW} wat het GBW model wordt genoemd.
+Dit model kan in impulsruimte en in positieruimte gebruikt worden.
+De saturatie zit in de factor $\hat{\sigma}$, die de volgende vorm heeft:
+\begin{align}
+\hat{\sigma}(x,r^2) &= \sigma_0 \left[ 1- \exp{\left(-\frac{r^2}{4 R_0^2(x)}\right)} \right] \\
+R_0^2(x) &= \frac{1}{Q_0^2} \left( \frac{x}{x_0} \right)^\lambda \label{eq:R0}
+\end{align}
+\eqref{eq:R0} is de \textit{saturation radius}, wat effectief een saturatie schaal invoert voor $r$.
+$Q_0^2$ is 1 GeV, en ingevoerd om de juiste dimensies te krijgen.
+$\sigma_0$, $\lambda$ en $x_0$ zijn de parameters van het model, die bepaald zijn door te fitten aan alle DIS data die beschikbaar was.
+Ze verschillen voor het geval waar enkel $uds$ quarks bijdragen en waar ook de charm quark bijdraagt (zie appendix \ref{app:GBWparameters}).
+Dit model heeft een ingebouwde begrenzing van de dipool werkzame doorsnede $\hat{\sigma}$.
+Deze heeft het juiste gedrag in $r$: kwadratisch voor kleine $r$, en constant voor grote waarden.
+Dat $\hat{\sigma}$ nul is voor kleine dipoolstraal $r$, hoeft geen verwondering.
+Als de afstand $r$ tussen de twee quarks van $q\bar{q}$-paar klein is, zal het vanop redelijke afstand een kleurneutraal object vormen en kan er dus geen QCD interactie optreden.
+Dit effect heet kleurdoorzichtigheid.
+Een ander sterk punt van dit model is het feit dat hier een saturatie voor kleine $x$ is ingebouwd, wat natuurlijk wenselijk is voor berekeningen in dat gebied.
 
   \subsection{Dwarse energiestroom}
+    \subsubsection{Belang voor LHeC}
     \subsubsection{Formulering}
+In \cite{ET} wordt een uitdrukking berekend voor de transversale energiestroom van een DIS botsing.
+Deze uitdrukking werd berekend voor kleine $x$ (dus met behulp van BFKL dynamica), en ingevuld met vergelijkingen die toen de beste resultaten gaven.
+Hier zal deze vergelijking herbekeken worden, en toegepast op hernieuwde uitdrukkingen voor de bestanddelen.
+\begin{align} \label{eq:ET}
+x_j \frac{\partial E_T}{\partial x_j} = \frac{1}{F_2} \int \frac{dk_p^2}{k_p^2} \int \frac{dk_\gamma^2}{k_\gamma^2} \left( \frac{3\alpha_S}{\pi} \right) \mathcal{F}_2 \left( \frac{x}{x_j}, k_\gamma^2, Q^2 \right) f(x_j,k_p^2) \int \frac{d\phi}{\sqrt{k_p^2+k_\gamma^2+2k_p k_\gamma \cos{\phi}}}
+\end{align}
+Deze uitdrukking bestaat uit verschillende, af te zonderen delen, waar later meer aandacht zal worden aan besteed.
+$F_2 (x, Q^2)$ is de structuurfunctie van het proton, $f$ is de dichtheid van het gluon en $\mathcal{F}_2$ is de structuurfunctie van de hadronische structuur van het foton.
+Belangrijk op te merken is dat $F_2$ op voorhand kan berekend worden, en de integraal over $\phi$ analytisch kan worden bepaald.
+Dit laat op eerste zicht nog maar 2 integraties over om numeriek te berekenen.
+
+
+    
     \subsubsection{Gluon dichtheid}
     \subsubsection{$F_2$}
     \subsubsection{$\mathcal{F}_2$}
-    \subsubsection{Saturatie}
+
 
 \section{Resultaten}
 
@@ -321,6 +434,27 @@ F_L &= F_2 - 2x F_1 \notag
 \end{align}
 In DIS processen, kan men vaak uitgaan van $F_L = 0$, zodat $F_2$ voldoende is om de hele werkzame doorsnede te bepalen.
 
+\section{Renormalisatiegroep vergelijking} \label{app:RGE}
+Vergelijking \eqref{eq:RGE} wordt als volgt bekomen. Vertrekkende van het stuk voor de dubbele pijl, en volgende nieuwe variabele $t$ en functie $\beta$:
+\begin{align}
+t = \ln{\frac{Q^2}{\mu^2}}, \beta(\alpha_S) =  \frac{\partial \alpha_S}{\partial \ln{\mu^2}}
+\end{align}
+
+\section{Parameters van het GBW model voor saturatie} \label{app:GBWparameters}
+In het geval van 3 lichte quarks: up, down en strange, krijgt men volgende waarden:
+\begin{align}
+\sigma_0 &= 23.03 \text{mb} \notag \\
+\lambda &= 0.288 \\
+x_0 &= 3.04 \times 10^{-4} \notag
+\end{align}
+In geval van een vierde charm quark zijn de gefitte waarden anders.
+\begin{align}
+\sigma_0 &= 29.12 \text{mb} \notag \\
+\lambda &= 0.277 \\
+x_0 &= 0.41 \times 10^{-4} \notag
+\end{align}
+De waarden komen overeen met die in \cite{GBW}.
+
 \newpage
 \begin{thebibliography}{99}
 
@@ -332,8 +466,36 @@ In DIS processen, kan men vaak uitgaan van $F_L = 0$, zodat $F_2$ voldoende is o
   Durham, DH1 3LE, UK
   12 mei, 2008.
 
+\bibitem{Bettini}
+  Alessandro Bettini
+  \emph{Introduction to Elementary Particle Physics}
+  Cambridge University Press
+  2008
+
+\bibitem{Barone}
+  Vincenzo Barone, Enrico Predazzi
+  \emph{High-energy particle diffraction}
+  Springer-Verlag Berlin Heidelberg New York
+  2002
+
+\bibitem{GB}
+  Krzysztof Golec-Biernat
+  \emph{Deep Inelastic Scattering at Small Values of the Bjorken Variable x}
+  Habilitation thesis,
+  Kraków/Hamburg
+  2001
+
+\bibitem{GBW}
+  K. Golec-Biernat, M. Wüsthoff
+ \emph{ Saturation Effects in Deep Inelastic Scattering at low $Q^2$ and its Implications on Diffraction}
+  2008
+  
+\bibitem{ET}
+  J.Kwieciński, A.D. Martin, P.J. Sutton, K. Golec-Biernat
+  \emph{QCD predictions for the transverse energy flow in deep-inelastic scattering in the DESY HERAsmall $x$ regime}
+  Physical Review D, Volume 50, 1
+  1994
+
 \end{thebibliography}
-
-
 
 \end{document}
