@@ -10,7 +10,7 @@
 #define STRUCTUREFUNCTION_H
 
 // StructureFunction includes
-#include "StructureFunction/Massless.h"
-#include "StructureFunction/Massive.h"
+#include "StructureFunction/SFMassless.h"
+#include "StructureFunction/SFMassive.h"
 
 #endif // STRUCTUREFUNCTION_H

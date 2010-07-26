@@ -7,8 +7,8 @@
   *
   **/
 
-#ifndef MASSIVE_H
-#define MASSIVE_H
+#ifndef SFMASSIVE_H
+#define SFMASSIVE_H
 
 namespace SF
 {
@@ -24,14 +24,14 @@ namespace SF
         double gluonDensity( const double xTilde, const double k2 );
 
         double impactFT( const double Q2, const double k2,
-                               const double z, const double zeta,
-                               const int quark );
+                         const double z, const double zeta,
+                         const int quark );
         double impactFL( const double Q2, const double k2,
-                               const double z, const double zeta,
-                               const int quark );
+                         const double z, const double zeta,
+                         const int quark );
         double impactF2( const double Q2, const double k2,
-                               const double z, const double zeta,
-                               const int quark );
+                         const double z, const double zeta,
+                         const int quark );
 
         void integrandFL( unsigned /*ndim*/, const double* xValues,
                      void* input, unsigned /*fdim*/,

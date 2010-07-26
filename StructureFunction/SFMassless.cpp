@@ -7,10 +7,10 @@
   **/
 
 // Function header
-#include "StructureFunction/Massless.h"
+#include "StructureFunction/SFMassless.h"
 
 // BachProef includes
-#include "StructureFunction/CouplingConstant.h"
+#include "StrongCoupling.h"
 
 // Cubature includes
 #include "Cubature/Cubature.h"
@@ -56,25 +56,25 @@ double impactFL( const double Q2, const double k2,
 
 void integrandF2( unsigned /*ndim*/, const double* xValues,
                   void* input, unsigned /*fdim*/,
-                  double *fval )
+                  double* fval )
 {
-    double x = static_cast<double*>(input)[0];
-    double Q2 = static_cast<double*>(input)[1];
-    double k2 = xValues[0];
-    double z = xValues[1];
-    double zeta = xValues[2];
+    const double x = static_cast<double*>(input)[0];
+    const double Q2 = static_cast<double*>(input)[1];
+    const double k2 = xValues[0];
+    const double z = xValues[1];
+    const double zeta = xValues[2];
 
     *fval = impactF2( Q2, k2, z, zeta ) * gluonDensity( x, k2 );
 }
 void integrandFL( unsigned /*ndim*/, const double* xValues,
                   void* input, unsigned /*fdim*/,
-                  double *fval )
+                  double* fval )
 {
-    double x = static_cast<double*>(input)[0];
-    double Q2 = static_cast<double*>(input)[1];
-    double k2 = xValues[0];
-    double z = xValues[2];
-    double zeta = xValues[1];
+    const double x = static_cast<double*>(input)[0];
+    const double Q2 = static_cast<double*>(input)[1];
+    const double k2 = xValues[0];
+    const double z = xValues[1];
+    const double zeta = xValues[2];
 
     *fval = impactFL( Q2, k2, z, zeta ) * gluonDensity( x, k2 );
 }
@@ -87,10 +87,11 @@ double F2( const double x, const double Q2 )
     double xMin[] = { 0., 0., 0. };
     double xMax[] = { 1000., 1., 1. };
     double input[] = { x, Q2 };
-    bool fail = adapt_integrate( 1, integrandF2, input,
-                                 3, xMin, xMax,
-                                 0, 0, 1e-4,
-                                 &val, &err);
+
+    const bool fail = adapt_integrate( 1, integrandF2, input,
+                                       3, xMin, xMax,
+                                       0, 0, 1e-4,
+                                       &val, &err);
     if( fail )
         throw runtime_error( "adapt_integrate returned an error." );
 
@@ -105,10 +106,10 @@ double FL( const double x, const double Q2 )
     double xMax[] = { 1000., 1., 1. };
     double input[] = { x, Q2 };
 
-    bool fail = adapt_integrate( 1, integrandFL, input,
-                                 3, xMin, xMax,
-                                 0, 0, 1e-4,
-                                 &val, &err);
+    const bool fail = adapt_integrate( 1, integrandFL, input,
+                                       3, xMin, xMax,
+                                       0, 0, 1e-4,
+                                       &val, &err);
     if( fail )
         throw runtime_error( "adapt_integrate returned an error." );
 

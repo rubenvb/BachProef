@@ -7,11 +7,16 @@
   **/
 
 // BachProef includes
+#include "StrongCoupling.h"
 #include "StructureFunction.h"
+#include "UnintegratedGluonDensity.h"
 #include "Plots.h"
 
 // Cubature includes
 #include "Cubature/Cubature.h"
+
+// GSL includes
+#include <gsl/gsl_sf_bessel.h>
 
 // C++ includes
 #include <cmath>
@@ -26,18 +31,22 @@ void func( unsigned /*ndim*/, const double* xValues,
            void*, unsigned /*fdim*/,
            double *fval );
 void testIntegration();
-void testMassless();
-void testMassive();
+void testBesselK();
+void testSFMassless();
+void testSFMassive();
+void testUGDMassless();
 
 int main()
 {
     cout << setprecision(14);
 
+    //testBesselK();
     //testIntegration();
-    testMassless();
-    testMassive();
+    testSFMassless();
+    //testSFMassive();
+    testUGDMassless();
 
-    calcOutput();
+    //calcOutput();
 
     return 0;
 }
@@ -66,11 +75,19 @@ void testIntegration()
 
     cout << "testFunction is = .99389 ?=\t" << val << endl;
 }
-void testMassless()
+void testBesselK()
+{
+    cout << "-----------\nBESSEL K_N\n-----------" << endl;
+
+    cout << "K0(.1) = 2.42707 ?=\t" << gsl_sf_bessel_K0(.1) << endl;
+    cout << "K0(.5) = 1.65644 ?=\t" << gsl_sf_bessel_K1(.5) << endl;
+}
+
+void testSFMassless()
 {
     using namespace SF::massless;
 
-    cout << "-----------\nMASSLESS\n-----------" << endl;
+    cout << "-----------\nSF MASSLESS\n-----------" << endl;
 
     cout << "Gluon density function" << endl;
     cout << "f(.001,1)\t= 7.74 ?=\t" << gluonDensity( .001, 1 ) << endl;
@@ -88,11 +105,11 @@ void testMassless()
     cout << "F2(.00001,1.5)\t= .992435 ?=\t" << F2( .00001, 1.5 ) << endl;
     cout << "F2(.001,2)\t= .576248 ?=\t" << F2( .001, 2. ) <<endl;
 }
-void testMassive()
+void testSFMassive()
 {
     using namespace SF::massive;
 
-    cout << "-----------\nMASSIVE\n-----------" << endl;
+    cout << "-----------\nSF MASSIVE\n-----------" << endl;
 
     cout << "Light quarks" << endl;
     cout << "Gluon density function" << endl;
@@ -100,8 +117,8 @@ void testMassive()
     cout << "f(.00001,3.6), Q2=20\t= 21.802 ?=\t" << gluonDensity( xTilde(.00001,20,0), 3.6 ) << endl;
     cout << "Impact factors" << endl;
     cout << "impactFL(20,15,.5,.5)\t= .0005356 ?=\t" << impactFL( 20, 15, .5, .5, 0 ) << endl;
-    cout << "impactFT(10,15,.5,.5)\t= .004703 ?=\t" << impactFT( 10, 15, .5, .5, 0 ) << endl;
-    cout << "impactF2(10,10,.5,.5)\t= .0095126 ?=\t" << impactF2( 10, 10, .5, .5, 0 ) << endl;
+    cout << "impactFT(10,15,.5,.5)\t= .0001896 ?=\t" << impactFT( 10, 15, .5, .5, 0 ) << endl;
+    cout << "impactF2(10,10,.5,.5)\t= .0010544 ?=\t" << impactF2( 10, 10, .5, .5, 0 ) << endl;
 
     cout << "Charm quark" << endl;
     cout << "Gluon density function" << endl;
@@ -109,8 +126,8 @@ void testMassive()
     cout << "f(.00001,3.6), Q2=20\t= 18.5874 ?=\t" << gluonDensity( xTilde(.00001,20,2), 3.6 ) << endl;
     cout << "Impact factors" << endl;
     cout << "impactFL(20,15,.5,.5)\t= .0002957 ?=\t" << impactFL( 20, 15, .5, .5, 2 ) << endl;
-    cout << "impactFT(10,15,.5,.5)\t= .0051787 ?=\t" << impactFT( 10, 15, .5, .5, 2 ) << endl;
-    cout << "impactF2(10,10,.5,.5)\t= .0094596 ?=\t" << impactF2( 10, 10, .5, .5, 2 ) << endl;
+    cout << "impactFT(10,15,.5,.5)\t= .000208776 ?=\t" << impactFT( 10, 15, .5, .5, 2 ) << endl;
+    cout << "impactF2(10,10,.5,.5)\t= .000627762 ?=\t" << impactF2( 10, 10, .5, .5, 2 ) << endl;
 
     cout << "Structure Functions" << endl;
     cout << "FL" << endl;
@@ -119,9 +136,19 @@ void testMassive()
 
     cout << "F2" << endl;
     cout << "F2(1e-5,2)\t= 1.14777 ?=\t" << F2( .00001, 2 ) << endl;
-    cout << "F2(1e-5,1.5)\t= ??????? ?=\t" << F2( .00001, 1.5 ) << endl;
-    cout << "F2(1e-3,2)  \t= ??????? ?=\t" << F2( .001, 2. ) <<endl;
+    cout << "F2(1e-5,1.5)\t= .974856 ?=\t" << F2( .00001, 1.5 ) << endl;
+    cout << "F2(1e-3,2)  \t= .519629 ?=\t" << F2( .001, 2. ) <<endl;
 
     cout << "F2 by integrating twice" << endl;
     cout << "F2(1e-5,2)\t=" << FT(1e-5,2) + FL(1e-5,2) << endl;
+}
+
+void testUGDMassless()
+{
+    using namespace UGD::massless;
+    cout << "-----------\nUGD MASSLESS\n-----------" << endl;
+
+    cout << "alphaS(10) = .3569 ?=\t" << runningAlphaS(10.) << endl;
+    cout << "impactF0(4,8,.5,.5) = .1978 ?=\t" << impactF0(4,8,.5,.5) << endl;
+    cout << "F0(10,15) = .5823 ?=\t" << F0(10,15) << endl;
 }

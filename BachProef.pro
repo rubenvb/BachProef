@@ -16,25 +16,27 @@ win32-msvc*:DEFINES += _USE_MATH_DEFINES
 
 DEPENDPATH += .
 INCLUDEPATH += .
+LIBS += -lgsl
 
 SOURCES += \
     Main.cpp \
     Cubature/Cubature.c \
-    StructureFunction/Massless.cpp \
-    StructureFunction/Massive.cpp \
-    StructureFunction/CouplingConstant.cpp \
+    StructureFunction/SFMassless.cpp \
+    StructureFunction/SFMassive.cpp \
+    StrongCoupling.cpp \
     Plots.cpp \
-    UnintegratedGluonDensity.cpp
+    UnintegratedGluonDensity/UGDMassless.cpp
 
 HEADERS += \
     Cubature/Cubature.h \
     Plots.h \
     StructureFunction.h \
-    StructureFunction/Massless.h \
-    StructureFunction/Massive.h \
-    StructureFunction/CouplingConstant.h \
+    StructureFunction/SFMassless.h \
+    StructureFunction/SFMassive.h \
+    StrongCoupling.h \
     UnintegratedGluonDensity.h \
-    Quarks.h
+    Quarks.h \
+    UnintegratedGluonDensity/UGDMassless.h
 
 OTHER_FILES += \
     thesis/thesis.tex \
