@@ -7,7 +7,7 @@
   **/
 
 // Function includes
-#include "StructureFunction/SFMassive.h"
+#include "SF/SFMassive.h"
 
 // BachProef includes
 #include "Quarks.h"

@@ -21,22 +21,25 @@ LIBS += -lgsl
 SOURCES += \
     Main.cpp \
     Cubature/Cubature.c \
-    StructureFunction/SFMassless.cpp \
-    StructureFunction/SFMassive.cpp \
+    SF/SFMassless.cpp \
+    SF/SFMassive.cpp \
     StrongCoupling.cpp \
     Plots.cpp \
-    UnintegratedGluonDensity/UGDMassless.cpp
+    UGD/UGDMassless.cpp \
+    ET/ETMassless.cpp
 
 HEADERS += \
     Cubature/Cubature.h \
     Plots.h \
     StructureFunction.h \
-    StructureFunction/SFMassless.h \
-    StructureFunction/SFMassive.h \
+    SF/SFMassless.h \
+    SF/SFMassive.h \
     StrongCoupling.h \
     UnintegratedGluonDensity.h \
     Quarks.h \
-    UnintegratedGluonDensity/UGDMassless.h
+    UGD/UGDMassless.h \
+    TransverseEnergyFlow.h \
+    ET/ETMassless.h
 
 OTHER_FILES += \
     thesis/thesis.tex \

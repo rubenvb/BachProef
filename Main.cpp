@@ -17,6 +17,7 @@
 
 // GSL includes
 #include <gsl/gsl_sf_bessel.h>
+#include <gsl/gsl_sf_ellint.h>
 
 // C++ includes
 #include <cmath>
@@ -31,7 +32,7 @@ void func( unsigned /*ndim*/, const double* xValues,
            void*, unsigned /*fdim*/,
            double *fval );
 void testIntegration();
-void testBesselK();
+void testGSL();
 void testSFMassless();
 void testSFMassive();
 void testUGDMassless();
@@ -40,14 +41,19 @@ int main()
 {
     cout << setprecision(14);
 
-    //testBesselK();
+    //testGSL();
     //testIntegration();
-    testSFMassless();
+
+    //testSFMassless();
     //testSFMassive();
-    testUGDMassless();
 
-    //calcOutput();
+    //testUGDMassless();
 
+    //testETmassless();
+
+    //outputSFMassive();
+    //outputSFMassless();
+    //outputUGDMassless();
     return 0;
 }
 
@@ -75,12 +81,15 @@ void testIntegration()
 
     cout << "testFunction is = .99389 ?=\t" << val << endl;
 }
-void testBesselK()
+void testGSL()
 {
     cout << "-----------\nBESSEL K_N\n-----------" << endl;
-
     cout << "K0(.1) = 2.42707 ?=\t" << gsl_sf_bessel_K0(.1) << endl;
     cout << "K0(.5) = 1.65644 ?=\t" << gsl_sf_bessel_K1(.5) << endl;
+
+    cout << "-----------\nELLIPTIC_K\n-----------" << endl;
+    cout << "EllipticK(.1) = 1.61244 ?=\t" << gsl_sf_ellint_Kcomp(sqrt(.1), GSL_PREC_DOUBLE) << endl;
+    cout << "EllipticK(.99) = 3.69564 ?=\t" << gsl_sf_ellint_Kcomp(sqrt(.99), GSL_PREC_DOUBLE) << endl;
 }
 
 void testSFMassless()
@@ -148,7 +157,14 @@ void testUGDMassless()
     using namespace UGD::massless;
     cout << "-----------\nUGD MASSLESS\n-----------" << endl;
 
-    cout << "alphaS(10) = .3569 ?=\t" << runningAlphaS(10.) << endl;
+    cout << "Running strong coupling." << endl;
+    cout << "alphaS(10)\t= .3569 ?=\t" << runningAlphaS(10.) << endl;
+
+    cout << "no evolution." << endl;
     cout << "impactF0(4,8,.5,.5) = .1978 ?=\t" << impactF0(4,8,.5,.5) << endl;
     cout << "F0(10,15) = .5823 ?=\t" << F0(10,15) << endl;
+
+    cout << "With evolution." << endl;
+    cout << "impactF0(.001,4,8,.5,.5)\t= .21656 ?=\t" << impactF0Evol(.001,4,8,.5,.5) << endl;
+    cout << "F0(.0001,5,10)\t= .36289 ?=\t" << F0Evol(.0001,5,10) << endl;
 }

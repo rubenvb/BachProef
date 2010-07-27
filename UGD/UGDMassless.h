@@ -20,7 +20,8 @@ namespace UGD
 
         double impactF0( const double k2, const double Q2,
                          const double eta, const double rho );
-        double impactF0Evol( const double k2, const double Q2,
+        double impactF0Evol( const double x,
+                             const double k2, const double Q2,
                              const double eta, const double rho );
         void integrandF0( unsigned /*ndim*/, const double* xValues,
                           void* input, unsigned /*fdim*/,
@@ -29,7 +30,8 @@ namespace UGD
                               void* input, unsigned /*fdim*/,
                               double *fval );
         double F0( const double k2, const double Q2 );
-        double F0Evol( const double k2, const double Q2 );
+        double F0Evol( const double x,
+                       const double k2, const double Q2 );
 
     }
 }

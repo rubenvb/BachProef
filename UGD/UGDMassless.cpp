@@ -7,7 +7,7 @@
   **/
 
 // Function include
-#include "UnintegratedGluonDensity/UGDMassless.h"
+#include "UGD/UGDMassless.h"
 
 // Bachproef includes
 #include "StrongCoupling.h"
@@ -16,7 +16,7 @@
 #include "Cubature/Cubature.h"
 
 // C++ includes
-#include <cmath> // M_PI
+#include <cmath> // M_PI, exp
 #include <stdexcept>
     using std::runtime_error;
 
@@ -35,12 +35,18 @@ double impactF0( const double k2, const double Q2,
     return charge2 * coeff * numerator / denominator;
 }
 
-double impactF0Evol( const double k2, const double Q2,
+double impactF0Evol( const double x,
+                     const double k2, const double Q2,
                      const double eta, const double rho )
 {
-    const double coeff = 0.;
+    const double R02 = pow( x/x0, lambda );
+    const double alphaS = runningAlphaS( k2*R02 );
+    const double coeff = charge2 * alphaS *k2*R02*Q2 / (4.*M_PI);
+    const double numerator = 1 - 2.*rho*(1-rho) - 2.*eta*(1-eta) + 12.*rho*(1-rho)*eta*(1-eta);
+    const double denominator = R02*k2*eta*(1-eta) + Q2*rho*(1-rho);
+    const double exponential = exp( -log(k2*R02)*log(k2*R02) / (2.*48.*alphaS*log(.1/x)) );
 
-    return coeff;
+    return coeff * exponential * numerator / denominator;
 }
 
 void integrandF0( unsigned /*ndim*/, const double* xValues,
@@ -55,6 +61,19 @@ void integrandF0( unsigned /*ndim*/, const double* xValues,
     *fval = impactF0( k2, Q2, eta, rho );
 }
 
+void integrandF0Evol( unsigned /*ndim*/, const double* xValues,
+                      void* input, unsigned /*fdim*/,
+                      double* fval )
+{
+    const double x = static_cast<double*>(input)[0];
+    const double k2 = static_cast<double*>(input)[1];
+    const double Q2 = static_cast<double*>(input)[2];
+    const double eta = xValues[0];
+    const double rho = xValues[1];
+
+    *fval = impactF0Evol( x, k2, Q2, eta, rho );
+}
+
 double F0( const double k2, const double Q2 )
 {
     double val = 0.;
@@ -65,6 +84,25 @@ double F0( const double k2, const double Q2 )
     double input[] = { k2, Q2 };
 
     const bool fail = adapt_integrate( 1, integrandF0, input,
+                                       2, xMin, xMax,
+                                       0, 0, 1e-4,
+                                       &val, &err);
+    if( fail )
+        throw runtime_error( "adapt_integrate returned an error." );
+
+    return val;
+}
+
+double F0Evol( const double x, const double k2, const double Q2 )
+{
+    double val = 0.;
+    double err = 0.;
+
+    double xMin[] = { 0., 0. };
+    double xMax[] = { 1., 1. };
+    double input[] = { x, k2, Q2 };
+
+    const bool fail = adapt_integrate( 1, integrandF0Evol, input,
                                        2, xMin, xMax,
                                        0, 0, 1e-4,
                                        &val, &err);

@@ -10,6 +10,6 @@
 #define UNINTEGRATEDGLUONDENSITY_H
 
 // BachProef UnintegratedGluonDensity includes
-#include "UnintegratedGluonDensity/UGDMassless.h"
+#include "UGD/UGDMassless.h"
 
 #endif // UNINTEGRATEDGLUONDENSITY_H

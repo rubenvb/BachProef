@@ -7,7 +7,7 @@
   **/
 
 // Function header
-#include "StructureFunction/SFMassless.h"
+#include "SF/SFMassless.h"
 
 // BachProef includes
 #include "StrongCoupling.h"
