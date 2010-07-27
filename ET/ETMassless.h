@@ -6,8 +6,8 @@
   *
   **/
 
-#ifndef TRANSVERSEENERGYFLOW_H
-#define TRANSVERSEENERGYFLOW_H
+#ifndef ETMASSLESS_H
+#define ETMASSLESS_H
 
 namespace ET
 {
@@ -18,5 +18,4 @@ namespace ET
     }
 }
 
-
-#endif // TRANSVERSEENERGYFLOW_H
+#endif // ETMASSLESS_H

@@ -9,15 +9,16 @@
 // BachProef includes
 #include "StrongCoupling.h"
 #include "StructureFunction.h"
+#include "TransverseEnergyFlow.h"
 #include "UnintegratedGluonDensity.h"
 #include "Plots.h"
 
 // Cubature includes
 #include "Cubature/Cubature.h"
 
-// GSL includes
-#include <gsl/gsl_sf_bessel.h>
-#include <gsl/gsl_sf_ellint.h>
+// ALGLIB includes
+#include "ALGLIB/elliptic.h"
+#include "ALGLIB/bessel.h"
 
 // C++ includes
 #include <cmath>
@@ -32,16 +33,17 @@ void func( unsigned /*ndim*/, const double* xValues,
            void*, unsigned /*fdim*/,
            double *fval );
 void testIntegration();
-void testGSL();
+void testALGLIB();
 void testSFMassless();
 void testSFMassive();
 void testUGDMassless();
+void testETMassless();
 
 int main()
 {
     cout << setprecision(14);
 
-    //testGSL();
+    testALGLIB();
     //testIntegration();
 
     //testSFMassless();
@@ -49,7 +51,7 @@ int main()
 
     //testUGDMassless();
 
-    //testETmassless();
+    testETMassless();
 
     //outputSFMassive();
     //outputSFMassless();
@@ -81,15 +83,15 @@ void testIntegration()
 
     cout << "testFunction is = .99389 ?=\t" << val << endl;
 }
-void testGSL()
+void testALGLIB()
 {
-    cout << "-----------\nBESSEL K_N\n-----------" << endl;
-    cout << "K0(.1) = 2.42707 ?=\t" << gsl_sf_bessel_K0(.1) << endl;
-    cout << "K0(.5) = 1.65644 ?=\t" << gsl_sf_bessel_K1(.5) << endl;
+    //cout << "-----------\nBESSEL K_N\n-----------" << endl;
+    //cout << "K0(.1) = 2.42707 ?=\t" << /*gsl_sf_bessel_K0*/ besselk0(.1) << endl;
+    //cout << "K0(.5) = 1.65644 ?=\t" << /*gsl_sf_bessel_K1*/ besselk1(.5) << endl;
 
     cout << "-----------\nELLIPTIC_K\n-----------" << endl;
-    cout << "EllipticK(.1) = 1.61244 ?=\t" << gsl_sf_ellint_Kcomp(sqrt(.1), GSL_PREC_DOUBLE) << endl;
-    cout << "EllipticK(.99) = 3.69564 ?=\t" << gsl_sf_ellint_Kcomp(sqrt(.99), GSL_PREC_DOUBLE) << endl;
+    cout << "EllipticK(.1) = 1.61244 ?=\t" << ellipticintegralk(.1) << endl;
+    cout << "EllipticK(.99) = 3.69564 ?=\t" << ellipticintegralk(.99) << endl;
 }
 
 void testSFMassless()
@@ -167,4 +169,10 @@ void testUGDMassless()
     cout << "With evolution." << endl;
     cout << "impactF0(.001,4,8,.5,.5)\t= .21656 ?=\t" << impactF0Evol(.001,4,8,.5,.5) << endl;
     cout << "F0(.0001,5,10)\t= .36289 ?=\t" << F0Evol(.0001,5,10) << endl;
+}
+
+void testETMassless()
+{
+    cout << "-----------\nET MASSLESS\n-----------" << endl;
+    cout << "ET(.0001,10) = ?=\t" << ET::massless::ET(.0001,10) << endl;
 }

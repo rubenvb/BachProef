@@ -16,7 +16,6 @@ win32-msvc*:DEFINES += _USE_MATH_DEFINES
 
 DEPENDPATH += .
 INCLUDEPATH += .
-LIBS += -lgsl
 
 SOURCES += \
     Main.cpp \
@@ -26,7 +25,11 @@ SOURCES += \
     StrongCoupling.cpp \
     Plots.cpp \
     UGD/UGDMassless.cpp \
-    ET/ETMassless.cpp
+    ET/ETMassless.cpp \
+    ALGLIB/ialglib.cpp \
+    ALGLIB/elliptic.cpp \
+    ALGLIB/ap.cpp \
+    ALGLIB/bessel.cpp
 
 HEADERS += \
     Cubature/Cubature.h \
@@ -39,13 +42,19 @@ HEADERS += \
     Quarks.h \
     UGD/UGDMassless.h \
     TransverseEnergyFlow.h \
-    ET/ETMassless.h
+    ET/ETMassless.h \
+    ALGLIB/ialglib.h \
+    ALGLIB/elliptic.h \
+    ALGLIB/apvt.h \
+    ALGLIB/ap.h \
+    ALGLIB/bessel.h
 
 OTHER_FILES += \
     thesis/thesis.tex \
     README.txt \
     StructureFunction.nb \
-    Massive.nb \
+    SFMassive.nb \
+    SFMassless.nb \
     thesis/Afbeeldingen/placeholder.eps \
     thesis/Afbeeldingen/UA.eps \
     plotFL.m \

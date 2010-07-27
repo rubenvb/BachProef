@@ -1,0 +1,265 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      9213,        256]
+NotebookOptionsPosition[      8687,        235]
+NotebookOutlinePosition[      9030,        250]
+CellTagsIndexPosition[      8987,        247]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{"Remove", "[", "\"\<Global`*\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"sigma0", ":=", 
+  RowBox[{"23.03", " ", "2.57069"}]}], "\[IndentingNewLine]", 
+ RowBox[{"lambda", ":=", ".288"}], "\[IndentingNewLine]", 
+ RowBox[{"alphaS", " ", ":=", " ", ".2"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"x0", ":=", ".000304"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"R02", "[", "x_", "]"}], ":=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"x", "/", "x0"}], ")"}], "^", "lambda"}]}], 
+  "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"f", "[", 
+    RowBox[{"x_", ",", "k2_"}], "]"}], ":=", " ", 
+   RowBox[{"3", 
+    RowBox[{"sigma0", "/", 
+     RowBox[{"(", 
+      RowBox[{"4", 
+       RowBox[{"Pi", "^", "2"}], " ", "alphaS"}], ")"}]}], 
+    RowBox[{"R02", "[", "x", "]"}], " ", 
+    RowBox[{"k2", "^", "2"}], " ", 
+    RowBox[{"Exp", "[", 
+     RowBox[{
+      RowBox[{"-", 
+       RowBox[{"R02", "[", "x", "]"}]}], "k2"}], "]"}]}]}], 
+  "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{"impactF2", " ", "[", 
+   RowBox[{"Q2_", ",", "k2_", ",", "z_", ",", "zeta_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"Q2", "/", 
+    RowBox[{"(", 
+     RowBox[{"4", 
+      RowBox[{"Pi", "^", "2"}]}], ")"}]}], "alphaS", " ", 
+   RowBox[{"(", 
+    RowBox[{"6", "/", "9"}], ")"}], 
+   RowBox[{"Pi", " ", "/", "k2"}], " ", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"1", "-", 
+      RowBox[{"2", "z", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", "z"}], ")"}]}], "-", 
+      RowBox[{"2", "zeta", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", "zeta"}], ")"}]}], "+", 
+      RowBox[{"12", "z", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", "z"}], ")"}], " ", "zeta", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", "zeta"}], ")"}]}]}], ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"Q2", " ", "z", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", "z"}], ")"}]}], "+", 
+      RowBox[{"k2", " ", "zeta", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", "zeta"}], ")"}]}]}], 
+     ")"}]}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"impactFL", "[", 
+    RowBox[{"Q2_", ",", "k2_", ",", "z_", ",", "zeta_"}], "]"}], ":=", 
+   RowBox[{"2", 
+    RowBox[{"Q2", "/", 
+     RowBox[{"(", 
+      RowBox[{"Pi", "^", "2"}], ")"}]}], "alphaS", " ", 
+    RowBox[{"(", 
+     RowBox[{"6", "/", "9"}], ")"}], " ", 
+    RowBox[{"Pi", " ", "/", "k2"}], "  ", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"z", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", "z"}], ")"}], "zeta", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", "zeta"}], ")"}]}], ")"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"Q2", " ", "z", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", "z"}], ")"}]}], "+", 
+       RowBox[{"k2", " ", "zeta", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", "zeta"}], ")"}]}]}], ")"}]}]}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"F2", "[", 
+   RowBox[{"x_", ",", "Q2_"}], "]"}], ":=", " ", 
+  RowBox[{"NIntegrate", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"impactF2", "[", 
+      RowBox[{"Q2", ",", "k2", ",", "z", ",", "zeta"}], "]"}], " ", 
+     RowBox[{"f", "[", 
+      RowBox[{"x", ",", "k2"}], "]"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"k2", ",", "0", ",", "Infinity"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"z", ",", "0", ",", "1"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"zeta", ",", "0", ",", "1"}], "}"}], ",", 
+    RowBox[{"WorkingPrecision", "\[Rule]", "10"}]}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"FL", "[", 
+    RowBox[{"x_", ",", "Q2_"}], "]"}], ":=", " ", 
+   RowBox[{"NIntegrate", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"impactFL", "[", 
+       RowBox[{"Q2", ",", "k2", ",", "z", ",", "zeta"}], "]"}], " ", 
+      RowBox[{"f", "[", 
+       RowBox[{"x", ",", "k2"}], "]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"k2", ",", "0", ",", "Infinity"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z", ",", "0", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"zeta", ",", "0", ",", "1"}], "}"}]}], "]"}]}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"FL", "[", 
+   RowBox[{".0001", ",", "60"}], "]"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"your", " ", 
+    RowBox[{"result", ":", " ", ".290"}]}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"FL", "[", 
+   RowBox[{".0001", ",", "24"}], "]"}], " ", 
+  RowBox[{"(*", " ", 
+   RowBox[{"your", " ", 
+    RowBox[{"result", ":", " ", ".307"}]}], " ", "*)"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"F2", "[", 
+  RowBox[{".00001", ",", "1.5"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"F2", "[", 
+   RowBox[{".001", ",", "2"}], "]"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.4880877799370003`*^9, 3.4880878268450003`*^9}, {
+   3.4880878579560003`*^9, 3.488088014263*^9}, {3.488088078191*^9, 
+   3.488088154271*^9}, {3.48808819327*^9, 3.488088197979*^9}, {
+   3.488088272074*^9, 3.488088337006*^9}, {3.488088402679*^9, 
+   3.488088455363*^9}, {3.4880894890226*^9, 3.4880895099890003`*^9}, 
+   3.4880903228492002`*^9, {3.4880904998624*^9, 3.4880905257272*^9}, {
+   3.4880905592827997`*^9, 3.4880907933584003`*^9}, {3.4880908371798*^9, 
+   3.4880908881294003`*^9}, {3.4880909530568*^9, 3.4880909812771997`*^9}, {
+   3.4880910127424*^9, 3.488091102968*^9}, {3.4880915714166*^9, 
+   3.488091575925*^9}, {3.4880921389948*^9, 3.4880921402896*^9}, {
+   3.4880921755456*^9, 3.4880921857636003`*^9}, {3.4880925165615997`*^9, 
+   3.4880926556976*^9}, {3.48810945374*^9, 3.488109474398*^9}, {
+   3.4885238364916*^9, 3.4885238723496*^9}, {3.4885248100476*^9, 
+   3.4885248226026*^9}, 3.488613632891*^9, {3.4892238890392*^9, 
+   3.4892238891796*^9}, {3.489225476342*^9, 3.4892254777148*^9}, {
+   3.4892259214238*^9, 3.4892259266029997`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"NIntegrate", "::", "\<\"slwcon\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"\\!\\(\\*StyleBox[\\\"\\\\\\\"Numerical integration \
+converging too slowly; suspect one of the following: singularity, value of \
+the integration is 0, highly oscillatory integrand, or WorkingPrecision too \
+small.\\\\\\\"\\\", \\\"MT\\\"]\\) \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/NIntegrate/slwcon\\\", \
+ButtonNote -> \\\"NIntegrate::slwcon\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.4880921880880003`*^9, 3.4880925287764*^9, 
+  3.4880926484124002`*^9, 3.488109417039*^9, 3.488109476132*^9, 
+  3.4892259273518*^9}],
+
+Cell[BoxData["0.4034591608560295`"], "Output",
+ CellChangeTimes->{3.4880926478352003`*^9, 3.488109417756*^9, 
+  3.4881094768389997`*^9, 3.4892259281942*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"NIntegrate", "::", "\<\"slwcon\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"\\!\\(\\*StyleBox[\\\"\\\\\\\"Numerical integration \
+converging too slowly; suspect one of the following: singularity, value of \
+the integration is 0, highly oscillatory integrand, or WorkingPrecision too \
+small.\\\\\\\"\\\", \\\"MT\\\"]\\) \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/NIntegrate/slwcon\\\", \
+ButtonNote -> \\\"NIntegrate::slwcon\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.4880921880880003`*^9, 3.4880925287764*^9, 
+  3.4880926484124002`*^9, 3.488109417039*^9, 3.488109476132*^9, 
+  3.4892259283970003`*^9}],
+
+Cell[BoxData["0.3706883921003024`"], "Output",
+ CellChangeTimes->{3.4880926478352003`*^9, 3.488109417756*^9, 
+  3.4881094768389997`*^9, 3.4892259294578*^9}],
+
+Cell[BoxData["0.99243709846333436591644488702838133`10."], "Output",
+ CellChangeTimes->{3.4880926478352003`*^9, 3.488109417756*^9, 
+  3.4881094768389997`*^9, 3.4892259346837997`*^9}],
+
+Cell[BoxData["0.57624348386969926330202048760745613664`10."], "Output",
+ CellChangeTimes->{3.4880926478352003`*^9, 3.488109417756*^9, 
+  3.4881094768389997`*^9, 3.4892259388334*^9}]
+}, Open  ]]
+},
+WindowSize->{593, 762},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
+FrontEndVersion->"7.0 for Microsoft Windows (64-bit) (February 18, 2009)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 5953, 164, 632, "Input"],
+Cell[6523, 188, 727, 13, 73, "Message"],
+Cell[7253, 203, 156, 2, 30, "Output"],
+Cell[7412, 207, 731, 13, 73, "Message"],
+Cell[8146, 222, 156, 2, 30, "Output"],
+Cell[8305, 226, 182, 2, 30, "Output"],
+Cell[8490, 230, 181, 2, 30, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
