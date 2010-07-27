@@ -1,0 +1,545 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     21947,        536]
+NotebookOptionsPosition[     21158,        509]
+NotebookOutlinePosition[     21501,        524]
+CellTagsIndexPosition[     21458,        521]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Remove", "[", "\"\<Global`*\>\"", "]"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", "constants", " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"sigma0", ":=", 
+   RowBox[{"23.03", " ", "2.57069"}]}], " "}], "\[IndentingNewLine]", 
+ RowBox[{"charge2", ":=", 
+  RowBox[{"6", "/", "9"}]}], "\[IndentingNewLine]", 
+ RowBox[{"nf", ":=", "3"}], "\[IndentingNewLine]", 
+ RowBox[{"alphaS", ":=", ".2"}], "\[IndentingNewLine]", 
+ RowBox[{"lambdaQCD", ":=", ".2"}], "\[IndentingNewLine]", 
+ RowBox[{"lambda", ":=", ".288"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"x0", ":=", ".000304"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", "extra", " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"R02", "[", "x_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"x", "/", "x0"}], ")"}], "^", "lambda"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Alpha]", "[", "Q2_", "]"}], ":=", 
+   RowBox[{"12", 
+    RowBox[{"\[Pi]", "/", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"33", "-", 
+         RowBox[{"2", " ", "nf"}]}], ")"}], 
+       RowBox[{"Log", "[", 
+        RowBox[{"Q2", "/", "lambdaQCD"}], "]"}]}], ")"}]}]}]}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", "f", " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"f", "[", 
+    RowBox[{"x_", ",", "k2_"}], "]"}], ":=", 
+   RowBox[{"3", 
+    RowBox[{"sigma0", "/", 
+     RowBox[{"(", 
+      RowBox[{"4", 
+       RowBox[{"Pi", "^", "2"}], " ", "alphaS"}], ")"}]}], 
+    RowBox[{"R02", "[", "x", "]"}], " ", 
+    RowBox[{"k2", "^", "2"}], " ", 
+    RowBox[{"Exp", "[", 
+     RowBox[{
+      RowBox[{"-", 
+       RowBox[{"R02", "[", "x", "]"}]}], "k2"}], "]"}]}]}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", "F2", " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"impactF2", " ", "[", 
+   RowBox[{"Q2_", ",", "k2_", ",", "z_", ",", "zeta_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"Q2", "/", 
+    RowBox[{"(", 
+     RowBox[{"4", 
+      RowBox[{"Pi", "^", "2"}]}], ")"}]}], "alphaS", " ", 
+   RowBox[{"(", 
+    RowBox[{"6", "/", "9"}], ")"}], 
+   RowBox[{"Pi", " ", "/", "k2"}], " ", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"1", "-", 
+      RowBox[{"2", "z", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", "z"}], ")"}]}], "-", 
+      RowBox[{"2", "zeta", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", "zeta"}], ")"}]}], "+", 
+      RowBox[{"12", "z", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", "z"}], ")"}], " ", "zeta", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", "zeta"}], ")"}]}]}], ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"Q2", " ", "z", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", "z"}], ")"}]}], "+", 
+      RowBox[{"k2", " ", "zeta", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", "zeta"}], ")"}]}]}], 
+     ")"}]}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"F2", "[", 
+    RowBox[{"x_", ",", "Q2_"}], "]"}], ":=", " ", 
+   RowBox[{"NIntegrate", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"impactF2", "[", 
+       RowBox[{"Q2", ",", "k2", ",", "z", ",", "zeta"}], "]"}], " ", 
+      RowBox[{"f", "[", 
+       RowBox[{"x", ",", "k2"}], "]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"k2", ",", "0", ",", "Infinity"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"z", ",", "0", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"zeta", ",", "0", ",", "1"}], "}"}], ",", " ", 
+     RowBox[{"WorkingPrecision", "\[Rule]", "10"}]}], "]"}]}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", "fancyF2", " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fancyF2Integrand", "[", 
+   RowBox[{"\[Eta]_", ",", "\[Rho]_", ",", "x_", ",", "k2_", ",", "Q2_"}], 
+   "]"}], ":=", 
+  RowBox[{"(", 
+   RowBox[{"charge2", " ", 
+    RowBox[{
+     RowBox[{"\[Alpha]", "[", 
+      RowBox[{"k2", " ", 
+       RowBox[{"R02", "[", "x", "]"}]}], "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{"4", 
+       RowBox[{"\[Pi]", "^", "2"}]}], ")"}]}], " ", "k2", " ", 
+    RowBox[{"R02", "[", "x", "]"}], " ", "Q2", 
+    RowBox[{"(", 
+     RowBox[{"2", "\[Pi]"}], ")"}], 
+    RowBox[{"1", "/", "2"}], 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"(", 
+       RowBox[{"(", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", 
+          RowBox[{"2", "\[Rho]", 
+           RowBox[{"(", 
+            RowBox[{"1", "-", "\[Rho]"}], ")"}]}], "-", 
+          RowBox[{"2", "\[Eta]", 
+           RowBox[{"(", 
+            RowBox[{"1", "-", "\[Eta]"}], ")"}]}], "+", 
+          RowBox[{"12", 
+           RowBox[{"(", 
+            RowBox[{"\[Rho]", 
+             RowBox[{"(", 
+              RowBox[{"1", "-", "\[Rho]"}], ")"}]}], ")"}], 
+           RowBox[{"(", 
+            RowBox[{"\[Eta]", 
+             RowBox[{"(", 
+              RowBox[{"1", "-", "\[Eta]"}], ")"}]}], ")"}]}]}], ")"}], ")"}], 
+       ")"}], ")"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"\[Eta]", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", "\[Eta]"}], ")"}], "k2", " ", 
+        RowBox[{"R02", "[", "x", "]"}]}], "+", 
+       RowBox[{"\[Rho]", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", "\[Rho]"}], ")"}], "Q2"}]}], ")"}]}], 
+    RowBox[{"Exp", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "1"}], "/", 
+       RowBox[{"(", 
+        RowBox[{"2", " ", "48", " ", 
+         RowBox[{"\[Alpha]", "[", 
+          RowBox[{"k2", " ", 
+           RowBox[{"R02", "[", "x", "]"}]}], "]"}], 
+         RowBox[{"Log", "[", 
+          RowBox[{"0.1", "/", 
+           RowBox[{"(", "x", ")"}]}], "]"}]}], ")"}]}], " ", 
+      RowBox[{
+       RowBox[{"Log", "[", 
+        RowBox[{"k2", " ", 
+         RowBox[{"R02", " ", "[", "x", "]"}]}], "]"}], "^", "2"}]}], "]"}]}], 
+   ")"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"fancyF2", "[", 
+    RowBox[{"xoverxj_", ",", "k2_", ",", "Q2_"}], "]"}], ":=", 
+   RowBox[{"NIntegrate", "[", 
+    RowBox[{
+     RowBox[{"fancyF2Integrand", "[", 
+      RowBox[{"\[Eta]", ",", "\[Rho]", ",", "xoverxj", ",", "k2", ",", "Q2"}],
+       "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Eta]", ",", "0", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Rho]", ",", "0", ",", "1"}], "}"}]}], "]"}]}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"integral", " ", "over", " ", "\[Phi]"}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"phiIntegrand", "[", 
+   RowBox[{"\[Alpha]_", ",", "\[Beta]_"}], "]"}], ":=", 
+  RowBox[{"2", " ", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Sqrt", "[", 
+        RowBox[{"\[Alpha]", "+", "\[Beta]"}], "]"}], " ", 
+       RowBox[{"N", "[", 
+        RowBox[{"EllipticK", "[", 
+         RowBox[{
+          RowBox[{"-", "2"}], 
+          RowBox[{"\[Beta]", "/", 
+           RowBox[{"(", 
+            RowBox[{"\[Alpha]", "-", "\[Beta]"}], ")"}]}]}], "]"}], "]"}]}], 
+      "+", 
+      RowBox[{
+       RowBox[{"Sqrt", "[", 
+        RowBox[{"\[Alpha]", "-", "\[Beta]"}], "]"}], 
+       RowBox[{"N", "[", 
+        RowBox[{"EllipticK", "[", 
+         RowBox[{"2", 
+          RowBox[{"\[Beta]", "/", 
+           RowBox[{"(", 
+            RowBox[{"\[Alpha]", "+", "\[Beta]"}], ")"}]}]}], "]"}], "]"}]}]}],
+      ")"}], "/", 
+    RowBox[{"Sqrt", "[", 
+     RowBox[{
+      RowBox[{"\[Alpha]", "^", "2"}], "+", 
+      RowBox[{"\[Beta]", "^", "2"}]}], "]"}]}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"phiPart", "[", 
+    RowBox[{"kp2_", ",", " ", "k\[Gamma]2_"}], "]"}], ":=", " ", 
+   RowBox[{"phiIntegrand", "[", 
+    RowBox[{
+     RowBox[{"kp2", "+", "k\[Gamma]2"}], ",", 
+     RowBox[{"2", 
+      RowBox[{"Sqrt", "[", " ", 
+       RowBox[{"kp2", " ", "k\[Gamma]2"}], "]"}]}]}], "]"}]}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"ET", " ", "itself"}], " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"ET", "[", 
+    RowBox[{"x_", ",", "Q2_", ",", "xj_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"1", "/", 
+     RowBox[{"F2", "[", 
+      RowBox[{"x", ",", "Q2"}], "]"}]}], " ", 
+    RowBox[{"NIntegrate", "[", 
+     RowBox[{
+      RowBox[{"3", " ", 
+       RowBox[{
+        RowBox[{"\[Alpha]", "[", "kp2", "]"}], "/", "\[Pi]"}], " ", 
+       RowBox[{"fancyF2", "[", 
+        RowBox[{
+         RowBox[{"x", "/", "xj"}], ",", "k\[Gamma]2", ",", "Q2"}], "]"}], " ", 
+       RowBox[{"f", "[", 
+        RowBox[{"xj", ",", "kp2"}], "]"}], 
+       RowBox[{"phiPart", "[", 
+        RowBox[{"kp2", ",", "k\[Gamma]2"}], "]"}]}], ",", 
+      RowBox[{"{", 
+       RowBox[{"kp2", ",", "0", ",", 
+        RowBox[{"Q2", "/", 
+         RowBox[{"(", 
+          RowBox[{"x", "/", "xj"}], ")"}]}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"k\[Gamma]2", ",", "0", ",", 
+        RowBox[{"Q2", "/", 
+         RowBox[{"(", 
+          RowBox[{"x", "/", "xj"}], ")"}]}]}], "}"}]}], "]"}]}]}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"test", " ", "functions"}], " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Alpha]", "[", "10", "]"}], " ", 
+  "\"\<should be .356916.\>\""}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"F2", "[", 
+   RowBox[{".001", ",", "2"}], "]"}], " ", 
+  "\"\<should be .57624348.\>\""}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fancyF2", "[", 
+   RowBox[{".0001", ",", "5", ",", "10"}], "]"}], " ", 
+  "\"\<should be .362889.\>\""}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"phiPart", "[", 
+   RowBox[{".1", ",", ".99"}], "]"}], 
+  "\"\<should be 6.48405.\>\""}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"phiPart", "[", 
+    RowBox[{"20", ",", "30"}], "]"}], "\"\<should be 6.48405.\>\""}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{"calculate", " ", "ET"}], " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ET", "[", 
+   RowBox[{".0001", ",", "10", ",", ".01"}], "]"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.4892235646647997`*^9, 3.4892235892816*^9}, {
+   3.4892237147771997`*^9, 3.489223773948*^9}, {3.4892238102335997`*^9, 
+   3.4892238289848003`*^9}, {3.4892238804904003`*^9, 
+   3.4892239097404003`*^9}, {3.4892243456823997`*^9, 3.4892243529208*^9}, {
+   3.489224414416*^9, 3.4892245585288*^9}, {3.4892246009021997`*^9, 
+   3.4892246337714*^9}, {3.4892249750204*^9, 3.4892250727232*^9}, {
+   3.4892251419248*^9, 3.4892252728244*^9}, {3.4892253941144*^9, 
+   3.4892254906940002`*^9}, {3.4892258505685997`*^9, 
+   3.4892259008942003`*^9}, {3.4892259471638002`*^9, 3.4892260022162*^9}, {
+   3.4892261069077997`*^9, 3.4892262690698*^9}, {3.4892263513286*^9, 
+   3.4892263888154*^9}, {3.4892264464105997`*^9, 3.4892265106982*^9}, 
+   3.489226599826*^9, {3.4892266745168*^9, 3.4892266887128*^9}, {
+   3.4892269407836*^9, 3.4892269423904*^9}, {3.4892270139476*^9, 
+   3.4892270532284*^9}, {3.4892272093064003`*^9, 3.4892273210959997`*^9}, {
+   3.4892275409156*^9, 3.4892275465472*^9}, {3.4892275785428*^9, 
+   3.4892275885892*^9}, {3.4892282165898*^9, 3.4892282241401997`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"0.35691594851514713`", 
+  " ", "\<\"should be .356916.\"\>"}]], "Output",
+ CellChangeTimes->{3.489226465505*^9, 3.4892265117434*^9, 
+  3.4892266231303997`*^9, 3.4892269428584003`*^9, 3.4892273227496*^9, 
+  3.489227554316*^9, 3.4892275935032*^9}],
+
+Cell[BoxData[
+ RowBox[{"0.57624348386969926330202048760745613664`10.", 
+  " ", "\<\"should be .57624348.\"\>"}]], "Output",
+ CellChangeTimes->{3.489226465505*^9, 3.4892265117434*^9, 
+  3.4892266231303997`*^9, 3.4892269428584003`*^9, 3.4892273227496*^9, 
+  3.489227554316*^9, 3.4892275967948*^9}],
+
+Cell[BoxData[
+ RowBox[{"0.3628892080521354`", " ", "\<\"should be .362889.\"\>"}]], "Output",
+ CellChangeTimes->{3.489226465505*^9, 3.4892265117434*^9, 
+  3.4892266231303997`*^9, 3.4892269428584003`*^9, 3.4892273227496*^9, 
+  3.489227554316*^9, 3.4892275972628*^9}],
+
+Cell[BoxData[
+ RowBox[{"4.585063349141303`", " ", "\<\"should be 6.48405.\"\>"}]], "Output",
+ CellChangeTimes->{3.489226465505*^9, 3.4892265117434*^9, 
+  3.4892266231303997`*^9, 3.4892269428584003`*^9, 3.4892273227496*^9, 
+  3.489227554316*^9, 3.4892275972628*^9}],
+
+Cell[BoxData[
+ RowBox[{"0.21167746072970825`", 
+  " ", "\<\"should be 6.48405.\"\>"}]], "Output",
+ CellChangeTimes->{3.489226465505*^9, 3.4892265117434*^9, 
+  3.4892266231303997`*^9, 3.4892269428584003`*^9, 3.4892273227496*^9, 
+  3.489227554316*^9, 3.4892275972784*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"NIntegrate", "::", "\<\"inumr\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"\\!\\(\\*StyleBox[\\\"\\\\\\\"The integrand \\\\\\\"\\\", \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\!\\(\\(2.025809667957575`\\\\ \
+13.674215258713634`\\^\\(\\(\\(-0.0032400053227704473`\\)\\)\\\\ \\(\\(\
+\[LeftSkeleton] 1 \[RightSkeleton]\\)\\)\\)\\\\ k\[Gamma]2\\^\\(1 - \\(\\(\
+\[LeftSkeleton] 1 \[RightSkeleton]\\)\\)\\)\\\\ \\(\\((1 - \\(\\(2\\\\ \
+\\(\\((1 - \[Eta])\\)\\)\\\\ \[Eta]\\)\\) - \\(\\(2\\\\ \\(\\((1 - \[Rho])\\)\
+\\)\\\\ \[Rho]\\)\\) + \\(\\(12\\\\ \\(\\((1 - \[Eta])\\)\\)\\\\ \[Eta]\\\\ \
+\\(\\((1 - \[Rho])\\)\\)\\\\ \
+\[Rho]\\)\\))\\)\\)\\)\\/\\(\\(\\((\\(\\(2.7348430517427267`\\\\ k\[Gamma]2\\\
+\\ \\(\\((1 - \[Eta])\\)\\)\\\\ \[Eta]\\)\\) + \\(\\(10\\\\ \\(\\((1 - \
+\[Rho])\\)\\)\\\\ \[Rho]\\)\\))\\)\\)\\\\ \\(\\(Log[\\(\\(13.674215258713634`\
+\\\\ k\[Gamma]2\\)\\)]\\)\\)\\)\\), \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" has evaluated to \
+non-numerical values for all sampling points in the region with boundaries \\\
+\\\\\"\\\", \\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\!\\({\\(\\({0, \
+1}\\)\\), \\(\\({0, 1}\\)\\)}\\), \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\".\\\\\\\"\\\", \\\"MT\\\
+\"]\\) \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/NIntegrate/inumr\\\", ButtonNote -> \
+\\\"NIntegrate::inumr\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.4892266401032*^9, 3.4892269519063997`*^9, 
+  3.48922733069*^9, 3.4892275621940002`*^9, 3.4892276008803997`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"NIntegrate", "::", "\<\"inumr\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"\\!\\(\\*StyleBox[\\\"\\\\\\\"The integrand \\\\\\\"\\\", \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\!\\(\\(2.025809667957575`\\\\ \
+13.674215258713634`\\^\\(\\(\\(-0.0032400053227704473`\\)\\)\\\\ \\(\\(\
+\[LeftSkeleton] 1 \[RightSkeleton]\\)\\)\\)\\\\ k\[Gamma]2\\^\\(1 - \\(\\(\
+\[LeftSkeleton] 1 \[RightSkeleton]\\)\\)\\)\\\\ \\(\\((1 - \\(\\(2\\\\ \
+\\(\\((1 - \[Eta])\\)\\)\\\\ \[Eta]\\)\\) - \\(\\(2\\\\ \\(\\((1 - \[Rho])\\)\
+\\)\\\\ \[Rho]\\)\\) + \\(\\(12\\\\ \\(\\((1 - \[Eta])\\)\\)\\\\ \[Eta]\\\\ \
+\\(\\((1 - \[Rho])\\)\\)\\\\ \
+\[Rho]\\)\\))\\)\\)\\)\\/\\(\\(\\((\\(\\(2.7348430517427267`\\\\ k\[Gamma]2\\\
+\\ \\(\\((1 - \[Eta])\\)\\)\\\\ \[Eta]\\)\\) + \\(\\(10\\\\ \\(\\((1 - \
+\[Rho])\\)\\)\\\\ \[Rho]\\)\\))\\)\\)\\\\ \\(\\(Log[\\(\\(13.674215258713634`\
+\\\\ k\[Gamma]2\\)\\)]\\)\\)\\)\\), \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" has evaluated to \
+non-numerical values for all sampling points in the region with boundaries \\\
+\\\\\"\\\", \\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\!\\({\\(\\({0, \
+1}\\)\\), \\(\\({0, 1}\\)\\)}\\), \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\".\\\\\\\"\\\", \\\"MT\\\
+\"]\\) \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/NIntegrate/inumr\\\", ButtonNote -> \
+\\\"NIntegrate::inumr\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.4892266401032*^9, 3.4892269519063997`*^9, 
+  3.48922733069*^9, 3.4892275621940002`*^9, 3.489227600896*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"NIntegrate", "::", "\<\"inumr\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"\\!\\(\\*StyleBox[\\\"\\\\\\\"The integrand \\\\\\\"\\\", \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\!\\(\\(2.025809667957575`\\\\ \
+13.674215258713634`\\^\\(\\(\\(-0.0032400053227704473`\\)\\)\\\\ \\(\\(\
+\[LeftSkeleton] 1 \[RightSkeleton]\\)\\)\\)\\\\ k\[Gamma]2\\^\\(1 - \\(\\(\
+\[LeftSkeleton] 1 \[RightSkeleton]\\)\\)\\)\\\\ \\(\\((1 - \\(\\(2\\\\ \
+\\(\\((1 - \[Eta])\\)\\)\\\\ \[Eta]\\)\\) - \\(\\(2\\\\ \\(\\((1 - \[Rho])\\)\
+\\)\\\\ \[Rho]\\)\\) + \\(\\(12\\\\ \\(\\((1 - \[Eta])\\)\\)\\\\ \[Eta]\\\\ \
+\\(\\((1 - \[Rho])\\)\\)\\\\ \
+\[Rho]\\)\\))\\)\\)\\)\\/\\(\\(\\((\\(\\(2.7348430517427267`\\\\ k\[Gamma]2\\\
+\\ \\(\\((1 - \[Eta])\\)\\)\\\\ \[Eta]\\)\\) + \\(\\(10\\\\ \\(\\((1 - \
+\[Rho])\\)\\)\\\\ \[Rho]\\)\\))\\)\\)\\\\ \\(\\(Log[\\(\\(13.674215258713634`\
+\\\\ k\[Gamma]2\\)\\)]\\)\\)\\)\\), \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" has evaluated to \
+non-numerical values for all sampling points in the region with boundaries \\\
+\\\\\"\\\", \\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\!\\({\\(\\({0, \
+1}\\)\\), \\(\\({0, 1}\\)\\)}\\), \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\".\\\\\\\"\\\", \\\"MT\\\
+\"]\\) \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
+ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:ref/message/NIntegrate/inumr\\\", ButtonNote -> \
+\\\"NIntegrate::inumr\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.4892266401032*^9, 3.4892269519063997`*^9, 
+  3.48922733069*^9, 3.4892275621940002`*^9, 3.489227600896*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"General", "::", "\<\"stop\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"\\!\\(\\*StyleBox[\\\"\\\\\\\"Further output of \\\\\\\"\\\
+\", \\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\!\\(NIntegrate :: \\\"inumr\\\
+\"\\), \\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" will be \
+suppressed during this calculation.\\\\\\\"\\\", \\\"MT\\\"]\\) \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/General/stop\\\", \
+ButtonNote -> \\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.4892266401032*^9, 3.4892269519063997`*^9, 
+  3.48922733069*^9, 3.4892275621940002`*^9, 3.4892276009116*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"NIntegrate", "::", "\<\"slwcon\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"\\!\\(\\*StyleBox[\\\"\\\\\\\"Numerical integration \
+converging too slowly; suspect one of the following: singularity, value of \
+the integration is 0, highly oscillatory integrand, or WorkingPrecision too \
+small.\\\\\\\"\\\", \\\"MT\\\"]\\) \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/NIntegrate/slwcon\\\", \
+ButtonNote -> \\\"NIntegrate::slwcon\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.4892266401032*^9, 3.4892269519063997`*^9, 
+  3.48922733069*^9, 3.4892275621940002`*^9, 3.4892278704566*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"NIntegrate", "::", "\<\"ncvb\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"\\!\\(\\*StyleBox[\\\"\\\\\\\"NIntegrate failed to \
+converge to prescribed accuracy after \\\\\\\"\\\", \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\!\\(18\\), \\\"MT\\\"]\\)\
+\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" recursive bisections in \
+\\\\\\\"\\\", \\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\!\\(kp2\\), \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" near \\\\\\\"\\\", \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\!\\({kp2, k\[Gamma]2}\\), \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" = \\\\\\\"\\\", \\\"MT\
+\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\!\\({0.19999022771953512`, \
+105.51545010073032`}\\), \\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\
+\". NIntegrate obtained \\\\\\\"\\\", \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\!\\(938.6046289264989`\\), \\\"MT\
+\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" and \\\\\\\"\\\", \
+\\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\!\\(919.6202022478092`\\), \\\"MT\
+\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" for the integral and error \
+estimates.\\\\\\\"\\\", \\\"MT\\\"]\\) \
+\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
+ButtonFrame->None, ButtonData:>\\\"paclet:ref/message/NIntegrate/ncvb\\\", \
+ButtonNote -> \\\"NIntegrate::ncvb\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.4892266401032*^9, 3.4892269519063997`*^9, 
+  3.48922733069*^9, 3.4892275621940002`*^9, 3.4892279636042*^9}],
+
+Cell[BoxData["604.3239019979841`"], "Output",
+ CellChangeTimes->{3.489226465505*^9, 3.4892265117434*^9, 
+  3.4892266231303997`*^9, 3.4892269428584003`*^9, 3.4892273227496*^9, 
+  3.489227554316*^9, 3.4892279636198*^9}]
+}, Open  ]]
+},
+WindowSize->{593, 762},
+WindowMargins->{{Automatic, 0}, {0, Automatic}},
+FrontEndVersion->"7.0 for Microsoft Windows (64-bit) (February 18, 2009)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 11146, 308, 1192, "Input"],
+Cell[11716, 332, 269, 5, 30, "Output"],
+Cell[11988, 339, 295, 5, 30, "Output"],
+Cell[12286, 346, 265, 4, 30, "Output"],
+Cell[12554, 352, 264, 4, 30, "Output"],
+Cell[12821, 358, 269, 5, 30, "Output"],
+Cell[13093, 365, 1624, 26, 102, "Message"],
+Cell[14720, 393, 1619, 26, 102, "Message"],
+Cell[16342, 421, 1619, 26, 102, "Message"],
+Cell[17964, 449, 720, 12, 39, "Message"],
+Cell[18687, 463, 704, 12, 73, "Message"],
+Cell[19394, 477, 1528, 24, 90, "Message"],
+Cell[20925, 503, 217, 3, 30, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

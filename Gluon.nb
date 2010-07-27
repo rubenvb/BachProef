@@ -1,0 +1,431 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     15889,        422]
+NotebookOptionsPosition[     15298,        400]
+NotebookOutlinePosition[     15742,        417]
+CellTagsIndexPosition[     15699,        414]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{"Remove", "[", "\"\<Global`*\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Charge", ":=", 
+  RowBox[{"6", "/", "9"}]}], "\[IndentingNewLine]", 
+ RowBox[{"nf", ":=", "3"}], "\[IndentingNewLine]", 
+ RowBox[{"lambda", ":=", ".288"}], "\[IndentingNewLine]", 
+ RowBox[{"x0", ":=", 
+  RowBox[{"3.04", " ", 
+   RowBox[{"10", "^", 
+    RowBox[{"(", 
+     RowBox[{"-", "4"}], ")"}]}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"lambdaQCD", " ", ":=", ".2"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Alpha]", "[", "Q2_", "]"}], ":=", " ", 
+  RowBox[{"12", 
+   RowBox[{"\[Pi]", "/", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"33", "-", 
+        RowBox[{"2", " ", "nf"}]}], ")"}], 
+      RowBox[{"Log", "[", 
+       RowBox[{"Q2", "/", "lambdaQCD"}], "]"}]}], 
+     ")"}]}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"R02", "[", "x_", "]"}], ":=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"x", "/", "x0"}], ")"}], "^", "lambda"}]}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"GluonInthePhotonIntegrand", "[", 
+       RowBox[{"\[Eta]", ",", "\[Rho]", ",", "kt2", ",", "Q2"}], "]"}], "==", 
+      
+      RowBox[{"Charge", " ", 
+       RowBox[{
+        RowBox[{"\[Alpha]", "[", "kt2", "]"}], "/", 
+        RowBox[{"(", 
+         RowBox[{"4", 
+          RowBox[{"\[Pi]", "^", "2"}]}], ")"}]}], 
+       RowBox[{"(", 
+        RowBox[{"2", "\[Pi]"}], ")"}], 
+       RowBox[{"1", "/", "2"}], " ", "kt2", " ", "Q2", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"(", 
+          RowBox[{"(", 
+           RowBox[{"1", "-", 
+            RowBox[{"2", "\[Rho]", 
+             RowBox[{"(", 
+              RowBox[{"1", "-", "\[Rho]"}], ")"}]}], "-", 
+            RowBox[{"2", "\[Eta]", 
+             RowBox[{"(", 
+              RowBox[{"1", "-", "\[Eta]"}], ")"}]}], "+", 
+            RowBox[{"12", 
+             RowBox[{"(", 
+              RowBox[{"\[Rho]", 
+               RowBox[{"(", 
+                RowBox[{"1", "-", "\[Rho]"}], ")"}]}], ")"}], 
+             RowBox[{"(", 
+              RowBox[{"\[Eta]", 
+               RowBox[{"(", 
+                RowBox[{"1", "-", "\[Eta]"}], ")"}]}], ")"}]}]}], ")"}], 
+          ")"}], ")"}], "/", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"\[Eta]", 
+           RowBox[{"(", 
+            RowBox[{"1", "-", "\[Eta]"}], ")"}], "kt2"}], "+", 
+          RowBox[{"\[Rho]", 
+           RowBox[{"(", 
+            RowBox[{"1", "-", "\[Rho]"}], ")"}], "Q2"}]}], ")"}]}]}]}], "//", 
+     "HoldForm"}], "//", "TraditionalForm"}], "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"GluonInthePhotonIntegrand", "[", 
+   RowBox[{"\[Eta]_", ",", "\[Rho]_", ",", "kt2_", ",", "Q2_"}], "]"}], ":=", 
+  
+  RowBox[{"Charge", " ", 
+   RowBox[{
+    RowBox[{"\[Alpha]", "[", "kt2", "]"}], "/", 
+    RowBox[{"(", 
+     RowBox[{"4", 
+      RowBox[{"\[Pi]", "^", "2"}]}], ")"}]}], 
+   RowBox[{"(", 
+    RowBox[{"2", "\[Pi]"}], ")"}], 
+   RowBox[{"1", "/", "2"}], " ", "kt2", " ", "Q2", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"(", 
+      RowBox[{"(", 
+       RowBox[{"1", "-", 
+        RowBox[{"2", "\[Rho]", 
+         RowBox[{"(", 
+          RowBox[{"1", "-", "\[Rho]"}], ")"}]}], "-", 
+        RowBox[{"2", "\[Eta]", 
+         RowBox[{"(", 
+          RowBox[{"1", "-", "\[Eta]"}], ")"}]}], "+", 
+        RowBox[{"12", 
+         RowBox[{"(", 
+          RowBox[{"\[Rho]", 
+           RowBox[{"(", 
+            RowBox[{"1", "-", "\[Rho]"}], ")"}]}], ")"}], 
+         RowBox[{"(", 
+          RowBox[{"\[Eta]", 
+           RowBox[{"(", 
+            RowBox[{"1", "-", "\[Eta]"}], ")"}]}], ")"}]}]}], ")"}], ")"}], 
+     ")"}], "/", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"\[Eta]", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", "\[Eta]"}], ")"}], "kt2"}], "+", 
+      RowBox[{"\[Rho]", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", "\[Rho]"}], ")"}], "Q2"}]}], 
+     ")"}]}]}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"GluonInthePhoton", "[", 
+    RowBox[{"kt2_", ",", "Q2_"}], "]"}], ":=", 
+   RowBox[{"NIntegrate", "[", 
+    RowBox[{
+     RowBox[{"GluonInthePhotonIntegrand", "[", 
+      RowBox[{"\[Eta]", ",", "\[Rho]", ",", "kt2", ",", "Q2"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Eta]", ",", "0", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Rho]", ",", "0", ",", "1"}], "}"}]}], "]"}]}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"GluonInthePhotonEvol", "[", 
+       RowBox[{"\[Eta]", ",", "\[Rho]", ",", "x", ",", "kt2", ",", "Q2"}], 
+       "]"}], "\[Equal]", "\[IndentingNewLine]", 
+      RowBox[{"(", 
+       RowBox[{"Charge", " ", 
+        RowBox[{
+         RowBox[{"\[Alpha]", "[", 
+          RowBox[{"kt2", " ", 
+           RowBox[{"R02", "[", "x", "]"}]}], "]"}], "/", 
+         RowBox[{"(", 
+          RowBox[{"4", 
+           RowBox[{"\[Pi]", "^", "2"}]}], ")"}]}], " ", "kt2", " ", 
+        RowBox[{"R02", "[", "x", "]"}], " ", "Q2", 
+        RowBox[{"(", 
+         RowBox[{"2", "\[Pi]"}], ")"}], 
+        RowBox[{"1", "/", "2"}], 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"(", 
+           RowBox[{"(", 
+            RowBox[{"(", 
+             RowBox[{"1", "-", 
+              RowBox[{"2", "\[Rho]", 
+               RowBox[{"(", 
+                RowBox[{"1", "-", "\[Rho]"}], ")"}]}], "-", 
+              RowBox[{"2", "\[Eta]", 
+               RowBox[{"(", 
+                RowBox[{"1", "-", "\[Eta]"}], ")"}]}], "+", 
+              RowBox[{"12", 
+               RowBox[{"(", 
+                RowBox[{"\[Rho]", 
+                 RowBox[{"(", 
+                  RowBox[{"1", "-", "\[Rho]"}], ")"}]}], ")"}], 
+               RowBox[{"(", 
+                RowBox[{"\[Eta]", 
+                 RowBox[{"(", 
+                  RowBox[{"1", "-", "\[Eta]"}], ")"}]}], ")"}]}]}], ")"}], 
+            ")"}], ")"}], ")"}], "/", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"\[Eta]", 
+            RowBox[{"(", 
+             RowBox[{"1", "-", "\[Eta]"}], ")"}], "kt2", " ", 
+            RowBox[{"R02", "[", "x", "]"}]}], "+", 
+           RowBox[{"\[Rho]", 
+            RowBox[{"(", 
+             RowBox[{"1", "-", "\[Rho]"}], ")"}], "Q2"}]}], ")"}]}], 
+        RowBox[{"Exp", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "1"}], "/", 
+           RowBox[{"(", 
+            RowBox[{"2", " ", "48", " ", 
+             RowBox[{"\[Alpha]", "[", 
+              RowBox[{"kt2", " ", 
+               RowBox[{"R02", "[", "x", "]"}]}], "]"}], 
+             RowBox[{"Log", "[", 
+              RowBox[{"0.1", "/", 
+               RowBox[{"(", "x", ")"}]}], "]"}]}], ")"}]}], " ", 
+          RowBox[{
+           RowBox[{"Log", "[", 
+            RowBox[{"kt2", " ", 
+             RowBox[{"R02", " ", "[", "x", "]"}]}], "]"}], "^", "2"}]}], 
+         "]"}]}], ")"}]}], "//", "HoldForm"}], "//", "TraditionalForm"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"GluonInthePhotonEvolIntegrand", "[", 
+   RowBox[{"\[Eta]_", ",", "\[Rho]_", ",", "x_", ",", "kt2_", ",", "Q2_"}], 
+   "]"}], ":=", 
+  RowBox[{"(", 
+   RowBox[{"Charge", " ", 
+    RowBox[{
+     RowBox[{"\[Alpha]", "[", 
+      RowBox[{"kt2", " ", 
+       RowBox[{"R02", "[", "x", "]"}]}], "]"}], "/", 
+     RowBox[{"(", 
+      RowBox[{"4", 
+       RowBox[{"\[Pi]", "^", "2"}]}], ")"}]}], " ", "kt2", " ", 
+    RowBox[{"R02", "[", "x", "]"}], " ", "Q2", 
+    RowBox[{"(", 
+     RowBox[{"2", "\[Pi]"}], ")"}], 
+    RowBox[{"1", "/", "2"}], 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"(", 
+       RowBox[{"(", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", 
+          RowBox[{"2", "\[Rho]", 
+           RowBox[{"(", 
+            RowBox[{"1", "-", "\[Rho]"}], ")"}]}], "-", 
+          RowBox[{"2", "\[Eta]", 
+           RowBox[{"(", 
+            RowBox[{"1", "-", "\[Eta]"}], ")"}]}], "+", 
+          RowBox[{"12", 
+           RowBox[{"(", 
+            RowBox[{"\[Rho]", 
+             RowBox[{"(", 
+              RowBox[{"1", "-", "\[Rho]"}], ")"}]}], ")"}], 
+           RowBox[{"(", 
+            RowBox[{"\[Eta]", 
+             RowBox[{"(", 
+              RowBox[{"1", "-", "\[Eta]"}], ")"}]}], ")"}]}]}], ")"}], ")"}], 
+       ")"}], ")"}], "/", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"\[Eta]", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", "\[Eta]"}], ")"}], "kt2", " ", 
+        RowBox[{"R02", "[", "x", "]"}]}], "+", 
+       RowBox[{"\[Rho]", 
+        RowBox[{"(", 
+         RowBox[{"1", "-", "\[Rho]"}], ")"}], "Q2"}]}], ")"}]}], 
+    RowBox[{"Exp", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "1"}], "/", 
+       RowBox[{"(", 
+        RowBox[{"2", " ", "48", " ", 
+         RowBox[{"\[Alpha]", "[", 
+          RowBox[{"kt2", " ", 
+           RowBox[{"R02", "[", "x", "]"}]}], "]"}], 
+         RowBox[{"Log", "[", 
+          RowBox[{"0.1", "/", 
+           RowBox[{"(", "x", ")"}]}], "]"}]}], ")"}]}], " ", 
+      RowBox[{
+       RowBox[{"Log", "[", 
+        RowBox[{"kt2", " ", 
+         RowBox[{"R02", " ", "[", "x", "]"}]}], "]"}], "^", "2"}]}], "]"}]}], 
+   ")"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"GluonInthePhotonEvol", "[", 
+    RowBox[{"x_", ",", "kt2_", ",", "Q2_"}], "]"}], ":=", 
+   RowBox[{"NIntegrate", "[", 
+    RowBox[{
+     RowBox[{"GluonInthePhotonEvolIntegrand", "[", 
+      RowBox[{"\[Eta]", ",", "\[Rho]", ",", "x", ",", "kt2", ",", "Q2"}], 
+      "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Eta]", ",", "0", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Rho]", ",", "0", ",", "1"}], "}"}]}], "]"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"\[Alpha]", "[", "10", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"GluonInthePhotonIntegrand", "[", 
+   RowBox[{".5", ",", ".5", ",", "4", ",", "8"}], "]"}], " ", 
+  RowBox[{"(*", " ", ".1978", " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"GluonInthePhoton", "[", 
+   RowBox[{"10", ",", "15"}], "]"}], " ", 
+  RowBox[{"(*", " ", ".5823", " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"GluonInthePhotonEvolIntegrand", "[", 
+   RowBox[{".5", ",", ".5", ",", ".001", ",", "4", ",", "8"}], "]"}], " ", 
+  RowBox[{"(*", " ", ".21656", " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"GluonInthePhotonEvol", "[", 
+   RowBox[{".0001", ",", "5", ",", "10"}], "]"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"LogLogPlot", "[", 
+    RowBox[{
+     RowBox[{"GluonInthePhoton", "[", 
+      RowBox[{"kt2", ",", "5"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"kt2", ",", "1", ",", "10000"}], "}"}]}], "]"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Plot", "[", 
+    RowBox[{
+     RowBox[{"GluonInthePhotonEvol", "[", 
+      RowBox[{".001", ",", "kt2", ",", "10"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"kt2", ",", "0", ",", "1000"}], "}"}]}], "]"}], 
+   "*)"}]}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.488952131114298*^9, 3.488952132443152*^9}, {
+   3.48895216995093*^9, 3.488952240698014*^9}, {3.4890551738608*^9, 
+   3.4890552078064003`*^9}, {3.4890553108444*^9, 3.4890553132623997`*^9}, {
+   3.4890563205922003`*^9, 3.4890564763114*^9}, {3.489056540755*^9, 
+   3.4890566452125998`*^9}, {3.4890566831362*^9, 3.4890566954602003`*^9}, {
+   3.4890567661594*^9, 3.4890567776878*^9}, {3.4890568533104*^9, 
+   3.4890568687076*^9}, {3.4890569546324*^9, 3.4890569643824*^9}, {
+   3.489072512788*^9, 3.489072513238*^9}, {3.4890725933529997`*^9, 
+   3.4890726033529997`*^9}, 3.489072975516*^9, {3.4891228351498003`*^9, 
+   3.4891228355242*^9}, {3.4891228660690002`*^9, 3.4891229017618*^9}, {
+   3.4891229340538*^9, 3.4891229390302*^9}, {3.4891229903386*^9, 
+   3.4891229999326*^9}, {3.4891230466702003`*^9, 3.4891230469978*^9}, {
+   3.4891232142005997`*^9, 3.489123238053*^9}, 3.4891233034793997`*^9, {
+   3.489123695913*^9, 3.4891237908082*^9}, {3.4891241094226*^9, 
+   3.4891243577278*^9}, {3.4891243966029997`*^9, 3.4891244213602*^9}, {
+   3.4891244754298*^9, 3.4891245760186*^9}, {3.4891251362072*^9, 
+   3.4891251563*^9}, {3.4891265797774*^9, 3.489126599293*^9}, {
+   3.4891324963585997`*^9, 3.4891325266686*^9}, {3.4891341102026*^9, 
+   3.4891341182156*^9}, {3.4891341928466*^9, 3.4891341962466*^9}, {
+   3.4891346431756*^9, 3.4891346810095997`*^9}, {3.4891369778146*^9, 
+   3.4891369960646*^9}, {3.4891375117036*^9, 3.4891375162956*^9}, {
+   3.4892249826644*^9, 3.489224984942*^9}, {3.4892251123004*^9, 
+   3.4892251248428*^9}, {3.489225339296*^9, 3.4892253871099997`*^9}}],
+
+Cell[BoxData["0.35691594851514713`"], "Output",
+ CellChangeTimes->{{3.489124269151*^9, 3.4891242794625998`*^9}, {
+   3.4891245492802*^9, 3.4891245628522*^9}, 3.4891251444440002`*^9, 
+   3.4891266006034*^9, {3.4891325137106*^9, 3.4891325280495996`*^9}, 
+   3.4891341871256*^9, 3.4891346821096*^9, 3.4891369970046*^9, 
+   3.4891375183176003`*^9, 3.4892252745559998`*^9, 3.4892253334616003`*^9, {
+   3.4892253775004*^9, 3.4892253887792*^9}}],
+
+Cell[BoxData["0.19781226707871644`"], "Output",
+ CellChangeTimes->{{3.489124269151*^9, 3.4891242794625998`*^9}, {
+   3.4891245492802*^9, 3.4891245628522*^9}, 3.4891251444440002`*^9, 
+   3.4891266006034*^9, {3.4891325137106*^9, 3.4891325280495996`*^9}, 
+   3.4891341871256*^9, 3.4891346821096*^9, 3.4891369970046*^9, 
+   3.4891375183176003`*^9, 3.4892252745559998`*^9, 3.4892253334616003`*^9, {
+   3.4892253775004*^9, 3.4892253887948*^9}}],
+
+Cell[BoxData["0.5823411165736316`"], "Output",
+ CellChangeTimes->{{3.489124269151*^9, 3.4891242794625998`*^9}, {
+   3.4891245492802*^9, 3.4891245628522*^9}, 3.4891251444440002`*^9, 
+   3.4891266006034*^9, {3.4891325137106*^9, 3.4891325280495996`*^9}, 
+   3.4891341871256*^9, 3.4891346821096*^9, 3.4891369970046*^9, 
+   3.4891375183176003`*^9, 3.4892252745559998`*^9, 3.4892253334616003`*^9, {
+   3.4892253775004*^9, 3.4892253889508*^9}}],
+
+Cell[BoxData["0.21655975594450577`"], "Output",
+ CellChangeTimes->{{3.489124269151*^9, 3.4891242794625998`*^9}, {
+   3.4891245492802*^9, 3.4891245628522*^9}, 3.4891251444440002`*^9, 
+   3.4891266006034*^9, {3.4891325137106*^9, 3.4891325280495996`*^9}, 
+   3.4891341871256*^9, 3.4891346821096*^9, 3.4891369970046*^9, 
+   3.4891375183176003`*^9, 3.4892252745559998`*^9, 3.4892253334616003`*^9, {
+   3.4892253775004*^9, 3.4892253889664*^9}}],
+
+Cell[BoxData["0.3628892080521354`"], "Output",
+ CellChangeTimes->{{3.489124269151*^9, 3.4891242794625998`*^9}, {
+   3.4891245492802*^9, 3.4891245628522*^9}, 3.4891251444440002`*^9, 
+   3.4891266006034*^9, {3.4891325137106*^9, 3.4891325280495996`*^9}, 
+   3.4891341871256*^9, 3.4891346821096*^9, 3.4891369970046*^9, 
+   3.4891375183176003`*^9, 3.4892252745559998`*^9, 3.4892253334616003`*^9, {
+   3.4892253775004*^9, 3.4892253894344*^9}}]
+}, Open  ]]
+},
+WindowSize->{593, 762},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
+Magnification:>FEPrivate`If[
+  FEPrivate`Equal[FEPrivate`$VersionNumber, 6.], 1.25, 1.25 Inherited],
+FrontEndVersion->"7.0 for Microsoft Windows (64-bit) (February 18, 2009)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 12512, 335, 1202, "Input"],
+Cell[13082, 359, 438, 6, 35, "Output"],
+Cell[13523, 367, 438, 6, 35, "Output"],
+Cell[13964, 375, 437, 6, 35, "Output"],
+Cell[14404, 383, 438, 6, 35, "Output"],
+Cell[14845, 391, 437, 6, 35, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

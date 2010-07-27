@@ -1,0 +1,219 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      6948,        210]
+NotebookOptionsPosition[      6379,        187]
+NotebookOutlinePosition[      6725,        202]
+CellTagsIndexPosition[      6682,        199]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Integrate", "[", 
+   RowBox[{
+    RowBox[{"1", "/", 
+     RowBox[{"Sqrt", "[", 
+      RowBox[{"\[Alpha]", "+", 
+       RowBox[{"\[Beta]", " ", 
+        RowBox[{"Cos", "[", "\[Phi]", "]"}]}]}], "]"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"\[Phi]", ",", "0", ",", 
+      RowBox[{"2", "\[Pi]"}]}], "}"}], ",", 
+    RowBox[{"Assumptions", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"\[Alpha]", ">", "\[Beta]", ">", "0"}], "}"}]}]}], "]"}], "//", 
+  "TraditionalForm"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"phiIntegral", "[", 
+   RowBox[{"\[Alpha]_", ",", "\[Beta]_"}], "]"}], ":=", 
+  RowBox[{"Integrate", "[", 
+   RowBox[{
+    RowBox[{"1", "/", 
+     RowBox[{"Sqrt", "[", 
+      RowBox[{"\[Alpha]", "+", 
+       RowBox[{"\[Beta]", " ", 
+        RowBox[{"Cos", "[", "\[Phi]", "]"}]}]}], "]"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"\[Phi]", ",", "0", ",", 
+      RowBox[{"2", "\[Pi]"}]}], "}"}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"phiPart", "[", 
+    RowBox[{"kp_", ",", " ", "kgamma_"}], "]"}], ":=", " ", 
+   RowBox[{"phiIntegral", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"kp", "^", "2"}], "+", 
+      RowBox[{"kgamma", "^", "2"}]}], ",", 
+     RowBox[{"2", " ", "kp", " ", "kgamma"}]}], "]"}]}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"phiPart", "[", 
+  RowBox[{
+   RowBox[{"Sqrt", "[", ".1", "]"}], ",", 
+   RowBox[{"Sqrt", "[", ".99", "]"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"phiPart", "[", 
+  RowBox[{
+   RowBox[{"Sqrt", "[", "20", "]"}], ",", 
+   RowBox[{"Sqrt", "[", "30", "]"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"EllipticK", "[", 
+   RowBox[{
+    RowBox[{"-", "48"}], "+", 
+    RowBox[{"20", " ", 
+     RowBox[{"Sqrt", "[", "6", "]"}]}]}], "]"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"phi", "[", 
+     RowBox[{"kp_", ",", " ", "kgamma_"}], "]"}], ":=", 
+    RowBox[{"phiIntegral", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"kp", "^", "2"}], "+", 
+       RowBox[{"kgamma", "^", "2"}]}], ",", " ", 
+      RowBox[{"2", "kp", " ", "kgamma"}]}], "]"}]}], "*)"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGAQA2IQ/S/1vjHT/5eOWqctrED0JKuVxSB63bZXJSD6lVrn
+ZBCdoTQFTIusk/4Boh9VXfgJot8EvmBlBtJKf7exgegTM+4LgOgp7ZyCIPrL
+7fQqZSAteHwWmP5j5cOuBqQbp14XBtF9pZIX1IG0F4/XXRDdH+zipgGkZ+6O
+8wTRcmJcgSC6hfd/LIiuqFqYAqLtXpwF0yxHmbNA9LyGQwUgmkflSwWInpK6
+pB5EK274NhFE902/NA9Es5q8vawJpGf4NF4B0VuXKd4B0XoTFO6D6P18a/K1
+wO6sKADRn5IDrmgDaXEPmxsguqn42w8QnbRw3j8QfemeBL8OyH9mNWD62L9H
+siD6RryeHIgGAO8gvXo=
+  "]],
+
+Cell[BoxData[
+ FormBox[
+  FractionBox[
+   RowBox[{"2", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       SqrtBox[
+        RowBox[{"\[Alpha]", "+", "\[Beta]"}]], " ", 
+       TemplateBox[{RowBox[{"-", 
+           FractionBox[
+            RowBox[{"2", " ", "\[Beta]"}], 
+            RowBox[{"\[Alpha]", "-", "\[Beta]"}]]}]},
+        "EllipticK"]}], "+", 
+      RowBox[{
+       SqrtBox[
+        RowBox[{"\[Alpha]", "-", "\[Beta]"}]], " ", 
+       TemplateBox[{FractionBox[
+          RowBox[{"2", " ", "\[Beta]"}], 
+          RowBox[{"\[Alpha]", "+", "\[Beta]"}]]},
+        "EllipticK"]}]}], ")"}]}], 
+   SqrtBox[
+    RowBox[{
+     SuperscriptBox["\[Alpha]", "2"], "-", 
+     SuperscriptBox["\[Beta]", "2"]}]]], TraditionalForm]], "Output",
+ CellChangeTimes->{{3.4892195427302*^9, 3.4892195496722*^9}, 
+   3.4892195835242*^9, {3.489219764837*^9, 3.4892197787208*^9}, {
+   3.4892198287952003`*^9, 3.4892198315014*^9}, {3.4892223785326*^9, 
+   3.4892223852806*^9}, {3.4892264199062*^9, 3.489226435007*^9}, 
+   3.4892267107712*^9, 3.4892267436872*^9, 3.4892268765368*^9, 
+   3.4892271787460003`*^9}],
+
+Cell[BoxData["6.484054115420378`"], "Output",
+ CellChangeTimes->{{3.4892195427302*^9, 3.4892195496722*^9}, 
+   3.4892195835242*^9, {3.489219764837*^9, 3.4892197787208*^9}, {
+   3.4892198287952003`*^9, 3.4892198315014*^9}, {3.4892223785326*^9, 
+   3.4892223852806*^9}, {3.4892264199062*^9, 3.489226435007*^9}, 
+   3.4892267107712*^9, 3.4892267436872*^9, 3.4892268765368*^9, 
+   3.4892271864835997`*^9}],
+
+Cell[BoxData[
+ RowBox[{"2", " ", 
+  SqrtBox[
+   RowBox[{"2", "-", 
+    FractionBox[
+     RowBox[{"4", " ", 
+      SqrtBox["6"]}], "5"]}]], " ", 
+  RowBox[{"EllipticK", "[", 
+   RowBox[{
+    RowBox[{"-", "48"}], "+", 
+    RowBox[{"20", " ", 
+     SqrtBox["6"]}]}], "]"}]}]], "Output",
+ CellChangeTimes->{{3.4892195427302*^9, 3.4892195496722*^9}, 
+   3.4892195835242*^9, {3.489219764837*^9, 3.4892197787208*^9}, {
+   3.4892198287952003`*^9, 3.4892198315014*^9}, {3.4892223785326*^9, 
+   3.4892223852806*^9}, {3.4892264199062*^9, 3.489226435007*^9}, 
+   3.4892267107712*^9, 3.4892267436872*^9, 3.4892268765368*^9, 
+   3.4892271890888*^9}],
+
+Cell[BoxData[
+ RowBox[{"EllipticK", "[", 
+  RowBox[{
+   RowBox[{"-", "48"}], "+", 
+   RowBox[{"20", " ", 
+    SqrtBox["6"]}]}], "]"}]], "Output",
+ CellChangeTimes->{{3.4892195427302*^9, 3.4892195496722*^9}, 
+   3.4892195835242*^9, {3.489219764837*^9, 3.4892197787208*^9}, {
+   3.4892198287952003`*^9, 3.4892198315014*^9}, {3.4892223785326*^9, 
+   3.4892223852806*^9}, {3.4892264199062*^9, 3.489226435007*^9}, 
+   3.4892267107712*^9, 3.4892267436872*^9, 3.4892268765368*^9, 
+   3.4892271891043997`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"N", "[", 
+  RowBox[{"EllipticK", "[", 
+   RowBox[{
+    RowBox[{"-", "48"}], "+", 
+    RowBox[{"20", " ", 
+     SqrtBox["6"]}]}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.4892268881588*^9, 3.4892269307060003`*^9}}],
+
+Cell[BoxData["3.6855972729853708`"], "Output",
+ CellChangeTimes->{3.4892268978152*^9, 3.4892269327651997`*^9}]
+}, Open  ]]
+},
+WindowSize->{692, 401},
+WindowMargins->{{-12, Automatic}, {Automatic, 92}},
+FrontEndVersion->"7.0 for Microsoft Windows (64-bit) (February 18, 2009)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 2753, 75, 332, "Input"],
+Cell[3323, 99, 1102, 30, 86, "Output"],
+Cell[4428, 131, 401, 6, 30, "Output"],
+Cell[4832, 139, 635, 17, 65, "Output"],
+Cell[5470, 158, 501, 11, 37, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6008, 174, 242, 7, 40, InheritFromParent],
+Cell[6253, 183, 110, 1, 30, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

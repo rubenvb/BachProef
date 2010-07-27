@@ -64,4 +64,7 @@ OTHER_FILES += \
     thesis/Afbeeldingen/NC.eps \
     thesis/Afbeeldingen/GluonLoop.eps \
     thesis/Afbeeldingen/DIS.eps \
-    thesis/Afbeeldingen/CC.eps
+    thesis/Afbeeldingen/CC.eps \
+    Gluon.nb \
+    ETAnalytical.nb \
+    ET.nb
