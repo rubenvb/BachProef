@@ -18,8 +18,9 @@
 
 // GSL includes
 #include <gsl/gsl_errno.h>
+#include <gsl/gsl_monte.h>
+#include <gsl/gsl_monte_vegas.h>
 #include <gsl/gsl_spline.h>
-#include <gsl/gsl_sf_hyperg.h>
 
 // C++ includes
 #include <cmath>
@@ -46,12 +47,13 @@ int main()
     cout << setprecision(14);
 
     testGSL();
+    //testInterpolation();
     //testIntegration();
 
     //testSFMassless();
     //testSFMassive();
 
-    //testUGDMassless();
+    testUGDMassless();
 
     testETMassless();
 
@@ -59,14 +61,12 @@ int main()
     //outputSFMassless();
     //outputUGDMassless();
 
-    //testInterpolation();
-
     return 0;
 }
 
 void func( unsigned /*ndim*/, const double* xValues,
-             void*, unsigned /*fdim*/,
-             double *fval )
+           void*, unsigned /*fdim*/,
+           double *fval )
 {
     const double x = xValues[0];
     const double y = xValues[1];
@@ -74,6 +74,15 @@ void func( unsigned /*ndim*/, const double* xValues,
 
     *fval =  sin(x*y*z)/(x*y*z);
 }
+double func2( double xValues[], size_t, void* )
+{
+    const double x = xValues[0];
+    const double y = xValues[1];
+    const double z = xValues[2];
+
+    return sin(x*y*z)/(x*y*z);
+}
+
 void testIntegration()
 {
     double val = 0.;
@@ -90,6 +99,25 @@ void testIntegration()
 }
 void testGSL()
 {
+    gsl_monte_function F;
+
+    F.f = &func2;
+    F.dim = 3;
+
+    double res, err;
+    double xl[] = {0., 0., 0.};
+    double xu[] = { 1., 1., 1.};
+    const size_t calls = 100000;
+
+    gsl_rng_env_setup();
+    const gsl_rng_type* T = gsl_rng_default;
+    gsl_rng* r = gsl_rng_alloc( T );
+
+    gsl_monte_vegas_state *s = gsl_monte_vegas_alloc( 3 );
+    gsl_monte_vegas_integrate( &F, xl, xu, 3, calls, r, s,
+                               &res, &err );
+    gsl_monte_vegas_free (s);
+    cout << "GSL Monte Carlo result is " << res << "+-" << err << endl;
 }
 
 void testSFMassless()
@@ -171,12 +199,14 @@ void testUGDMassless()
 
 void testETMassless()
 {
-    using namespace ET::massless;
-
+    //cout << "-----------\nET MASSLESS NO EVOLUTION\n-----------" << endl;
+    //cout << "ET() = ????? ?=\t " << ET::massless::ETFlow(1e-8, 10., 1e-5 ) << endl;
+    init();
     cout << "-----------\nET MASSLESS NO EVOLUTION\n-----------" << endl;
-    cout << "impactPhi(20,30,pi) = .158349 ?=\t" << impactPhi(20,30,M_PI) << endl;
-    //cout << "impactET(.0001,20,.01,2,3) = .128646  ?=\t " << impactET(.0001, 20, .01, M_PI, 2, 3) << endl;
-    cout << "ET() = ????? ?=\t " << ETFlow(.0001, 10., .0001 ) << endl;
+    cout << "ET() = ????? ?=\t " << ETFlow(1e-8, 10., 1e-5 ) << endl;
+    cout << "ET() = ????? ?=\t " << ETFlow(1e-8, 10., 1e-5 ) << endl;
+    cout << "ET() = ????? ?=\t " << ETFlow(1e-8, 10., 1e-5 ) << endl;
+    deinit();
 }
 void testInterpolation()
 {
@@ -191,7 +221,7 @@ void testInterpolation()
 
     double fancyF2Int[nPoints];
     const double deltak = 10./(nPoints-1);
-    for( int i =0; i<nPoints; ++i )
+    for( size_t i =0; i<nPoints; ++i )
     {
         kgammaInt[i] = deltak*i;
         fancyF2Int[i] = UGD::massless::F0( kgammaInt[i], 10 );

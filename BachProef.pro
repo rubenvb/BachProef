@@ -18,7 +18,6 @@ DEPENDPATH += .
 INCLUDEPATH += .
 LIBS += -lgsl
 
-
 SOURCES += \
     Main.cpp \
     Cubature/Cubature.c \
@@ -28,10 +27,11 @@ SOURCES += \
     Plots.cpp \
     UGD/UGDMassless.cpp \
     ET/ETMassless.cpp \
-    ALGLIB/ialglib.cpp \
-    ALGLIB/elliptic.cpp \
-    ALGLIB/ap.cpp \
-    ALGLIB/bessel.cpp
+    #ALGLIB/ialglib.cpp \
+    #ALGLIB/elliptic.cpp \
+    #ALGLIB/ap.cpp \
+    #ALGLIB/bessel.cpp \
+    ET/ETMonteCarlo.cpp
 
 HEADERS += \
     Cubature/Cubature.h \
@@ -45,11 +45,12 @@ HEADERS += \
     UGD/UGDMassless.h \
     TransverseEnergyFlow.h \
     ET/ETMassless.h \
-    ALGLIB/ialglib.h \
-    ALGLIB/elliptic.h \
-    ALGLIB/apvt.h \
-    ALGLIB/ap.h \
-    ALGLIB/bessel.h
+    #ALGLIB/ialglib.h \
+    #ALGLIB/elliptic.h \
+    #ALGLIB/apvt.h \
+    #ALGLIB/ap.h \
+    #ALGLIB/bessel.h \
+    ET/ETMonteCarlo.h
 
 OTHER_FILES += \
     thesis/thesis.tex \

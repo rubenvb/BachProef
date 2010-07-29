@@ -40,7 +40,7 @@ const vector<double> ETPlot( const double x, const double Q2,
                              const vector<double> &xj )
 {
 
-
+    return vector<double>();
 }
 
 double ETFlow( const double x, const double Q2,
@@ -61,7 +61,7 @@ double ETFlow( const double x, const double Q2,
     double kgammaInt[nPoints];
     double fancyF2Int[nPoints];
     const double deltak = limit/(nPoints-1);
-    for( int i =0; i<nPoints; ++i )
+    for( size_t i =0; i<nPoints; ++i )
     {
         kgammaInt[i] = deltak*i;
         fancyF2Int[i] = UGD::massless::F0(kgammaInt[i], Q2);
@@ -69,14 +69,15 @@ double ETFlow( const double x, const double Q2,
     gsl_spline_init( spline_ptr, kgammaInt, fancyF2Int, nPoints );
     cout << "spline ready for use" << endl;
     // phi, kp2, kg2
-    double xMin[] = { 0., 0. };
-    double xMax[] = { limit, limit };
-    double input[] = { x, Q2, xj, M_PI };
+    double xMin[] = { 0., 0., 0. };
+    double xMax[] = { 2*M_PI, limit, limit };
+    double input[] = { x, Q2, xj };
 
     const bool fail = adapt_integrate( 1, integrandET, input,
                                        3, xMin, xMax,
                                        0, 0, 1e-4,
                                        &val, &err);
+
     // deallocate spline stuff before possible throw
     gsl_spline_free (spline_ptr);
     gsl_interp_accel_free (accel_ptr);
@@ -93,10 +94,9 @@ void integrandET( unsigned /*ndim*/, const double* xValues,
     const double x = static_cast<double*>(input)[0];
     const double Q2 = static_cast<double*>(input)[1];
     const double xj = static_cast<double*>(input)[2];
-    const double phi = static_cast<double*>(input)[3];
-    //const double phi = xValues[0];
-    const double kp2 = xValues[0];
-    const double kg2 = xValues[1];
+    const double phi = xValues[0];
+    const double kp2 = xValues[1];
+    const double kg2 = xValues[2];
 
     //cout << "integrandET called at\nphi=" << phi
     //        << "\nkp2=" << kp2
@@ -116,7 +116,7 @@ double impactET( const double x, const double Q2,
     const double f = SF::massless::gluonDensity( xj, kp2 );
     const double phipart = impactPhi( kp2, kg2, phi );
 
-    return coeff *fancyF2 * f * phipart;
+    return coeff *fancyF2 * f * phipart / (kp2*kg2);
 }
 
 double impactPhi( const double kp2, const double kgamma2, const double phi )

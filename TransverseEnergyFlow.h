@@ -11,5 +11,6 @@
 
 // BachProef ET includes
 #include "ET/ETMassless.h"
+#include "ET/ETMonteCarlo.h"
 
 #endif // TRANSVERSEENERGYFLOW_H
