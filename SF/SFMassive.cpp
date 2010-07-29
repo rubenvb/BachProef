@@ -134,15 +134,15 @@ double FL( const double x, const double Q2 )
 {
     double val = 0.;
     double err = 0.;
-
+    // k2, z, zeta
     double xMin[] = { 0., 0., 0. };
     double xMax[] = { 1000., 1., 1. };
     double input[] = { x, Q2 };
 
     const bool fail = adapt_integrate( 1, integrandFL, input,
-                                 3, xMin, xMax,
-                                 0, 0, 1e-4,
-                                 &val, &err);
+                                       3, xMin, xMax,
+                                       0, 0, 1e-4,
+                                       &val, &err);
     if( fail )
         throw runtime_error( "adapt_integrate returned an error." );
 
@@ -152,7 +152,7 @@ double FT( const double x, const double Q2 )
 {
     double val = 0.;
     double err = 0.;
-
+    // k2, z, zeta
     double xMin[] = { 0., 0., 0. };
     double xMax[] = { 1000., 1., 1. };
     double input[] = { x, Q2 };
@@ -170,7 +170,7 @@ double F2( const double x, const double Q2 )
 {
     double val = 0.;
     double err = 0.;
-
+    // k2, z, zeta
     double xMin[] = { 0., 0., 0. };
     double xMax[] = { 1000., 1., 1. };
     double input[] = { x, Q2 };

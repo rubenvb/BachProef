@@ -83,7 +83,7 @@ double F2( const double x, const double Q2 )
 {
     double val = 0.;
     double err = 0.;
-
+    // k2, z, zeta
     double xMin[] = { 0., 0., 0. };
     double xMax[] = { 1000., 1., 1. };
     double input[] = { x, Q2 };
@@ -101,7 +101,7 @@ double FL( const double x, const double Q2 )
 {
     double val = 0.;
     double err = 0.;
-
+    // k2, z, zeta
     double xMin[] = { 0., 0., 0. };
     double xMax[] = { 1000., 1., 1. };
     double input[] = { x, Q2 };

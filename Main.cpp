@@ -16,9 +16,10 @@
 // Cubature includes
 #include "Cubature/Cubature.h"
 
-// ALGLIB includes
-#include "ALGLIB/elliptic.h"
-#include "ALGLIB/bessel.h"
+// GSL includes
+#include <gsl/gsl_errno.h>
+#include <gsl/gsl_spline.h>
+#include <gsl/gsl_sf_hyperg.h>
 
 // C++ includes
 #include <cmath>
@@ -33,17 +34,18 @@ void func( unsigned /*ndim*/, const double* xValues,
            void*, unsigned /*fdim*/,
            double *fval );
 void testIntegration();
-void testALGLIB();
+void testGSL();
 void testSFMassless();
 void testSFMassive();
 void testUGDMassless();
 void testETMassless();
+void testInterpolation();
 
 int main()
 {
     cout << setprecision(14);
 
-    testALGLIB();
+    testGSL();
     //testIntegration();
 
     //testSFMassless();
@@ -56,6 +58,9 @@ int main()
     //outputSFMassive();
     //outputSFMassless();
     //outputUGDMassless();
+
+    //testInterpolation();
+
     return 0;
 }
 
@@ -83,15 +88,8 @@ void testIntegration()
 
     cout << "testFunction is = .99389 ?=\t" << val << endl;
 }
-void testALGLIB()
+void testGSL()
 {
-    //cout << "-----------\nBESSEL K_N\n-----------" << endl;
-    //cout << "K0(.1) = 2.42707 ?=\t" << /*gsl_sf_bessel_K0*/ besselk0(.1) << endl;
-    //cout << "K0(.5) = 1.65644 ?=\t" << /*gsl_sf_bessel_K1*/ besselk1(.5) << endl;
-
-    cout << "-----------\nELLIPTIC_K\n-----------" << endl;
-    cout << "EllipticK(.1) = 1.61244 ?=\t" << ellipticintegralk(.1) << endl;
-    cout << "EllipticK(.99) = 3.69564 ?=\t" << ellipticintegralk(.99) << endl;
 }
 
 void testSFMassless()
@@ -173,6 +171,37 @@ void testUGDMassless()
 
 void testETMassless()
 {
-    cout << "-----------\nET MASSLESS\n-----------" << endl;
-    cout << "ET(.0001,10) = ?=\t" << ET::massless::ET(.0001,10) << endl;
+    using namespace ET::massless;
+
+    cout << "-----------\nET MASSLESS NO EVOLUTION\n-----------" << endl;
+    cout << "impactPhi(20,30,pi) = .158349 ?=\t" << impactPhi(20,30,M_PI) << endl;
+    //cout << "impactET(.0001,20,.01,2,3) = .128646  ?=\t " << impactET(.0001, 20, .01, M_PI, 2, 3) << endl;
+    cout << "ET() = ????? ?=\t " << ETFlow(.0001, 10., .0001 ) << endl;
+}
+void testInterpolation()
+{
+/*
+ *  create interpolating spline stuff
+ */
+    const size_t nPoints = 20;
+    gsl_interp_accel* accel = gsl_interp_accel_alloc();
+    gsl_spline* spline = gsl_spline_alloc( gsl_interp_cspline, nPoints );
+
+    double kgammaInt[nPoints];
+
+    double fancyF2Int[nPoints];
+    const double deltak = 10./(nPoints-1);
+    for( int i =0; i<nPoints; ++i )
+    {
+        kgammaInt[i] = deltak*i;
+        fancyF2Int[i] = UGD::massless::F0( kgammaInt[i], 10 );
+    }
+    gsl_spline_init( spline, kgammaInt, fancyF2Int, nPoints );
+
+    cout << "Interpolated value: fancyF2( 5.333, 10 ) = " << gsl_spline_eval( spline, 5.333, accel ) << endl;
+    cout << "Fully calculated value: " << UGD::massless::F0(5.333,10) << endl;
+
+    // Step 5: free the accelerator and spline object
+    gsl_spline_free( spline );
+    gsl_interp_accel_free( accel );
 }

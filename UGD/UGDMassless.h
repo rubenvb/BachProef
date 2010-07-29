@@ -9,6 +9,9 @@
 #ifndef UGDMASSLESS_H
 #define UGDMASSLESS_H
 
+// C++ includes
+#include <vector>
+
 namespace UGD
 {
     namespace massless
@@ -17,6 +20,9 @@ namespace UGD
         const double x0 = 3.04e-4;
         const double charge2 = 6./9;
         const double nf = 3.;
+
+        void generateIterpolation( const double xBegin, const double xEnd,
+                                   const double Q2Begin, const double Q2End );
 
         double impactF0( const double k2, const double Q2,
                          const double eta, const double rho );
