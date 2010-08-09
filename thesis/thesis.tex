@@ -25,7 +25,7 @@
 \usepackage{appendix}
 
 
-\title{Dwarse energiestroom in de LHeC met saturatie}
+\title{Studie van parton-saturatie effecten in de transverse energiestroom bij elektron-proton interacties aan de LHeC}
 \author{Ruben Van Boxem}
 
 \begin{document}
@@ -56,7 +56,7 @@ Academiejaar 2009--2010
 \fontsize{17.28pt}{21pt}\selectfont
 
 % De titel van de thesis:
-\textsc{Dwarse energiestroom in de LHeC met saturatie}
+\textsc{Studie van parton-saturatie effecten in de transverse energiestroom bij elektron-proton interacties aan de LHeC}
 
 \fontseries{m}
 \fontsize{12pt}{14pt}\selectfont
@@ -107,12 +107,12 @@ Een proces dat zich hier goed voor leent, heet DIS, oftewel \textit{Deep Inelast
     \includegraphics[width=.33\textwidth]{Afbeeldingen/DIS.eps}
     \caption{Elektron-proton verstrooiing.
 Het elektron zendt een boson uit dat het proton “onderzoekt".
-$P$ is de vierimpuls van het inkomend proton, $W$ is de invariante massa van het uitgaande systeem (dus zonder elektron), $q$ is de overgedragen vierimpuls. \cite{Martin}}
+$P$ is de vierimpuls van het inkomend proton, $W$ is de invariante massa van het uitgaande systeem (zonder elektron), $q$ is de overgedragen vierimpuls. \cite{Martin}}
    \label{fig:DIS}
   \end{center}
 \end{figure}
- Men spreekt van DIS processen als $Q^2 \gg M^2$ (“diep”) en $W^2 = (P+q)^2 \gg M^2$ (“inelastisch”).
-Omdat de waarde van $q^2$ negatief is, wordt vaak volgende variabele ingevoerd: $Q^2 :=-q^2 > 0$. De golflengte van het het foton is van de grootteorde van $1/Q$.
+ In wat volgt wordt M gedefinieerd als de massa van het proton. Men spreekt van DIS processen als $Q^2 \gg M^2$ (“diep”) en $W^2 = (P+q)^2 \gg M^2$ (“inelastisch”).
+Omdat de waarde van $q^2$ negatief is, wordt vaak volgende variabele ingevoerd: $Q^2 :=-q^2 > 0$.  Dit is een ruimteachtige vierimpuls, dus er bestaat een stelsel waar de energie van het virtuele foton nul is en dus de impuls gelijk aan $Q^2$. In dit stelsel is de golflengte van het het foton van de grootteorde van $1/Q$.
 Dit wil concreet zeggen dat als de overgedragen impuls verhoogt, de golflengte van het foton en dus de grootte van de deeltjes waarmee het interageert, kleiner wordt.
 
       \paragraph{}
@@ -140,21 +140,22 @@ Stel dat een elektron verstrooid wordt op een atoomkern (bestaande uit meerdere 
 Als $\lambda \gg d_\text{kern}$, ziet het foton de kern als een puntdeeltje en wordt het elastisch verstrooid op een puntdeeltje met de lading van de kern.
 Als $\lambda \ll d_\text{kern}$, dringt het foton diep door in de kern en kan het verstrooid worden op een proton in de kern.
 Men spreekt hier van diep inelastische elektron-kern verstrooiing, en men kan het volgende schrijven:
-\begin{align}
+\begin{equation}
 x_N = \frac{M}{M_N} \left( \frac{Q^2}{2M\nu} \right) = \frac{1}{A}
-\end{align}
+\end{equation}
 waarbij $M_N$ de massa van de kern is, $M$ de massa van het proton, $\nu$ de frequentie van het foton en $A$ het aantal nucleonen in de kern.
+De laatste gelijkheid geldt omdat het elektron elastisch interageert met een geheel nucleon.
 Als men de werkzame doorsnede van deze processen zou uitzetten t.o.v. $x_N$, ziet men een duidelijke verschil tussen de gevallen waar $\lambda \gg d_\text{kern}$ en die waar $\lambda \ll d_\text{kern}$.
-Dit fenomeen heet \textit{schaalinvariantie}, waarbij de waargenomen werkzame doorsnede blijkbaar afhangt van de grootte van de schaal, $Q^2$.
+Dit fenomeen heet \textit{breking van schaalinvariantie}, waarbij de waargenomen werkzame doorsnede blijkbaar afhangt van de grootte van de schaal, $Q^2$.
 
       \paragraph{Elektron-proton verstrooiing}
 Zolang dat $\lambda \gg d_\text{proton}$, ziet het foton het proton als puntdeeltje. Het wordt elastisch verstrooid door het proton.
 Als $Q^2$ zo groot is dat $\lambda \ll d_\text{proton}$, wordt er opnieuw ``ingezoomd", waarbij het foton nu de bouwstenen van het proton kan “zien" (i.e. ermee kan interageren).
 Het foton ziet dus de 3 quarks als puntdeeltjes en men spreekt van diep inelastische elektron-proton verstrooiing.
 Kinematisch geldt het volgende (zie appendix \ref{app:DIS}):
-\begin{align} \label{eq:Bjorkenx}
+\begin{equation} \label{eq:Bjorkenx}
 x = \left( \frac{Q^2}{2p\cdot q} \right)
-\end{align}
+\end{equation}
 $x$ wordt aangeduid als de “Bjorken schaalvariabele".
 De waarschijnlijkheid van zo'n proces worden dus enkel en alleen bepaalt door $x$ en niet $Q^2$ en $p\cdot q$ afzonderlijk.
 
@@ -169,19 +170,28 @@ In volgorde van stijgende $Q^2$ heeft men dus voor de werkzame doorsnede:
 \end{itemize}
 Als men $Q^2$ blijft vergroten, verwacht men logischerwijs nogmaals een breking van schaalinvariantie te zien, en deze worden ook geobserveerd.
 De schijnbare breking van schaalinvariantie ligt in lijn met de voorspellingen van QCD, de theorie van de sterke wisselwerking.
+Deze laatste breking van schaalinvariantie is dus niet te wijten aan een substructuur van quarks, maar kan verklaard worden door quark-gluon interacties in QCD.
 
   \subsection{Zeequarks, gluonen en $\alpha_S$}
 Quarks blijken niet uit een diepere structuur te bestaan (zodat er niet opnieuw een breking van schaalinvariantie optreedt).
 In plaats van een diepere quark structuur, beschrijft QCD het proton als 3 valentiequarks (de klassieke $u u d$ combinatie) plus een willekeurig aantal zeequarks ($q\bar{q}$ paren).
 Het foton ziet naast drie puntdeeltjes ook een zee van quarks.
 Zeequarks ontstaan uit gluonen ($g\rightarrow q\bar{q}$) die zelf uitgestraald worden door andere quarks ($q\rightarrow gq$).
-Het feit dat er extra deeltjes moeten bestaan in een proton volgt ook uit de experimentele waarneming dat slechts de helft van de impuls van het proton gedragen wordt door z’n valentiequarks.
+Het feit dat er extra deeltjes moeten bestaan in een proton volgt ook uit de experimentele waarneming dat slechts de helft van de impuls van het proton gedragen wordt door z’n quarks (zee- en valentiequarks).
+De breking van schaalinvariantie kan dus verklaard worden uit het gedrag van de samenstellende partonen in een proton.
+Een enkelvoudige quark blijkt bij hogere $Q^2$ te bestaan uit $q g/q q\bar{q}$.
+De impuls van het quark wordt dus verdeeld over meer deeltjes.
+Het aantal partonen neemt toe, en tegelijkertijd neemt de fractionele impuls $x$ af.
+Omgekeerd, bij hogere $x$ vermindert het aantal partonen met stijgende $Q^2$.
+Daarnaast zal bij kleine $x$ dus het aantal partonen groter worden met stijgende $Q^2$.
 Er treedt dus breking van schaalinvariantie op omdat elk parton (quark of gluon) bij een grotere waarde van $Q^2$, een kleiner deel  $x$ van de impuls $P$ van het proton zal dragen.
 Deze breking van schaalinvariantie heeft volgende vorm:
-\begin{align}
+\begin{equation}
 \alpha_S R \ln{\left( \frac{Q^2}{\mu^2}\right)}
-\end{align}
+\end{equation}
 Hier is $R$ een observabele en $\mu$ de renormalisatie schaal.
+Bovenstaande formule geeft een bijdrage van een eerste orde term in $\alpha_S$ (zie sectie \ref{sec:DGLAP}).
+Dit zal duidelijk worden in de context van sectie \ref{sec:Observabelen}.
 Merk op dat in tegenstelling tot de vorige brekingen van schaalinvariantie, deze logaritmisch is, wat bijzonder moeilijk te meten was toen deze ontdekking werd gedaan.
 
   \subsection{$\alpha_S$}
@@ -200,16 +210,16 @@ Hoe korter de golflengte van het foton, hoe meer $e^+ e^-$-paren het zal voelen.
 Dit zorgt ervoor dat $\alpha$ toeneemt met $Q^2$.
 De normalisatie van $\alpha$ komt uit vergelijking met experimentele data.
 Algemeen kan men de elektromagnetische koppelingsfactor schrijven als volgt.
-\begin{align}
+\begin{equation}
 \alpha(Q^2) = \alpha_0 \left[ 1+ \frac{\alpha_0}{3\pi} \ln{\frac{Q^2}{M^2}} + \left( \frac{\alpha_0}{3\pi} \ln{\frac{Q^2}{M^2}} \right)^2 +\hdots \right]
-\end{align}
+\end{equation}
 De \textit{loops} in de hogere orde Feynman diagrammen kunnen een oneindige bijdrage hebben indien er geen \textit{cut-off} waarde voor de \textit{loop}impuls wordt opgelegd.
 Er wordt dus een renormalisatieschaal ingevoerd om de eindigheid te garanderen.
 QED beschrijft dus het verloop van $\alpha$, en het experiment geeft het een absolute waarde.
 Als men de waarde van $\alpha$ kent voor een waarde $\mu^2$, volgt hieruit de waarde van $\alpha$:
-\begin{align} \label{eq:alpha}
+\begin{equation} \label{eq:alpha}
 \alpha( Q^2 ) =\frac{\alpha(\mu^2)}{1-\frac{\alpha(\mu^2)}{3\pi} \ln{\frac{Q^2}{\mu^2}}}
-\end{align}
+\end{equation}
 
     \subsubsection{QCD en $\alpha_S$}
 \begin{figure} [H]
@@ -224,8 +234,10 @@ Een fermion loop brengt afscherming van de (kleur)lading met zich mee (zie \ref{
 Een gluon loop zorgt voor \textit{antiscreening}, waardoor  $\alpha_S$ stijgt naarmate $Q^2$ kleiner wordt.
 Dit volgt uit de uitdrukking voor $\alpha_S$, analoog aan \eqref{eq:alpha}:
 \begin{align}
-\alpha_S( Q^2 ) =\frac{\alpha(\mu^2)}{1+b_0 \alpha(\mu^2) \ln{\frac{Q^2}{\mu^2}}}
+\alpha_S( Q^2 ) &=\frac{\alpha(\mu^2)}{1+b_0 \alpha(\mu^2) \ln{\frac{Q^2}{\mu^2}}} \\
+\text{met} b_0 &= \frac{-n_f}{6\pi} + \frac{33}{12\pi} \notag
 \end{align}
+Hier is $n_f$ het aantal soorten quarks die verondersteld worden.
 Hier heeft de coëfficiënt dus het tegengestelde teken, waar de tegenstelling tussen QED en QCD uit volgt.
 Dit kan men herschrijven zodat de enige vrije parameter van QCD naar voor komt (zie bijvoorbeeld \cite[sectie 6.6]{Bettini}):
 \begin{align} \label{eq:runningAlphaS}
@@ -251,7 +263,7 @@ Omdat de keuze van $\mu^2$ in een berekening onmogelijk de gemeten waarde van ee
 \end{align}
 Dit laatste betekent dat de twee afhankelijkheden (op $Q^2/\mu^2$ en $\alpha_S(\mu^2)$) eigenlijk maar een enkele zijn, namelijk het verloop van $\alpha_S(Q^2)$. Voor een uitwerking van de dubbele pijl in \eqref{eq:RGE} zie appendix \ref{app:RGE}).
 
-    \subsubsection{QCD observabelen}
+    \subsubsection{QCD observabelen} \label{sec:Observabelen}
       \paragraph{}
 Elke observabele kan in perturbatieve QCD ontwikkeld worden in machten van $\alpha_S$.
 Bijkomende factoren zullen gevormd worden door logaritmes van $Q^2$ en bij lage $x$, $1/x^2$.
@@ -295,7 +307,7 @@ Als dit verloop blijft doorgaan, zullen dichtheden optreden die niet meer fysisc
     \subsubsection{DGLAP en BFKL}
 Evolutievergelijkingen geven het verband tussen een grootheid (bijvoorbeeld een dichtheidsfunctie van quarks of gluonen) bij een (bijna) willekeurige waarde van $Q^2$ of $x$ en de waarde van de grootheid bij een bekende $Q_0^2$ of $x_0^2$.
 
-      \paragraph{DGLAP}
+      \paragraph{DGLAP} \label{sec:DGLAP}
 De DGLAP vergelijkingen kunnen gebruikt worden om de quark- en gluondichtheden voor een hogere waarde van $Q^2$ te berekenen, indien deze dichtheden bij een kleinere waarde $Q_0^2$ bekend zijn.
 De $x$-afhankelijkheid is hier onbekend, en moet experimenteel worden vastgesteld.
 
@@ -314,7 +326,10 @@ In figuur \ref{fig:DGLAP-BFKL} wordt aangeduid wanneer welke vergelijkingen aang
   \end{center}
 \end{figure}
 In figuur \ref{fig:DGLAP-BFKL} kan men ook een saturatielijn zien, die een theoretisch voorspelde grens vormt, waar saturatie van de partondistributies belangrijk zou worden (zie figuur \ref{fig:PD}).
-De quark- en gluondistributies geven aanleiding tot structuurfuncties, die de structuur van een groter object (hier een proton) kunnen beschrijven bij bepaalde $Q^2$ en $x$.
+De quark- en gluondistributies geven aanleiding tot structuurfuncties.
+Deze waarschijnllijkheidsverdelingen beschrijven de structuur van een groter object (hier een proton) bij bepaalde $Q^2$ en $x$, in termen van hun samenstellende delen (hier partonen).
+De groene “HERA”-lijn toont de grens van het kinematische gebied waarvoor metingen zijn uitgevoerd in HERA.
+De LHeC zal (door zijn hogere botsingsenergie) buiten dit gebied kunnen meten en dus een duidelijke indicatie geven van fenomenen zoals saturatie die nu niet duidelijk kunnen worden gemeten.
 
     \subsection{Structuurfuncties}
 Een meetbare grootheid die de theorie verbindt met harde waarnemingen, is de structuurfunctie.
@@ -412,7 +427,7 @@ Dit kan de Mandelstam variabele s zijn, of het relatieve energieverlies van het 
 \begin{align}
 y &= \frac{p \cdot q}{p \cdot k} = \frac{\Delta E}{E} ,& s = (k+p)^2 \simeq \frac{Q^2}{xy}
 \end{align}
-$y$ wordt wel eens als \textit{rapidity} gebruikt, wat een Lorentz invariante parameter is voor de verstrooiingshoek $\hat{\theta}$ in het massamiddelpuntstelsel.
+$y$ is een Lorentz invariante parameter voor de verstrooiingshoek $\hat{\theta}$ in het massamiddelpuntstelsel.
 In dit geval geldt volgende relatie:
 \begin{align}
 y = \frac{1}{2} \left( 1-\cos{\hat{\theta}} \right)
@@ -420,7 +435,7 @@ y = \frac{1}{2} \left( 1-\cos{\hat{\theta}} \right)
 $L^{\mu \nu}$ is de gekende tensor van het lepton knooppunt in functie van $k$ en $k'$.
 $W_{\mu \nu}$ is een onbekende tensor van het hadron knooppunt.
 Deze laatste kan dus enkel geparametriseerd worden aan de hand van wat wel gekend is.
-De algemene uitdrukking ingeval van niet gepolariseerde DIS is als volgt:
+De algemene uitdrukking in het geval van niet gepolariseerde DIS is als volgt:
 \begin{align}
 W_{\mu \nu} = \left( -g_{\mu \nu} + \frac{q_\mu q_\nu}{q^2} \right) F_1(x,Q^2) + \frac{\hat{P}_\mu \hat{P}_\nu}{p \cdot q} F_2(x,Q^2) -  i\epsilon_{\mu \nu \alpha \beta} \frac{q^\alpha p^\beta}{2p \cdot q} F_3(x,Q^2)
 \end{align}
