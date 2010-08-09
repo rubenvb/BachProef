@@ -24,7 +24,6 @@
 % appendix
 \usepackage{appendix}
 
-
 \title{Studie van parton-saturatie effecten in de transverse energiestroom bij elektron-proton interacties aan de LHeC}
 \author{Ruben Van Boxem}
 
@@ -66,7 +65,6 @@ Academiejaar 2009--2010
 % De auteur van de thesis:
 Ruben \textsc{Van Boxem}	
 
-
 \vspace{2cm}
 
 Promotor: Prof. Dr Pierre \textsc{Van Mechelen}\\
@@ -78,7 +76,6 @@ Proefschrift voorgedragen tot \\
 het behalen van de graad van\\
 \textsc{Bachelor in de Fysica}
 
-
 \thispagestyle{empty}
 \newpage
 
@@ -89,7 +86,14 @@ TODO
 \fontsize{11pt}{14pt}\selectfont
 
 \section*{Summary}
-TODO
+A theoretical study of saturation and its effects in the transverse energy flow for proton-electron collisions is made.
+A short introductory text on deep inelastic scattering and general QCD theory serves as an intro to the concepts important in this field.
+Concepts like structure functions, resummation, running coupling constant, etc. are introduced in a natural way.
+Starting from a simple electron-nucleus collision, through several layers of scaling violations and QED interactions, a summary is given of the advances in theory trying to incorporate the newest experimental findings (the latest being HERA), which keep penetrating deeper into the core of fundamental interactions.
+Different types of higher order corrections to the simplest parton model are described, and their assumed shortcomings for the LHeC kinematic region are shown.
+Saturation, a very promising approach to naturally correct for the currently predicted infinities in QCD at low $x$, is introduced by means of the corrected BFKL equation, the BK equation.
+Saturation effects as described by the Golec-Biernat-Wüsthoff model are studied in the structure functions of the proton, and the directly measurable transverse energy flow of high energy, low $x$ electron-proton collisions.
+
 \thispagestyle{empty}
 \newpage
 
@@ -112,6 +116,7 @@ $P$ is de vierimpuls van het inkomend proton, $W$ is de invariante massa van het
   \end{center}
 \end{figure}
  In wat volgt wordt M gedefinieerd als de massa van het proton. Men spreekt van DIS processen als $Q^2 \gg M^2$ (“diep”) en $W^2 = (P+q)^2 \gg M^2$ (“inelastisch”).
+$Q^2$ wordt ook angeduid als de virtualiteit van het foton.
 Omdat de waarde van $q^2$ negatief is, wordt vaak volgende variabele ingevoerd: $Q^2 :=-q^2 > 0$.  Dit is een ruimteachtige vierimpuls, dus er bestaat een stelsel waar de energie van het virtuele foton nul is en dus de impuls gelijk aan $Q^2$. In dit stelsel is de golflengte van het het foton van de grootteorde van $1/Q$.
 Dit wil concreet zeggen dat als de overgedragen impuls verhoogt, de golflengte van het foton en dus de grootte van de deeltjes waarmee het interageert, kleiner wordt.
 
@@ -238,7 +243,7 @@ Dit volgt uit de uitdrukking voor $\alpha_S$, analoog aan \eqref{eq:alpha}:
 \text{met} b_0 &= \frac{-n_f}{6\pi} + \frac{33}{12\pi} \notag
 \end{align}
 Hier is $n_f$ het aantal soorten quarks die verondersteld worden.
-Hier heeft de coëfficiënt dus het tegengestelde teken, waar de tegenstelling tussen QED en QCD uit volgt.
+Hier heeft de coëfficiënt (hier $b_0$) dus het tegengestelde teken, waar de tegenstelling tussen QED en QCD uit volgt.
 Dit kan men herschrijven zodat de enige vrije parameter van QCD naar voor komt (zie bijvoorbeeld \cite[sectie 6.6]{Bettini}):
 \begin{align} \label{eq:runningAlphaS}
 \alpha_S(Q^2) = \frac{12\pi}{(33-2n_f) \ln{\frac{|Q|^2}{\lambda_\text{QCD}}}}
@@ -258,8 +263,8 @@ $\alpha_S$ zal dan bijgevolg minder nauwkeurig zijn, wegens zijn relatieve groot
     \subsubsection{Renormalisatiegroep vergelijking}
 Omdat de keuze van $\mu^2$ in een berekening onmogelijk de gemeten waarde van een observabele kan beïnvloeden, moet er expliciet voor gezorgd worden door middel van de \textit{renormalisation group equation}:
 \begin{align} \label{eq:RGE}
-\frac{d R}{d\ln{\mu^2}} = \left(\frac{\partial}{\partial \ln{\mu^2}} + \frac{\partial \alpha_S}{\partial \ln{\mu^2}} \frac{\partial}{\partial \alpha_S} \right) R \notag \\
-\Rightarrow R(Q^2/\mu^2, \alpha_S(Q^2)) = R(1,\alpha_S(Q^2))
+\frac{d R}{d\ln{\mu^2}} &= \left(\frac{\partial}{\partial \ln{\mu^2}} + \frac{\partial \alpha_S}{\partial \ln{\mu^2}} \frac{\partial}{\partial \alpha_S} \right) R \\
+\Rightarrow &R(Q^2/\mu^2, \alpha_S(Q^2)) = R(1,\alpha_S(Q^2)) \notag
 \end{align}
 Dit laatste betekent dat de twee afhankelijkheden (op $Q^2/\mu^2$ en $\alpha_S(\mu^2)$) eigenlijk maar een enkele zijn, namelijk het verloop van $\alpha_S(Q^2)$. Voor een uitwerking van de dubbele pijl in \eqref{eq:RGE} zie appendix \ref{app:RGE}).
 
@@ -306,17 +311,56 @@ Als dit verloop blijft doorgaan, zullen dichtheden optreden die niet meer fysisc
 
     \subsubsection{DGLAP en BFKL}
 Evolutievergelijkingen geven het verband tussen een grootheid (bijvoorbeeld een dichtheidsfunctie van quarks of gluonen) bij een (bijna) willekeurige waarde van $Q^2$ of $x$ en de waarde van de grootheid bij een bekende $Q_0^2$ of $x_0^2$.
+DGLAP en BFKL geven elk een andere fysische interpretatie van de uiteindelijke interactie.
+Het beeld dat het vaakst gebruikt wordt om de uitgestraalde gluonen weer te geven, is de gluonladder.
+Om de extra partonen die blijken aanwezig te zijn in het proton te beschrijven, wordt vanuit een (valentie)quark in het proton een gluon uitgestraald, dat op zijn beurt een onbepaald aantal gluonen uitstraalt. Deze ladder van gluonen wordt weergegeven in figuur \ref{fig:GluonLadder}.
+\begin{figure} [H]
+  \begin{center}
+    \includegraphics[scale=1]{Afbeeldingen/GluonLadder.eps}
+    \caption{Een DIS interactie, met weergegeven gluonladder. Aan het elektron heeft het interagerend parton een welbepaalde waarde van $x$, waardoor er gesommeerd moet worden over alle gluonladders die zo’n finale $x$ opleveren. Naast de centrale DIS interactie treden er ook voorwaartse jets op, die veel informatie kunnen opleveren over de gluonladder zelf. \cite{Kiesling}}
+   \label{fig:GluonLadder}
+  \end{center}
+\end{figure}
 
       \paragraph{DGLAP} \label{sec:DGLAP}
 De DGLAP vergelijkingen kunnen gebruikt worden om de quark- en gluondichtheden voor een hogere waarde van $Q^2$ te berekenen, indien deze dichtheden bij een kleinere waarde $Q_0^2$ bekend zijn.
-De $x$-afhankelijkheid is hier onbekend, en moet experimenteel worden vastgesteld.
+DGLAP is in eerste instantie (als lage orde benadering) enkel geldig voor voldoende grote $x$.
+De $x$ afhankelijkheid is hier onbekend, en moet experimenteel worden vastgesteld.
+Men kan DGLAP uitdrukken als de benadering waar de waarnemer ($Q^2$, de golflengte van het onderzoekend foton) en $x$ ingebouwd zit.
+Er is dus geen verdere informatie over de inwendige detailstructuur van het proton meegegeven.
+Als men figuur \ref{fig:GluonLadder} beschouwt, krijgt men in het DGLAP schema een sterke ordening in $\vec{k}_\perp$ voor opeenvolgende gluon emissies:
+\begin{equation}
+Q^2 \gg \vec{k}_\perp^2 \gg \vec{k}_{1\perp}^2 \gg \vec{k}_{2\perp}^2 \gg \hdots \gg \vec{k}_{n\perp}^2
+\end{equation}
+Daarnaast is er een normale ordening in $x$:
+\begin{equation}
+x < x_1 < x_2 < \hdots < x_n < 1
+\end{equation}
+Fysisch betekent dit dus dat de opeenvolgende gluonen een kleinere impulsfractie dragen van het oorspronkelijke parton en steeds meer afbuigen van de botsingsas.
+Dit heeft grote implicaties voor de geproduceerde jets: de eerste jet, die dichter bij de as wordt uitgestraald, zal een grotere energie hebben, en de laatste (tweede of derde) zal een lagere energie hebben.
 
       \paragraph{BFKL}
 De BFKL vergelijkingen doen net het omgekeerde: als de dichtheden bij een bepaalde waarde $x_0$ bekend is (hier moeten bepaalde aannames gemaakt worden, omdat bij lage $x$ niets exact berekend kan worden), kunnen e dichtheden berekend worden voor (bijna) willekeurige $x$.
 Net zoals bij DGLAP de $x$-afhankelijkheid niet bekend was, blijft bij BFKL de $Q^2$-afhankelijkheid onbekend.
+Deze benadering is dan ook enkel geldig voor kleine $x$, en is niet toepasbaar bij grote $Q^2$.
+BFKL kan men beschouwen als de benadering waar naast de $x$-afhankelijkheid, de inwendige structuur van het proton aan bod komt (door een $k_\perp$-afhankelijkheid, waar $k_\perp$ de transversale impuls is).
+Net door dit verschil in hersommatie zal BFKL een sterke ordening in longitudinale impuls met zich meebrengen, en helemaal geen ordening in $\vec{k}_\perp$.
+BFKL legt dan ook geen “beperkingen” op de jets en hun eigenschappen die volgen uit een $\vec{k}_\perp$-ordening.
+
+      \paragraph{CCFM}
+Naast BFKL en DGLAP bestaat ook een derde benaderingsmethode, die tracht tegelijkertijd de hoogste graadstermen in $\ln{Q^2}$ en $\ln{\frac{1}{x}}$ te hersommeren.
+De eenvoudigste manier om CCFM uit te leggen zonder al te diep op details in te gaan is DLLA + een ordening in hoeken.
+CCFM is veel meer dan enkel deze twee eigenschappen, maar dit volstaat hier.
+De ordening in hoeken in de gluonladder duidt op het feit dat opeenvolgende gluonen steeds langs een grotere hoek worden uitgestraald als zijn voorganger, dus:
+\begin{equation} \label{eq:HoekOrdening}
+\theta \ll \theta_1 \ll \theta_2 \ll \hdots \ll \theta_n
+\end{equation}
+Appendix \ref{app:CCFM} gaat hier iets dieper op in.
+
+
 
       \paragraph{Geldigheid}
-Zoals al aan te voelen was, is elke vorm van evolutie maar geldig in een bepaald geval (kleine $x$, grote $Q^2$), net door de aanname die gemaakt werd bij het hersommeren van de reeks in $\alpha_S$.
+Zoals al aan te voelen was, is elke vorm van evolutie maar geldig in een bepaald kinematisch gebied, net door de aannames die gemaakt werd bij het hersommeren van de reeks in $\alpha_S$.
 In figuur \ref{fig:DGLAP-BFKL} wordt aangeduid wanneer welke vergelijkingen aangewezen zijn.
 \begin{figure} [H]
   \begin{center}
@@ -436,9 +480,9 @@ $L^{\mu \nu}$ is de gekende tensor van het lepton knooppunt in functie van $k$ e
 $W_{\mu \nu}$ is een onbekende tensor van het hadron knooppunt.
 Deze laatste kan dus enkel geparametriseerd worden aan de hand van wat wel gekend is.
 De algemene uitdrukking in het geval van niet gepolariseerde DIS is als volgt:
-\begin{align}
+\begin{equation}
 W_{\mu \nu} = \left( -g_{\mu \nu} + \frac{q_\mu q_\nu}{q^2} \right) F_1(x,Q^2) + \frac{\hat{P}_\mu \hat{P}_\nu}{p \cdot q} F_2(x,Q^2) -  i\epsilon_{\mu \nu \alpha \beta} \frac{q^\alpha p^\beta}{2p \cdot q} F_3(x,Q^2)
-\end{align}
+\end{equation}
 Hier zijn $F_i$ de structuurfuncties, afhankelijk van $x$ en $Q^2$.
 De derde term bevat een uitwendig product (de $\vec{q} \times \vec{q}$ vorm), waardoor deze term pariteit niet behoudt.
 Deze term zal dan ook $\approx 0$ indien de Z bijdrage verwaarloosbaar is, omdat voor zover gekend pariteit nog steeds behouden is voor de sterke wisselwerking.
@@ -449,11 +493,28 @@ F_L &= F_2 - 2x F_1 \notag
 \end{align}
 In DIS processen, kan men vaak uitgaan van $F_L = 0$, zodat $F_2$ voldoende is om de hele werkzame doorsnede te bepalen.
 
-\section{Renormalisatiegroep vergelijking} \label{app:RGE}
-Vergelijking \eqref{eq:RGE} wordt als volgt bekomen. Vertrekkende van het stuk voor de dubbele pijl, en volgende nieuwe variabele $t$ en functie $\beta$:
-\begin{align}
+\section{Renormalisatiegroep vergelijking en asymptotische vrijheid} \label{app:RGE}
+Het tweede deel van vergelijking \eqref{eq:RGE} wordt als volgt bekomen \cite{Ellis}.
+Vertrekkende van het stuk voor de dubbele pijl, en volgende nieuwe variabele $t$ en functie $\beta$:
+\begin{equation}
 t = \ln{\frac{Q^2}{\mu^2}}, \beta(\alpha_S) =  \frac{\partial \alpha_S}{\partial \ln{\mu^2}}
+\end{equation}
+Waarbij de partiële afgeleide genomen wordt in $\alpha_S$ = de kale koppelingsconstante.
+Vergelijking \eqref{eq:RGE} kan nu herschreven worden:
+\begin{equation}
+\left[ -\frac{\partial}{\partial t} + \beta(\alpha_S) \frac{\partial}{\partial \alpha_S} \right] R(e^t, \alpha_S) = 0
+\end{equation}
+Deze vergelijking kan men oplossen door een nieuwe functie te definiëren, namelijk de lopende koppeling $\alpha_S(Q^2)$, waarvoor het volgende moet gelden:
+\begin{equation} \label{eq:AlphaSDefinition}
+t = \int_{\alpha_S}^{\alpha_S(Q^2)} \frac{dx}{\beta(x)}, \alpha_S(\mu^2) := \alpha_S
+\end{equation}
+Door de voorgaande vergelijking te differentiëren, kan men schrijven:
+\begin{align}
+\frac{\partial \alpha_S(Q^2)}{\partial t} &= \beta( \alpha_S(Q^2) ) \notag \\ \frac{\partial \alpha_S(Q^2)}{\partial \alpha_S} &= \frac{\beta(\alpha_S(Q^2))}{\beta(\alpha_S)}
 \end{align}
+Waaruit de enkele $\alpha_S(Q^2)$-afhankelijkheid volgt.
+Een observabele is afhankelijk van de schaalvariabele, maar deze afhankelijkheid komt tot uiting door de afhankelijkheid van de observabele van $\alpha_S$.
+Men kan dus een observabele uitrekenen voor een vaste waarde van $\alpha_S$, en met behulp van vergelijking \eqref{eq:AlphaSDefinition} variëren met $Q^2$.
 
 \section{Parameters van het GBW model voor saturatie} \label{app:GBWparameters}
 In het geval van 3 lichte quarks: up, down en strange, krijgt men volgende waarden:
@@ -469,6 +530,24 @@ In geval van een vierde charm quark zijn de gefitte waarden anders.
 x_0 &= 0.41 \times 10^{-4} \notag
 \end{align}
 De waarden komen overeen met die in \cite{GBW}.
+
+\section{De ordening in hoeken in CCFM} \label{app:CCFM}
+Om \eqref{eq:HoekOrdening} uit te drukken in impulsfracties, heeft men volgende definities nodig:
+\begin{align}
+\theta_i = \frac{q_i}{(1-z_i)E_{i-1}}, z_i = \frac{E_i}{E_{i-1}}
+\end{align}
+Waarbij $q_i$, $\theta_i$ en $E_i$ respectievelijk de transversale impuls, uitstralingshoek en energie zijn van het $i$-de gluon.
+Nu kan men
+\begin{equation}
+\theta_{i+1} > \theta_i
+\end{equation}
+ vervangen door:
+\begin{equation}
+ \frac{q_{i+1}}{1-z_{i+1}} > \frac{z_i q_i}{1-z_i}
+\end{equation}
+Wat voor $z_i, z_{i+1} \ll 1$ reduceert tot $q_{i+1} > z_i q_i$.
+Belangrijk op te merken is dat in de hoge energie limiet, CCFM dezelfde oplossing oplevert als de BFKL vergelijking.
+Voor verdere discussie geeft \cite{Vera} een goed overzicht van CCFM en de verhouding hiervan met BFKL.
 
 \newpage
 \begin{thebibliography}{99}
@@ -511,6 +590,23 @@ De waarden komen overeen met die in \cite{GBW}.
   Physical Review D, Volume 50, 1
   1994
 
+\bibitem{Kiesling}
+  Christian Kiesling
+  \emph{Low-x Final States at HERA}
+  Acta Physica Polonica B, Volume 39, 9
+  2008
+
+\bibitem{Vera}
+  Agustín Sabio Vera
+  \emph{The High Energy Limit of QCD: BFKL Cross-Sections}
+  Acta Physica Polonica B, Volume 39, 9
+  2008
+
+\bibitem{Ellis}
+  R. K. Ellis, W. J. Stirling, and B. R. Webber
+  \emph{QCD and collider physics}
+  Cambridge University Press
+  2003
 \end{thebibliography}
 
 \end{document}
