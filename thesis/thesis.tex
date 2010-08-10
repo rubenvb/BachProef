@@ -80,7 +80,20 @@ het behalen van de graad van\\
 \newpage
 
 \section*{Dankwoord}
-TODO
+Ik wil enkele mensen in het bijzonder danken voor de ontelbare uren die ze in mij en dit werk hebben gestoken:
+\begin{itemize}
+  \item mijn promotor, Prof. Dr. Pierre Van Mechelen,
+  \item mijn copromotor en die-hard begeleider, Dr. Krzysztof Kutak,
+  \item al de mensen van de EDF groep aan de UA die onrechtstreekse hulp hebben geboden
+\end{itemize}
+Daarnaast, een algemene dank u wel aan de volgende mensen:
+\begin{itemize}
+  \item de hele 3de bachelor fysica (en zij die daar zouden moeten bijhoren),
+  \item mijn vader en moeder voor de onmisbare steun,
+  \item Pieter Taels in het bijzonder omdat hij ook tijdens de vakantie bij mij op de unief kwam werken,
+  \item en iedereen die van zichzelf vindt dat hij/zij hier in dit lijstje had moeten staan en ik al dan niet bewust vergeten ben.
+\end{itemize}
+
 \thispagestyle{empty}
 \newpage
 \fontsize{11pt}{14pt}\selectfont
@@ -91,7 +104,7 @@ A short introductory text on deep inelastic scattering and general QCD theory se
 Concepts like structure functions, resummation, running coupling constant, etc. are introduced in a natural way.
 Starting from a simple electron-nucleus collision, through several layers of scaling violations and QED interactions, a summary is given of the advances in theory trying to incorporate the newest experimental findings (the latest being HERA), which keep penetrating deeper into the core of fundamental interactions.
 Different types of higher order corrections to the simplest parton model are described, and their assumed shortcomings for the LHeC kinematic region are shown.
-Saturation, a very promising approach to naturally correct for the currently predicted infinities in QCD at low $x$, is introduced by means of the corrected BFKL equation, the BK equation.
+Saturation, a very promising approach to naturally correct for the currently predicted infinities in QCD at low $x$, is introduced by means of the corrected (seccond order) BFKL equation, the BK equation.
 Saturation effects as described by the Golec-Biernat-Wüsthoff model are studied in the structure functions of the proton, and the directly measurable transverse energy flow of high energy, low $x$ electron-proton collisions.
 
 \thispagestyle{empty}
@@ -200,6 +213,15 @@ Dit zal duidelijk worden in de context van sectie \ref{sec:Observabelen}.
 Merk op dat in tegenstelling tot de vorige brekingen van schaalinvariantie, deze logaritmisch is, wat bijzonder moeilijk te meten was toen deze ontdekking werd gedaan.
 
   \subsection{$\alpha_S$}
+De sterke wisselwerking (met koppeling $\alpha_S$) is fundamenteel ingewikkelder dan bijvoorbeeld de elektromagnetische (met koppeling $\alpha$).
+Dit verschil in complexiteit stemt van de wiskundige abstractie die gemaakt wordt van de fysische interactie.
+De elektromagnetische wisselwerking (QED) vindt zijn oorsprong in de locale invariantie voor fasetransformaties van de velden veroorzaakt door elektrische lading.
+Deze eigenschap leidt tot de symmetrie van de U(1) groep: QED is een U(1) lokaal Abelse ijktheorie.
+QED heeft dan ook een enkel interactie boson, namelijk het foton.
+QCD daarentegen, is een SU(3) niet-Abelse ijktheorie, die lokaal invariant is voor fasetransformaties van de velden veroorzaakt door de 3 kleurladingen.
+Dit geeft onder andere aanleiding tot 8 (+1 singlet) verschillende interactie bosonen, namelijk de gluonen.
+Om het cruciale verschil te illustreren, wordt eerst kort QED geschetst, om daarna (de problemen van) QCD beter te kunnen begrijpen.
+
     \subsubsection{QED en $\alpha$} \label{sec:QED}
 Om de vorm en het gedrag van de sterke koppeling te begrijpen, is het handig om eerst kort de koppeling in QED ($\alpha = e^2/4\pi$) te bekijken.
 De processen die bijdragen aan een interactie van een foton met een enkel elektron worden in figuur \ref{fig:QED} weergegeven.
@@ -300,7 +322,7 @@ R = \sum_n \alpha_S \ln^n{\frac{1}{x}} \left( \sum_{k=n}^0 \ln^k{Q^2} \right)
       \paragraph{Parton dichtheden}
 Een probleem in de recente resultaten van DGLAP berekeningen tot \textit{next-to next-to leading order}, is het opblazen van de parton dichtheden in een proton voor zeer kleine $x$.
 In figuur \ref{fig:PD} staat voor twee verschillende schalen $Q^2$ getoond wat de dichtheden van de verschillende partons (gluonen en (zee)quarks) in het proton zijn.
-Als dit verloop blijft doorgaan, zullen dichtheden optreden die niet meer fysisch zijn (unitariteit is niet meer geldig), waardoor de kans om met een parton te botsen groter dan 1 kan zijn.
+Als dit verloop blijft doorgaan, zullen dichtheden optreden die niet meer fysisch zijn (unitariteit is niet meer geldig), waardoor de kans om met een parton te botsen groter kan zijn dan 1.
 \begin{figure} [H]
   \begin{center}
     \includegraphics[scale=1]{Afbeeldingen/PD.eps}
@@ -346,6 +368,7 @@ Deze benadering is dan ook enkel geldig voor kleine $x$, en is niet toepasbaar b
 BFKL kan men beschouwen als de benadering waar naast de $x$-afhankelijkheid, de inwendige structuur van het proton aan bod komt (door een $k_\perp$-afhankelijkheid, waar $k_\perp$ de transversale impuls is).
 Net door dit verschil in hersommatie zal BFKL een sterke ordening in longitudinale impuls met zich meebrengen, en helemaal geen ordening in $\vec{k}_\perp$.
 BFKL legt dan ook geen “beperkingen” op de jets en hun eigenschappen die volgen uit een $\vec{k}_\perp$-ordening.
+Recent is er een hogere orde correctie uitgewerkt voor de BFKL hersommatie, namelijk de BK vergelijking.
 
       \paragraph{CCFM}
 Naast BFKL en DGLAP bestaat ook een derde benaderingsmethode, die tracht tegelijkertijd de hoogste graadstermen in $\ln{Q^2}$ en $\ln{\frac{1}{x}}$ te hersommeren.
@@ -356,8 +379,8 @@ De ordening in hoeken in de gluonladder duidt op het feit dat opeenvolgende gluo
 \theta \ll \theta_1 \ll \theta_2 \ll \hdots \ll \theta_n
 \end{equation}
 Appendix \ref{app:CCFM} gaat hier iets dieper op in.
-
-
+Belangrijk om in te zien is dat CCFM probeert DGLAP en BFKL te unificeren, en gehoopt wordt dat CCFM dan ook voor een breder $x$-gebied geldig zal zijn.
+De extra beperkingen die worden opgelegd vergemakkelijken de integraties niet, en het uitrekenen en werken met CCFM is dan ook moeilijker dan met DGLAP.
 
       \paragraph{Geldigheid}
 Zoals al aan te voelen was, is elke vorm van evolutie maar geldig in een bepaald kinematisch gebied, net door de aannames die gemaakt werd bij het hersommeren van de reeks in $\alpha_S$.
@@ -375,6 +398,52 @@ Deze waarschijnllijkheidsverdelingen beschrijven de structuur van een groter obj
 De groene “HERA”-lijn toont de grens van het kinematische gebied waarvoor metingen zijn uitgevoerd in HERA.
 De LHeC zal (door zijn hogere botsingsenergie) buiten dit gebied kunnen meten en dus een duidelijke indicatie geven van fenomenen zoals saturatie die nu niet duidelijk kunnen worden gemeten.
 
+    \subsubsection{Evolutievergelijkingen \textit{vs} experimentele data}
+DGLAP is een vaststaande waarde die binnen de Elemtaire deeltjesfysica geldt als: \textit{it just works}.
+Enkel recentelijk wordt omwille van metingen waarvan hieronder voorbeelden gegeven zijn, DGLAP meer en meer in twijfel getrokken.
+DGLAP heeft nochtans (in het niet lage $x$ regime) krachtige en vooral juiste voorspellingen toegelaten, zoals HERA’s metingen van de sterke koppeling (zie figuur \ref{fig:SC}).
+\begin{figure} [H]
+  \begin{center}
+    \includegraphics[scale=1]{Afbeeldingen/SC.eps}
+    \caption{HERA metingen geplot tegenover de QCD voorspelling (DGLAP) voor de sterke koppeling. Merk op dat er over een heel groot $Q^2$-bereik een zeer goede overeenkomst is tussen theorie en experiment. \cite{Kiesling}}
+   \label{fig:SC}
+  \end{center}
+\end{figure}
+
+      \paragraph{Problematiek}
+In HERA zijn verschillende metingen gedaan die met de nieuwste variaties van DGLAP en BFKL onvoldoende dicht bij de experimentele metingen raken.
+Het betreft vooral metingen bij heel lage $x$, die niet goed beschreven worden door DGLAP omdat die termen net niet  of onvoldoende worden meegenomen.
+BFKL/CCFM biedt in zijn pure vorm een mooi toekomstperspectief, en hoewel deze benadering een betere beschrijving lijkt te geven, kan men in een DGLAP benadering goed compenseren voor de tekortkomingen.
+Experimentele data gepubliceerd in onder andere \cite{Kiesling} suggereert dat voor zeer lage x beide aanpakken nog steeds onvoldoende zijn.
+
+       \paragraph{Modificaties}
+Figuur \ref{fig:HERAJets1} toont metingen van de werkzame doorsnede in voorwaatse jetproductie en de voorspellingen van de theorie.
+\begin{figure} [H]
+  \begin{center}
+    \includegraphics[scale=1]{Afbeeldingen/HERAJets1.eps}
+    \caption{Metingen vs Monte-Carlo QCD voorspellingen van inclusieve DIS jetproductie. a) toont dat zeker voor zeer lage $x$, er een grote afwijking is tussen NLO DGLAP en experimentele data. b) toont CASCADE  (een \textit{Monte-Carlo event generator}, gebaseerd op CCFM). c) toont DGLAP (RG+DIR), DGLAP met een geresolveerd foton (RG+DIR+RES, hieronder beschreven) en CCFM/BFKL (CDM). \cite{Kiesling}}
+   \label{fig:HERAJets1}
+  \end{center}
+\end{figure}
+DGLAP heeft een inherente ordening in $\vec{k}_\perp$, wat er voor zorgt dat er een lagere werkzame doorsnede optreedt bij zeer lage $x$ dan wat experimenteel wordt waargenomen.
+Meer bepaald, DGLAP beschrijft een situatie die in bepaalde kinematische omstandigheden \cite[sectie 3.2]{Kiesling} sterk onderdrukt is volgens de metingen.
+DGLAP in zijn pure vorm leidt dus tot foute resultaten, net door zijn ingebouwde sterke $\vec{k}_\perp$-ordening.
+Om dit te verhelpen kan er een modificatie aan DGLAP ingevoerd worden, in de vorm van een \textit{geresolveerd foton}, laat een breking van de $\vec{k}_\perp$-ordening toe, zodat de werkzame bij lage $x$ sterk stijgt.
+DGLAP+RES geeft een even goede beschrijving als CCFM/BFKL, maar beiden geven nog te lage werkzame doorsneden (zie figuur \ref{fig:HERAJets1}).
+\begin{figure} [H]
+  \begin{center}
+    \includegraphics[scale=1]{Afbeeldingen/HERAJets2.eps}
+    \caption{Metingen vs Monte-Carlo QCD voorspellingen van DIS dubbele voorwaartse jetproductie. $\eta$ is een \textit{psuedo-rapidity}, gelijk aan $-\ln{\tan{\frac{\theta}{2}}}$. \cite{Kiesling}}
+   \label{fig:HERAJets2}
+  \end{center}
+\end{figure}
+Hoewel figuur \ref{fig:HERAJets1} geen onderscheidbaar verschil tussen DGLAP en BFKL toont en dus feitelijk BFKL afschrijft omdat het niet nodig zou zijn om de data goed te beschrijven, geeft figuur \ref{fig:HERAJets2} een andere indruk.
+De niet-inclusieve metingen in de tweede figuur geven duidelijk een verschil aan tussen BFKL en DGLAP.
+Zelfs met het geresolveerd foton kan DGLAP de data niet goed genoeg beschrijven en geeft BFKL berekeningen doen dit wel.
+Dit geeft een duidelijk signaal dat BFKL dynamica wel degelijk optreedt, zij het enkel onder de nodige speciale voorwaarden.
+Deze belangrijke waarneming, samen met een natuurlijke saturatie van de structuurfuncties, zoals beschreven wordt in de volgende sectie, geven een sterke motivatie voor het toepassen van BFKL/BK dynamica voor zeer lage $x$ data.
+Gebieden met zeer lage $x$ zijn nog maar oppervlakkig gemeten in HERA; de LHeC zal met zijn lager $x$-bereik duidelijkheid kunnen scheppen over waar en hoe de verschillende benadering moeten en kunnen worden gebruikt.
+
     \subsection{Structuurfuncties}
 Een meetbare grootheid die de theorie verbindt met harde waarnemingen, is de structuurfunctie.
 Deze waarschijnlijkheidsverdelingen in functie van $x$ en $Q^2$  geven een indicatie van de kans om in een DIS proces met een parton te botsen met die $x$ en $Q^2$.
@@ -386,9 +455,15 @@ Een uitgebreide discussie van bovenstaande uitdrukking staat in appendix \ref{ap
 Als er enkel een foton kan worden uitgewisseld ($\sigma_\gamma \gg \sigma_Z$, dus de interactie via Z wordt verwaarloosd), kan men aantonen dat $F_3 \approx 0$ (zie ook appendix \ref{app:SF}).
 In dit werk zal gekeken worden naar het gebied met heel kleine $x$, waardoor saturatie belangrijk wordt.
 
+    \subsubsection{Factorisatie-theorema}
+Een handig theorema dat toelaat de perturbatieve en niet-perturbatieve delen van een theoretische berekening van elkaar te scheiden.
+Voor een DIS interactie ($l+p\rightarrow l’+X$) heeft de volgende vorm \cite{Martin}:  
+
+
     \subsubsection{Saturatie} \label{sec:Saturatie}
-Saturatie zal in een of andere vorm moeten optreden voor zeer kleine $x$, omdat anders de partondichtheden niet fysisch meer zijn en de huidige formulering onzinnige resultaten zou voorspellen (zie figuur \ref{fig:PD}).
+Saturatie zal in een of andere vorm moeten optreden voor zeer kleine $x$, omdat anders de partondichtheden (in het bijzonder, maar niet enkel die van het gluon) niet fysisch meer zijn en de huidige formulering onzinnige resultaten zou voorspellen (zie figuur \ref{fig:PD}).
 In dit werk wordt dus uitbundig gebruik gemaakt van modellen die met dit fenomeen rekening houden.
+
 Een beproefd en op zich eenvoudig model, is dat van Krzysztof Golec-Biernat \cite{GB}.
 Golec-Biernat gebruikt het formalisme van de foton golffunctie, waarbij een foton onafhankelijk van de DIS botsing kan splitsen in een $q\bar{q}$-paar, dat dan interageert met het proton.
 Dit laat toe een perturbatieve berekening te doen voor deze golffunctie, en de rest wordt beschreven door middel van een model.
@@ -417,7 +492,9 @@ Dit effect heet kleurdoorzichtigheid.
 Een ander sterk punt van dit model is het feit dat hier een saturatie voor kleine $x$ is ingebouwd, wat natuurlijk wenselijk is voor berekeningen in dat gebied.
 
   \subsection{Dwarse energiestroom}
-    \subsubsection{Belang voor LHeC}
+    \subsubsection{Belang van de LHeC}
+Om met zekerheid te kunnen spreken over de resultaten van deze berekeningen en een definitieve grens te kunnen trekken tussen DGLAP en BFKL 
+
     \subsubsection{Formulering}
 In \cite{ET} wordt een uitdrukking berekend voor de transversale energiestroom van een DIS botsing.
 Deze uitdrukking werd berekend voor kleine $x$ (dus met behulp van BFKL dynamica), en ingevuld met vergelijkingen die toen de beste resultaten gaven.
