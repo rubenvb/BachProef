@@ -398,7 +398,7 @@ Deze waarschijnllijkheidsverdelingen beschrijven de structuur van een groter obj
 De groene “HERA”-lijn toont de grens van het kinematische gebied waarvoor metingen zijn uitgevoerd in HERA.
 De LHeC zal (door zijn hogere botsingsenergie) buiten dit gebied kunnen meten en dus een duidelijke indicatie geven van fenomenen zoals saturatie die nu niet duidelijk kunnen worden gemeten.
 
-    \subsubsection{Evolutievergelijkingen \textit{vs} experimentele data}
+    \subsubsection{Evolutievergelijkingen \textit{vs} experimentele data} \label{sec:QCDvsExperiment}
 DGLAP is een vaststaande waarde die binnen de Elemtaire deeltjesfysica geldt als: \textit{it just works}.
 Enkel recentelijk wordt omwille van metingen waarvan hieronder voorbeelden gegeven zijn, DGLAP meer en meer in twijfel getrokken.
 DGLAP heeft nochtans (in het niet lage $x$ regime) krachtige en vooral juiste voorspellingen toegelaten, zoals HERA’s metingen van de sterke koppeling (zie figuur \ref{fig:SC}).
@@ -456,16 +456,25 @@ Als er enkel een foton kan worden uitgewisseld ($\sigma_\gamma \gg \sigma_Z$, du
 In dit werk zal gekeken worden naar het gebied met heel kleine $x$, waardoor saturatie belangrijk wordt.
 
     \subsubsection{Factorisatie-theorema}
-Een handig theorema dat toelaat de perturbatieve en niet-perturbatieve delen van een theoretische berekening van elkaar te scheiden.
-Voor een DIS interactie ($l+p\rightarrow l’+X$) heeft de volgende vorm \cite{Martin}:  
-
+Een handig theorema dat toelaat de perturbatieve en niet-perturbatieve stukken van een  theoretische berekening van elkaar te scheiden.
+Voor een DIS interactie ($l+p\rightarrow l’+X$) heeft de volgende vorm \cite{Martin}: 
+\begin{equation}
+F_a(x, Q^2) = \sum*{i=q,q,g} \int_0^1 \frac{dy}{y} f_i(y, Q^2) C_{a,i} \left( \frac{x}{y},\alpha_S(Q^2) \right) + O \left( \frac{\Lambda_{QCD}^2}{Q^2} \right) 
+\end{equation}
+$F_a$ is een structuurfunctie.
+$f_i$ is een universele partondichtheid die geldig is onder alle omstandigheden.
+Deze kan niet perturbatief worden uitgerekend, maar met behulp van DGLAP kan hun $Q^2$ afhankelijkheid bepaald worden.
+$C_{a,i}$ zijn coëfficiëntfuncties, die een subproces op korte afstand beschrijven.
+Deze kan men wel perturbatief uitrekenen, maar verschillen naar gelang het beschouwde proces.
+Deze algemene vorm wordt vaak gebruikt en is geldig tot alle ordes in perturbatietheorie.
+De keuze van de factorisatie zelf (welk deel waar in gestopt wordt) staat nog vrij en kan later berekeningen vereenvoudigen.
+Het is duidelijk dat de resultaten onafhankelijk moeten zijn van het factorisatieschema (dat vaak gepaard gaat met de invoering van een nieuwe schaalvariabele).
 
     \subsubsection{Saturatie} \label{sec:Saturatie}
 Saturatie zal in een of andere vorm moeten optreden voor zeer kleine $x$, omdat anders de partondichtheden (in het bijzonder, maar niet enkel die van het gluon) niet fysisch meer zijn en de huidige formulering onzinnige resultaten zou voorspellen (zie figuur \ref{fig:PD}).
 In dit werk wordt dus uitbundig gebruik gemaakt van modellen die met dit fenomeen rekening houden.
-
 Een beproefd en op zich eenvoudig model, is dat van Krzysztof Golec-Biernat \cite{GB}.
-Golec-Biernat gebruikt het formalisme van de foton golffunctie, waarbij een foton onafhankelijk van de DIS botsing kan splitsen in een $q\bar{q}$-paar, dat dan interageert met het proton.
+Golec-Biernat gebruikt het formalisme van de foton golffunctie (een vorm van het factorisatie theorema), waarbij een foton onafhankelijk van de DIS botsing kan splitsen in een $q\bar{q}$-paar, dat dan interageert met het proton.
 Dit laat toe een perturbatieve berekening te doen voor deze golffunctie, en de rest wordt beschreven door middel van een model.
 \begin{align}
 \sigma_{T,L} = \int d^2 \vec{r} \int_0^1 dz |\Psi_{T,L} (z, \vec{r})|^2 \hat{\sigma} (x,r^2)
@@ -483,7 +492,7 @@ R_0^2(x) &= \frac{1}{Q_0^2} \left( \frac{x}{x_0} \right)^\lambda \label{eq:R0}
 \eqref{eq:R0} is de \textit{saturation radius}, wat effectief een saturatie schaal invoert voor $r$.
 $Q_0^2$ is 1 GeV, en ingevoerd om de juiste dimensies te krijgen.
 $\sigma_0$, $\lambda$ en $x_0$ zijn de parameters van het model, die bepaald zijn door te fitten aan alle DIS data die beschikbaar was.
-Ze verschillen voor het geval waar enkel $uds$ quarks bijdragen en waar ook de charm quark bijdraagt (zie appendix \ref{app:GBWparameters}).
+Ze verschillen voor het geval waar enkel $uds$ quarks bijdragen en waar ook de charm quark bijdraagt (zie appendix \ref{app:GBWParameters}).
 Dit model heeft een ingebouwde begrenzing van de dipool werkzame doorsnede $\hat{\sigma}$.
 Deze heeft het juiste gedrag in $r$: kwadratisch voor kleine $r$, en constant voor grote waarden.
 Dat $\hat{\sigma}$ nul is voor kleine dipoolstraal $r$, hoeft geen verwondering.
@@ -493,28 +502,100 @@ Een ander sterk punt van dit model is het feit dat hier een saturatie voor klein
 
   \subsection{Dwarse energiestroom}
     \subsubsection{Belang van de LHeC}
-Om met zekerheid te kunnen spreken over de resultaten van deze berekeningen en een definitieve grens te kunnen trekken tussen DGLAP en BFKL 
+Om met zekerheid te kunnen spreken over de resultaten van deze berekeningen en een definitieve grens te kunnen trekken tussen DGLAP en BFKL qua geldigheidsgebieden.
+Hiernaast zal de uitbreiding van het kinematische gebied waarin metingen kunnen worden gedaan ertoe bijdragen dat een groter deel van \textit{the Big Picture} zichtbaar wordt, waardoor de drie verschillende aanpakken van nu eventueel kunnen veralgemeend worden naar iets dat in zichzelf op z’n minst een breder toepassingsgebied heeft.
+HERA was de vorige elektron-proton versneller, en heeft de deur opengezet naar een hele reeks belangrijke metingen in daarvoor onbereikbare gebieden.
+Een massamiddelpuntsenergie van 318 GeV maakte het mogelijk om onder andere DIS  interacties te onderzoeken met $x$ zo klein als $10^-4$ en $Q^2$ zo groot als $10^3$ GeV.
+Aan die ondergrens voor $x$ toonde HERA ook een aanzet tot nieuwe fysica, die door de huidige theorie onvoldoende wordt voorspeld (zie sectie \ref{sec:QCDvsExperiment} voor een uitgebreide discussie hierover).
+Een aanzet die vervolledigd kan worden door het zeer lage $x$-regime verder te onderzoeken.
+Hiervoor is een krachtigere versneller dan HERA nodig, zoals het huidige LHC.
+Deze laatste produceerd botsingen tussen protonen, met een massamiddelpuntsenergie van rond en boven de 14 TeV.
+Het grote probleem met de LHC en DIS botsingen, is de contaminatie van de geproduceerde deeltjes.
+Twee protonen die tegen zo’n hoge snelheden met elkaar botsen, zorgen voor enorm veel ruis in de vorm van extra deeltjes als men de pure DIS interactie wil onderzoeken.
+Als men het proton door een elektron vervangt (dat niet uit quarks en gluonen bestaat), gaat er ongeveer de helft minder hadronisatie optreden zodat er een zuiverder signaal uit de detector komt.
+Als men met versnelde elektronen werkt, moet men natuurlijk ervoor uitkijken dat de synchrotronstraling de versnelling niet tenietdoet.
+Synchrotronstraling is energie uitgestraald door een elektron als het in een cirkelvormige baan versneld wordt.
+Het kost dus nóg meer energie om elektronen boven die grens van synchrotronstraling te krijgen zonder te veel verlies aan snelheid.
 
-    \subsubsection{Formulering}
+    \subsubsection{Formulering van $E_T$}
 In \cite{ET} wordt een uitdrukking berekend voor de transversale energiestroom van een DIS botsing.
 Deze uitdrukking werd berekend voor kleine $x$ (dus met behulp van BFKL dynamica), en ingevuld met vergelijkingen die toen de beste resultaten gaven.
-Hier zal deze vergelijking herbekeken worden, en toegepast op hernieuwde uitdrukkingen voor de bestanddelen.
+Hier zal deze vergelijking opnieuw beschouwd worden, en toegepast op hernieuwde uitdrukkingen voor de samenstellende formules.
 \begin{align} \label{eq:ET}
-x_j \frac{\partial E_T}{\partial x_j} = \frac{1}{F_2} \int \frac{dk_p^2}{k_p^2} \int \frac{dk_\gamma^2}{k_\gamma^2} \left( \frac{3\alpha_S}{\pi} \right) \mathcal{F}_2 \left( \frac{x}{x_j}, k_\gamma^2, Q^2 \right) f(x_j,k_p^2) \int \frac{d\phi}{\sqrt{k_p^2+k_\gamma^2+2k_p k_\gamma \cos{\phi}}}
+x_j \frac{\partial E_T}{\partial x_j} = \frac{1}{F_2} \int \frac{dk_p^2}{k_p^2} \int \frac{dk_\gamma^2}{k_\gamma^2} \left( \frac{3\alpha_S}{\pi} \right) \mathcal{F}_2 \left( \frac{x}{x_j}, k_\gamma^2, Q^2 \right) f(x_j,k_p^2) \int \frac{d\phi}{\sqrt{k_p^2+k_\gamma^2 + 2k_p k_\gamma \cos{\phi}}}
 \end{align}
-Deze uitdrukking bestaat uit verschillende, af te zonderen delen, waar later meer aandacht zal worden aan besteed.
-$F_2 (x, Q^2)$ is de structuurfunctie van het proton, $f$ is de dichtheid van het gluon en $\mathcal{F}_2$ is de structuurfunctie van de hadronische structuur van het foton.
+Deze uitdrukking bestaat uit verschillende, afzonderlijk te beschouwen delen, die elk op hun beurt even interessant zijn.
+$F_2 (x, Q^2)$ is de structuurfunctie van het proton, $f$ is de ongeïntegreerde gluondichtheid van het proton en $\mathcal{F}_2$ is de structuurfunctie van de hadronische structuur van het foton.
 Belangrijk op te merken is dat $F_2$ op voorhand kan berekend worden, en de integraal over $\phi$ analytisch kan worden bepaald.
-Dit laat op eerste zicht nog maar 2 integraties over om numeriek te berekenen.
+ 
+    \subsubsection{Ongeïntegreerde gluondichtheid van het proton $f$}
+Golec-Biernat en Wüsthoff hebben deze grootheid in het kader van hun model berekend, en heeft volgende uitdrukking \cite[vgl. 9.255]{Barone}:
+\begin{equation}
+f(x,k^2) = \frac{3 \sigma_0}{4\pi^2 \alpha_S} R_0^2 (x) k^4 e^{-R_0^2(x) k^2}
+\end{equation}
+Waarbij
+\begin{equation}
+R_0^2(x) = \frac{1}{Q_0^2} \left( \frac{x}{x_0} \right)^\lambda
+\end{equation}
+De gebruikte parameters staan vermeld in appendix \ref{app:GBWParameters}.
+Dit is een ingrediënt voor de formule voor de volgende sectie.
 
+    \subsubsection{$F_2$} \label{sec:SF}
+De structuurfunctie $F_2 = F_L + 2x F_1$ is te vinden in \cite[vgl. 9.200]{Barone} en kan als volgt worden geschreven:
+\begin{align} \label{eq:MasslessF2}
+F_2(x,Q^2) &= \frac{Q^2}{4\pi^2} \alpha_S \sum_q e_q^2 \int_0^\infty \frac{dk}{k^2}\pi f(x,k^2) \int_0^1 d\rho \int_0^1 d\eta \times \Phi(\rho, \eta, Q^2, k^2) \\
+\text{met } \Phi(\rho, \eta, Q^2, k^2) &= \frac{1-2\rho(1-\rho)-2\eta(1-\eta)+12\rho(1-\rho)\eta(1-\eta)}{Q^2 \rho(1-\rho) + k^2 (\eta(1-\eta)}\notag
+\end{align}
+$e_q$ is de lading van de quark en de som loopt over de beschouwde quarks.
+De functie $f$ is gedefinieerd in de vorige sectie.
+\eqref{eq:MasslessF2} is bedoeld voor gebruik met de 3 quark parameters in appendix \ref{app:GBWParameters}.
+In \cite{Bondarenko} wordt een formule voor $F_2$ gepresenteerd die uit de BK vergelijking werd afgeleid.
+Deze houdt rekening met 4 quarks en dus hun afzonderlijke massa.
+De exacte formule voor $F_2$ wordt niet weergegeven, maar de longitudinale en transversale delen wel.
+De relatie tussen de integranda $\Phi_2$, $\Phi_L$ en $\Phi_T$ is simpel:
+\begin{equation}
+\Phi_2 = \Phi_L + \Phi_T
+\end{equation}
+Bij een correcte keuze van de voorfactoren.
+\begin{align}
+&\Phi_L(k^2, m_q^2) \sim \sum_q e_q^2 \int_0^1 d\rho \int_0^1 d\eta \frac{k^2 \eta(1-\eta)\rho^2(1-\rho)^2 Q^2}{(Q^2\rho(1-\rho)+k^2\eta(1-\eta)+m_q^2)(Q^2\rho(1-\rho)+m_q^2)} \\
+&\Phi_T(k^2, m_q^^2) \sim \sum_q e_q^2 \int_0^1 d\rho \int_0^1 \eta \notag \\
+&\frac{k^2 Q^2 (\rho^2+(1-\rho)^2)\rho(1-\rho)(\eta^2+(1-\eta)^2)+k^2(\rho^2+(1-\rho)^2)m_q^2 + 4\rho(1-\rho)\eta(1-\eta)m_q^2}{(Q^2\rho(1-\rho)+k^2\eta(1-\eta)+m_q^2)(Q^2\rho(1-\rho)+m_q^2)}
+\end{align}
+$m_q^2$ is de massa van de afzonderlijke quarks, zoals weergegeven in appendix \ref{app:GBWParameters}.
 
-    
-    \subsubsection{Gluon dichtheid}
-    \subsubsection{$F_2$}
-    \subsubsection{$\mathcal{F}_2$}
+    \subsubsection{$\mathcal{F}_2$} \label{sec:UGD}
+De structuurfunctie van de hadronische structuur van het foton is een exotische grootheid waar nog veel onduidelijkheid over bestaat.
+Het wordt ook wel eens aangeduid als \textit{ongeïntegreerde gluondichtheid in het foton}.
+Er zijn maar enkele pogingen geweest om deze te berekenen.
+TODO
 
+\section{Numerieke aanpak}
+Om de berekeningen zelf zo vlot mogelijk te laten verlopen, werd gekozen voor een implementatie in C++.
+Alle afzonderlijke formules werden gecontroleerd door vergelijking met een implementatie in Mathematica 7, door de auteur zelf en door Krzysztof Kutak.
+
+  \subsection{Numerieke integraties}
+Omdat in alle formules afzonderlijk ten hoogste drie numerieke integraties tegelijk aan te pas komen, werd gekozen om Monte-Carlo integratie te vermijden.
+Steve G. Johnson heeft een implementatie in C geschreven voor het numeriek integreren in een willekeurig aantal dimensies van een willekeurige functie (mogelijk ook multidimensionaal).
+De beschrijving van het algoritme zelf staat uitvoerig beschreven in \cite{Genz} en \cite{Berntsen}.
+Hoewel het algoritme gebaseerd is op de kubatuur regels, is het een adaptief en efficiënt algoritme voor multi-dimensionale integraties.
+Het vertoonde geen fundamentele problemen met de afzonderlijke formules uit sectie \ref{sec:SF} en \ref{sec:UGD}, hoewel deze vol singulariteiten zitten en problematisch kunnen zijn.
+
+  \subsubsection{Berekening van$E_T$}
+TODO
+De uiteindelijke formule bestaat uit vier delen:
+\begin{itemize}
+  \item $F_2$, die per waarde een enkele keer moet worden berekend.
+  \item $f$, waarover wordt geïntegreerd, bevat geen verborgen integraties en hoeft dus geen speciale behandeling.
+  \item $\mathcal{F}_2$, die zelf drie integraties bevat, wordt per waarde van $x$ en $Q^2$ geïnterpoleerd in het nodige interval van de variabele $x$, om zo de berekening een stuk sneller te laten verlopen,
+  \item de integraal in $\phi$, die analytisch uitgerekend kan worden (zie appendix \ref{app:PhiIntegral}), maar als integraal behouden is wegens redenen vermeld in appendix \ref{app:PhiIntegral}.
+\end{itemize}
+Interpolatie werd geïmplementeerd met behulp van de GNU Scientific Library (GSL), die een handige en snelle oplossing voor een ééndimensionale interpolatie biedt.
+De uiteindelijke driedimensionale integraal kon niet in een redelijke tijd worden uitgerekend door het \textit{Cubature} algoritme, dus werd voor de laatste stap gekozen voor Monte-Carlo integratie, wederom die van GSL.
+De resultaten van de uiteindelijke berekening zijn dan ook minder accuraat, omdat enerzijds de Monte-Carlo integratie vrij veel tijd in beslag nam en anderzijds de fout vrij hoog en wisselend bleef bij hoge aantallen van iteraties.
 
 \section{Resultaten}
+
 
 \section{Bespreking}
 
@@ -593,20 +674,26 @@ Waaruit de enkele $\alpha_S(Q^2)$-afhankelijkheid volgt.
 Een observabele is afhankelijk van de schaalvariabele, maar deze afhankelijkheid komt tot uiting door de afhankelijkheid van de observabele van $\alpha_S$.
 Men kan dus een observabele uitrekenen voor een vaste waarde van $\alpha_S$, en met behulp van vergelijking \eqref{eq:AlphaSDefinition} variëren met $Q^2$.
 
-\section{Parameters van het GBW model voor saturatie} \label{app:GBWparameters}
+\section{Parameters van het GBW model voor saturatie} \label{app:GBWParameters}
 In het geval van 3 lichte quarks: up, down en strange, krijgt men volgende waarden:
 \begin{align}
-\sigma_0 &= 23.03 \text{mb} \notag \\
-\lambda &= 0.288 \\
-x_0 &= 3.04 \times 10^{-4} \notag
+\sigma_0 &= 23,03 \text{mb} \notag \\
+\lambda &= 0,288 \\
+x_0 &= 3,04 \times 10^{-4} \notag
 \end{align}
 In geval van een vierde charm quark zijn de gefitte waarden anders.
 \begin{align}
-\sigma_0 &= 29.12 \text{mb} \notag \\
-\lambda &= 0.277 \\
-x_0 &= 0.41 \times 10^{-4} \notag
+\sigma_0 &= 29,12 \text{mb} \notag \\
+\lambda &= 0,277 \\
+x_0 &= 0,41 \times 10^{-4} \notag
 \end{align}
 De waarden komen overeen met die in \cite{GBW}.
+De massa’s van de quarks waarvoor deze parameters werden bepaald zijn de volgende:
+\begin{align}
+m_u &= m_d = m_s = 0,14 \text{GeV}\notag \\
+m_c &= 1.5 \text{GeV}
+\end{align}
+Een andere waarde voor deze massa’s en/of de introductie van een vijfde quark ($b$) zonder bovenstaande parameters opnieuw te bepalen is onjuist.
 
 \section{De ordening in hoeken in CCFM} \label{app:CCFM}
 Om \eqref{eq:HoekOrdening} uit te drukken in impulsfracties, heeft men volgende definities nodig:
@@ -625,6 +712,21 @@ Nu kan men
 Wat voor $z_i, z_{i+1} \ll 1$ reduceert tot $q_{i+1} > z_i q_i$.
 Belangrijk op te merken is dat in de hoge energie limiet, CCFM dezelfde oplossing oplevert als de BFKL vergelijking.
 Voor verdere discussie geeft \cite{Vera} een goed overzicht van CCFM en de verhouding hiervan met BFKL.
+
+\section{Integraal over $\phi$} \label{app:PhiIntegral}
+De integraal over $\phi$ in \eqref{eq:ET} kan analytisch worden uitgerekend.
+Mathematica geeft als analytisch resultaat voor een integraal van de volgende vorm:
+\begin{equation}
+\int_0^{2\pi} \frac{1}{\sqrt{a + b \cos{\Phi}}}
+\end{equation}
+Volgende oplossing:
+\begin{equation}
+\frac{2 \sqrt{a + b} K(-\frac{2b}{a - b}) + \sqrt{a - b} K(\frac{2b}{a + b})}{\sqrt{a^2 - b^2}}
+\end{equation}
+Waarbij $K$ de volledige elliptische integraal van de eerste soort is zoals gedefinieerd op Wolfram Alpha onder “EllipticK”.
+Het probleem met deze analytische oplossing is dat alle gevonden implementaties in C of C++ van de elliptische integraal, het domein van het argument beperken tot $[0,1]$.
+In deze berekening komen waarden ver buiten dit interval voor (maar nog wel correct te gebruiken in Mathematica), waardoor de analytische oplossing onbruikbaar wordt.
+De integraal wordt wel correct uitgerekend door \textit{Cubature} en de Monte-Carlo methode in GSL, dus kan die zonder probleem mee geïntegreerd worden.
 
 \newpage
 \begin{thebibliography}{99}
@@ -684,6 +786,25 @@ Voor verdere discussie geeft \cite{Vera} een goed overzicht van CCFM en de verho
   \emph{QCD and collider physics}
   Cambridge University Press
   2003
+
+\bibitem{Bondarenko}
+  S. Bondarenko
+  \emph{Gluon density and $F_2$ functions from BK equation with impact parameter dependence}
+  arXiv:0802.1802v2 [hep-ph]
+  19 Feb 2008
+
+\bibitem{Genz}
+  A. C. Genz en A. A. Malik
+  \emph{An adaptive algorithm for numeric integration over an N-dimensional rectangular region}
+  Journal of Computational Applied Mathematics 6 (4), 295–302
+  1980
+
+\bibitem{Berntsen}
+  J. Berntsen, T. O. Espelid en A. Genz
+  \emph{An adaptive algorithm for the approximate calculation of multiple integrals}
+  ACM Trans. Math. Soft. 17 (4), 437–451
+  1991 
+
 \end{thebibliography}
 
 \end{document}
