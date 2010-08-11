@@ -24,7 +24,7 @@
 % appendix
 \usepackage{appendix}
 
-\title{Studie van parton-saturatie effecten in de transverse energiestroom bij elektron-proton interacties aan de LHeC}
+\title{Studie van parton-saturatie effecten in de transversale energiestroom en $F_L$ bij elektron-proton interacties aan de LHeC}
 \author{Ruben Van Boxem}
 
 \begin{document}
@@ -55,7 +55,7 @@ Academiejaar 2009--2010
 \fontsize{17.28pt}{21pt}\selectfont
 
 % De titel van de thesis:
-\textsc{Studie van parton-saturatie effecten in de transverse energiestroom bij elektron-proton interacties aan de LHeC}
+\textsc{Studie van parton-saturatie effecten in de transversale energiestroom en $F_L$ bij elektron-proton interacties aan de LHeC}
 
 \fontseries{m}
 \fontsize{12pt}{14pt}\selectfont
@@ -326,7 +326,7 @@ Als dit verloop blijft doorgaan, zullen dichtheden optreden die niet meer fysisc
 \begin{figure} [H]
   \begin{center}
     \includegraphics[scale=1]{Afbeeldingen/PD.eps}
-    \caption{Dichtheden van de verschillende partonen in een proton voor twee verschillende schalen $Q^2$. Voor kleine $x$ gaan de gluonen sterk domineren. Voor relatief grote $x$-waarden vindt men de klassieke $uud$ combinatie terug, met de gluonen en zeequarks sterk onderdrukt. \cite{Martin}}
+    \caption{Dichtheden van de verschillende partonen in een proton voor twee verschillende schalen $Q^2$. Voor kleine $x$ gaan de gluonen sterk domineren. Voor relatief grote $x$-waarden vindt men de klassieke $uud$ combinatie terug, met de gluonen en zeequarks sterk onderdrukt. Veer zeer kleine waarden van $x$ blazen de dichtheden van de zeequarks en vooral de gluonen op.\cite{Martin}}
    \label{fig:PD}
   \end{center}
 \end{figure}
@@ -350,7 +350,7 @@ DGLAP is in eerste instantie (als lage orde benadering) enkel geldig voor voldoe
 De $x$ afhankelijkheid is hier onbekend, en moet experimenteel worden vastgesteld.
 Men kan DGLAP uitdrukken als de benadering waar de waarnemer ($Q^2$, de golflengte van het onderzoekend foton) en $x$ ingebouwd zit.
 Er is dus geen verdere informatie over de inwendige detailstructuur van het proton meegegeven.
-Als men figuur \ref{fig:GluonLadder} beschouwt, krijgt men in het DGLAP schema een sterke ordening in $\vec{k}_\perp$ voor opeenvolgende gluon emissies:
+Als men figuur \ref{fig:GluonLadder} beschouwt, krijgt men in het DGLAP schema een sterke ordening in $\vec{k}_\perp$ voor opeenvolgende gluonemissies:
 \begin{equation}
 Q^2 \gg \vec{k}_\perp^2 \gg \vec{k}_{1\perp}^2 \gg \vec{k}_{2\perp}^2 \gg \hdots \gg \vec{k}_{n\perp}^2
 \end{equation}
@@ -473,6 +473,8 @@ Het is duidelijk dat de resultaten onafhankelijk moeten zijn van het factorisati
     \subsubsection{Saturatie} \label{sec:Saturatie}
 Saturatie zal in een of andere vorm moeten optreden voor zeer kleine $x$, omdat anders de partondichtheden (in het bijzonder, maar niet enkel die van het gluon) niet fysisch meer zijn en de huidige formulering onzinnige resultaten zou voorspellen (zie figuur \ref{fig:PD}).
 In dit werk wordt dus uitbundig gebruik gemaakt van modellen die met dit fenomeen rekening houden.
+
+      \paragraph{GBW-model}
 Een beproefd en op zich eenvoudig model, is dat van Krzysztof Golec-Biernat \cite{GB}.
 Golec-Biernat gebruikt het formalisme van de foton golffunctie (een vorm van het factorisatie theorema), waarbij een foton onafhankelijk van de DIS botsing kan splitsen in een $q\bar{q}$-paar, dat dan interageert met het proton.
 Dit laat toe een perturbatieve berekening te doen voor deze golffunctie, en de rest wordt beschreven door middel van een model.
@@ -500,6 +502,10 @@ Als de afstand $r$ tussen de twee quarks van $q\bar{q}$-paar klein is, zal het v
 Dit effect heet kleurdoorzichtigheid.
 Een ander sterk punt van dit model is het feit dat hier een saturatie voor kleine $x$ is ingebouwd, wat natuurlijk wenselijk is voor berekeningen in dat gebied.
 
+      \paragraph{Zware quarks}
+GBW hebben ook in \cite{GBW} aangetoond dat het beschouwen van een extra (zware) quark, namelijk de charm, leidt tot een saturatie-effect.
+Het bestuderen van de structuurfuncties in het licht van dit effect is zeer interessant, en wordt dieper op ingegaan in sectie \ref{sec:SF} en \ref{sec:ResSF}.
+
   \subsection{Dwarse energiestroom}
     \subsubsection{Belang van de LHeC}
 Om met zekerheid te kunnen spreken over de resultaten van deze berekeningen en een definitieve grens te kunnen trekken tussen DGLAP en BFKL qua geldigheidsgebieden.
@@ -517,10 +523,43 @@ Als men met versnelde elektronen werkt, moet men natuurlijk ervoor uitkijken dat
 Synchrotronstraling is energie uitgestraald door een elektron als het in een cirkelvormige baan versneld wordt.
 Het kost dus nóg meer energie om elektronen boven die grens van synchrotronstraling te krijgen zonder te veel verlies aan snelheid.
 
+    \subsubsection{Waarom kijken naar $E_T$ met BFKL dynamica}
+De transversale energiestroom is misschien wel de interessantste grootheid om de eigenschappen van DIS interacties te bestuderen.
+Bij een botsing tussen protonen botsen, komen er ook deeltjes vrij die een niet-collineaire impuls hebben.
+In tegenstelling tot de protonen die collineair botsen en dus geen $\vec{k}_\perp$ hebben, kunnen de partonen in het proton wel een transversale impuls hebben.
+De transversale energiestroom is dus voor een groot deel afkomstig uit een interactie met een parton dat in tegenstelling tot het proton, een transversale impuls heeft.
+Dit is dan ook de reden dat de transversale energiestroom, in tegenstelling tot de uitgaande protonresten, een goede bron van informatie is over harde parton-parton interacties.
+
     \subsubsection{Formulering van $E_T$}
+\begin{figure} [H]
+  \begin{center}
+    \includegraphics[width=.33\textwidth]{Afbeeldingen/ETDefinitionDiagram.png}
+    \caption{DIS interactie met de totale $E_T$ aangeduid. \cite{ET}}
+   \label{fig:ETDefinitionDiagram}
+  \end{center}
+\end{figure}
 In \cite{ET} wordt een uitdrukking berekend voor de transversale energiestroom van een DIS botsing.
-Deze uitdrukking werd berekend voor kleine $x$ (dus met behulp van BFKL dynamica), en ingevuld met vergelijkingen die toen de beste resultaten gaven.
-Hier zal deze vergelijking opnieuw beschouwd worden, en toegepast op hernieuwde uitdrukkingen voor de samenstellende formules.
+In figuur \ref{fig:ETDefinitionDiagram} wordt duidelijk aangeduid welke emissies bij $E_T$ worden gerekend.
+Golec-Biernat, Kwieciński, Martin en Sutton zijn vertrokken van het diagram weergegeven in figuur \ref{fig:ETDiagram}.
+\begin{figure} [H]
+  \begin{center}
+    \includegraphics[width=.66\textwidth]{Afbeeldingen/ETDiagram.png}
+    \caption{a) illustreert formule \eqref{eq:ETGluonChain}. b) toont expliciet de door BFKL gehersommeerde gluonladders. \cite{ET}}
+   \label{fig:ETDiagram}
+  \end{center}
+\end{figure}
+De transversale energiestroom van een gluonladder zoals weergegeven in figuur \ref{fig:ETDiagram} (a), heeft de volgende vorm:
+\begin{equation} \label{eq:ETGluonChain}
+x_j \frac{\partial E_T}{\partial x_j} = \frac{1}{\sigma} \int dk_j^2 x_j \frac{\partial \sigma}{\partial x_j \partial k_j^2} |\vec{k}_j|
+\end{equation}
+$x_j$  en $\vec{k}_j$ zijn respectievelijk de longitudinale impulsfractie en de transversale impuls van de gluon jet in het proton-proton massamiddelpuntstelsel.
+De differentiële werkzame doorsnede kan uitgedrukt worden in functie van de structuurfuncties van het proton.
+\begin{equation}
+\frac{\partial \sigma}{\partial x_j \partial k_j^2} = \frac{4 \pi \alpha^2}{xQ^2} \left[ (1-y) \frac{\partial F_2}{\partial x_j \partial k_j^2} + \frac{1}{2} y^2 \frac{\partial 2xF_1}{\partial x_j \partial k_j^2} \right]
+\end{equation}
+Waarbij $y=Q^2/xs$ en $\sqrt{s}$ gelijk aan de massamiddelpuntsenergie van het elektron-proton systeem.
+Deze uitdrukking werden uitgerekend voor kleine $x$ (dus met behulp van BFKL dynamica), en ingevuld met vergelijkingen die toen de beste resultaten gaven.
+Hier zal vergelijking  \eqref{eq:ET} opnieuw beschouwd worden, en toegepast op hernieuwde uitdrukkingen voor de samenstellende formules.
 \begin{align} \label{eq:ET}
 x_j \frac{\partial E_T}{\partial x_j} = \frac{1}{F_2} \int \frac{dk_p^2}{k_p^2} \int \frac{dk_\gamma^2}{k_\gamma^2} \left( \frac{3\alpha_S}{\pi} \right) \mathcal{F}_2 \left( \frac{x}{x_j}, k_\gamma^2, Q^2 \right) f(x_j,k_p^2) \int \frac{d\phi}{\sqrt{k_p^2+k_\gamma^2 + 2k_p k_\gamma \cos{\phi}}}
 \end{align}
@@ -538,7 +577,8 @@ Waarbij
 R_0^2(x) = \frac{1}{Q_0^2} \left( \frac{x}{x_0} \right)^\lambda
 \end{equation}
 De gebruikte parameters staan vermeld in appendix \ref{app:GBWParameters}.
-Dit is een ingrediënt voor de formule voor de volgende sectie.
+het diagram in \ref{fig:ETDiagram} (b) toont $f$.
+Dit is ook een ingrediënt voor de formule voor de volgende sectie.
 
     \subsubsection{$F_2$} \label{sec:SF}
 De structuurfunctie $F_2 = F_L + 2x F_1$ is te vinden in \cite[vgl. 9.200]{Barone} en kan als volgt worden geschreven:
@@ -557,7 +597,7 @@ De relatie tussen de integranda $\Phi_2$, $\Phi_L$ en $\Phi_T$ is simpel:
 \Phi_2 = \Phi_L + \Phi_T
 \end{equation}
 Bij een correcte keuze van de voorfactoren.
-\begin{align}
+\begin{align} \label{eq:MassiveSF}
 &\Phi_L(k^2, m_q^2) \sim \sum_q e_q^2 \int_0^1 d\rho \int_0^1 d\eta \frac{k^2 \eta(1-\eta)\rho^2(1-\rho)^2 Q^2}{(Q^2\rho(1-\rho)+k^2\eta(1-\eta)+m_q^2)(Q^2\rho(1-\rho)+m_q^2)} \\
 &\Phi_T(k^2, m_q^^2) \sim \sum_q e_q^2 \int_0^1 d\rho \int_0^1 \eta \notag \\
 &\frac{k^2 Q^2 (\rho^2+(1-\rho)^2)\rho(1-\rho)(\eta^2+(1-\eta)^2)+k^2(\rho^2+(1-\rho)^2)m_q^2 + 4\rho(1-\rho)\eta(1-\eta)m_q^2}{(Q^2\rho(1-\rho)+k^2\eta(1-\eta)+m_q^2)(Q^2\rho(1-\rho)+m_q^2)}
@@ -567,8 +607,14 @@ $m_q^2$ is de massa van de afzonderlijke quarks, zoals weergegeven in appendix \
     \subsubsection{$\mathcal{F}_2$} \label{sec:UGD}
 De structuurfunctie van de hadronische structuur van het foton is een exotische grootheid waar nog veel onduidelijkheid over bestaat.
 Het wordt ook wel eens aangeduid als \textit{ongeïntegreerde gluondichtheid in het foton}.
-Er zijn maar enkele pogingen geweest om deze te berekenen.
-TODO
+Hier wordt gebruik gemaakt van een berekening waar een initïele toestand $\mathcal{F}^{(0}$ werd geëvolueerd met behulp van de BK vergelijking [CITATION NEEDED].
+Figuur \ref{fig:ETDiagram} (b) toont de begintoestand, namelijk de \textit{quark doos}, die werd aangenomen als beginvoorwaarde bij het oplossen van de BK vergelijking.
+Voor de volledigheid worden hier de formule met en zonder evolutie gegeven.
+De resultaten worden getoond in sectie \ref{sec:ResUGD}.
+\begin{align} \label{eq:UGD}
+\mathcal{F}_\text{zonder evolutie} &= TODO \\
+\mathcal{F}_\text{met evolutie} &= TODO
+\end{align}
 
 \section{Numerieke aanpak}
 Om de berekeningen zelf zo vlot mogelijk te laten verlopen, werd gekozen voor een implementatie in C++.
@@ -590,11 +636,22 @@ De uiteindelijke formule bestaat uit vier delen:
   \item $\mathcal{F}_2$, die zelf drie integraties bevat, wordt per waarde van $x$ en $Q^2$ geïnterpoleerd in het nodige interval van de variabele $x$, om zo de berekening een stuk sneller te laten verlopen,
   \item de integraal in $\phi$, die analytisch uitgerekend kan worden (zie appendix \ref{app:PhiIntegral}), maar als integraal behouden is wegens redenen vermeld in appendix \ref{app:PhiIntegral}.
 \end{itemize}
+
 Interpolatie werd geïmplementeerd met behulp van de GNU Scientific Library (GSL), die een handige en snelle oplossing voor een ééndimensionale interpolatie biedt.
 De uiteindelijke driedimensionale integraal kon niet in een redelijke tijd worden uitgerekend door het \textit{Cubature} algoritme, dus werd voor de laatste stap gekozen voor Monte-Carlo integratie, wederom die van GSL.
 De resultaten van de uiteindelijke berekening zijn dan ook minder accuraat, omdat enerzijds de Monte-Carlo integratie vrij veel tijd in beslag nam en anderzijds de fout vrij hoog en wisselend bleef bij hoge aantallen van iteraties.
 
 \section{Resultaten}
+    \subsection{De structuurfuncties van dichtbij bekeken} \label{sec:ResSF}
+$F_2$ en $F_L$ zijn interessante grootheden, zeker in het licht van saturatie en de B(F)K(L) vergelijking.
+De longitudinale en transversale structuurfuncties verhouden zich tot $F_2$ en $F_1$ volgens volgende vergelijkingen:
+\begin{align}
+F_2 &= F_L + F_T \\
+F_2 &= F_2 - 2xF_1 \notag
+\end{align}
+Door vergelijkingen \eqref{eq:MasslessF2} (en bijhorende formule voor $F_L$ \cite{Barone}) en \eqref{eq:MassiveSF} uit te rekenen, kan men zien dat $F_2$ nagenoeg niet verandert door invoering van de extra quark (en dus saturatie), maar $F_L$ wel onderhevig is aan de gevolgen.
+
+  \subsection{De ongeïntegreerde gluondichtheid van het foton} \label{sec:ResUGD}
 
 
 \section{Bespreking}
