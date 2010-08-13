@@ -46,19 +46,19 @@ int main()
 {
     cout << setprecision(14);
 
-    testGSL();
+    //testGSL();
     //testInterpolation();
     //testIntegration();
 
     //testSFMassless();
     //testSFMassive();
 
-    testUGDMassless();
+    //testUGDMassless();
 
-    testETMassless();
+    //testETMassless();
 
-    //outputSFMassive();
-    //outputSFMassless();
+    outputSFMassive();
+    outputSFMassless();
     //outputUGDMassless();
 
     return 0;

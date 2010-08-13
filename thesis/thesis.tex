@@ -548,7 +548,7 @@ Golec-Biernat, Kwieciński, Martin en Sutton zijn vertrokken van het diagram wee
    \label{fig:ETDiagram}
   \end{center}
 \end{figure}
-De transversale energiestroom van een gluonladder zoals weergegeven in figuur \ref{fig:ETDiagram} (a), heeft de volgende vorm:
+De transversale energiestroom van een gluonladder zoals weergegeven in figuur \ref{fig:ETDiagram} (a) (en expliciet getoond in (b) ), heeft de volgende vorm:
 \begin{equation} \label{eq:ETGluonChain}
 x_j \frac{\partial E_T}{\partial x_j} = \frac{1}{\sigma} \int dk_j^2 x_j \frac{\partial \sigma}{\partial x_j \partial k_j^2} |\vec{k}_j|
 \end{equation}
@@ -582,21 +582,19 @@ Dit is ook een ingrediënt voor de formule voor de volgende sectie.
 
     \subsubsection{$F_2$} \label{sec:SF}
 De structuurfunctie $F_2 = F_L + 2x F_1$ is te vinden in \cite[vgl. 9.200]{Barone} en kan als volgt worden geschreven:
-\begin{align} \label{eq:MasslessF2}
-F_2(x,Q^2) &= \frac{Q^2}{4\pi^2} \alpha_S \sum_q e_q^2 \int_0^\infty \frac{dk}{k^2}\pi f(x,k^2) \int_0^1 d\rho \int_0^1 d\eta \times \Phi(\rho, \eta, Q^2, k^2) \\
-\text{met } \Phi(\rho, \eta, Q^2, k^2) &= \frac{1-2\rho(1-\rho)-2\eta(1-\eta)+12\rho(1-\rho)\eta(1-\eta)}{Q^2 \rho(1-\rho) + k^2 (\eta(1-\eta)}\notag
+\begin{align} \label{eq:MasslessSF}
+F_2(x,Q^2) &= \frac{Q^2}{4\pi^2} \alpha_S \sum_q e_q^2 \int_0^\infty \frac{dk}{k^2}\pi f(x,k^2) \int_0^1 d\rho \int_0^1 d\eta \times \Phi_2(\rho, \eta, Q^2, k^2) \\
+\text{met } \Phi_2(\rho, \eta, Q^2, k^2) &= \frac{1-2\rho(1-\rho)-2\eta(1-\eta)+12\rho(1-\rho)\eta(1-\eta)}{Q^2 \rho(1-\rho) + k^2 (\eta(1-\eta)}\notag \\
+F_L(x,Q^2) &= \frac{2 Q^2}{\pi^2} \alpha_S \sum_q e_q^2 \int_0^\infty \frac{dk^2}{k^2} \pi f(x,k^2) \times \Phi_L(\rho, \eta, Q^2, k^2) \\
+\text{met } \Phi_L(\rho, \eta, Q^2, k^2) &= \frac{\rho(1-\rho)\eta(1-\eta)}{Q^2 \rho(1-\rho)+k^2 \eta(1-\eta)} \notag
 \end{align}
 $e_q$ is de lading van de quark en de som loopt over de beschouwde quarks.
 De functie $f$ is gedefinieerd in de vorige sectie.
-\eqref{eq:MasslessF2} is bedoeld voor gebruik met de 3 quark parameters in appendix \ref{app:GBWParameters}.
+\eqref{eq:MasslessSF} is bedoeld voor gebruik met de 3 quark parameters in appendix \ref{app:GBWParameters}.
 In \cite{Bondarenko} wordt een formule voor $F_2$ gepresenteerd die uit de BK vergelijking werd afgeleid.
 Deze houdt rekening met 4 quarks en dus hun afzonderlijke massa.
 De exacte formule voor $F_2$ wordt niet weergegeven, maar de longitudinale en transversale delen wel.
-De relatie tussen de integranda $\Phi_2$, $\Phi_L$ en $\Phi_T$ is simpel:
-\begin{equation}
-\Phi_2 = \Phi_L + \Phi_T
-\end{equation}
-Bij een correcte keuze van de voorfactoren.
+De relatie tussen de verschillende structuurfuncties wordt weergegeven in appendix \ref{app:SF}.
 \begin{align} \label{eq:MassiveSF}
 &\Phi_L(k^2, m_q^2) \sim \sum_q e_q^2 \int_0^1 d\rho \int_0^1 d\eta \frac{k^2 \eta(1-\eta)\rho^2(1-\rho)^2 Q^2}{(Q^2\rho(1-\rho)+k^2\eta(1-\eta)+m_q^2)(Q^2\rho(1-\rho)+m_q^2)} \\
 &\Phi_T(k^2, m_q^^2) \sim \sum_q e_q^2 \int_0^1 d\rho \int_0^1 \eta \notag \\
@@ -628,7 +626,6 @@ Hoewel het algoritme gebaseerd is op de kubatuur regels, is het een adaptief en 
 Het vertoonde geen fundamentele problemen met de afzonderlijke formules uit sectie \ref{sec:SF} en \ref{sec:UGD}, hoewel deze vol singulariteiten zitten en problematisch kunnen zijn.
 
   \subsubsection{Berekening van$E_T$}
-TODO
 De uiteindelijke formule bestaat uit vier delen:
 \begin{itemize}
   \item $F_2$, die per waarde een enkele keer moet worden berekend.
@@ -644,19 +641,55 @@ De resultaten van de uiteindelijke berekening zijn dan ook minder accuraat, omda
 \section{Resultaten}
     \subsection{De structuurfuncties van dichtbij bekeken} \label{sec:ResSF}
 $F_2$ en $F_L$ zijn interessante grootheden, zeker in het licht van saturatie en de B(F)K(L) vergelijking.
-De longitudinale en transversale structuurfuncties verhouden zich tot $F_2$ en $F_1$ volgens volgende vergelijkingen:
-\begin{align}
-F_2 &= F_L + F_T \\
-F_2 &= F_2 - 2xF_1 \notag
-\end{align}
-Door vergelijkingen \eqref{eq:MasslessF2} (en bijhorende formule voor $F_L$ \cite{Barone}) en \eqref{eq:MassiveSF} uit te rekenen, kan men zien dat $F_2$ nagenoeg niet verandert door invoering van de extra quark (en dus saturatie), maar $F_L$ wel onderhevig is aan de gevolgen.
+Door vergelijkingen \eqref{eq:MasslessSF} (en bijhorende formule voor $F_L$ \cite[sectie 9.5.4]{Barone}) en \eqref{eq:MassiveSF} uit te rekenen, kan men zien dat $F_2$ nagenoeg niet verandert door invoering van de extra quark (en dus saturatie), maar $F_L$ is er wel onderhevig aan.
+In figuur \ref{fig:ResSF} staan de resultaten van de formules \eqref{eq:MasslessSF} en \eqref{eq:MassiveSF} uitgezet, samen met data van HERA \cite{H1} \cite{ZEUS} indien beschikbaar.
+De derde curve op de grafiek werd berekend in \cite{Stasto} en verschilt in aanpak en benadering van de berekening hier.
+Enerzijds houdt de derde curve geen rekening met saturatie en toont dus de invloed van het fenomeen in het GBW model.
+De berekening gebruikt een geünificeerde DGLAP-BFKL aanpak, die overeen komt met een lineaire evolutievergelijking.
+De formules \eqref{eq:MassiveSF} en \eqref{eq:MassiveSF} stammen voort uit een tweede orde correctie daarop (die dus met saturatie rekening houdt) en stamt uit een niet-lineaire evolutievergelijking (BK).
+Anderzijds wordt daar wel gewerkt met exacte kinematica, wat wil zeggen dat in plaats van de simpele veronderstelling $x_g=x_{Bj}$ die hier gemaakt wordt, er een ingewikkeldere relatie toegepast wordt.
+Dit brengt hogere orde correctietermen met zich mee, die niet in \eqref{eq:MassiveSF} en \eqref{eq:MassiveSF} zitten.
+\begin{figure} [H]
+  \begin{center}
+    \includegraphics[width=.75\textwidth]{Afbeeldingen/PlotFL.eps}
+    \caption{Plot van $F_L$ voor verschillende waarden van $Q^2$ in functie van $x$.}
+   \label{fig:ResSF}
+  \end{center}
+\end{figure}
+Het is duidelijk dat bij GBW saturatie de structuurfunctie kleiner is dan zonder, dit is natuurlijk het gewenste effect.
+Niet getoond, maar wel belagrijk te vermelden is het feit dat de gebruikte berekeningen niet goed opgaan voor hogere waarden van $Q^2$, waardoor meer plots (voor bijvoorbeeld ZEUS’ $Q^2=60, 80, 110$) geen goede resultaten geven.
 
   \subsection{De ongeïntegreerde gluondichtheid van het foton} \label{sec:ResUGD}
+De ongïntegreerde gluondichtheid is tot nu toe enkel gemodelleerd als bijdrage aan een proces, en nooit afzonderlijk gemeten.
+Hier wordt de gluondichtheid ook ingevoerd om een \textit{geresolveerd foton} te krijgen (gelijkend op de correcties op DGLAP in figuren \ref{fig:HERAJets1} en \ref{fig:HERAJets2}).
+Een belangrijk verschil met het geresolveerd foton in een DGLAP berekening zoals getoond in \cite{Kiesling}, is dat hier een BFKL berekening word toegepast die op een natuurlijke wijze saturatie omvat door zwaardere quarks zoals beschreven in het GBW model.
+De resultaten worden weergegeven in figuur \ref{fig:ResUGD}.
+\begin{figure} [H]
+  \begin{center}
+    \includegraphics[scale=1]{Afbeeldingen/Placeholder.eps}
+    \caption{Plot van $\mathcal{F}_2$ zoals gebruikt in de berekening van $E_T$.}
+   \label{fig:ResUGD}
+  \end{center}
+\end{figure}
 
+  \subsection{De transversale energiestroom} \label{sec:ResET}
+De transversale energiestroom in een DIS interactie is berekend met behulp van \eqref{eq:ET} en bijhorende subformules.
+De resultaten worden weergegeven in figuur \ref{fig:ResET}.
+\begin{figure} [H]
+  \begin{center}
+    \includegraphics[scale=1]{Afbeeldingen/Placeholder.eps}
+    \caption{Plot van $F_L$ voor verschillende waarden van $Q^2$ in functie van $x$.}
+   \label{fig:ResET}
+  \end{center}
+\end{figure}
 
 \section{Bespreking}
 
+
+
 \section{Besluit}
+
+
 
 \newpage
 \appendix
@@ -706,7 +739,12 @@ Men bekomt \eqref{eq:SF} door $L^{\mu \nu}$ in te vullen en volgende variabelen 
 Y_\pm &= 1 \pm (1-y)^2 \notag \\
 F_L &= F_2 - 2x F_1 \notag
 \end{align}
-In DIS processen, kan men vaak uitgaan van $F_L = 0$, zodat $F_2$ voldoende is om de hele werkzame doorsnede te bepalen.
+In DIS processen, kan men vaak uitgaan van $F_L = 0$, zodat $F_2$ in dat geval voldoende is om de hele werkzame doorsnede te bepalen.
+De longitudinale en transversale structuurfuncties hebben het volgende verband met $F_2$ en $F_1$:
+\begin{align}
+F_2 &= F_L + F_T \\
+F_2 &= F_2 - 2xF_1 \notag
+\end{align}
 
 \section{Renormalisatiegroep vergelijking en asymptotische vrijheid} \label{app:RGE}
 Het tweede deel van vergelijking \eqref{eq:RGE} wordt als volgt bekomen \cite{Ellis}.
@@ -817,7 +855,7 @@ De integraal wordt wel correct uitgerekend door \textit{Cubature} en de Monte-Ca
 
 \bibitem{GBW}
   K. Golec-Biernat, M. Wüsthoff
- \emph{ Saturation Effects in Deep Inelastic Scattering at low $Q^2$ and its Implications on Diffraction}
+ \emph{Saturation Effects in Deep Inelastic Scattering at low $Q^2$ and its Implications on Diffraction}
   2008
   
 \bibitem{ET}
@@ -860,7 +898,25 @@ De integraal wordt wel correct uitgerekend door \textit{Cubature} en de Monte-Ca
   J. Berntsen, T. O. Espelid en A. Genz
   \emph{An adaptive algorithm for the approximate calculation of multiple integrals}
   ACM Trans. Math. Soft. 17 (4), 437–451
-  1991 
+  1991
+
+\bibitem{Stasto}
+  K. Golec-Biernat en A. M. Staśto
+  \emph{$F_L$ proton structure function from the unified DGLAP/BFKL approach}
+  arXiv:0905.1321v1 [hep-ph]
+  2009
+
+\bibitem{H1}
+  H1 Collaboratie (volledige lijst in paper)
+  \emph{Measurement of the Proton Structure Function FL(x,Q2) at Low x}
+  arXiv:0805.2809v2 [hep-ex]
+  2008
+
+\bibitem{ZEUS}
+  ZEUS Collaboratie (volledige lijst in paper)
+  \emph{Measurement of the longitudinal proton structure function at HERA}
+  arXiv:0904.1092v2 [hep-ex]
+  2009
 
 \end{thebibliography}
 
