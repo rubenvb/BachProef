@@ -10,15 +10,19 @@
 #include "Plots.h"
 
 // BachProef includes
+#include "TransverseEnergyFlow.h"
 #include "StructureFunction.h"
 #include "UnintegratedGluonDensity.h"
 
 // C++ includes
+#include <algorithm>
 #include <iostream>
     using std::cout;
     using std::endl;
 #include <fstream>
     using std::ofstream;
+#include <numeric>
+    using std::accumulate;
 #include <vector>
     using std::vector;
 
@@ -141,8 +145,69 @@ void outputSFMassive()
 
 void outputUGDMassless()
 {
-    using namespace UGD::massless;
+    using UGD::massless::F0Evol;
 
-    ofstream file;
+    ofstream file( "UGDMassless.txt" );
 
+    const size_t nPoints = 20;
+    vector<double> x(nPoints);
+    const double Q2 = 10;
+    vector<double> k2( { 1., 10. ,50. } );
+    // x
+    double current = 1e-5 / 1.6;
+    for( size_t i=0; i<nPoints ; ++i )
+    {
+        current *= 1.6;
+        x.at(i) = current;
+    }
+
+    double xi;
+    for( size_t i = 0; i<nPoints; ++i )
+    {
+        xi = x.at(i);
+        file << xi;
+        for( size_t j = 0; j<k2.size(); ++j)
+        {
+             file << "\t" << F0Evol(xi, k2.at(j), Q2);
+        }
+        file << "\n";
+    }
+    file.close();
 }
+
+void outputET()
+{
+    ofstream file( "ET.txt" );
+
+    const int nPoints = 50;
+    vector<double> x = {1e-8, 1e-7, 1e-6, 1e-5, 1e-4};
+    vector<double> xj(nPoints);
+    double current = 1e-7 / 1.4563;
+    for( size_t i=0; i<nPoints ; ++i )
+    {
+        current *= 1.4563;
+        xj.at(i) = current;
+    }
+    init();
+    for( size_t i=0; i<xj.size(); ++i )
+    {
+        file << xj.at(i);
+        for( size_t j=0; j<x.size(); ++j )
+        {
+            cout << "x = " << x.at(j) << "\t" << "xj = " << xj.at(i) << endl;
+            // average over 10 Monte-Carlo calculations
+            vector<double> ETs(10);
+            for( int k = 0; k<10; ++k )
+            {
+                ETs.at(k) = ETFlow( x.at(j), 10., xj.at(i) );
+            }
+            file << "\t" << accumulate( ETs.begin(), ETs.end(), 0.)/ETs.size();
+        }
+        file << "\n";
+    }
+    deinit();
+    file.close();
+}
+void outputETEvol()
+{   }
+

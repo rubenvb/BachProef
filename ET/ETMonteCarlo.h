@@ -20,7 +20,7 @@ static gsl_rng* r;
 void init();
 void deinit();
 double ETFlow( const double x, const double Q2,
-           const double xj );
+               const double xj );
 double integrandET( double x[], size_t dim, void* p );
 
 

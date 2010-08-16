@@ -12,6 +12,7 @@
 void outputSFMassless();
 void outputSFMassive();
 void outputUGDMassless();
-
+void outputET();
+void outputETEvol();
 
 #endif // STRUCTUREFUNCTIONPLOTS_H

@@ -40,7 +40,7 @@ void deinit()
 }
 
 double ETFlow( const double x, const double Q2,
-           const double xj )
+               const double xj )
 {
     const double limit = Q2/(x/xj);
     const double F2 = SF::massless::F2( x, Q2 );
@@ -85,7 +85,7 @@ double ETFlow( const double x, const double Q2,
     gsl_monte_vegas_state *s = gsl_monte_vegas_alloc (3);
     gsl_monte_vegas_integrate( &F, xl, xu, 3, calls, r, s,
                                &res, &err);
-    cout << err << endl;
+    //cout << err << endl;
 
     // free the resources
     gsl_spline_free( spline );
@@ -109,5 +109,3 @@ double integrandET( double x[], size_t dim, void* p )
 
     return coeff*fancyF2*f*phiPart/(kp2*kg2);
 }
-
-

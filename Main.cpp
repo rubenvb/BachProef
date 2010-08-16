@@ -55,11 +55,13 @@ int main()
 
     //testUGDMassless();
 
-    //testETMassless();
+    testETMassless();
 
-    outputSFMassive();
-    outputSFMassless();
+    //outputSFMassive();
+    //outputSFMassless();
     //outputUGDMassless();
+    outputET();
+    //outputETEvol();
 
     return 0;
 }
@@ -203,8 +205,9 @@ void testETMassless()
     //cout << "ET() = ????? ?=\t " << ET::massless::ETFlow(1e-8, 10., 1e-5 ) << endl;
     init();
     cout << "-----------\nET MASSLESS NO EVOLUTION\n-----------" << endl;
-    cout << "ET() = ????? ?=\t " << ETFlow(1e-8, 10., 1e-5 ) << endl;
-    cout << "ET() = ????? ?=\t " << ETFlow(1e-8, 10., 1e-5 ) << endl;
+
+    cout << "ET() = ????? ?=\t " << ETFlow(1e-8, 10., 1e-7 ) << endl;
+    cout << "ET() = ????? ?=\t " << ETFlow(1e-8, 10., 1e-6 ) << endl;
     cout << "ET() = ????? ?=\t " << ETFlow(1e-8, 10., 1e-5 ) << endl;
     deinit();
 }
