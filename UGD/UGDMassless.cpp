@@ -17,6 +17,9 @@
 
 // C++ includes
 #include <cmath> // M_PI, exp
+#include <iostream>
+    using std::cout;
+    using std::endl;
 #include <stdexcept>
     using std::runtime_error;
 
@@ -101,11 +104,13 @@ double F0Evol( const double x, const double k2, const double Q2 )
     double xMin[] = { 0., 0. };
     double xMax[] = { 1., 1. };
     double input[] = { x, k2, Q2 };
+    cout << "starting integration" << endl;
 
     const bool fail = adapt_integrate( 1, integrandF0Evol, input,
                                        2, xMin, xMax,
                                        0, 0, 1e-4,
                                        &val, &err);
+    cout << "integration finished" << endl;
     if( fail )
         throw runtime_error( "adapt_integrate returned an error." );
 

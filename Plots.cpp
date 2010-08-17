@@ -23,6 +23,8 @@
     using std::ofstream;
 #include <numeric>
     using std::accumulate;
+#include <stdexcept>
+    using std::runtime_error;
 #include <vector>
     using std::vector;
 
@@ -177,15 +179,19 @@ void outputUGDMassless()
 
 void outputET()
 {
-    ofstream file( "ET.txt" );
+    using namespace ET::MonteCarlo;
 
-    const int nPoints = 50;
+    ofstream file( "ET.txt" );
+    if( !file )
+        throw runtime_error( "Unable to open file: ET.txt" );
+
+    const int nPoints = 30;
     vector<double> x = {1e-8, 1e-7, 1e-6, 1e-5, 1e-4};
     vector<double> xj(nPoints);
-    double current = 1e-7 / 1.4563;
+    double current = 1e-10 / 1.833;
     for( size_t i=0; i<nPoints ; ++i )
     {
-        current *= 1.4563;
+        current *= 1.833;
         xj.at(i) = current;
     }
     init();
@@ -195,18 +201,33 @@ void outputET()
         for( size_t j=0; j<x.size(); ++j )
         {
             cout << "x = " << x.at(j) << "\t" << "xj = " << xj.at(i) << endl;
-            // average over 10 Monte-Carlo calculations
-            vector<double> ETs(10);
-            for( int k = 0; k<10; ++k )
-            {
-                ETs.at(k) = ETFlow( x.at(j), 10., xj.at(i) );
-            }
-            file << "\t" << accumulate( ETs.begin(), ETs.end(), 0.)/ETs.size();
+            double val = ETFlow( x.at(j), 10., xj.at(i) );
+            cout << "\t" << val << endl;
+            file << "\t" << val;
         }
-        file << "\n";
+        file << endl;
     }
     deinit();
     file.close();
+    file.open( "ETRunningAlpha.txt" );
+    if( !file )
+        throw runtime_error( "unable to open file: ETRunningAlpha.txt" );
+    init();
+    for( size_t i=0; i<xj.size(); ++i )
+    {
+        file << xj.at(i);
+        for( size_t j=0; j<x.size(); ++j )
+        {
+            cout << "x = " << x.at(j) << "\t" << "xj = " << xj.at(i) << endl;
+            double val = ETFlowRunningAlpha( x.at(j), 10., xj.at(i) );
+            cout << "\t" << val << endl;
+            file << "\t" << val;
+        }
+        file << endl;
+    }
+    deinit();
+    file.close();
+
 }
 void outputETEvol()
 {   }

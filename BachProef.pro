@@ -11,7 +11,7 @@ CONFIG -= qt
 DEFINES -= QT_LARGEFILE_SUPPORT UNICODE
 
 # platform specificities
-*g++: QMAKE_CXXFLAGS += -Wextra -std=gnu++0x -ftree-vectorize
+*g++: QMAKE_CXXFLAGS += -Wextra -std=gnu++0x -ftree-vectorize -fomit-frame-pointer -msse4.1
 win32-msvc*:DEFINES += _USE_MATH_DEFINES
 
 DEPENDPATH += .

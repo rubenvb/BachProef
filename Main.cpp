@@ -55,7 +55,7 @@ int main()
 
     //testUGDMassless();
 
-    testETMassless();
+    //testETMassless();
 
     //outputSFMassive();
     //outputSFMassless();
@@ -196,20 +196,23 @@ void testUGDMassless()
 
     cout << "With evolution." << endl;
     cout << "impactF0(.001,4,8,.5,.5)\t= .21656 ?=\t" << impactF0Evol(.001,4,8,.5,.5) << endl;
-    cout << "F0(.0001,5,10)\t= .36289 ?=\t" << F0Evol(.0001,5,10) << endl;
+    cout << "F0(.0001,0,10)\t= .36289 ?=\t" << F0Evol(.0001,0,10) << endl;
+    for( size_t i=0; i<100; i++ )
+    {
+        double x = pow(.5,(double)i);
+        cout << "F0("<<x<<",5,10)\t= .36289 ?=\t" << F0Evol(x,5,10) << endl;
+    }
 }
 
 void testETMassless()
 {
-    //cout << "-----------\nET MASSLESS NO EVOLUTION\n-----------" << endl;
-    //cout << "ET() = ????? ?=\t " << ET::massless::ETFlow(1e-8, 10., 1e-5 ) << endl;
-    init();
+    using namespace ET::MonteCarlo;
     cout << "-----------\nET MASSLESS NO EVOLUTION\n-----------" << endl;
-
+    init();
     cout << "ET() = ????? ?=\t " << ETFlow(1e-8, 10., 1e-7 ) << endl;
-    cout << "ET() = ????? ?=\t " << ETFlow(1e-8, 10., 1e-6 ) << endl;
-    cout << "ET() = ????? ?=\t " << ETFlow(1e-8, 10., 1e-5 ) << endl;
-    deinit();
+    cout << "ET() = ????? ?=\t " << ETFlowEvol(1e-8, 10., 1e-7 ) << endl;
+    cout << "ET() = ????? ?=\t " << ETFlowRunningAlpha(1e-8, 10., 1e-7 ) << endl;
+    cout << "ET() = ????? ?=\t " << ETFlowEvolRunningAlpha(1e-8, 10., 1e-7 ) << endl;
 }
 void testInterpolation()
 {
