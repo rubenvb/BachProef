@@ -38,6 +38,8 @@ namespace UGD
         double F0( const double k2, const double Q2 );
         double F0Evol( const double x,
                        const double k2, const double Q2 );
+        double F0EvolAlternate( const double z,
+                                const double k2, const double Q2 );
 
     }
 }

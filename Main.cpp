@@ -57,11 +57,16 @@ int main()
 
     //testETMassless();
 
-    //outputSFMassive();
-    //outputSFMassless();
+    outputSFMassive();
+    outputSFMassless();
     //outputUGDMassless();
-    outputET();
-    //outputETEvol();
+
+    //outputETAlternate( "ETAlt.txt", "ETAltRunningAlpha.txt" );
+    //outputETAlternate( "ETAlt2.txt", "ETAltRunningAlpha2.txt" );
+    //outputET( "ET.txt", "ETRunningAlpha.txt" );
+    //outputET( "ET2.txt", "ETRunningAlpha2.txt" );
+    //outputETEvol( "ETEvol.txt", "ETEvolRunningAlpha.txt" );
+    //outputETEvol( "ETEvol2.txt", "ETEvolRunningAlpha2.txt" );
 
     return 0;
 }
@@ -119,6 +124,8 @@ void testGSL()
     gsl_monte_vegas_integrate( &F, xl, xu, 3, calls, r, s,
                                &res, &err );
     gsl_monte_vegas_free (s);
+    gsl_rng_free(r);
+    delete T;
     cout << "GSL Monte Carlo result is " << res << "+-" << err << endl;
 }
 
@@ -196,23 +203,25 @@ void testUGDMassless()
 
     cout << "With evolution." << endl;
     cout << "impactF0(.001,4,8,.5,.5)\t= .21656 ?=\t" << impactF0Evol(.001,4,8,.5,.5) << endl;
-    cout << "F0(.0001,0,10)\t= .36289 ?=\t" << F0Evol(.0001,0,10) << endl;
-    for( size_t i=0; i<100; i++ )
-    {
-        double x = pow(.5,(double)i);
-        cout << "F0("<<x<<",5,10)\t= .36289 ?=\t" << F0Evol(x,5,10) << endl;
-    }
+    cout << "F0(.0001,4,10)\t= .36289 ?=\t" << F0Evol(.0001,4,10) << endl;
+
+    cout << "Alternate formulation." << endl;  // z=1e-2, k2=10, Q2=20
+    cout << "F0(.0001,4,10) =\t" << F0EvolAlternate(1e-2,10,20) << endl;
 }
 
 void testETMassless()
 {
     using namespace ET::MonteCarlo;
-    cout << "-----------\nET MASSLESS NO EVOLUTION\n-----------" << endl;
     init();
+    cout << "-----------\nET with alternate gluon-in-photon\n-----------" << endl;
+    cout << "ET(1e-5, 10, 1e-2) = " << Alternate::ETFlow(1e-6, 10, 1e-4) << endl; // x=1e-6 xj 10^-4
+    cout << "ET(1e-6, 10, 1e-2) = " << Alternate::ETFlow(1e-6, 10, 1e-2) << endl;
+    cout << "-----------\nET MASSLESS NO EVOLUTION\n-----------" << endl;
     cout << "ET() = ????? ?=\t " << ETFlow(1e-8, 10., 1e-7 ) << endl;
     cout << "ET() = ????? ?=\t " << ETFlowEvol(1e-8, 10., 1e-7 ) << endl;
     cout << "ET() = ????? ?=\t " << ETFlowRunningAlpha(1e-8, 10., 1e-7 ) << endl;
     cout << "ET() = ????? ?=\t " << ETFlowEvolRunningAlpha(1e-8, 10., 1e-7 ) << endl;
+    deinit();
 }
 void testInterpolation()
 {

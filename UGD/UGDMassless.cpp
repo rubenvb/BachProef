@@ -104,17 +104,26 @@ double F0Evol( const double x, const double k2, const double Q2 )
     double xMin[] = { 0., 0. };
     double xMax[] = { 1., 1. };
     double input[] = { x, k2, Q2 };
-    cout << "starting integration" << endl;
 
     const bool fail = adapt_integrate( 1, integrandF0Evol, input,
                                        2, xMin, xMax,
                                        0, 0, 1e-4,
                                        &val, &err);
-    cout << "integration finished" << endl;
     if( fail )
         throw runtime_error( "adapt_integrate returned an error." );
 
     return val;
+}
+double F0EvolAlternate( const double z,
+                        const double k2, const double Q2 )
+{
+    const double alphaP = 12.*alphaS/M_PI*log(2.)+1.;
+    const double sumeq2 = 1./9.+1./9.+4./9.;
+    const double coeff = 9. * M_PI * M_PI * 2. * sumeq2/
+                         (512. * sqrt(21.*1.20205690315959428539973816/2.)); // Zeta(3) = 1.20...
+    const double part2 = sqrt(alphaS * k2/Q2) * Q2*pow(z,1.-alphaP) / ( sqrt(log(1./z)) );
+
+    return coeff*part2;
 }
 
 } // namespace massless

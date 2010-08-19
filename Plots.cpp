@@ -16,6 +16,7 @@
 
 // C++ includes
 #include <algorithm>
+#include <cmath>
 #include <iostream>
     using std::cout;
     using std::endl;
@@ -25,6 +26,8 @@
     using std::accumulate;
 #include <stdexcept>
     using std::runtime_error;
+#include <string>
+    using std::string;
 #include <vector>
     using std::vector;
 
@@ -36,7 +39,7 @@ void outputSFMassless()
     const size_t nPoints = 20;
     ofstream file;
     vector<double> x;
-    vector<double> Q2 = { 12., 15., 24., 60., 80., 110. };
+    vector<double> Q2 = { 12., 15., 20., 25. };
 /*
  * FL(x) for different values of Q²
  */
@@ -55,7 +58,7 @@ void outputSFMassless()
         file << x.at(i) << "\t";
         for( size_t j=0; j<Q2.size(); ++j )
         {
-            file << FL( x.at(i), Q2.at(j) ) << "\t";
+            file << FL( x.at(i), Q2.at(j) )*pow(1.-x.at(i),7.) << "\t";
         }
         file << "\n";
     }
@@ -79,7 +82,7 @@ void outputSFMassless()
         file << x.at(i) << "\t";
         for( size_t j=0; j<Q2.size(); ++j )
         {
-            file << F2( x.at(i), Q2.at(j) ) << "\t";
+            file << F2( x.at(i), Q2.at(j) )*pow(1-x.at(i),7.) << "\t";
         }
         file << "\n";
     }
@@ -94,7 +97,7 @@ void outputSFMassive()
     const size_t nPoints = 20;
     ofstream file;
     vector<double> x(nPoints);
-    vector<double> Q2 = { 12., 15., 24., 60., 80., 110. };
+    vector<double> Q2 = { 12., 15., 20., 25.  };
 
 /*
  * FL(x) for different values of Q²
@@ -114,7 +117,7 @@ void outputSFMassive()
         file << x.at(i) << "\t";
         for( size_t j=0; j<Q2.size(); ++j )
         {
-            file << FL( x.at(i), Q2.at(j) ) << "\t";
+            file << FL( x.at(i), Q2.at(j) )*pow(1-x.at(i),7.) << "\t";
         }
         file << "\n";
     }
@@ -138,7 +141,7 @@ void outputSFMassive()
         file << x.at(i) << "\t";
         for( size_t j=0; j<Q2.size(); ++j )
         {
-            file << F2( x.at(i), Q2.at(j) ) << "\t";
+            file << F2( x.at(i), Q2.at(j) )*pow(1-x.at(i),7.) << "\t";
         }
         file << "\n";
     }
@@ -177,21 +180,21 @@ void outputUGDMassless()
     file.close();
 }
 
-void outputET()
+void outputET( const string &ETFile, const string &ETRunningAlphaFile )
 {
     using namespace ET::MonteCarlo;
 
-    ofstream file( "ET.txt" );
+    ofstream file( ETFile.c_str() );
     if( !file )
-        throw runtime_error( "Unable to open file: ET.txt" );
+        throw runtime_error( "Unable to open file: " + ETFile );
 
-    const int nPoints = 30;
+    const size_t nPoints = 50;
     vector<double> x = {1e-8, 1e-7, 1e-6, 1e-5, 1e-4};
     vector<double> xj(nPoints);
-    double current = 1e-10 / 1.833;
+    double current = 1e-10 / 1.4563;
     for( size_t i=0; i<nPoints ; ++i )
     {
-        current *= 1.833;
+        current *= 1.4563;
         xj.at(i) = current;
     }
     init();
@@ -209,9 +212,9 @@ void outputET()
     }
     deinit();
     file.close();
-    file.open( "ETRunningAlpha.txt" );
+    file.open( ETRunningAlphaFile.c_str() );
     if( !file )
-        throw runtime_error( "unable to open file: ETRunningAlpha.txt" );
+        throw runtime_error( "unable to open file: " + ETRunningAlphaFile );
     init();
     for( size_t i=0; i<xj.size(); ++i )
     {
@@ -227,8 +230,127 @@ void outputET()
     }
     deinit();
     file.close();
-
 }
-void outputETEvol()
-{   }
+
+void outputETAlternate( const std::string &ETFile, const std::string &ETRunningAlphaFile )
+{
+    using namespace ET::MonteCarlo;
+
+    ofstream file( ETFile.c_str() );
+    if( !file )
+        throw runtime_error( "Unable to open file: " + ETFile );
+
+    const size_t nPoints = 50;
+    vector<double> x = { 1e-7, 1e-6, 1e-5, 1e-4};
+    vector<double> xj(nPoints);
+    double current = 1e-9 / 1.4563;
+    for( size_t i=0; i<nPoints ; ++i )
+    {
+        current *= 1.4563;
+        xj.at(i) = current;
+    }
+    init();
+    for( size_t i=0; i<xj.size(); ++i )
+    {
+        file << xj.at(i);
+        for( size_t j=0; j<x.size(); ++j )
+        {
+            cout << "x = " << x.at(j) << "\t" << "xj = " << xj.at(i) << endl;
+            if( x.at(j) / xj.at(i) < 1e-1 )
+            {
+                double val = Alternate::ETFlow( x.at(j), 10., xj.at(i) );
+                cout << "\t" << val << endl;
+                file << "\t" << val;
+            }
+            else
+                file << "\tNaN";
+        }
+        file << endl;
+    }
+    deinit();
+    file.close();
+    file.open( ETRunningAlphaFile.c_str() );
+    if( !file )
+        throw runtime_error( "unable to open file: " + ETRunningAlphaFile );
+    init();
+    for( size_t i=0; i<xj.size(); ++i )
+    {
+        file << xj.at(i);
+        for( size_t j=0; j<x.size(); ++j )
+        {
+            cout << "x = " << x.at(j) << "\t" << "xj = " << xj.at(i) << endl;
+            if( x.at(j) / xj.at(i) < 1e-1 )
+            {
+                double val = Alternate::ETFlowRunningAlpha( x.at(j), 10., xj.at(i) );
+                cout << "\t" << val << endl;
+                file << "\t" << val;
+            }
+            else
+                file << "\tNaN";
+        }
+        file << endl;
+    }
+    deinit();
+    file.close();
+}
+
+void outputETEvol( const string &ETEvolFile, const string &ETEvolRunningAlphaFile )
+{
+    using namespace ET::MonteCarlo;
+
+    ofstream file( ETEvolFile.c_str() );
+    if( !file )
+        throw runtime_error( "Unable to open file: " + ETEvolFile );
+
+    const size_t nPoints = 50;
+    vector<double> x = {1e-8, 1e-7, 1e-6, 1e-5, 1e-4};
+    vector<double> xj(nPoints);
+    double current = 1e-10 / 1.4563;
+    for( size_t i=0; i<nPoints ; ++i )
+    {
+        current *= 1.4563;
+        xj.at(i) = current;
+    }
+    init();
+    for( size_t i=0; i<xj.size(); ++i )
+    {
+        file << xj.at(i);
+        for( size_t j=0; j<x.size(); ++j )
+        {
+            cout << "x = " << x.at(j) << "\t" << "xj = " << xj.at(i) << endl;
+            if( x.at(j) < xj.at(i) )
+            {
+                double val = ETFlowEvol( x.at(j), 10., xj.at(i) );
+                cout << "\t" << val << endl;
+                file << "\t" << val;
+            }
+            else
+                file << "\tNaN";
+        }
+    }
+    deinit();
+    file.close();
+    file.open( ETEvolRunningAlphaFile.c_str() );
+    if( !file )
+        throw runtime_error( "unable to open file: " + ETEvolRunningAlphaFile );
+    init();
+    for( size_t i=0; i<xj.size(); ++i )
+    {
+        file << xj.at(i);
+        for( size_t j=0; j<x.size(); ++j )
+        {
+            cout << "x = " << x.at(j) << "\t" << "xj = " << xj.at(i) << endl;
+            if( x.at(j) < xj.at(i) )
+            {
+                double val = ETFlowEvolRunningAlpha( x.at(j), 10., xj.at(i) );
+                cout << "\t" << val << endl;
+                file << "\t" << val;
+            }
+            else
+                file << "\tNaN";
+        }
+    }
+    deinit();
+    file.close();
+}
 

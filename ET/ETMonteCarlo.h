@@ -25,7 +25,7 @@ namespace ET
         void init();
         void deinit();
 
-        const size_t calls = 10000000;
+        const size_t calls = 1000000;
 
         double integrandET( double x[], size_t dim, void* p );
         double integrandETRunningAlpha( double x[], size_t dim, void* p );
@@ -40,6 +40,17 @@ namespace ET
         double ETFlowEvolRunningAlpha( const double x, const double Q2,
                                        const double xj );
 
+        namespace Alternate
+        {
+            double integrandET( double x[], size_t dim, void* p );
+            double integrandETRunningAlpha( double x[], size_t dim, void* p );
+
+            double ETFlow( const double x, const double Q2,
+                           const double xj );
+            double ETFlowRunningAlpha( const double x, const double Q2,
+                                       const double xj );
+        }
     }
+
 }
 #endif // ETMONTECARLO_H
