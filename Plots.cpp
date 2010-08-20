@@ -65,7 +65,7 @@ void outputSFMassless()
     file.close();
 
 /*
- * F2(x) for same values Q²
+ * F2(x) for other Q² values
  */
     // x = logspace( 1e-5, 1e-2, 100 )
     current = 1e-5 / 1.44;
@@ -75,6 +75,7 @@ void outputSFMassless()
         x.at(i) = current;
     }
     // F2
+    Q2 = { 24., 32., 45. };
     file.open( "F2Massless.txt" );
     cout << "Calculating Massless F2 plot data." << endl;
     for( size_t i=0; i<nPoints; ++i )
@@ -150,7 +151,7 @@ void outputSFMassive()
 
 void outputUGDMassless()
 {
-    using UGD::massless::F0Evol;
+    using UGD::massless::F0EvolAlternate;
 
     ofstream file( "UGDMassless.txt" );
 
@@ -159,10 +160,10 @@ void outputUGDMassless()
     const double Q2 = 10;
     vector<double> k2( { 1., 10. ,50. } );
     // x
-    double current = 1e-5 / 1.6;
+    double current = 1e-9 / 1.4563;
     for( size_t i=0; i<nPoints ; ++i )
     {
-        current *= 1.6;
+        current *= 1.4563;
         x.at(i) = current;
     }
 
@@ -173,7 +174,7 @@ void outputUGDMassless()
         file << xi;
         for( size_t j = 0; j<k2.size(); ++j)
         {
-             file << "\t" << F0Evol(xi, k2.at(j), Q2);
+             file << "\t" << F0EvolAlternate(xi, k2.at(j), Q2);
         }
         file << "\n";
     }
@@ -352,5 +353,43 @@ void outputETEvol( const string &ETEvolFile, const string &ETEvolRunningAlphaFil
     }
     deinit();
     file.close();
+}
+void outputETFine( const std::string &ETFineFile )
+{
+    using namespace ET::MonteCarlo;
+
+    ofstream file( ETFineFile.c_str() );
+    if( !file )
+        throw runtime_error( "Unable to open file: " + ETFineFile );
+
+    const size_t nPoints = 50;
+    vector<double> x = { 1e-7, 1e-6, 1e-5, 1e-4};
+    vector<double> xj(nPoints);
+    double current = 1e-3 / 1.0985;
+    for( size_t i=0; i<nPoints ; ++i )
+    {
+        current *= 1.0985;
+        xj.at(i) = current;
+    }
+    init();
+    for( size_t i=0; i<xj.size(); ++i )
+    {
+        file << xj.at(i);
+        for( size_t j=0; j<x.size(); ++j )
+        {
+            cout << "x = " << x.at(j) << "\t" << "xj = " << xj.at(i) << endl;
+            if( x.at(j) < xj.at(i) )
+            {
+                double val = ETFlowEvol( x.at(j), 10., xj.at(i) );
+                cout << "\t" << val << endl;
+                file << "\t" << val;
+            }
+            else
+                file << "\tNaN";
+
+        }
+        file << endl;
+    }
+    deinit();
 }
 

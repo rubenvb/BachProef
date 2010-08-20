@@ -578,9 +578,10 @@ R_0^2(x) = \frac{1}{Q_0^2} \left( \frac{x}{x_0} \right)^\lambda
 \end{equation}
 De gebruikte parameters staan vermeld in appendix \ref{app:GBWParameters}.
 het diagram in \ref{fig:ETDiagram} (b) toont $f$.
+$f$ vertegenwoordigt een contributie van de gluonladder
 Dit is ook een ingrediënt voor de formule voor de volgende sectie.
 
-    \subsubsection{$F_2$} \label{sec:SF}
+    \subsubsection{Structuurfunctie $F_2$} \label{sec:SF}
 De structuurfunctie $F_2 = F_L + 2x F_1$ is te vinden in \cite[vgl. 9.200]{Barone} en kan als volgt worden geschreven:
 \begin{align} \label{eq:MasslessSF}
 F_2(x,Q^2) &= \frac{Q^2}{4\pi^2} \alpha_S \sum_q e_q^2 \int_0^\infty \frac{dk}{k^2}\pi f(x,k^2) \int_0^1 d\rho \int_0^1 d\eta \times \Phi_2(\rho, \eta, Q^2, k^2) \\
@@ -590,6 +591,8 @@ F_L(x,Q^2) &= \frac{2 Q^2}{\pi^2} \alpha_S \sum_q e_q^2 \int_0^\infty \frac{dk^2
 \end{align}
 $e_q$ is de lading van de quark en de som loopt over de beschouwde quarks.
 De functie $f$ is gedefinieerd in de vorige sectie.
+Als bijkomende correctie uit de oplossing van de BFKL vergelijkingen, wordt een factor $(1-x)^{n}$ bij de structuurfuncties gevoegd, waarbij $n = 2 n_S -1$ ($n_S$ = het aantal \textit{spectator quarks}, hier 4).
+Dit heeft als doel de gluondichtheid af te zwakken voor hoge $x$.
 \eqref{eq:MasslessSF} is bedoeld voor gebruik met de 3 quark parameters in appendix \ref{app:GBWParameters}.
 In \cite{Bondarenko} wordt een formule voor $F_2$ gepresenteerd die uit de BK vergelijking werd afgeleid.
 Deze houdt rekening met 4 quarks en dus hun afzonderlijke massa.
@@ -610,23 +613,19 @@ De structuurfuncties waar een vierde quark en dus de massa’s expliciet worden 
 De extra quark toont een hogere graad van saturatie, zoals in \cite{GBW} ook al aangegeven.
 Deze kan dus binnen het model beschouwd worden als extra correctie.
 
-    \subsubsection{$\mathcal{F}_2$} \label{sec:UGD}
+    \subsubsection{$\mathcal{F}_2$} \label{sec:UGDPhoton}
 De structuurfunctie van de hadronische structuur van het foton is een exotische grootheid waar nog veel onduidelijkheid over bestaat.
 Het wordt ook wel eens aangeduid als \textit{ongeïntegreerde gluondichtheid in het foton}.
-Hier wordt gebruik gemaakt van een berekening waar een initïele toestand %$\mathcal{F}^{(0}$ werd geëvolueerd met behulp van de BK vergelijking \cite{F0}.
-Figuur \ref{fig:ETDiagram} (b) toont de begintoestand, namelijk de \textit{quark doos}, die werd aangenomen als beginvoorwaarde bij het oplossen van de BK vergelijking.
-Voor de volledigheid worden hier de formule met en zonder evolutie gegeven.
-De resultaten worden getoond in sectie \ref{sec:ResUGD}.
-\begin{align} \label{eq:UGD}
+Hier wordt gebruik gemaakt van een berekening waar een initïele toestand
+Figuur \ref{fig:ETDiagram} (b) toont de begintoestand, namelijk de \textit{quark doos}, die werd aangenomen als beginvoorwaarde bij het oplossen van de BFKL vergelijking.
+Dit is een analytische oplossing, wat inhoudt dat er benaderingen zijn gebruikt die niet ongedaan kunnen worden gemaakt.
+In tegenstelling tot de rest van de formules die hier worden geïntroduceerd (die numeriek worden gebruikt, en dus geen analytische benadering nodig hebben), is deze iets minder nauwkeurig.
+\begin{align} \label{eq:UGDPhoton}
 \mathcal{F}_2(z,k^2,Q^2) &= \frac{9\pi^2}{512} \frac{2\sum_q e_q^2}{\sqrt{21\zeta{3}/2}} \sqrt{\alpha_S \frac{k^2}{Q^2}} Q^2 \frac{z^{1-\alpha_P}}{\sqrt{\log{\frac{1}{z}}}} \\
 \text{met: } \alpha_P -1 &=  12  \frac{\alpha_S}{\pi} \log{2} \notag
 \end{align}
-% bad ones
-%\Phi_{\mathcal{F}\text{, zonder evolutie}}(k^2, Q^2) &= \int_0^1 \int_0^1 \frac{e_q^2 k^2 Q^2 (1-2\rho(1-\rho)-2\eta(1-\eta)+12\rho(1-\rho)\eta(1-\eta)}{4\pi^2 2(\eta(1-\eta)k^2 + \rho(1-\rho)Q^2)} \\
-%\Phi_{\mathcal{F}\text{, met evolutie} &= \int_0^1 \int_0^1 \frac{e_q^2 \alpha_S(k^2 R^2) k^2 R^2 Q^2 2\pi (1-2\rho(1-\rho)-2\eta(1-\eta)+12\rho(1-\rho)\eta(1-\eta))e^{-\frac{\log{k^2 R^2}^2}{2\times 48 \alpha_S(k^2 R^2)\log{frac{.1}{x}}}}}{4\pi^2 2
-
-De formules, in licht aangepaste vorm om met het GBW saturatiemodel overeen te stemmen, worden gepresenteerd in \cite{F0}.
-Belangrijk op te merken is dat de gebruikte formulering van de ongeïntegreerde gluondichtheid nog verder onderzoek nodig heeft en dus niet als juist kan worden beschouwd.
+Belangrijk op te merken is dat de gebruikte formulering van de ongeïntegreerde gluondichtheid nog verder onderzoek nodig heeft en dus niet volledig getest is.
+Zo kan men met behulp van de BK vergelijking een betere 
 
 \section{Numerieke aanpak}
 Om de berekeningen zelf zo vlot mogelijk te laten verlopen, werd gekozen voor een implementatie in C++.
@@ -681,23 +680,30 @@ Dit brengt hogere orde correctietermen met zich mee, die niet in \eqref{eq:Massi
 \subfigure{
 \includegraphics[scale=.49]{afbeeldingen/FLQ25.eps}
 }
-\caption{Resultaten voor de berekening van de longitudinale structuurfunctie van het proton in een DIS proces voor verschillende waarden van $Q^2$. De data komt uit \cite{H1}}
-\label{fig:ResSF}
+\caption{Resultaten voor de berekening van de longitudinale structuurfunctie van het proton in een DIS proces voor verschillende waarden van $Q^2$. De data komt uit \cite{H1}.}
+\label{fig:ResFL}
 \end{figure}
-Het is duidelijk dat bij GBW saturatie de structuurfunctie kleiner is dan zonder, dit is natuurlijk het gewenste effect.
+In figuur \ref{fig:ResFL} is duidelijk te zien dat bij GBW saturatie de structuurfunctie kleiner is dan zonder, dit is natuurlijk het gewenste effect.
+Een vierde quark zorgt voor extra saturatie, wat zich toont in een lagere curve.
 Niet getoond, maar wel belangrijk te vermelden is het feit dat de gebruikte berekeningen niet goed opgaan voor hogere waarden van $Q^2$, waardoor meer plots (voor bijvoorbeeld ZEUS’ $Q^2=60, 80, 110$) geen goede resultaten geven.
+Gelet op de schaarse beschikbaarheid van gemeten data, voldoet het gebruikte model zeker aan de experimentele waarnemingen.
+Voor $Q^2$ gelijk aan 15 en 25 GeV is er een discrepantie, maar aangezien deze willekeurig lijkt te zijn, heeft dit geen effect op de juistheid van het resultaat.
 
-  \subsection{De ongeïntegreerde gluondichtheid van het foton} \label{sec:ResUGD}
+  \subsection{De ongeïntegreerde gluondichtheid $f(x,k^2)$} \label{sec:ResUGD}
 De ongeïntegreerde gluondichtheid is tot nu toe enkel gemodelleerd als bijdrage aan een proces, en nooit afzonderlijk gemeten.
 Hier wordt de gluondichtheid ook ingevoerd om een \textit{geresolveerd foton} te krijgen (gelijkend op de correcties op DGLAP in figuren \ref{fig:HERAJets1} en \ref{fig:HERAJets2}).
 Een belangrijk verschil met het geresolveerd foton in een DGLAP berekening zoals getoond in \cite{Kiesling}, is dat hier een BFKL berekening word toegepast die op een natuurlijke wijze saturatie omvat door zwaardere quarks zoals beschreven in het GBW model.
 De resultaten worden weergegeven in figuur \ref{fig:ResUGD}.
 \begin{figure} [H]
-  \begin{center}
-    \includegraphics[scale=1]{Afbeeldingen/plotUGD.eps}
-    \caption{Plot van $\mathcal{F}_2$ zoals weergegeven in \eqref{eq:UGD}.}
-   \label{fig:ResUGD}
-  \end{center}
+\centering
+\subfigure{
+\includegraphics[scale=.49]{afbeeldingen/Placeholder.eps}
+}
+\subfigure{
+\includegraphics[scale=.49]{afbeeldingen/Placeholder.eps}
+}
+\caption{Resultaten voor de berekening van de longitudinale structuurfunctie van het proton in een DIS proces voor verschillende waarden van $Q^2$. De data komt uit \cite{H1}.}
+\label{fig:ResF2}
 \end{figure}
 
   \subsection{De transversale energiestroom} \label{sec:ResET}
@@ -714,6 +720,7 @@ De resultaten worden weergegeven in figuur \ref{fig:ResET}.
 \section{Bespreking}
 Onze berekening is beter, want we kunnen integreren van k=0, zonder probleem, de andere berekening heeft een cut-off nodig om oneindige resultaten te vermijden.
 Anderzijds is onze berekening minder goed als het om vergelijken met metingen gaat.
+Onze berekening is gefit geweest aan data. (nood aan herfit aan nieuwe data).
 
 
 \section{Besluit}

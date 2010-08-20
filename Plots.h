@@ -16,6 +16,7 @@ void outputSFMassive();
 void outputUGDMassless();
 void outputET( const std::string &ETFile, const std::string &ETRunningAlphaFile );
 void outputETAlternate( const std::string &ETFile, const std::string &ETRunningAlphaFile );
+void outputETFine( const std::string &ETFineFile );
 void outputETEvol( const std::string &ETEvolFile, const std::string &ETEvolRunningAlphaFile );
 
 #endif // STRUCTUREFUNCTIONPLOTS_H

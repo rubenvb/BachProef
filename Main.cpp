@@ -57,9 +57,11 @@ int main()
 
     //testETMassless();
 
-    outputSFMassive();
-    outputSFMassless();
+    //outputSFMassive();
+    //outputSFMassless();
     //outputUGDMassless();
+
+    outputETFine( "ETFine.txt" );
 
     //outputETAlternate( "ETAlt.txt", "ETAltRunningAlpha.txt" );
     //outputETAlternate( "ETAlt2.txt", "ETAltRunningAlpha2.txt" );
