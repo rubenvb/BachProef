@@ -24,7 +24,7 @@
 % appendix
 \usepackage{appendix}
 
-\title{Studie van parton-saturatie effecten in de transversale energiestroom en $F_L$ bij elektron-proton interacties aan de LHeC}
+\title{Studie van parton-saturatie effecten in de transversale energiestroom en de longitudinale energiestroom bij elektron-proton interacties aan de LHeC}
 \author{Ruben Van Boxem}
 
 \begin{document}
@@ -55,7 +55,7 @@ Academiejaar 2009--2010
 \fontsize{17.28pt}{21pt}\selectfont
 
 % De titel van de thesis:
-\textsc{Studie van parton-saturatie effecten in de transversale energiestroom en $F_L$ bij elektron-proton interacties aan de LHeC}
+\textsc{Studie van parton-saturatie effecten in de transversale energiestroom en de longitudinale structuurfunctie bij elektron-proton interacties aan de LHeC}
 
 \fontseries{m}
 \fontsize{12pt}{14pt}\selectfont
@@ -68,7 +68,7 @@ Ruben \textsc{Van Boxem}
 \vspace{2cm}
 
 Promotor: Prof. Dr Pierre \textsc{Van Mechelen}\\
-Copromotor: Krzysztof \textsc{Kutak} \\
+Copromotor: Dr. Krzysztof \textsc{Kutak} \\
 \vspace{2cm}
 \end{center}
 % De functie van de thesis:
@@ -100,11 +100,12 @@ Daarnaast, een algemene dank u wel aan de volgende mensen:
 
 \section*{Summary}
 A theoretical study of saturation and its effects in the transverse energy flow for proton-electron collisions is made.
-A short introductory text on deep inelastic scattering and general QCD theory serves as an intro to the concepts important in this field.
+First, there is a short text on deep inelastic scattering and general QCD theory to properly introduce the concepts important in this field.
 Concepts like structure functions, resummation, running coupling constant, etc. are introduced in a natural way.
-Starting from a simple electron-nucleus collision, through several layers of scaling violations and QED interactions, a summary is given of the advances in theory trying to incorporate the newest experimental findings (the latest being HERA), which keep penetrating deeper into the core of fundamental interactions.
+Starting from a simple electron-nucleus collision, through several layers of scaling violations, a summary is given of the advances in theory trying to incorporate the newest experimental findings (the latest being HERA), which keep penetrating deeper into the core of fundamental interactions and the structure of the elementary particles.
 Different types of higher order corrections to the simplest parton model are described, and their assumed shortcomings for the LHeC kinematic region are shown.
-Saturation, a very promising approach to naturally correct for the currently predicted infinities in QCD at low $x$, is introduced by means of the corrected (seccond order) BFKL equation, the BK equation.
+The LHeC is an $ep$ extension of the LHC with a beam energy of 70-7000 GeV, using existing LHC infrastructure.
+Saturation, a very promising approach to naturally correct for the currently predicted infinities in QCD at very low $x$, is introduced by means of the BFKL equation.
 Saturation effects as described by the Golec-Biernat-Wüsthoff model are studied in the structure functions of the proton, and the directly measurable transverse energy flow of high energy, low $x$ electron-proton collisions.
 
 \thispagestyle{empty}
@@ -128,9 +129,9 @@ $P$ is de vierimpuls van het inkomend proton, $W$ is de invariante massa van het
    \label{fig:DIS}
   \end{center}
 \end{figure}
- In wat volgt wordt M gedefinieerd als de massa van het proton. Men spreekt van DIS processen als $Q^2 \gg M^2$ (“diep”) en $W^2 = (P+q)^2 \gg M^2$ (“inelastisch”).
+ In wat volgt wordt $M$ gedefinieerd als de massa van het proton. Men spreekt van DIS processen als $Q^2 \gg M^2$ (“diep”) en $W^2 = (P+q)^2 \gg M^2$ (“inelastisch”).
 $Q^2$ wordt ook angeduid als de virtualiteit van het foton.
-Omdat de waarde van $q^2$ negatief is, wordt vaak volgende variabele ingevoerd: $Q^2 :=-q^2 > 0$.  Dit is een ruimteachtige vierimpuls, dus er bestaat een stelsel waar de energie van het virtuele foton nul is en dus de impuls gelijk aan $Q^2$. In dit stelsel is de golflengte van het het foton van de grootteorde van $1/Q$.
+Omdat de waarde van $q^2$ negatief is, wordt vaak volgende variabele ingevoerd: $Q^2 :=-q^2 > 0$.  Dit is een ruimteachtige vierimpuls, dus er bestaat een stelsel waar de energie van het virtuele foton nul is en dus de impuls gelijk aan $Q$. In dit stelsel is de golflengte van het het foton van de grootteorde van $1/Q$.
 Dit wil concreet zeggen dat als de overgedragen impuls verhoogt, de golflengte van het foton en dus de grootte van de deeltjes waarmee het interageert, kleiner wordt.
 
       \paragraph{}
@@ -153,6 +154,7 @@ Men kan twee soorten DIS interacties onderscheiden: neutrale en geladen stroom (
 In wat volgt wordt beschreven wat er gebeurt als men $Q^2$ systematisch verhoogt.
 
   \subsection{Breking van schaalinvariantie}
+De uiteenzetting van Martin in \cite{Martin} werd als leidraad gebruikt in de volgende paragrafen.
     \paragraph{Elektron-kern verstrooiing}
 Stel dat een elektron verstrooid wordt op een atoomkern (bestaande uit meerdere nucleonen).
 Als $\lambda \gg d_\text{kern}$, ziet het foton de kern als een puntdeeltje en wordt het elastisch verstrooid op een puntdeeltje met de lading van de kern.
@@ -162,8 +164,9 @@ Men spreekt hier van diep inelastische elektron-kern verstrooiing, en men kan he
 x_N = \frac{M}{M_N} \left( \frac{Q^2}{2M\nu} \right) = \frac{1}{A}
 \end{equation}
 waarbij $M_N$ de massa van de kern is, $M$ de massa van het proton, $\nu$ de frequentie van het foton en $A$ het aantal nucleonen in de kern.
-De laatste gelijkheid geldt omdat het elektron elastisch interageert met een geheel nucleon.
+De laatste gelijkheid geldt omdat het elektron elastisch interageert met een geheel nucleon, en er geldt $x = \frac{Q^2}{2M\nu}$ (zie \eqref{eq:Bjorkenx}).
 Als men de werkzame doorsnede van deze processen zou uitzetten t.o.v. $x_N$, ziet men een duidelijke verschil tussen de gevallen waar $\lambda \gg d_\text{kern}$ en die waar $\lambda \ll d_\text{kern}$.
+Dit wordt getoond in het linkerpaneel van figuur \ref{fig:ScalingViolations}.
 Dit fenomeen heet \textit{breking van schaalinvariantie}, waarbij de waargenomen werkzame doorsnede blijkbaar afhangt van de grootte van de schaal, $Q^2$.
 
       \paragraph{Elektron-proton verstrooiing}
@@ -172,9 +175,9 @@ Als $Q^2$ zo groot is dat $\lambda \ll d_\text{proton}$, wordt er opnieuw ``inge
 Het foton ziet dus de 3 quarks als puntdeeltjes en men spreekt van diep inelastische elektron-proton verstrooiing.
 Kinematisch geldt het volgende (zie appendix \ref{app:DIS}):
 \begin{equation} \label{eq:Bjorkenx}
-x = \left( \frac{Q^2}{2p\cdot q} \right)
+x_{Bj} = \left( \frac{Q^2}{2p\cdot q} \right) = \frac{Q^2}{2M\nu}
 \end{equation}
-$x$ wordt aangeduid als de “Bjorken schaalvariabele".
+$x_{Bj}$ wordt aangeduid als de “Bjorken schaalvariabele" en vaak gewoonweg genoteerd als $x$.
 De waarschijnlijkheid van zo'n proces worden dus enkel en alleen bepaalt door $x$ en niet $Q^2$ en $p\cdot q$ afzonderlijk.
 
       \paragraph{Breking van schaalinvariantie}
@@ -189,6 +192,31 @@ In volgorde van stijgende $Q^2$ heeft men dus voor de werkzame doorsnede:
 Als men $Q^2$ blijft vergroten, verwacht men logischerwijs nogmaals een breking van schaalinvariantie te zien, en deze worden ook geobserveerd.
 De schijnbare breking van schaalinvariantie ligt in lijn met de voorspellingen van QCD, de theorie van de sterke wisselwerking.
 Deze laatste breking van schaalinvariantie is dus niet te wijten aan een substructuur van quarks, maar kan verklaard worden door quark-gluon interacties in QCD.
+
+      \paragraph{Breking van schaalinvariantie in beeld gebracht}
+In figuur \ref{fig:ScalingViolations} worden de verschillende brekingen van schaalinvarianties getoond.
+Links wordt de werkzame doorsnede van het DIS proces weergegeven in functie van $x_N$ bij de verschillende golflengtegebieden.
+Indien er ongebroken schaalinvariantie zou zijn, moeten de curves exact hetzelfde zijn, en dus onafhankelijk  van $Q^2$.
+In het eerste geval is er een piek rond $x=1$, wat duidt op een botsing met de kern als geheel (puntdeeltje).
+In het tweede geval wordt de kern fijner (met een kleinere $\lambda$) onderzocht, en de excitaties van de kern worden zichtbaar.
+In het derde geval is $\lambda$ zo klein dat er verstrooid wordt op een nucleon, zoals hierboven beschreven.
+Het \textit{Fermi momentum} is de impuls van de nucleonen en zorgt voor een Dopplerverbreding van de gemeten piek.
+De top van de piek ligt aan $x_n=1/A$, waar ieder nucleon gemiddeld eenzelfde impulsfractie van de hele kern draagt.
+Eenzelfde breking treedt op als $\lambda \sim 1/Q$ kleiner wordt als de afmetingen van een proton, met de piek van de onderste grafiek op (Bjorken) $x=1/3$.
+Rechts wordt op een iets andere manier de QCD breking van schaalinvariantie weergegeven.
+$F_2$ is de structuurfunctie van het proton, waarover later meer wordt gezegd.
+Het geeft een waarschijnlijkheid om met een bepaald parton (quark/gluon) te botsen.
+Als er geen breking zou zijn, zou de volle lijn, onafhankelijk van $Q^2$, het verloop van $F_2$ tonen.
+De piek zou zich dus (Dopplerverbreed door de impulsverdeling van de individuele quarks) rond $x=1/3$ bevinden, maar het blijkt dat voor voldoende hoge $Q^2$, $F_2$ onderdrukt wordt 
+Het blijkt echter dat voor voldoende hoge $Q^2$, er weer een breking optreedt, wat de stippellijn in figuur \ref{fig:ScalingViolations} oplevert.
+Over het exacte mechanisme dat hier aan het werk is wordt in de volgende sectie meer gezegd.
+\begin{figure} [H]
+  \begin{center}
+    \includegraphics[width=.66\textwidth]{Afbeeldingen/ScalingViolations.eps}
+    \caption{Alle hierboven beschreven brekingen in beeld gebracht. Links zijn brekingen van schaalinvariantie die verklaard worden door een onderliggende structuur van de botsende deeltjes. \cite{Martin}}
+   \label{fig:ScalingViolations}
+  \end{center}
+\end{figure}
 
   \subsection{Zeequarks, gluonen en $\alpha_S$}
 Quarks blijken niet uit een diepere structuur te bestaan (zodat er niet opnieuw een breking van schaalinvariantie optreedt).
@@ -207,14 +235,14 @@ Deze breking van schaalinvariantie heeft volgende vorm:
 \begin{equation}
 \alpha_S R \ln{\left( \frac{Q^2}{\mu^2}\right)}
 \end{equation}
-Hier is $R$ een observabele en $\mu$ de renormalisatie schaal.
+Hier is $R$ een observabele (bijvoorbeeld een werkzame doorsnede van een proces of de $F_2$ structuurfunctie) en $\mu$ de renormalisatie schaal.
 Bovenstaande formule geeft een bijdrage van een eerste orde term in $\alpha_S$ (zie sectie \ref{sec:DGLAP}).
 Dit zal duidelijk worden in de context van sectie \ref{sec:Observabelen}.
 Merk op dat in tegenstelling tot de vorige brekingen van schaalinvariantie, deze logaritmisch is, wat bijzonder moeilijk te meten was toen deze ontdekking werd gedaan.
 
-  \subsection{$\alpha_S$}
+  \subsection{De koppelingsconstante van de Sterke Wisselwerking: $\alpha_S$}
 De sterke wisselwerking (met koppeling $\alpha_S$) is fundamenteel ingewikkelder dan bijvoorbeeld de elektromagnetische (met koppeling $\alpha$).
-Dit verschil in complexiteit stemt van de wiskundige abstractie die gemaakt wordt van de fysische interactie.
+Dit verschil in complexiteit komt voort uit de wiskundige abstractie die gemaakt wordt van de fysische interactie om de waarnemingen te beschrijven.
 De elektromagnetische wisselwerking (QED) vindt zijn oorsprong in de locale invariantie voor fasetransformaties van de velden veroorzaakt door elektrische lading.
 Deze eigenschap leidt tot de symmetrie van de U(1) groep: QED is een U(1) lokaal Abelse ijktheorie.
 QED heeft dan ook een enkel interactie boson, namelijk het foton.
@@ -233,7 +261,7 @@ De processen die bijdragen aan een interactie van een foton met een enkel elektr
   \end{center}
 \end{figure}
 De lading van een kaal elektron wordt afgeschermd door de “polarisatie van het vacuüm”, waardoor het foton extra $e^+ e^-$-paren “voelt”.
-Hoe korter de golflengte van het foton, hoe meer $e^+ e^-$-paren het zal voelen.
+Hoe korter de golflengte van het foton, hoe minder $e^+ e^-$-paren het zal voelen, en hoe meer het de kale lading van het elektron onafgeschermd voelt.
 Dit zorgt ervoor dat $\alpha$ toeneemt met $Q^2$.
 De normalisatie van $\alpha$ komt uit vergelijking met experimentele data.
 Algemeen kan men de elektromagnetische koppelingsfactor schrijven als volgt.
@@ -242,8 +270,9 @@ Algemeen kan men de elektromagnetische koppelingsfactor schrijven als volgt.
 \end{equation}
 De \textit{loops} in de hogere orde Feynman diagrammen kunnen een oneindige bijdrage hebben indien er geen \textit{cut-off} waarde voor de \textit{loop}impuls wordt opgelegd.
 Er wordt dus een renormalisatieschaal ingevoerd om de eindigheid te garanderen.
+Concreet komt dit neer op de definitie van $\alpha_0 = \tilde{\alpha} \ln{\frac{M^2}{0^2}}$, waarbij $\tilde{\alpha}$ de (divergente) kale lading van het elektron voorstelt,, wat exact compenseert voor het eveneens divergente logaritme in de tweede factor.
 QED beschrijft dus het verloop van $\alpha$, en het experiment geeft het een absolute waarde.
-Als men de waarde van $\alpha$ kent voor een waarde $\mu^2$, volgt hieruit de waarde van $\alpha$:
+Als men de waarde van $\alpha$ kent voor een waarde $\mu^2$, volgt hieruit de waarde van $\alpha$ bij een bepaalde $Q^2$:
 \begin{equation} \label{eq:alpha}
 \alpha( Q^2 ) =\frac{\alpha(\mu^2)}{1-\frac{\alpha(\mu^2)}{3\pi} \ln{\frac{Q^2}{\mu^2}}}
 \end{equation}
@@ -262,9 +291,9 @@ Een gluon loop zorgt voor \textit{antiscreening}, waardoor  $\alpha_S$ stijgt na
 Dit volgt uit de uitdrukking voor $\alpha_S$, analoog aan \eqref{eq:alpha}:
 \begin{align}
 \alpha_S( Q^2 ) &=\frac{\alpha(\mu^2)}{1+b_0 \alpha(\mu^2) \ln{\frac{Q^2}{\mu^2}}} \\
-\text{met} b_0 &= \frac{-n_f}{6\pi} + \frac{33}{12\pi} \notag
+\text{met } b_0 &= \frac{-n_f}{6\pi} + \frac{33}{12\pi} \notag
 \end{align}
-Hier is $n_f$ het aantal soorten quarks die verondersteld worden.
+Hier is $n_f$ het aantal quarkflavours die verondersteld worden.
 Hier heeft de coëfficiënt (hier $b_0$) dus het tegengestelde teken, waar de tegenstelling tussen QED en QCD uit volgt.
 Dit kan men herschrijven zodat de enige vrije parameter van QCD naar voor komt (zie bijvoorbeeld \cite[sectie 6.6]{Bettini}):
 \begin{align} \label{eq:runningAlphaS}
@@ -279,13 +308,11 @@ Voor drie en vier quarksoorten is $\lambda_\text{QCD}$ respectievelijk ongeveer 
 Waarbij $\mu^2$ een schaalvariabele is waarvoor de koppeling gekend is.
 $\lambda_\text{QCD}$ is zeer invloedrijk in verdere QCD berekeningen.
 Als de energie kleiner is dan $\lambda_\text{QCD}$, is $\alpha_S$ groot en kan men geen perturbatieve berekeningen uitvoeren.
-Daarbij komt dat $\alpha$ en $\alpha_S$ niet rechtstreeks gemeten kunnen worden, maar enkel door een theoretische berekening uit experimentele data kunnen worden afgeleid.
-$\alpha_S$ zal dan bijgevolg minder nauwkeurig zijn, wegens zijn relatieve grootte.
 
     \subsubsection{Renormalisatiegroep vergelijking}
 Omdat de keuze van $\mu^2$ in een berekening onmogelijk de gemeten waarde van een observabele kan beïnvloeden, moet er expliciet voor gezorgd worden door middel van de \textit{renormalisation group equation}:
 \begin{align} \label{eq:RGE}
-\frac{d R}{d\ln{\mu^2}} &= \left(\frac{\partial}{\partial \ln{\mu^2}} + \frac{\partial \alpha_S}{\partial \ln{\mu^2}} \frac{\partial}{\partial \alpha_S} \right) R \\
+\frac{d R}{d\ln{\mu^2}} &= \left(\frac{\partial}{\partial \ln{\mu^2}} + \frac{\partial \alpha_S}{\partial \ln{\mu^2}} \frac{\partial}{\partial \alpha_S} \right) R = 0 \\
 \Rightarrow &R(Q^2/\mu^2, \alpha_S(Q^2)) = R(1,\alpha_S(Q^2)) \notag
 \end{align}
 Dit laatste betekent dat de twee afhankelijkheden (op $Q^2/\mu^2$ en $\alpha_S(\mu^2)$) eigenlijk maar een enkele zijn, namelijk het verloop van $\alpha_S(Q^2)$. Voor een uitwerking van de dubbele pijl in \eqref{eq:RGE} zie appendix \ref{app:RGE}).
@@ -293,7 +320,7 @@ Dit laatste betekent dat de twee afhankelijkheden (op $Q^2/\mu^2$ en $\alpha_S(\
     \subsubsection{QCD observabelen} \label{sec:Observabelen}
       \paragraph{}
 Elke observabele kan in perturbatieve QCD ontwikkeld worden in machten van $\alpha_S$.
-Bijkomende factoren zullen gevormd worden door logaritmes van $Q^2$ en bij lage $x$, $1/x^2$.
+Bijkomende factoren zullen gevormd worden door logaritmes van $Q^2$ en bij lage $x$, $1/x$.
 Omdat een observabele per definitie een eindig getal moet zijn, moeten de op eerste zicht divergente reeksen in $\alpha_S$ gehersommeerd worden.
 Deze hersommatie kan enkel in speciale gevallen gebruikt worden, en alle tot nu toe bekende vormen zijn enkel in een bepaald regime (van $Q^2$ en/of $x$) geldig.
 Omdat de exacte techniek op z’n minst moeilijk en zeer technisch is, worden hieronder enkel een beschrijving van de benaderingen en hun resultaten besproken. (\cite[sectie 9.5.2]{Barone})
@@ -301,7 +328,7 @@ Omdat de exacte techniek op z’n minst moeilijk en zeer technisch is, worden hi
       \paragraph{LLA}
 \textit{Leading $\ln{Q^2}$ approximation}, waar de termen van de vorm $\alpha_S^n \ln^n{Q^2}$ gehersommeerd worden:
 \begin{align} \label{eq:LLA}
-R = \sum_n \alpha_S \ln^n{Q^2} \left( \sum_{k=n}^0 \ln^k{\frac{1}{x}} \right)
+R = \sum_n \alpha_S^n \ln^n{Q^2} \left( \sum_{k=n}^0 \ln^k{\frac{1}{x}} \right)
 \end{align}
 Dit leidt tot de DGLAP evolutievergelijkingen, die de evolutie van een observabele beschrijft in $Q^2$ bij “normale” $x$.
 Indien ook termen van de vorm $\alpha_S^n \ln^{n-1}{Q^2}$ behouden blijven, krijgt men \textit{next-to leading $\ln{Q^2}$ approximation} en bijgevolg de NLLA DGLAP vergelijkingen.
@@ -309,13 +336,13 @@ Indien ook termen van de vorm $\alpha_S^n \ln^{n-1}{Q^2}$ behouden blijven, krij
       \paragraph{DLLA}
 \textit{Double leading log approximation} duidt op het feit dat termen van de vorm $\alpha_S \ln^n{Q^2} \ln^n{\frac{1}{x}}$ behouden blijven:
 \begin{align}
-R = \sum_n \alpha_S \ln^n{Q^2} \ln^n{\frac{1}{x}}
+R = \sum_n \alpha_S^n \ln^n{Q^2} \ln^n{\frac{1}{x}}
 \end{align}
 
       \paragraph{LL$_x$A}
 In de praktijk zal voor heel lage $x$, $Q^2$ klein zijn, en men enkel de termen van de vorm $\alpha_S^n \ln^n{\frac{1}{x}}$ behoudt. Zo krijgt men de \textit{leading $\ln{\frac{1}{x}}$ approximation}:
 \begin{align}
-R = \sum_n \alpha_S \ln^n{\frac{1}{x}} \left( \sum_{k=n}^0 \ln^k{Q^2} \right)
+R = \sum_n \alpha_S^n \ln^n{\frac{1}{x}} \left( \sum_{k=n}^0 \ln^k{Q^2} \right)
 \end{align}
 \eqref{eq:LLA} en bovenstaande vergelijking zijn symmetrisch ten opzichte van $Q^2$ en $1/x$. Deze laatste leidt ook tot een veel bestudeerde BFKL evolutievergelijking.
 
@@ -335,11 +362,12 @@ Als dit verloop blijft doorgaan, zullen dichtheden optreden die niet meer fysisc
 Evolutievergelijkingen geven het verband tussen een grootheid (bijvoorbeeld een dichtheidsfunctie van quarks of gluonen) bij een (bijna) willekeurige waarde van $Q^2$ of $x$ en de waarde van de grootheid bij een bekende $Q_0^2$ of $x_0^2$.
 DGLAP en BFKL geven elk een andere fysische interpretatie van de uiteindelijke interactie.
 Het beeld dat het vaakst gebruikt wordt om de uitgestraalde gluonen weer te geven, is de gluonladder.
-Om de extra partonen die blijken aanwezig te zijn in het proton te beschrijven, wordt vanuit een (valentie)quark in het proton een gluon uitgestraald, dat op zijn beurt een onbepaald aantal gluonen uitstraalt. Deze ladder van gluonen wordt weergegeven in figuur \ref{fig:GluonLadder}.
+Om de extra partonen die blijken aanwezig te zijn in het proton te beschrijven, wordt vanuit een (valentie)quark in het proton een gluon uitgestraald, dat op zijn beurt een onbepaald aantal gluonen uitstraalt.
+Alle aanpakken die hieronder beschreven worden, veronderstellen/eisen specifieke eigenschappen van de gluonladder, ie wordt weergegeven in figuur \ref{fig:GluonLadder}.
 \begin{figure} [H]
   \begin{center}
     \includegraphics[scale=1]{Afbeeldingen/GluonLadder.eps}
-    \caption{Een DIS interactie, met weergegeven gluonladder. Aan het elektron heeft het interagerend parton een welbepaalde waarde van $x$, waardoor er gesommeerd moet worden over alle gluonladders die zo’n finale $x$ opleveren. Naast de centrale DIS interactie treden er ook voorwaartse jets op, die veel informatie kunnen opleveren over de gluonladder zelf. \cite{Kiesling}}
+    \caption{Een DIS interactie, met weergegeven gluonladder. Aan het elektron heeft het interagerend parton een welbepaalde waarde van $x$, waardoor er gesommeerd moet worden over alle gluonladders die zo’n finale $x$ opleveren. Naast de centrale DIS interactie treden er ook voorwaartse jets op, die veel informatie kunnen opleveren over de gluonladder zelf. Het foton splitst zich in een $q\bar{q}$-paar, dat als \textit{quark box} wordt opgenomen in de berekeningen. Een LO berekening neemt enkel dit in rekening, een NLO neemt expliciet de eerste trede van de ladder mee, enz. Over de rest wordt geïntegreerd, wat een onnauwkeuriger resultaat oplevert.\cite{Kiesling}}
    \label{fig:GluonLadder}
   \end{center}
 \end{figure}
@@ -360,15 +388,16 @@ x < x_1 < x_2 < \hdots < x_n < 1
 \end{equation}
 Fysisch betekent dit dus dat de opeenvolgende gluonen een kleinere impulsfractie dragen van het oorspronkelijke parton en steeds meer afbuigen van de botsingsas.
 Dit heeft grote implicaties voor de geproduceerde jets: de eerste jet, die dichter bij de as wordt uitgestraald, zal een grotere energie hebben, en de laatste (tweede of derde) zal een lagere energie hebben.
+De grootste $k_\perp$ komt voor vlak aan de quark box.
 
       \paragraph{BFKL}
-De BFKL vergelijkingen doen net het omgekeerde: als de dichtheden bij een bepaalde waarde $x_0$ bekend is (hier moeten bepaalde aannames gemaakt worden, omdat bij lage $x$ niets exact berekend kan worden), kunnen e dichtheden berekend worden voor (bijna) willekeurige $x$.
+De BFKL vergelijkingen doen net het omgekeerde: als de dichtheden bij een bepaalde waarde $x_0$ bekend is (hier moeten bepaalde aannames gemaakt worden, omdat bij lage $x$ niets exact berekend kan worden), kunnen er dichtheden berekend worden voor (bijna) willekeurige $x$.
 Net zoals bij DGLAP de $x$-afhankelijkheid niet bekend was, blijft bij BFKL de $Q^2$-afhankelijkheid onbekend.
 Deze benadering is dan ook enkel geldig voor kleine $x$, en is niet toepasbaar bij grote $Q^2$.
 BFKL kan men beschouwen als de benadering waar naast de $x$-afhankelijkheid, de inwendige structuur van het proton aan bod komt (door een $k_\perp$-afhankelijkheid, waar $k_\perp$ de transversale impuls is).
 Net door dit verschil in hersommatie zal BFKL een sterke ordening in longitudinale impuls met zich meebrengen, en helemaal geen ordening in $\vec{k}_\perp$.
 BFKL legt dan ook geen “beperkingen” op de jets en hun eigenschappen die volgen uit een $\vec{k}_\perp$-ordening.
-Recent is er een hogere orde correctie uitgewerkt voor de BFKL hersommatie, namelijk de BK vergelijking.
+Recent is er een niet-lineaire correctie uitgewerkt voor de BFKL hersommatie, namelijk de BK vergelijking.
 
       \paragraph{CCFM}
 Naast BFKL en DGLAP bestaat ook een derde benaderingsmethode, die tracht tegelijkertijd de hoogste graadstermen in $\ln{Q^2}$ en $\ln{\frac{1}{x}}$ te hersommeren.
@@ -399,13 +428,13 @@ De groene “HERA”-lijn toont de grens van het kinematische gebied waarvoor me
 De LHeC zal (door zijn hogere botsingsenergie) buiten dit gebied kunnen meten en dus een duidelijke indicatie geven van fenomenen zoals saturatie die nu niet duidelijk kunnen worden gemeten.
 
     \subsubsection{Evolutievergelijkingen \textit{vs} experimentele data} \label{sec:QCDvsExperiment}
-DGLAP is een vaststaande waarde die binnen de Elemtaire deeltjesfysica geldt als: \textit{it just works}.
+DGLAP is een vaststaande waarde die binnen de Elementaire deeltjesfysica geldt als: \textit{it just works}.
 Enkel recentelijk wordt omwille van metingen waarvan hieronder voorbeelden gegeven zijn, DGLAP meer en meer in twijfel getrokken.
 DGLAP heeft nochtans (in het niet lage $x$ regime) krachtige en vooral juiste voorspellingen toegelaten, zoals HERA’s metingen van de sterke koppeling (zie figuur \ref{fig:SC}).
 \begin{figure} [H]
   \begin{center}
-    \includegraphics[scale=1]{Afbeeldingen/SC.eps}
-    \caption{HERA metingen geplot tegenover de QCD voorspelling (DGLAP) voor de sterke koppeling. Merk op dat er over een heel groot $Q^2$-bereik een zeer goede overeenkomst is tussen theorie en experiment. \cite{Kiesling}}
+    \includegraphics[scale=1]{Afbeeldingen/HERAF2.eps}
+    \caption{HERA metingen geplot tegenover de QCD voorspelling (DGLAP) voor gereduceerde werkzame doorsnede (zie appendix \ref{app:SigmaR}). Merk op dat er over een heel groot $Q^2$ en $x$-bereik een zeer goede overeenkomst is tussen theorie en experiment. \cite{Kiesling}}
    \label{fig:SC}
   \end{center}
 \end{figure}
@@ -421,7 +450,7 @@ Figuur \ref{fig:HERAJets1} toont metingen van de werkzame doorsnede in voorwaats
 \begin{figure} [H]
   \begin{center}
     \includegraphics[scale=1]{Afbeeldingen/HERAJets1.eps}
-    \caption{Metingen vs Monte-Carlo QCD voorspellingen van inclusieve DIS jetproductie. a) toont dat zeker voor zeer lage $x$, er een grote afwijking is tussen NLO DGLAP en experimentele data. b) toont CASCADE  (een \textit{Monte-Carlo event generator}, gebaseerd op CCFM). c) toont DGLAP (RG+DIR), DGLAP met een geresolveerd foton (RG+DIR+RES, hieronder beschreven) en CCFM/BFKL (CDM). \cite{Kiesling}}
+    \caption{Metingen vs Monte-Carlo QCD voorspellingen van inclusieve DIS jetproductie. a) toont dat zeker voor zeer lage $x$, er een grote afwijking is tussen NLO DGLAP en experimentele data. b) toont CASCADE  (een \textit{Monte-Carlo event generator}, gebaseerd op CCFM). c) toont DGLAP (RG+DIR), DGLAP met een geresolveerd foton (RG+DIR+RES, hieronder beschreven) en CDM. \cite{Kiesling}}
    \label{fig:HERAJets1}
   \end{center}
 \end{figure}
@@ -429,7 +458,9 @@ DGLAP heeft een inherente ordening in $\vec{k}_\perp$, wat er voor zorgt dat er 
 Meer bepaald, DGLAP beschrijft een situatie die in bepaalde kinematische omstandigheden \cite[sectie 3.2]{Kiesling} sterk onderdrukt is volgens de metingen.
 DGLAP in zijn pure vorm leidt dus tot foute resultaten, net door zijn ingebouwde sterke $\vec{k}_\perp$-ordening.
 Om dit te verhelpen kan er een modificatie aan DGLAP ingevoerd worden, in de vorm van een \textit{geresolveerd foton}, laat een breking van de $\vec{k}_\perp$-ordening toe, zodat de werkzame bij lage $x$ sterk stijgt.
-DGLAP+RES geeft een even goede beschrijving als CCFM/BFKL, maar beiden geven nog te lage werkzame doorsneden (zie figuur \ref{fig:HERAJets1}).
+CDM staat voor \textit{Colour Dipole Model}, wat losstaat van BFKL/CCFM maar er wel op lijkt door een ongeordende $k_\perp$.
+DGLAP+RES geeft een even goede beschrijving als CDM, maar beiden geven nog te lage werkzame doorsneden (zie figuur \ref{fig:HERAJets1}).
+Van BFKL zijn geen voorspellingen beschikbaar, omdat er nog geen Monte-Carlo eventsimulatie voor bestaat.
 \begin{figure} [H]
   \begin{center}
     \includegraphics[scale=1]{Afbeeldingen/HERAJets2.eps}
@@ -443,19 +474,114 @@ Zelfs met het geresolveerd foton kan DGLAP de data niet goed genoeg beschrijven 
 Dit geeft een duidelijk signaal dat BFKL dynamica wel degelijk optreedt, zij het enkel onder de nodige speciale voorwaarden.
 Deze belangrijke waarneming, samen met een natuurlijke saturatie van de structuurfuncties, zoals beschreven wordt in de volgende sectie, geven een sterke motivatie voor het toepassen van BFKL/BK dynamica voor zeer lage $x$ data.
 Gebieden met zeer lage $x$ zijn nog maar oppervlakkig gemeten in HERA; de LHeC zal met zijn lager $x$-bereik duidelijkheid kunnen scheppen over waar en hoe de verschillende benadering moeten en kunnen worden gebruikt.
+Er is dus een duidelijke indicatie dat DGLAP, zelfs in hogere ordes (en met modificaties zoals het geresolveerde foton), een onvoldoende beschrijving biedt van de metingen.
+BFKL kan op natuurlijkere wijze corrigeren voor verschillende waargenomen discrepanties, en biedt daarom een goed vooruitzicht naar verdere theoretische ontwikkeling.
 
     \subsection{Structuurfuncties}
-Een meetbare grootheid die de theorie verbindt met harde waarnemingen, is de structuurfunctie.
+Structuurfuncties (waarvan onderdelen worden weergegeven in \ref{fig:PD}), zijn cruciaal in het begrijpen van de tekortkomingen van de huidige theorieën.
 Deze waarschijnlijkheidsverdelingen in functie van $x$ en $Q^2$  geven een indicatie van de kans om in een DIS proces met een parton te botsen met die $x$ en $Q^2$.
+Figuur \ref{fig:PD} toont aan dat een verder verloop naar kleinere $x$-waarden een probleem oplevert, en er een correctie moet worden gevonden die de dichtheden doet afvlakken (saturatie).
+De structuurfuncties kunnen onderzocht worden in DIS processen.
 Met de juiste definities kan men de werkzame doorsnede voor een NC proces (figuur \ref{fig:NC}) als volgt schrijven (als $M^2/Q^2 \rightarrow 0$):
-\begin{align} \label{eq:SF}
-\frac{d\sigma}{dxdQ^2} &= \frac{2\pi \alpha^2}{xQ^4} \left(Y_+ F_2 \pm Y_- x F_3 - y^2 F_L \right)
-\end{align}
+\begin{equation} \label{eq:SF}
+\frac{d\sigma}{dxdQ^2} = \frac{2\pi \alpha^2}{xQ^4} \left(Y_+ F_2 \pm Y_- x F_3 - y^2 F_L \right)
+\end{equation}
 Een uitgebreide discussie van bovenstaande uitdrukking staat in appendix \ref{app:SF}.
 Als er enkel een foton kan worden uitgewisseld ($\sigma_\gamma \gg \sigma_Z$, dus de interactie via Z wordt verwaarloosd), kan men aantonen dat $F_3 \approx 0$ (zie ook appendix \ref{app:SF}).
 In dit werk zal gekeken worden naar het gebied met heel kleine $x$, waardoor saturatie belangrijk wordt.
 
-    \subsubsection{Factorisatie-theorema}
+    \subsubsection{Saturatie} \label{sec:Saturatie}
+Saturatie zal in een of andere vorm moeten optreden voor zeer kleine $x$, omdat anders de partondichtheden (in het bijzonder, maar niet enkel die van het gluon) niet fysisch meer zijn en de huidige formulering onzinnige resultaten zou voorspellen (zie figuur \ref{fig:PD}).
+In dit werk wordt dus uitbundig gebruik gemaakt van modellen die met dit fenomeen rekening houden.
+
+      \paragraph{GBW-model}
+Een beproefd en op zich eenvoudig model, is dat van Krzysztof Golec-Biernat \cite{GB}.
+Golec-Biernat gebruikt het formalisme van de foton golffunctie (een vorm van het factorisatie theorema), waarbij een foton onafhankelijk van de DIS botsing kan splitsen in een $q\bar{q}$-paar, dat dan interageert met het proton.
+Dit laat toe een perturbatieve berekening te doen voor deze golffunctie, en de rest wordt beschreven door middel van een model.
+\begin{equation}
+\sigma_{T,L} = \int d^2 \vec{r} \int_0^1 dz |\Psi_{T,L} (z, \vec{r})|^2 \hat{\sigma} (x,r^2)
+\end{equation}
+Waarbij $\Psi$ de golffunctie van het foton is, $T$ en $L$ duiden op respectievelijk het longitudinaal en het transversaal deel hiervan, en $\hat{\sigma}$ het gemodelleerde, niet-perturbatieve gedeelte is.
+Bovenstaande vergelijking is geformuleerd in positieruimte.
+$r$ is de afstand tussen het ontstane $q\bar{q}$-paar.
+Golec-Biernat en Wüsthoff bespreken in \cite{GBW} wat het GBW model wordt genoemd.
+Dit model kan in impulsruimte en in positieruimte gebruikt worden.
+De saturatie zit in de factor $\hat{\sigma}$, die de volgende vorm heeft:
+\begin{align}
+\hat{\sigma}(x,r^2) &= \sigma_0 \left[ 1- \exp{\left(-\frac{r^2}{4 R_0^2(x)}\right)} \right] \\
+R_0^2(x) &= \frac{1}{Q_0^2} \left( \frac{x}{x_0} \right)^\lambda \label{eq:R0}
+\end{align}
+$R_0$ is de \textit{saturation radius}, wat effectief een saturatie schaal invoert voor $r$.
+$Q_0^2$ is 1 GeV, en ingevoerd om de juiste dimensies te krijgen.
+$\sigma_0$, $\lambda$ en $x_0$ zijn de parameters van het model, die bepaald zijn door te fitten aan alle DIS data die beschikbaar was.
+Ze verschillen voor het geval waar enkel $uds$ quarks bijdragen en waar ook de charm quark bijdraagt (zie appendix \ref{app:GBWParameters}).
+Dit model heeft een ingebouwde begrenzing van de dipool werkzame doorsnede $\hat{\sigma}$.
+Deze heeft het juiste gedrag in $r$: kwadratisch voor kleine $r$, en constant voor grote waarden.
+Dat $\hat{\sigma}$ nul is voor kleine dipoolstraal $r$, hoeft geen verwondering.
+Als de afstand $r$ tussen de twee quarks van $q\bar{q}$-paar klein is, zal het vanop redelijke afstand een kleurneutraal object vormen en kan er dus geen QCD interactie optreden.
+Dit effect heet kleurdoorzichtigheid.
+Een ander sterk punt van dit model is het feit dat hier een saturatie voor kleine $x$ is ingebouwd, wat natuurlijk wenselijk is voor berekeningen in dat gebied.
+Een beeld van wat hierboven beschreven wordt, is weergegeven in figuur \ref{fig:GBW}
+\begin{figure} [H]
+  \begin{center}
+    \includegraphics[width=.66\textwidth]{Afbeeldingen/GBW.eps}
+    \caption{Kleurdipool weergave van het GBW model voor saturatie in DIS interacties. $\gamma^*$ is het (virtuele) foton, $p$ het proton, $z$ en $1-z$ de fractie van de impuls van het foton gedragen door de twee quarks. De verticale ovaal stelt de interactie van de dipool met het proton weer, zonder verdere details. \cite{ET}}
+   \label{fig:GBW}
+  \end{center}
+\end{figure}
+
+      \paragraph{Zware quarks}
+Golec-Biernat en Wüsthoff hebben ook in \cite{GBW} aangetoond dat het beschouwen van een extra (zware) quark, namelijk de charm, leidt tot een extra saturatie-effect.
+Het bestuderen van de structuurfuncties in het licht van dit effect is zeer interessant, en wordt dieper op ingegaan in sectie \ref{sec:SF} en \ref{sec:ResSF}.
+
+  \subsection{Transversale energiestroom}
+    \subsubsection{LHeC: Large Hadron Elektron Collider}
+      \paragraph{Wat is de LHeC}
+De LHeC is een toekomstige proton-lepton versneller, die gebruik maakt van infrastructuur die nu aanwezig is en gebruikt wordt door de LHC.
+De botsingsenergie wordt geraamd op 70-7000 GeV, wat een heel nieuw kinematisch gebied oplevert om te onderzoeken.
+Dit wordt weergegeven in figuur \ref{fig:LHeCKinematicRegion}.
+\begin{figure} [H]
+  \begin{center}
+    \includegraphics[width=.66\textwidth]{Afbeeldingen/LHeCKinematicRegion.eps}
+    \caption{DIS interactie met de totale $E_T$ aangeduid. \cite{ET}}
+   \label{fig:LHeCKinematicRegion}
+  \end{center}
+\end{figure}
+Figuur \ref{fig:LHeCKinematicRegion} geeft ook weer welke onderzoeksmogelijkheden LHeC biedt.
+Naast de hier besproken lage $x$ fysica met hoge partondichtheden, zijn er ook uitzichten naar massieve gebonden elektron-quark toestanden, selectron-quark productie en eventuele nieuwe fysica bij extreem grote $Q^2$.
+Ook kunnen QED en QCD beproefd worden bij voorheen ontoegankelijke energieën, en zo kan hun accuraatheid getest worden.
+De LHeC zal protonen met een energie van 7 TeV kunnen laten botsen met elektronen.
+
+      \paragraph{Constructie van de  versneller}
+De LHeC zal voor de proton helft de huidige LHC versneller gebruiken.
+Om de elektronen te versnellen, zijn er twee mogelijkheden.
+In een eerste geval wordt dezelfde tunnel gebruikt als de LHC en bereiken de elektronen een nominale bundelenergie van 50 GeV.
+Hier zal de massacentrumenergie ongeveer 1.2 TeV bedragen (4 keer die van HERA).
+In een tweede geval, wordt een lineaire versneller gebruikt om de elektronen te versnellen, om zo het ongewenste energieverlies van synchrotronstaling te vermijden.
+Deze laatste optie biedt een lagere luminositeit (aantal events per seconde), maar wel een hogere massacentrumenergie: ongeveer 2 TeV.
+
+      \paragraph{LHeC en lage $x$}
+De LHeC zal helpen om met zekerheid te spreken over de grenzen van de geldigheidsgebieden van BFKL en DGLAP.
+Hiernaast zal de uitbreiding van het kinematische gebied waarin metingen kunnen worden gedaan ertoe bijdragen dat een groter deel van \textit{the Big Picture} zichtbaar wordt, waardoor de drie verschillende aanpakken van nu eventueel kunnen veralgemeend worden naar iets dat in zichzelf op z’n minst een breder toepassingsgebied heeft.
+HERA was de vorige elektron-proton versneller, en heeft de deur opengezet naar een hele reeks belangrijke metingen in daarvoor onbereikbare gebieden.
+Een massamiddelpuntsenergie van 318 GeV maakte het mogelijk om onder andere DIS  interacties te onderzoeken met $x$ zo klein als $10^{-4}$ en $Q^2$ zo groot als $10^3$ GeV.
+Aan die ondergrens voor $x$ toonde HERA ook een aanzet tot saturatie en BFKL dynamica, die door de huidige theorie onvoldoende wordt voorspeld (zie sectie \ref{sec:QCDvsExperiment} voor een uitgebreide discussie hierover).
+Een aanzet die vervolledigd kan worden door het zeer lage $x$-regime verder te onderzoeken.
+Hiervoor is een krachtigere versneller dan HERA nodig, zoals de huidige LHC.
+Deze laatste produceert botsingen tussen protonen, met een massamiddelpuntsenergie van rond en boven de 14 TeV.
+Het grote probleem met de LHC en DIS botsingen, is de contaminatie van de geproduceerde deeltjes.
+Twee protonen die tegen zo’n hoge snelheden met elkaar botsen, zorgen voor enorm veel ruis in de vorm van extra deeltjes als men de pure DIS interactie wil onderzoeken.
+Als men het proton door een elektron vervangt (dat niet uit quarks en gluonen bestaat), gaat er ongeveer de helft minder hadronisatie optreden zodat er een zuiverder signaal uit de detector komt.
+
+    \subsubsection{Waarom kijken naar $E_T$ met BFKL dynamica}
+De transversale energiestroom is misschien wel de interessantste grootheid om de eigenschappen van DIS interacties te bestuderen.
+Bij een botsing tussen protonen botsen, komen er ook deeltjes vrij die een niet-collineaire impuls hebben.
+In tegenstelling tot de protonen die collineair botsen en dus geen $\vec{k}_\perp$ hebben, kunnen de partonen in het proton wel een transversale impuls hebben.
+De transversale energiestroom is dus voor een groot deel afkomstig uit een interactie met een parton dat in tegenstelling tot het proton, een transversale impuls heeft.
+Dit is dan ook de reden dat de transversale energiestroom, in tegenstelling tot de uitgaande protonresten, een goede bron van informatie is over harde parton-parton interacties.
+
+    \subsubsection{Formulering van $E_T$}
+      \paragraph{Factorisatie-theorema}
 Een handig theorema dat toelaat de perturbatieve en niet-perturbatieve stukken van een  theoretische berekening van elkaar te scheiden.
 Voor een DIS interactie ($l+p\rightarrow l’+X$) heeft de volgende vorm \cite{Martin}: 
 \begin{equation}
@@ -469,68 +595,9 @@ Deze kan men wel perturbatief uitrekenen, maar verschillen naar gelang het besch
 Deze algemene vorm wordt vaak gebruikt en is geldig tot alle ordes in perturbatietheorie.
 De keuze van de factorisatie zelf (welk deel waar in gestopt wordt) staat nog vrij en kan later berekeningen vereenvoudigen.
 Het is duidelijk dat de resultaten onafhankelijk moeten zijn van het factorisatieschema (dat vaak gepaard gaat met de invoering van een nieuwe schaalvariabele).
+Dit theorema wordt toegepast in de berekening van de energiestroom.
 
-    \subsubsection{Saturatie} \label{sec:Saturatie}
-Saturatie zal in een of andere vorm moeten optreden voor zeer kleine $x$, omdat anders de partondichtheden (in het bijzonder, maar niet enkel die van het gluon) niet fysisch meer zijn en de huidige formulering onzinnige resultaten zou voorspellen (zie figuur \ref{fig:PD}).
-In dit werk wordt dus uitbundig gebruik gemaakt van modellen die met dit fenomeen rekening houden.
-
-      \paragraph{GBW-model}
-Een beproefd en op zich eenvoudig model, is dat van Krzysztof Golec-Biernat \cite{GB}.
-Golec-Biernat gebruikt het formalisme van de foton golffunctie (een vorm van het factorisatie theorema), waarbij een foton onafhankelijk van de DIS botsing kan splitsen in een $q\bar{q}$-paar, dat dan interageert met het proton.
-Dit laat toe een perturbatieve berekening te doen voor deze golffunctie, en de rest wordt beschreven door middel van een model.
-\begin{align}
-\sigma_{T,L} = \int d^2 \vec{r} \int_0^1 dz |\Psi_{T,L} (z, \vec{r})|^2 \hat{\sigma} (x,r^2)
-\end{align}
-Waarbij $\Psi$ de golffunctie van het foton is, $T$ en $L$ duiden op respectievelijk het longitudinaal en het transversaal deel hiervan, en $\hat{\sigma}$ het gemodelleerde, niet-perturbatieve gedeelte is.
-Bovenstaande vergelijking is geformuleerd in positieruimte.
-$r$ is de afstand tussen het ontstane $q\bar{q}$-paar.
-Golec-Biernat en Wüsthoff bespreken in \cite{GBW} wat het GBW model wordt genoemd.
-Dit model kan in impulsruimte en in positieruimte gebruikt worden.
-De saturatie zit in de factor $\hat{\sigma}$, die de volgende vorm heeft:
-\begin{align}
-\hat{\sigma}(x,r^2) &= \sigma_0 \left[ 1- \exp{\left(-\frac{r^2}{4 R_0^2(x)}\right)} \right] \\
-R_0^2(x) &= \frac{1}{Q_0^2} \left( \frac{x}{x_0} \right)^\lambda \label{eq:R0}
-\end{align}
-\eqref{eq:R0} is de \textit{saturation radius}, wat effectief een saturatie schaal invoert voor $r$.
-$Q_0^2$ is 1 GeV, en ingevoerd om de juiste dimensies te krijgen.
-$\sigma_0$, $\lambda$ en $x_0$ zijn de parameters van het model, die bepaald zijn door te fitten aan alle DIS data die beschikbaar was.
-Ze verschillen voor het geval waar enkel $uds$ quarks bijdragen en waar ook de charm quark bijdraagt (zie appendix \ref{app:GBWParameters}).
-Dit model heeft een ingebouwde begrenzing van de dipool werkzame doorsnede $\hat{\sigma}$.
-Deze heeft het juiste gedrag in $r$: kwadratisch voor kleine $r$, en constant voor grote waarden.
-Dat $\hat{\sigma}$ nul is voor kleine dipoolstraal $r$, hoeft geen verwondering.
-Als de afstand $r$ tussen de twee quarks van $q\bar{q}$-paar klein is, zal het vanop redelijke afstand een kleurneutraal object vormen en kan er dus geen QCD interactie optreden.
-Dit effect heet kleurdoorzichtigheid.
-Een ander sterk punt van dit model is het feit dat hier een saturatie voor kleine $x$ is ingebouwd, wat natuurlijk wenselijk is voor berekeningen in dat gebied.
-
-      \paragraph{Zware quarks}
-GBW hebben ook in \cite{GBW} aangetoond dat het beschouwen van een extra (zware) quark, namelijk de charm, leidt tot een saturatie-effect.
-Het bestuderen van de structuurfuncties in het licht van dit effect is zeer interessant, en wordt dieper op ingegaan in sectie \ref{sec:SF} en \ref{sec:ResSF}.
-
-  \subsection{Transversale energiestroom}
-    \subsubsection{Belang van de LHeC}
-Om met zekerheid te kunnen spreken over de resultaten van deze berekeningen en een definitieve grens te kunnen trekken tussen DGLAP en BFKL qua geldigheidsgebieden.
-Hiernaast zal de uitbreiding van het kinematische gebied waarin metingen kunnen worden gedaan ertoe bijdragen dat een groter deel van \textit{the Big Picture} zichtbaar wordt, waardoor de drie verschillende aanpakken van nu eventueel kunnen veralgemeend worden naar iets dat in zichzelf op z’n minst een breder toepassingsgebied heeft.
-HERA was de vorige elektron-proton versneller, en heeft de deur opengezet naar een hele reeks belangrijke metingen in daarvoor onbereikbare gebieden.
-Een massamiddelpuntsenergie van 318 GeV maakte het mogelijk om onder andere DIS  interacties te onderzoeken met $x$ zo klein als $10^-4$ en $Q^2$ zo groot als $10^3$ GeV.
-Aan die ondergrens voor $x$ toonde HERA ook een aanzet tot nieuwe fysica, die door de huidige theorie onvoldoende wordt voorspeld (zie sectie \ref{sec:QCDvsExperiment} voor een uitgebreide discussie hierover).
-Een aanzet die vervolledigd kan worden door het zeer lage $x$-regime verder te onderzoeken.
-Hiervoor is een krachtigere versneller dan HERA nodig, zoals het huidige LHC.
-Deze laatste produceert botsingen tussen protonen, met een massamiddelpuntsenergie van rond en boven de 14 TeV.
-Het grote probleem met de LHC en DIS botsingen, is de contaminatie van de geproduceerde deeltjes.
-Twee protonen die tegen zo’n hoge snelheden met elkaar botsen, zorgen voor enorm veel ruis in de vorm van extra deeltjes als men de pure DIS interactie wil onderzoeken.
-Als men het proton door een elektron vervangt (dat niet uit quarks en gluonen bestaat), gaat er ongeveer de helft minder hadronisatie optreden zodat er een zuiverder signaal uit de detector komt.
-Als men met versnelde elektronen werkt, moet men natuurlijk ervoor uitkijken dat de synchrotronstraling de versnelling niet tenietdoet.
-Synchrotronstraling is energie uitgestraald door een elektron als het in een cirkelvormige baan versneld wordt.
-Het kost dus nóg meer energie om elektronen boven die grens van synchrotronstraling te krijgen zonder te veel verlies aan snelheid.
-
-    \subsubsection{Waarom kijken naar $E_T$ met BFKL dynamica}
-De transversale energiestroom is misschien wel de interessantste grootheid om de eigenschappen van DIS interacties te bestuderen.
-Bij een botsing tussen protonen botsen, komen er ook deeltjes vrij die een niet-collineaire impuls hebben.
-In tegenstelling tot de protonen die collineair botsen en dus geen $\vec{k}_\perp$ hebben, kunnen de partonen in het proton wel een transversale impuls hebben.
-De transversale energiestroom is dus voor een groot deel afkomstig uit een interactie met een parton dat in tegenstelling tot het proton, een transversale impuls heeft.
-Dit is dan ook de reden dat de transversale energiestroom, in tegenstelling tot de uitgaande protonresten, een goede bron van informatie is over harde parton-parton interacties.
-
-    \subsubsection{Formulering van $E_T$}
+      \paragraph{Transversale energiestroom}
 \begin{figure} [H]
   \begin{center}
     \includegraphics[width=.33\textwidth]{Afbeeldingen/ETDefinitionDiagram.png}
@@ -552,24 +619,28 @@ De transversale energiestroom van een gluonladder zoals weergegeven in figuur \r
 \begin{equation} \label{eq:ETGluonChain}
 x_j \frac{\partial E_T}{\partial x_j} = \frac{1}{\sigma} \int dk_j^2 x_j \frac{\partial \sigma}{\partial x_j \partial k_j^2} |\vec{k}_j|
 \end{equation}
-$x_j$  en $\vec{k}_j$ zijn respectievelijk de longitudinale impulsfractie en de transversale impuls van de gluon jet in het proton-proton massamiddelpuntstelsel.
+$x_j$  en $\vec{k}_j$ zijn respectievelijk de longitudinale impulsfractie en de transversale impuls van de gluon jet in het foton-proton massamiddelpuntstelsel.
 De differentiële werkzame doorsnede kan uitgedrukt worden in functie van de structuurfuncties van het proton.
 \begin{equation}
 \frac{\partial \sigma}{\partial x_j \partial k_j^2} = \frac{4 \pi \alpha^2}{xQ^2} \left[ (1-y) \frac{\partial F_2}{\partial x_j \partial k_j^2} + \frac{1}{2} y^2 \frac{\partial 2xF_1}{\partial x_j \partial k_j^2} \right]
 \end{equation}
-Waarbij $y=Q^2/xs$ en $\sqrt{s}$ gelijk aan de massamiddelpuntsenergie van het elektron-proton systeem.
+Waarbij $y=Q^2/xs$ en $\sqrt{s}$ gelijk aan de massamiddelpuntenergie van het elektron-proton systeem.
 Deze uitdrukking werden uitgerekend voor kleine $x$ (dus met behulp van BFKL dynamica), en ingevuld met vergelijkingen die toen de beste resultaten gaven.
 Hier zal vergelijking  \eqref{eq:ET} opnieuw beschouwd worden, en toegepast op hernieuwde uitdrukkingen voor de samenstellende formules.
+De volledige berekening staat uitgeschreven in \cite{ET}.
 \begin{align} \label{eq:ET}
 x_j \frac{\partial E_T}{\partial x_j} = \frac{1}{F_2} \int \frac{dk_p^2}{k_p^2} \int \frac{dk_\gamma^2}{k_\gamma^2} \left( \frac{3\alpha_S}{\pi} \right) \mathcal{F}_2 \left( \frac{x}{x_j}, k_\gamma^2, Q^2 \right) f(x_j,k_p^2) \int \frac{d\phi}{\sqrt{k_p^2+k_\gamma^2 + 2k_p k_\gamma \cos{\phi}}}
 \end{align}
-Deze uitdrukking bestaat uit verschillende, afzonderlijk te beschouwen delen, die elk op hun beurt even interessant zijn.
+Deze uitdrukking is (voor de berekening die eraan voorafgaat), vrij eenvoudig.
+Het is een gefactoriseerde vorm met twee partondichtheden en een matrixelement.
+Deze uitdrukking bestaat dus uit verschillende, afzonderlijk te beschouwen delen, die elk op hun beurt even interessant zijn.
 $F_2 (x, Q^2)$ is de structuurfunctie van het proton, $f$ is de ongeïntegreerde gluondichtheid van het proton en $\mathcal{F}_2$ is de structuurfunctie van de hadronische structuur van het foton.
-Belangrijk op te merken is dat $F_2$ op voorhand kan berekend worden, en de integraal over $\phi$ analytisch kan worden bepaald.
+De $\alpha_S$ factor hoort bij het matrixelement (de integraal over $\phi$).
+Belangrijk op te merken is dat $F_2$ op voorhand kan berekend worden (en niet over wordt geïntegreerd), en de integraal over $\phi$ analytisch kan worden bepaald.
  
     \subsubsection{Ongeïntegreerde gluondichtheid van het proton $f$}
 Golec-Biernat en Wüsthoff hebben deze grootheid in het kader van hun model berekend, en heeft volgende uitdrukking \cite[vgl. 9.255]{Barone}:
-\begin{equation}
+\begin{equation} \label{eq:UGD}
 f(x,k^2) = \frac{3 \sigma_0}{4\pi^2 \alpha_S} R_0^2 (x) k^4 e^{-R_0^2(x) k^2}
 \end{equation}
 Waarbij
@@ -591,6 +662,7 @@ F_L(x,Q^2) &= \frac{2 Q^2}{\pi^2} \alpha_S \sum_q e_q^2 \int_0^\infty \frac{dk^2
 \end{align}
 $e_q$ is de lading van de quark en de som loopt over de beschouwde quarks.
 De functie $f$ is gedefinieerd in de vorige sectie.
+De verklaring voor de impactfactoren $\Phi_L$ en $\Phi_2$ is niet eenvoudig, maar wordt iets uitgebreider behandeld in \ref{app:ImpactFactors}.
 Als bijkomende correctie uit de oplossing van de BFKL vergelijkingen, wordt een factor $(1-x)^{n}$ bij de structuurfuncties gevoegd, waarbij $n = 2 n_S -1$ ($n_S$ = het aantal \textit{spectator quarks}, hier 4).
 Dit heeft als doel de gluondichtheid af te zwakken voor hoge $x$.
 \eqref{eq:MasslessSF} is bedoeld voor gebruik met de 3 quark parameters in appendix \ref{app:GBWParameters}.
@@ -613,11 +685,11 @@ De structuurfuncties waar een vierde quark en dus de massa’s expliciet worden 
 De extra quark toont een hogere graad van saturatie, zoals in \cite{GBW} ook al aangegeven.
 Deze kan dus binnen het model beschouwd worden als extra correctie.
 
-    \subsubsection{$\mathcal{F}_2$} \label{sec:UGDPhoton}
+    \subsubsection{Hadronische structuur van het foton $\mathcal{F}_2$} \label{sec:UGDPhoton}
 De structuurfunctie van de hadronische structuur van het foton is een exotische grootheid waar nog veel onduidelijkheid over bestaat.
 Het wordt ook wel eens aangeduid als \textit{ongeïntegreerde gluondichtheid in het foton}.
 Hier wordt gebruik gemaakt van een berekening waar een initïele toestand
-Figuur \ref{fig:ETDiagram} (b) toont de begintoestand, namelijk de \textit{quark doos}, die werd aangenomen als beginvoorwaarde bij het oplossen van de BFKL vergelijking.
+Figuur \ref{fig:ETDiagram} (b) toont de begintoestand, namelijk de \textit{quark box}, die werd aangenomen als beginvoorwaarde bij het oplossen van de BFKL vergelijking.
 Dit is een analytische oplossing, wat inhoudt dat er benaderingen zijn gebruikt die niet ongedaan kunnen worden gemaakt.
 In tegenstelling tot de rest van de formules die hier worden geïntroduceerd (die numeriek worden gebruikt, en dus geen analytische benadering nodig hebben), is deze iets minder nauwkeurig.
 \begin{align} \label{eq:UGDPhoton}
@@ -625,7 +697,7 @@ In tegenstelling tot de rest van de formules die hier worden geïntroduceerd (di
 \text{met: } \alpha_P -1 &=  12  \frac{\alpha_S}{\pi} \log{2} \notag
 \end{align}
 Belangrijk op te merken is dat de gebruikte formulering van de ongeïntegreerde gluondichtheid nog verder onderzoek nodig heeft en dus niet volledig getest is.
-Zo kan men met behulp van de BK vergelijking een betere 
+Zo kan men met behulp van onder meer de BK vergelijking een betere oplossing verkrijgen.
 
 \section{Numerieke aanpak}
 Om de berekeningen zelf zo vlot mogelijk te laten verlopen, werd gekozen voor een implementatie in C++.
@@ -637,7 +709,7 @@ Steve G. Johnson heeft een implementatie in C geschreven voor het numeriek integ
 De beschrijving van het algoritme zelf staat uitvoerig beschreven in \cite{Genz} en \cite{Berntsen}.
 Hoewel het algoritme gebaseerd is op de kubatuur regels, is het een adaptief en efficiënt algoritme voor multi-dimensionale integraties.
 Het algoritme laat toe een gewenste fout op het resultaat te geven, wat ingesteld werd op $10^-4$, resulterend in snelle resultaten accuraat tot op 0,1\% (in het interval $[0.1,10]$, waar $F_L$, $F_2$ en $E_T$ zich zullen bevinden).
-Er waren geen fundamentele problemen met de afzonderlijke formules uit sectie \ref{sec:SF} en \ref{sec:UGD}, hoewel deze vol singulariteiten zitten en problematisch konden zijn.
+Er waren geen fundamentele problemen met de afzonderlijke formules uit sectie \ref{sec:SF} en \ref{sec:UGDPhoton}, hoewel deze vol singulariteiten zitten en problematisch konden zijn.
 $E_T$ zelf heeft wel speciale behandeling nodig om in aanzienlijke tijd resultaten te krijgen.
 
   \subsubsection{Berekening van$E_T$}
@@ -659,7 +731,9 @@ De resultaten van de uiteindelijke berekening zijn dan ook minder accuraat, omda
     \subsection{De structuurfuncties van dichtbij bekeken} \label{sec:ResSF}
 $F_2$ en $F_L$ zijn interessante grootheden, zeker in het licht van saturatie en de B(F)K(L) vergelijking.
 Door vergelijkingen \eqref{eq:MasslessSF} (en bijhorende formule voor $F_L$ \cite[sectie 9.5.4]{Barone}) en \eqref{eq:MassiveSF} uit te rekenen, kan men zien dat $F_2$ nagenoeg niet verandert door invoering van de extra quark (en dus saturatie), maar $F_L$ is er wel onderhevig aan.
-In figuur \ref{fig:ResSF} staan de resultaten van de formules \eqref{eq:MasslessSF} en \eqref{eq:MassiveSF} uitgezet, samen met data van HERA \cite{H1} \cite{ZEUS} indien beschikbaar.
+
+      \paragraph{$F_L$}
+In figuur \ref{fig:ResFL} staan de resultaten van de formules \eqref{eq:MasslessSF} en \eqref{eq:MassiveSF} uitgezet, samen met data van HERA \cite{H1} \cite{ZEUS} indien beschikbaar.
 De derde curve op de grafiek werd berekend in \cite{Stasto} en verschilt in aanpak en benadering van de berekening hier.
 Enerzijds houdt de derde curve geen rekening met saturatie en toont dus de invloed van het fenomeen in het GBW model.
 De berekening gebruikt een geünificeerde DGLAP-BFKL aanpak, die overeen komt met een lineaire evolutievergelijking.
@@ -669,61 +743,108 @@ Dit brengt hogere orde correctietermen met zich mee, die niet in \eqref{eq:Massi
 \begin{figure} [H]
 \centering
 \subfigure{
-\includegraphics[scale=.49]{afbeeldingen/FLQ12.eps}
+\includegraphics[width=.45\textwidth]{afbeeldingen/FLQ12.eps}
 }
 \subfigure{
-\includegraphics[scale=.49]{afbeeldingen/FLQ15.eps}
+\includegraphics[width=.45\textwidth]{afbeeldingen/FLQ15.eps}
 }
 \subfigure{
-\includegraphics[scale=.49]{afbeeldingen/FLQ20.eps}
+\includegraphics[width=.45\textwidth]{afbeeldingen/FLQ20.eps}
 }
 \subfigure{
-\includegraphics[scale=.49]{afbeeldingen/FLQ25.eps}
+\includegraphics[width=.45\textwidth]{afbeeldingen/FLQ25.eps}
 }
-\caption{Resultaten voor de berekening van de longitudinale structuurfunctie van het proton in een DIS proces voor verschillende waarden van $Q^2$. De data komt uit \cite{H1}.}
+\caption{Resultaten voor de berekening van de structuurfunctie $F_2$ van het proton in een DIS proces voor verschillende waarden van $Q^2$. De data komt uit \cite{ZEUS}.}
 \label{fig:ResFL}
 \end{figure}
 In figuur \ref{fig:ResFL} is duidelijk te zien dat bij GBW saturatie de structuurfunctie kleiner is dan zonder, dit is natuurlijk het gewenste effect.
 Een vierde quark zorgt voor extra saturatie, wat zich toont in een lagere curve.
 Niet getoond, maar wel belangrijk te vermelden is het feit dat de gebruikte berekeningen niet goed opgaan voor hogere waarden van $Q^2$, waardoor meer plots (voor bijvoorbeeld ZEUS’ $Q^2=60, 80, 110$) geen goede resultaten geven.
 Gelet op de schaarse beschikbaarheid van gemeten data, voldoet het gebruikte model zeker aan de experimentele waarnemingen.
-Voor $Q^2$ gelijk aan 15 en 25 GeV is er een discrepantie, maar aangezien deze willekeurig lijkt te zijn, heeft dit geen effect op de juistheid van het resultaat.
+
+      \paragraph{$F_2$}
+\begin{figure} [H]
+\centering
+\subfigure{
+\includegraphics[scale=.49]{afbeeldingen/F2Q24.eps}
+}
+\subfigure{
+\includegraphics[scale=.49]{afbeeldingen/F2Q32.eps}
+}
+\caption{Resultaten voor de berekening van de longitudinale structuurfunctie van het proton in een DIS proces voor verschillende waarden van $Q^2$. De data komt uit \cite{ZEUS}.}
+\label{fig:ResF2}
+\end{figure}
+De discrepantie tussen de data en het GBW model is te wijten aan een normalisatiefactor van het GBW gluon \eqref{eq:UGD}.
+Indien dit aangepast wordt, komt de data overeen met de metingen.
+Dit is logisch omdat in \cite[p. 55]{GB} een gelijkaardige figuur wordt getoond, van het GBW model, gefit aan experimentele data.
+In \eqref{eq:ET} is deze normalisatie onbelangrijk, omdat deze twee keer voorkomt: een keer in de noemer via $\frac{1}{F_2}$ (die impliciet een factor $f(x,k^2)$ heeft) en een keer in de teller via de expliciete $f(x,k^2)$.
+Ondanks dit verschil is er dus geen probleem voor verdere berekeningen.
+Het is ook duidelijk dat $F_2$, in tegenstelling tot $F_L$ in figuur \ref{fig:ResFL} geen invloed ondervindt van de extra quark (en dus bijkomende saturatie).
+$F_2$ is onafhankelijk van de saturatie.
 
   \subsection{De ongeïntegreerde gluondichtheid $f(x,k^2)$} \label{sec:ResUGD}
-De ongeïntegreerde gluondichtheid is tot nu toe enkel gemodelleerd als bijdrage aan een proces, en nooit afzonderlijk gemeten.
-Hier wordt de gluondichtheid ook ingevoerd om een \textit{geresolveerd foton} te krijgen (gelijkend op de correcties op DGLAP in figuren \ref{fig:HERAJets1} en \ref{fig:HERAJets2}).
-Een belangrijk verschil met het geresolveerd foton in een DGLAP berekening zoals getoond in \cite{Kiesling}, is dat hier een BFKL berekening word toegepast die op een natuurlijke wijze saturatie omvat door zwaardere quarks zoals beschreven in het GBW model.
+De ongeïntegreerde gluondichtheid is tot nu toe nooit afzonderlijk gemeten.
+Hier werd het GBW model toegepast, waardoor de saturatie, die volgens figuur \ref{fig:PD} aanwezig moet zijn, aanwezig is.
+De berekeningen worden vergeleken met een gewone BFKL (kleine $x$) berekening, zonder saturatie.
 De resultaten worden weergegeven in figuur \ref{fig:ResUGD}.
 \begin{figure} [H]
 \centering
 \subfigure{
-\includegraphics[scale=.49]{afbeeldingen/Placeholder.eps}
+\includegraphics[width=.45\textwidth]{afbeeldingen/BFKLvsGBW1.eps}
 }
 \subfigure{
-\includegraphics[scale=.49]{afbeeldingen/Placeholder.eps}
+\includegraphics[width=.45\textwidth]{afbeeldingen/BFKLvsGBW2.eps}
 }
-\caption{Resultaten voor de berekening van de longitudinale structuurfunctie van het proton in een DIS proces voor verschillende waarden van $Q^2$. De data komt uit \cite{H1}.}
-\label{fig:ResF2}
+\caption{Weergave van $f(x,k^2)$ in het geval zonder saturatie (BFKL) en met saturatie (GBW). Links: goud=GBW, blauw en paars zijn de BFKL oplossing voor twee verschillende waarden van $x$. Rechts: paars=GBW, blauw=BFKL.}
+\label{fig:ResUGD}
 \end{figure}
+De sterke onderdrukking van de ongeïntegreerde gluondichtheid is zowel in kleine $k_\perp$ als kleine $x$ zichtbaar.
+Er is een verschil van meerdere grootteordes, wat een goede indicatie is van wat de GBW saturatie doet.
 
   \subsection{De transversale energiestroom} \label{sec:ResET}
 De transversale energiestroom in een DIS interactie is berekend met behulp van \eqref{eq:ET} en bijhorende subformules.
 De resultaten worden weergegeven in figuur \ref{fig:ResET}.
 \begin{figure} [H]
   \begin{center}
-    \includegraphics[scale=1]{Afbeeldingen/Placeholder.eps}
-    \caption{Plot van $F_L$ voor verschillende waarden van $Q^2$ in functie van $x$.}
+    \includegraphics[width=.66\textwidth]{Afbeeldingen/ET.eps}
+    \caption{De transversale energiestroom voor verschillende waarden van $x$, in functie van $x_j$. De analytische oplossing curves zijn die uit \cite[sec. IV]{ET}. }
    \label{fig:ResET}
   \end{center}
 \end{figure}
-
-\section{Bespreking}
-Onze berekening is beter, want we kunnen integreren van k=0, zonder probleem, de andere berekening heeft een cut-off nodig om oneindige resultaten te vermijden.
-Anderzijds is onze berekening minder goed als het om vergelijken met metingen gaat.
-Onze berekening is gefit geweest aan data. (nood aan herfit aan nieuwe data).
-
+Belangrijk op te merken is dat de normalisatie verschilt tussen de analytische en de oplossing die hier berekend werd.
+Indien de normalisatie correct wordt afgesteld, liggen de analytische curves veel hoger dan de curves met saturatie.
+Ook belangrijk is het feit dat $x/x_j < 10^{-1}$.
+Het effect van de saturatie komt onder meer naar voor door de vroege onderdrukking, waardoor de transversale energiestroom al afneemt (naar kleinere $x_j$ toe), terwijl de vroegere analytische oplossing nog stijgt.
+Het maximum komt dus vroeger in dalende $x_j$, wat duidt op een sterkere onderdrukking naar kleine $x_j$ toe, veroorzaakt door de GBW saturatie.
+De curves werden berekend met behulp van een VEGAS Monte-Carlo algoritme, wat de meest geavanceerde wijze is om zo’n integratie te doen.
+Het resultaat is dan ook niet volledig accuraat; dit toonde zich in de curves voor $x=10^{-8}$ en $10^{-7}$, die een te grote fluctuatie vertoonden om getoond te kunnen worden.
 
 \section{Besluit}
+      \paragraph{Structuurfuncties}
+In figuren \ref{fig:ResFL} en \ref{fig:ResF2} zijn de structuurfuncties van het proton in een DIS proces berekend door gebruik te maken van het GBW model voor saturatie \cite{GB} \cite{GBW}.
+De berekeningen werden vergeleken met de nieuwste data van HERA \cite{H1} \cite{ZEUS} en de resultaten (mits een gebrekkige normalisatie) voldeden aan de verwachtingen.
+De \textit{leading order} (constante $\alpha_S$) saturatie berekening werd vergeleken met een nauwkeurigere berekening in \cite{Stasto}.
+In tegenstelling tot $F_L$, die heel vatbaar was voor saturatie, werd gevonden dat $F_2$ zo goed als geen invloed ondervond van de extra saturatie door de quarkmassas in rekening te brengen.
+Ondanks het beperkt $Q^2$ bereik in deze berekeningen zijn er dus enkele sterke eigenschappen uit gekomen.
+
+      \paragraph{Ongeïntegreerde gluondichtheid}
+Het verschil tussen een pure BFKL berekening en een met GBW saturatie werd vergeleken voor de ongeïntegreerde gluondichtheid in het proton.
+Hier is de invloed van saturatie het beste zichtbaar.
+De BFKL berekening maakte ook gebruik van exacte kinematica van het gluon, waar hier een simpelere aanname werd gemaakt.
+Indien zulke correcties hier wordt toegepast, worden nog betere resultaten verwacht, die een groter $Q^2$-bereik hebben en nog nauwkeurigere resultaten opleveren.
+
+      \paragraph{Transversale energiestroom}
+De transversale energiestroom werd berekend met de formule uit \cite{ET}, en de invloed van saturatie op deze grootheid werd onderzocht.
+De gebruikte berekening is leading order, dus met constante $\alpha_S$, en houdt via het Golec-Biernat-Wüsthoff model rekening met saturatie.
+De uitgerekende grootheid werd vergeleken met een analytische oplossing zonder saturatie.
+
+      \paragraph{Vooruitzichten}
+Indien het LHeC project van de grond komt, kunnen de schattingen van de grootheden hier vergeleken worden met de werkelijkheid voor veel kleinere $x$.
+Deze zullen waarschijnlijk verbeterd moeten worden, en dit kan op uiteenlopende manieren.
+Zo kan men elke gebruikte grootheid opnieuw berekenen met een lopende sterke koppeling, waar speciale aandacht zal moeten worden besteed aan de ongeïntegreerde gluondichtheid van het foton, omdat dit niet goed gekend en onderzocht is.
+Naast een lopende koppeling, kan men de berekening van de transversale energiestroom ook uitvoeren in het geval van vier quarks, zodat de saturatie uit het GBW sterker naar voor komt.
+Een derde mogelijkheid tot verbetering, is het toepassen van de BK vergelijking om alle grootheden te berekenen.
+Er is een sterke indicatie \cite{Kutak} dat, in tegenstelling tot de lineaire BFKL vergelijking, de niet lineaire BK vergelijking op natuurlijke wijze de GBW saturatie ingebouwd heeft.
 
 
 
@@ -777,10 +898,9 @@ F_L &= F_2 - 2x F_1 \notag
 \end{align}
 In DIS processen, kan men vaak uitgaan van $F_L = 0$, zodat $F_2$ in dat geval voldoende is om de hele werkzame doorsnede te bepalen.
 De longitudinale en transversale structuurfuncties hebben het volgende verband met $F_2$ en $F_1$:
-\begin{align}
-F_2 &= F_L + F_T \\
-F_2 &= F_2 - 2xF_1 \notag
-\end{align}
+\begin{equation}
+F_2 = F_L + F_T
+\end{equation}
 
 \section{Renormalisatiegroep vergelijking en asymptotische vrijheid} \label{app:RGE}
 Het tweede deel van vergelijking \eqref{eq:RGE} wordt als volgt bekomen \cite{Ellis}.
@@ -805,6 +925,32 @@ Waaruit de enkele $\alpha_S(Q^2)$-afhankelijkheid volgt.
 Een observabele is afhankelijk van de schaalvariabele, maar deze afhankelijkheid komt tot uiting door de afhankelijkheid van de observabele van $\alpha_S$.
 Men kan dus een observabele uitrekenen voor een vaste waarde van $\alpha_S$, en met behulp van vergelijking \eqref{eq:AlphaSDefinition} variëren met $Q^2$.
 
+\section{Gereduceerde werkzame doorsnede en $F_2$} \label{app:SigmaR}
+In \eqref{eq:SF} wordt de werkzame doorsnede in DIS weergegeven als functie van de structuurfuncties.
+Recente metingen worden meestal weergegeven in volgende vorm:
+\begin{equation}
+\sigma_{R} (x, Q^2) = F_2(x,Q^2)-\frac{y^2}{Y_+} F_L(x,Q^2)
+\end{equation}
+Dit is \eqref{eq:SF} vereenvoudigd met eigenschappen uit \ref{app:SF}, en vermenigvuldigd met $\frac{xQ^4 Y_+}{2\pi \alpha^2}$.
+
+\section{De ordening in hoeken in CCFM} \label{app:CCFM}
+Om \eqref{eq:HoekOrdening} uit te drukken in impulsfracties, heeft men volgende definities nodig:
+\begin{align}
+\theta_i = \frac{q_i}{(1-z_i)E_{i-1}}, z_i = \frac{E_i}{E_{i-1}}
+\end{align}
+Waarbij $q_i$, $\theta_i$ en $E_i$ respectievelijk de transversale impuls, uitstralingshoek en energie zijn van het $i$-de gluon.
+Nu kan men
+\begin{equation}
+\theta_{i+1} > \theta_i
+\end{equation}
+ vervangen door:
+\begin{equation}
+ \frac{q_{i+1}}{1-z_{i+1}} > \frac{z_i q_i}{1-z_i}
+\end{equation}
+Wat voor $z_i, z_{i+1} \ll 1$ reduceert tot $q_{i+1} > z_i q_i$.
+Belangrijk op te merken is dat in de hoge energie limiet, CCFM dezelfde oplossing oplevert als de BFKL vergelijking.
+Voor verdere discussie geeft \cite{Vera} een goed overzicht van CCFM en de verhouding hiervan met BFKL.
+
 \section{Parameters van het GBW model voor saturatie} \label{app:GBWParameters}
 In het geval van 3 lichte quarks: up, down en strange, krijgt men volgende waarden:
 \begin{align}
@@ -826,23 +972,39 @@ m_c &= 1.5 \text{GeV}
 \end{align}
 Een andere waarde voor deze massa’s en/of de introductie van een vijfde quark ($b$) zonder bovenstaande parameters opnieuw te bepalen is onjuist.
 
-\section{De ordening in hoeken in CCFM} \label{app:CCFM}
-Om \eqref{eq:HoekOrdening} uit te drukken in impulsfracties, heeft men volgende definities nodig:
+\section{De impactfactoren in de structuurfuncties van het proton} \label{app:ImpactFactors}
+De vergelijkingen in \eqref{eq:SF} voor $\Phi_L$ en $\Phi_2$ worden de impactfactoren genoemd.
+Deze werden berekend uit Feynmandiagrammen in figuur \ref{fig:FeynmanImpactFactors}.
+\begin{figure} [H]
+\centering
+\subfigure{
+\includegraphics[width=.45\textwidth]{afbeeldingen/ImpactFactor1.eps}
+}
+\subfigure{
+\includegraphics[width=.45\textwidth]{afbeeldingen/ImpactFactor2.eps}
+}
+\caption{Feynmandiagrammen voor de berekening van de impactfactoren in de formules van de structuurfuncties.}
+\label{fig:FeynmanImpactFactors}
+\end{figure}
+In figuur \ref{fig:FeynmanImpactFactors} zijn naast $q$ ook volgende vectoren gebruikt:
 \begin{align}
-\theta_i = \frac{q_i}{(1-z_i)E_{i-1}}, z_i = \frac{E_i}{E_{i-1}}
+\kappa = (w, \rho, \kappa_\perp) \notag \\
+k = (x,0,k_\perp) \notag
 \end{align}
-Waarbij $q_i$, $\theta_i$ en $E_i$ respectievelijk de transversale impuls, uitstralingshoek en energie zijn van het $i$-de gluon.
-Nu kan men
+Dit zijn beide lich-achtige vectoren (wat wil zeggen dat $\kappa^2 = k^2 = 0$).
+$\kappa$ wordt zo geconstrueerd:
+\begin{align}
+\kappa &= -wP + z q’ + \kappa_\perp \\
+\text{met } p^2 &= q’^2 = 0 \notag \\
+q’ &= q + xP
+\end{align}
+Waarbij $-q^2 = Q^2$ en P de totale impuls van het proton is.
+De berekening van de structuurfuncties maakt ook gebruik van de techniek die \textit{Feynman Parametrisatie} heet, waarbij een nieuwe parameter wordt gebruikt om de uitdrukking verder te manipuleren.
+In dit geval is $\eta$ ingevoerd in volgende vorm:
 \begin{equation}
-\theta_{i+1} > \theta_i
+\frac{1}{AB} = \int_0^1 dx \frac{1}{\left[\eta A+(1-\eta)B \right]^2}
 \end{equation}
- vervangen door:
-\begin{equation}
- \frac{q_{i+1}}{1-z_{i+1}} > \frac{z_i q_i}{1-z_i}
-\end{equation}
-Wat voor $z_i, z_{i+1} \ll 1$ reduceert tot $q_{i+1} > z_i q_i$.
-Belangrijk op te merken is dat in de hoge energie limiet, CCFM dezelfde oplossing oplevert als de BFKL vergelijking.
-Voor verdere discussie geeft \cite{Vera} een goed overzicht van CCFM en de verhouding hiervan met BFKL.
+De verdere uitwerking staat in \cite{Barone}.
 
 \section{Integraal over $\phi$} \label{app:PhiIntegral}
 De integraal over $\phi$ in \eqref{eq:ET} kan analytisch worden uitgerekend.
@@ -954,11 +1116,11 @@ De integraal wordt wel correct uitgerekend door \textit{Cubature} en de Monte-Ca
   arXiv:0904.1092v2 [hep-ex]
   2009
 
-\bibitem{F0}
-  J. Kwiecinski, A. D. Martin, and P. J. Sutton
-  \emph{Deep-inelastic events containing a measured jet as a probe of QCD behavior at small $x$}
-  Physical Review D, volume 46, number 3
-  1992
+\bibitem{Kutak}
+  K. Kutak
+  \emph{Saturation and linear transport equation}
+  Arxiv:0903.3521v2 [hep-ph]
+  2009
 
 \end{thebibliography}
 
