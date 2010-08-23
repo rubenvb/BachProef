@@ -434,7 +434,7 @@ DGLAP heeft nochtans (in het niet lage $x$ regime) krachtige en vooral juiste vo
 \begin{figure} [H]
   \begin{center}
     \includegraphics[scale=1]{Afbeeldingen/HERAF2.eps}
-    \caption{HERA metingen geplot tegenover de QCD voorspelling (DGLAP) voor gereduceerde werkzame doorsnede (zie appendix \ref{app:SigmaR}). Merk op dat er over een heel groot $Q^2$ en $x$-bereik een zeer goede overeenkomst is tussen theorie en experiment. \cite{Kiesling}}
+    \caption{HERA metingen geplot tegenover de QCD voorspelling (DGLAP) voor gereduceerde werkzame doorsnede (zie appendix \ref{app:SigmaR}). Merk op dat er over een heel groot $Q^2$ en $x$-bereik een zeer goede overeenkomst is tussen theorie en experiment. \cite{VanMechelen}}
    \label{fig:SC}
   \end{center}
 \end{figure}
@@ -496,7 +496,7 @@ In dit werk wordt dus uitbundig gebruik gemaakt van modellen die met dit fenomee
 
       \paragraph{GBW-model}
 Een beproefd en op zich eenvoudig model, is dat van Krzysztof Golec-Biernat \cite{GB}.
-Golec-Biernat gebruikt het formalisme van de foton golffunctie (een vorm van het factorisatie theorema), waarbij een foton onafhankelijk van de DIS botsing kan splitsen in een $q\bar{q}$-paar, dat dan interageert met het proton.
+Golec-Biernat gebruikt het formalisme van de foton golffunctie (een vorm van het factorisatie theorema, zie sectie \ref{sec:FactorisatieTheorema}), waarbij een foton onafhankelijk van de DIS botsing kan splitsen in een $q\bar{q}$-paar, dat dan interageert met het proton.
 Dit laat toe een perturbatieve berekening te doen voor deze golffunctie, en de rest wordt beschreven door middel van een model.
 \begin{equation}
 \sigma_{T,L} = \int d^2 \vec{r} \int_0^1 dz |\Psi_{T,L} (z, \vec{r})|^2 \hat{\sigma} (x,r^2)
@@ -581,7 +581,7 @@ De transversale energiestroom is dus voor een groot deel afkomstig uit een inter
 Dit is dan ook de reden dat de transversale energiestroom, in tegenstelling tot de uitgaande protonresten, een goede bron van informatie is over harde parton-parton interacties.
 
     \subsubsection{Formulering van $E_T$}
-      \paragraph{Factorisatie-theorema}
+      \paragraph{Factorisatie-theorema} \label{sec:FactorisatieTheorema}
 Een handig theorema dat toelaat de perturbatieve en niet-perturbatieve stukken van een  theoretische berekening van elkaar te scheiden.
 Voor een DIS interactie ($l+p\rightarrow l’+X$) heeft de volgende vorm \cite{Martin}: 
 \begin{equation}
@@ -621,13 +621,13 @@ x_j \frac{\partial E_T}{\partial x_j} = \frac{1}{\sigma} \int dk_j^2 x_j \frac{\
 \end{equation}
 $x_j$  en $\vec{k}_j$ zijn respectievelijk de longitudinale impulsfractie en de transversale impuls van de gluon jet in het foton-proton massamiddelpuntstelsel.
 De differentiële werkzame doorsnede kan uitgedrukt worden in functie van de structuurfuncties van het proton.
-\begin{equation}
+\begin{equation} \label{eq:SigmaInStructureFunctions}
 \frac{\partial \sigma}{\partial x_j \partial k_j^2} = \frac{4 \pi \alpha^2}{xQ^2} \left[ (1-y) \frac{\partial F_2}{\partial x_j \partial k_j^2} + \frac{1}{2} y^2 \frac{\partial 2xF_1}{\partial x_j \partial k_j^2} \right]
 \end{equation}
 Waarbij $y=Q^2/xs$ en $\sqrt{s}$ gelijk aan de massamiddelpuntenergie van het elektron-proton systeem.
 Deze uitdrukking werden uitgerekend voor kleine $x$ (dus met behulp van BFKL dynamica), en ingevuld met vergelijkingen die toen de beste resultaten gaven.
 Hier zal vergelijking  \eqref{eq:ET} opnieuw beschouwd worden, en toegepast op hernieuwde uitdrukkingen voor de samenstellende formules.
-De volledige berekening staat uitgeschreven in \cite{ET}.
+De volledige berekening staat uitgeschreven in \cite{ET} en wordt toegelicht in appendix \ref{app:ET}.
 \begin{align} \label{eq:ET}
 x_j \frac{\partial E_T}{\partial x_j} = \frac{1}{F_2} \int \frac{dk_p^2}{k_p^2} \int \frac{dk_\gamma^2}{k_\gamma^2} \left( \frac{3\alpha_S}{\pi} \right) \mathcal{F}_2 \left( \frac{x}{x_j}, k_\gamma^2, Q^2 \right) f(x_j,k_p^2) \int \frac{d\phi}{\sqrt{k_p^2+k_\gamma^2 + 2k_p k_\gamma \cos{\phi}}}
 \end{align}
@@ -717,12 +717,10 @@ De uiteindelijke formule bestaat uit vier delen:
 \begin{itemize}
   \item $F_2$, die per waarde een enkele keer moet worden berekend.
   \item $f$, waarover wordt geïntegreerd, bevat geen verborgen integraties en hoeft dus geen speciale behandeling.
-  \item $\mathcal{F}_2$, die zelf drie integraties bevat, wordt per waarde van $x$ en $Q^2$ geïnterpoleerd in het nodige interval van de variabele $x$, om zo de berekening een stuk sneller te laten verlopen,
+  \item $\mathcal{F}_2$,
   \item de integraal in $\phi$, die analytisch uitgerekend kan worden (zie appendix \ref{app:PhiIntegral}), maar als integraal behouden is wegens redenen vermeld in appendix \ref{app:PhiIntegral}.
 \end{itemize}
 
-Interpolatie werd geïmplementeerd met behulp van de GNU Scientific Library (GSL), die een handige en snelle oplossing voor een ééndimensionale interpolatie biedt.
-Hier wordt natuurlijk een cubische spline gebruikt, om de juistheid te garanderen.
 De uiteindelijke driedimensionale integraal kon niet in een redelijke tijd worden uitgerekend door het \textit{Cubature} algoritme, dus werd voor de laatste stap gekozen voor Monte-Carlo integratie, wederom die van GSL (het meest geavanceerde VEGAS-algoritme).
 Het VEGAS algoritme wordt per berekende waarde “opgewarmd” met een 10000 functie-evaluaties, gevolgd door de daadwerkelijke berekening met een miljoen functie-evaluaties.
 De resultaten van de uiteindelijke berekening zijn dan ook minder accuraat, omdat enerzijds de Monte-Carlo integratie vrij veel tijd in beslag neemt en anderzijds de fout vrij hoog en wisselend bleef bij hoge aantallen van iteraties.
@@ -837,6 +835,9 @@ Indien zulke correcties hier wordt toegepast, worden nog betere resultaten verwa
 De transversale energiestroom werd berekend met de formule uit \cite{ET}, en de invloed van saturatie op deze grootheid werd onderzocht.
 De gebruikte berekening is leading order, dus met constante $\alpha_S$, en houdt via het Golec-Biernat-Wüsthoff model rekening met saturatie.
 De uitgerekende grootheid werd vergeleken met een analytische oplossing zonder saturatie.
+De grafieken tonen dat er een sterke onderdrukking wordt verwacht voor zeer kleine $x$, maar niet zo kleine $x_j$.
+Om duidelijke uitspraken te kunnen doen over de exacte gevoeligheid aan saturatie van deze grootheid, moet op zoek gegaan worden naar een model-onafhankelijke berekening.
+Dit houdt in dat verschillende modellen voor $F_2$, $f$ en $\mathcal{F}_2$ onderzocht worden om zo tot een eenduidig resultaat te kunnen komen.
 
       \paragraph{Vooruitzichten}
 Indien het LHeC project van de grond komt, kunnen de schattingen van de grootheden hier vergeleken worden met de werkelijkheid voor veel kleinere $x$.
@@ -846,9 +847,9 @@ Naast een lopende koppeling, kan men de berekening van de transversale energiest
 Een derde mogelijkheid tot verbetering, is het toepassen van de BK vergelijking om alle grootheden te berekenen.
 Er is een sterke indicatie \cite{Kutak} dat, in tegenstelling tot de lineaire BFKL vergelijking, de niet lineaire BK vergelijking op natuurlijke wijze de GBW saturatie ingebouwd heeft.
 
-
-
 \newpage
+
+
 \appendix
 \section{Diep Inelastische Verstrooiing} \label{app:DIS}
 Als men figuur \ref{fig:DIS} beschouwt in het IMF ($m_e \approx m_p \approx 0$), geldt wegens behoud van energie:
@@ -857,7 +858,7 @@ Als men figuur \ref{fig:DIS} beschouwt in het IMF ($m_e \approx m_p \approx 0$),
 \Leftrightarrow &x^2 P^2 + 2xPq + q^2 = 0 \notag \\
 \Leftrightarrow &2xPq -Q^2=0
 \end{align}
-Waarbij gebruikt is dat $-q^2 = Q^2 \gg x^2P^2$ in het  IMF. Dit laatste is equivalent met \eqref{eq:Bjorkenx}.
+Waarbij gebruikt is dat $-q^2 = Q^2 \gg x^2P^2$. Dit laatste is equivalent met \eqref{eq:Bjorkenx}.
 
 \section{DIS werkzame doorsnede} \label{app:SF}
 Uit kwantum veldentheorie kan men de werkzame doorsnede voor een NC proces zoals in figuur \ref{fig:NC} halen:
@@ -971,6 +972,43 @@ m_u &= m_d = m_s = 0,14 \text{GeV}\notag \\
 m_c &= 1.5 \text{GeV}
 \end{align}
 Een andere waarde voor deze massa’s en/of de introductie van een vijfde quark ($b$) zonder bovenstaande parameters opnieuw te bepalen is onjuist.
+
+\section{Uitwerking van de transversale energiestroom} \label{app:ET}
+Vertrekkende van \eqref{eq:ETGluonChain} en \eqref{eq:SigmaInStructureFunctions}, waarbij
+\begin{equation}
+y = \frac{Q^2}{xs}
+\end{equation}
+$y$ wordt de inelasticiteit genoemd, $\sqrt{s}$ is de mandelstam variabele: de totale energie in het massacentrumstelsel.
+Voor de berekening werd aangenomen dat $2xF_1 \approx F_2$, dus dat $F_L \approx 0$.
+Er geldt ook dat $y \ll 1$.
+Er geldt dus:
+\begin{equation}
+\frac{\partial \sigma}{\partial x_j \partial k_j} = \frac{4\pi \alpha^2}{xQ^4} \frac{\partial F_2}{\partial x_j \partial k_j}
+\end{equation}
+Als men dit twee keer integreert, kan men schrijven:
+\begin{equation}
+\frac{\sigma}{F_2} = \frac{4\pi \alpha^2}{xQ^4}
+\end{equation}
+Dit invullen in \eqref{eq:ETGluonChain} levert:
+\begin{equation}
+x_j \frac{\partial E_T}{\partial x_j} = \frac{1}{F_2} \int dk_j^2 x_j \frac{F_2}{\partial x_j}{\partial k_j^2} |\vec{k}_j|
+\end{equation}
+De grootheid waarover hier geïntegreerd wordt, kan als volgt uitgeschreven worden.
+\begin{equation}
+x_j \frac{F_2}{\partial x_j \partial k_j^2} = \int \frac{d^2 k_p}{\pi k_p^4} \int \frac{d^2 k_\gamma}{k_\gamma^4} \left( \frac{\alpha_S}{\pi} \frac{k_p^2 k_\gamma^2}{k_j^2} \right) \mathcal{F}_2 \left( \frac{x}{x_j}, k_\gamma^2,Q^2 \right) f(x_j,k_p^2) \delta^{(2)}(k_j-k_\gamma-k_p)
+\end{equation}
+Waar $\mathcal{F}_2$ en $f$ beiden voldoen aan de BFKL vergelijking indien $x$ klein genoeg is.
+Vervolgens wordt er over $k_j^2$ geïntegreerd:
+\begin{align}
+\frac{1}{F_2} \int dk_j^2 x_j \frac{\partial F_2}{\partial x_j \partial k_j^2} |\vec{k}_j| =& \frac{1}{F_2} \frac{1}{\pi} \int d^2 k_j x_j \frac{\partial F_2}{\partial x_j \partial k_j^2} |\vec{k}_j \notag \\
+=& \frac{1}{F_2} \frac{1}{\pi} \int d^2 k_j \int \frac{d^2 k_p}{\pi k_p^4} \int \frac{d^2 k_\gamma}{k_\gamma^4} \left( \frac{\alpha_S}{\pi} \frac{k_p^2 k_\gamma^2}{k_j^2}  \right) |\vec{k}_j| \notag \\
+&\mathcal{F}_2 \left( \frac{x}{x_j}, k_\gamma^2, Q^2 \right) f(x_j,k_p^2) \delta^{(2)}(k_j-k_\gamma-k_p)
+\end{align}
+De integraal over $k_j$ kan worden weggewerkt met de $\delta$-functie, en de resterende $k_j$ factoren herschrijft men (in het licht van figuur \ref{fig:ETDiagram}) als volgt:
+\begin{equation}
+k_j^2 = k_p^2 + k_\gamma^2 + 2 k_\gamma k_p \cos{\phi}
+\end{equation}
+Het resultaat is vergelijking \eqref{eq:ET}.
 
 \section{De impactfactoren in de structuurfuncties van het proton} \label{app:ImpactFactors}
 De vergelijkingen in \eqref{eq:SF} voor $\Phi_L$ en $\Phi_2$ worden de impactfactoren genoemd.
@@ -1121,6 +1159,10 @@ De integraal wordt wel correct uitgerekend door \textit{Cubature} en de Monte-Ca
   \emph{Saturation and linear transport equation}
   Arxiv:0903.3521v2 [hep-ph]
   2009
+
+\bibitem{VanMechelen}
+  P. Van Mechelen
+  \emph{Cursus Subatomaire Fysica 2009-2010}
 
 \end{thebibliography}
 
