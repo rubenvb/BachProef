@@ -707,9 +707,7 @@ In tegenstelling tot de rest van de formules die hier worden geïntroduceerd (di
 Belangrijk op te merken is dat de gebruikte formulering van de ongeïntegreerde gluondichtheid nog verder onderzoek nodig heeft en dus niet volledig getest is.
 Zo kan men met behulp van onder meer de BK vergelijking een betere oplossing verkrijgen.
 
-
 \section{Resultaten}
-
   \subsection{Numerieke aanpak}
 Om de berekeningen zelf zo vlot mogelijk te laten verlopen, werd gekozen voor een implementatie in C++.
 Alle afzonderlijke formules werden gecontroleerd door vergelijking met een implementatie in Mathematica 7, door de auteur zelf en door Krzysztof Kutak, om de kans op fouten te minimaliseren.
@@ -869,6 +867,7 @@ Ook kan rekening worden gehouden met variabele $\alpha_S$, maar dit houdt in dat
 
       \paragraph{Vooruitzichten}
 Indien het LHeC project van de grond komt, kunnen de schattingen van de grootheden hier vergeleken worden met de werkelijkheid voor veel kleinere $x$.
+Vergelijking met experimentele data vereist een transformatie van deze formules naar een andere variabele, namelijk rapidity, waarvan de passende definitie gegeven wordt in \cite{ET}.
 Deze zullen waarschijnlijk verbeterd moeten worden, en dit kan op uiteenlopende manieren.
 Zo kan men elke gebruikte grootheid opnieuw berekenen met een lopende sterke koppeling, waar speciale aandacht zal moeten worden besteed aan de ongeïntegreerde gluondichtheid van het foton, omdat dit niet goed gekend en onderzocht is.
 Naast een lopende koppeling, kan men de berekening van de transversale energiestroom ook uitvoeren in het geval van vier quarks, zodat de saturatie uit het GBW sterker naar voor komt.
@@ -1002,7 +1001,12 @@ m_c &= 1.5 \text{GeV}
 Een andere waarde voor deze massa’s en/of de introductie van een vijfde quark ($b$) zonder bovenstaande parameters opnieuw te bepalen is onjuist.
 
 \section{Uitwerking van de transversale energiestroom} \label{app:ET}
-Vertrekkende van \eqref{eq:ETGluonChain} en \eqref{eq:SigmaInStructureFunctions}, waarbij
+Vertrekkende van \eqref{eq:ETGluonChain} en \eqref{eq:SigmaInStructureFunctions},
+\begin{align}
+x_j \frac{\partial E_T}{\partial x_j} &= \frac{1}{\sigma} \int dk_j^2 x_j \frac{\partial \sigma}{\partial x_j \partial k_j^2} |\vec{k}_j|\notag \\
+\frac{\partial \sigma}{\partial x_j \partial k_j^2} &= \frac{4 \pi \alpha^2}{xQ^2} \left[ (1-y) \frac{\partial F_2}{\partial x_j \partial k_j^2} + \frac{1}{2} y^2 \frac{\partial 2xF_1}{\partial x_j \partial k_j^2} \right] \notag
+\end{align}
+waarbij
 \begin{equation}
 y = \frac{Q^2}{xs}
 \end{equation}
@@ -1011,7 +1015,7 @@ Voor de berekening werd aangenomen dat $2xF_1 \approx F_2$, dus dat $F_L \approx
 Er geldt ook dat $y \ll 1$.
 Er geldt dus:
 \begin{equation}
-\frac{\partial \sigma}{\partial x_j \partial k_j} = \frac{4\pi \alpha^2}{xQ^4} \frac{\partial F_2}{\partial x_j \partial k_j}
+\frac{\partial \sigma}{\partial x_j \partial k_j^2} = \frac{4\pi \alpha^2}{xQ^4} \frac{\partial F_2}{\partial x_j \partial k_j^2}
 \end{equation}
 Als men dit twee keer integreert, kan men schrijven:
 \begin{equation}
